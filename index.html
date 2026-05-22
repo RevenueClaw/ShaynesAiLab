@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shayne's AI Lab — Free & Cheap AI That Actually Works</title>
-    <meta name="description" content="10 AI tools under $50/month that save 15+ hours/week. Live webinar with demos. $39.95">
+    <title>Shayne's AI Lab — The $47 AI Stack</title>
+    <meta name="description" content="Join me for a 60-minute webinar where I'll show you the exact AI tools I use to save 15+ hours a week. No coding. No overwhelm. Just practical stuff that works.">
     <style>
         * {
             margin: 0;
@@ -20,7 +20,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -29,280 +29,372 @@
         header {
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
             color: white;
-            padding: 80px 0 60px;
+            padding: 60px 0 50px;
             text-align: center;
         }
         
         .brand {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             opacity: 0.9;
+            letter-spacing: 0.5px;
         }
         
         h1 {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 800;
             margin-bottom: 20px;
-            line-height: 1.1;
+            line-height: 1.15;
         }
         
         .subtitle {
-            font-size: 24px;
+            font-size: 20px;
             opacity: 0.95;
             margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            font-weight: 400;
         }
         
-        .price-tag {
-            display: inline-block;
-            background: #10b981;
-            color: white;
-            font-size: 28px;
-            font-weight: 700;
-            padding: 15px 30px;
-            border-radius: 8px;
-            margin: 20px 0;
+        .hero-story {
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+            font-size: 17px;
+            line-height: 1.7;
         }
         
         .cta-button {
             display: inline-block;
             background: #f59e0b;
             color: white;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
-            padding: 18px 40px;
+            padding: 16px 36px;
             border-radius: 8px;
             text-decoration: none;
-            margin: 20px 0;
+            margin: 20px 0 10px;
             transition: transform 0.2s, box-shadow 0.2s;
         }
         
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         
-        .guarantee {
-            font-size: 16px;
-            opacity: 0.9;
-            margin-top: 15px;
+        .small-text {
+            font-size: 14px;
+            opacity: 0.85;
         }
         
-        /* Problem Section */
-        .problem {
-            padding: 80px 0;
-            background: #f9fafb;
+        /* Story Section */
+        .story-section {
+            padding: 60px 0 40px;
+            background: #fff;
         }
         
-        .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 50px;
+        .story-section h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
             color: #1f2937;
         }
         
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+        .story-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #374151;
         }
         
-        .problem-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 4px solid #ef4444;
+        .highlight-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
         }
         
-        .problem-card h3 {
-            color: #ef4444;
-            font-size: 20px;
-            margin-bottom: 10px;
+        .highlight-box p {
+            margin: 0;
+            font-size: 17px;
         }
         
-        /* Solution Section */
-        .solution {
-            padding: 80px 0;
-        }
-        
-        .tools-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 40px 0;
-            font-size: 16px;
-        }
-        
-        .tools-table th {
-            background: #2563eb;
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        .tools-table td {
-            padding: 15px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        .tools-table tr:nth-child(even) {
+        /* What I Use */
+        .tools-section {
+            padding: 50px 0;
             background: #f9fafb;
         }
         
-        .cost-highlight {
+        .tools-section h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .tools-intro {
+            text-align: center;
+            font-size: 18px;
+            color: #6b7280;
+            margin-bottom: 40px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .tool-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #e5e7eb;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .tool-card h3 {
+            font-size: 20px;
+            color: #2563eb;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tool-card .price {
+            display: inline-block;
             background: #10b981;
             color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
+            font-size: 13px;
             font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
         }
         
-        /* What You Get */
-        .what-you-get {
-            padding: 80px 0;
-            background: #f9fafb;
+        .tool-card .price.paid {
+            background: #f59e0b;
         }
         
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+        .tool-card p {
+            font-size: 15px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+        
+        .tools-summary {
+            background: #2563eb;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
             margin-top: 40px;
         }
         
-        .benefit-card {
-            text-align: center;
-            padding: 30px;
+        .tools-summary p {
+            font-size: 20px;
+            margin: 0;
         }
         
-        .benefit-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .benefit-card h3 {
+        .tools-summary strong {
             font-size: 24px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        /* Demo Section */
+        .demo-section {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .demo-section h2 {
+            font-size: 32px;
             margin-bottom: 15px;
-            color: #2563eb;
         }
         
-        /* Webinar Details */
-        .webinar-details {
-            padding: 80px 0;
+        .demo-section > .container > p {
+            font-size: 18px;
+            color: #4b5563;
+            margin-bottom: 30px;
         }
         
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .details-content h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-        
-        .details-content ul {
+        .demo-list {
             list-style: none;
             padding: 0;
         }
         
-        .details-content li {
-            padding: 10px 0;
-            padding-left: 30px;
+        .demo-list li {
+            padding: 18px 0 18px 40px;
             position: relative;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 17px;
+            line-height: 1.6;
         }
         
-        .details-content li:before {
-            content: "✓";
+        .demo-list li:before {
+            content: "▶";
             position: absolute;
             left: 0;
-            color: #10b981;
-            font-weight: bold;
+            color: #2563eb;
+            font-size: 14px;
         }
         
-        .countdown-box {
-            background: #2563eb;
-            color: white;
-            padding: 40px;
-            border-radius: 12px;
+        .demo-list li strong {
+            color: #1f2937;
+        }
+        
+        /* Trust Section */
+        .trust-section {
+            padding: 60px 0;
+            background: #f9fafb;
             text-align: center;
         }
         
-        .countdown-box h4 {
-            font-size: 20px;
-            margin-bottom: 20px;
+        .trust-section h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
         }
         
-        /* FAQ */
-        .faq {
-            padding: 80px 0;
-            background: #f9fafb;
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            text-align: left;
         }
         
-        .faq-item {
+        .trust-item {
             background: white;
             padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
-        .faq-item h4 {
-            font-size: 20px;
-            margin-bottom: 10px;
+        .trust-item h4 {
             color: #2563eb;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .trust-item p {
+            font-size: 15px;
+            color: #4b5563;
+            margin: 0;
         }
         
         /* Final CTA */
         .final-cta {
-            padding: 100px 0;
+            padding: 80px 0;
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
             color: white;
             text-align: center;
         }
         
         .final-cta h2 {
-            font-size: 42px;
+            font-size: 36px;
             margin-bottom: 20px;
         }
         
-        /* Footer */
+        .final-cta p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .price-box {
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 20px 40px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .price-box .amount {
+            font-size: 48px;
+            font-weight: 800;
+            display: block;
+        }
+        
+        .price-box .note {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .faq-section {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .faq-section h2 {
+            font-size: 28px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-item h4 {
+            font-size: 18px;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+        
+        .faq-item p {
+            font-size: 16px;
+            color: #4b5563;
+            line-height: 1.7;
+        }
+        
         footer {
             padding: 40px 0;
             text-align: center;
             color: #6b7280;
             font-size: 14px;
+            background: #f9fafb;
         }
         
-        /* Responsive */
+        footer a {
+            color: #2563eb;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 32px;
             }
             
-            .subtitle {
-                font-size: 18px;
+            .hero-story {
+                font-size: 15px;
+                padding: 20px;
             }
             
-            .details-grid {
+            .tools-grid {
                 grid-template-columns: 1fr;
             }
             
-            .tools-table {
-                font-size: 14px;
-            }
-            
-            .tools-table th,
-            .tools-table td {
-                padding: 10px;
+            .demo-list li {
+                padding-left: 30px;
+                font-size: 16px;
             }
         }
     </style>
@@ -313,240 +405,249 @@
     <header>
         <div class="container">
             <div class="brand">Shayne's AI Lab</div>
-            <h1>Free & Cheap AI<br>That Actually Works</h1>
-            <p class="subtitle">10 battle-tested tools under $50/month that save 15+ hours per week — with live demos, not theory</p>
-            <div class="price-tag">$39.95</div>
-            <br>
-            <a href="#register" class="cta-button">Reserve My Spot →</a>
-            <p class="guarantee">Recording included • 30-day money-back guarantee</p>
+            <h1>The $47 AI Stack</h1>
+            <p class="subtitle">The exact tools I use to save 15+ hours a week — and how you can too</p>
+            
+            <div class="hero-story">
+                <p><strong>Here's something embarrassing:</strong> Six months ago, I spent an entire Tuesday afternoon trying to write one email. Just one. To a potential partner. I wrote four different versions, overthought every word, and eventually sent something mediocre at 6 PM.</p>
+                <p style="margin-top: 12px;">That same task now takes me 90 seconds. The email is better. And I spent Tuesday afternoon doing actual work instead of staring at a blinking cursor.</p>
+                <p style="margin-top: 12px;">The difference? I finally swallowed my pride and let AI help me.</p>
+            </div>
+            
+            <a href="#register" class="cta-button">Join the Webinar — $39.95</a>
+            <p class="small-text">60 minutes • Live demos • Recording included • 30-day guarantee</p>
         </div>
     </header>
 
-    <!-- Problem Section -->
-    <section class="problem">
+    <!-- My Story -->
+    <section class="story-section">
         <div class="container">
-            <h2 class="section-title">Sound Familiar?</h2>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <h3>The Email Black Hole</h3>
-                    <p>Spending hours writing and rewriting the same messages. Staring at blank emails. Losing your morning to your inbox.</p>
+            <h2>I've Been Where You Are</h2>
+            <p>I've spent my career building businesses, and I'll be honest: for a long time, I thought AI was either overhyped or "not for me." The word "automation" sounded like something that required a computer science degree and a server farm.</p>
+            
+            <p>But I was drowning. Not in big dramatic "business is failing" ways, but in death-by-a-thousand-cuts ways. The proposal that took 3 hours. The YouTube thumbnail I stared at for 45 minutes. The blog post I kept meaning to write but never started because the blank page felt too overwhelming.</p>
+            
+            <div class="highlight-box">
+                <p><strong>Then one Tuesday changed everything.</strong> I watched a friend crank out a full proposal in 20 minutes that would've taken me half a day. When I asked how, he just said: "ChatGPT, dude. You gotta try it."</p>
+            </div>
+            
+            <p>I was skeptical. I'd poked at ChatGPT once, asked it something random, gotten a generic answer, and concluded it was a gimmick.</p>
+            
+            <p>But my friend showed me what I'd been missing: <strong>it's not about the tool, it's about how you use it.</strong></p>
+            
+            <p>Now? I use AI across multiple businesses: content creation for <a href="https://www.vhicklegarage.com" style="color: #2563eb; text-decoration: underline;">Vhickle Garage</a> (my automotive media site), running <a href="https://www.worthitgoods.com" style="color: #2563eb; text-decoration: underline;">WorthItGoods</a> (an affiliate site I built entirely with AI tools), and building <a href="https://www.chipradar.io" style="color: #2563eb; text-decoration: underline;">ChipRadar.io</a> — a hardware price tracker that's still in development but already proving the value of AI agents for monitoring. I write YouTube scripts that don't suck, draft blog posts that actually sound like me, create thumbnails and graphics, brainstorm when I'm stuck, even write Python code when I need something automated.</p>
+            
+            <p><strong>I test these tools across different business types.</strong> Not just one niche. Content creation, e-commerce, automation workflows — that means what I'm showing you works whether you're creating content, running a service business, or building a product.</p>
+            
+            <p><em>Side note: This wasn't just trial and error for my own projects. I've done contract work for Mercor building AI tasks, engineering prompts, and reviewing AI-generated content for quality. Real platforms hire me when they need someone who can spot what works versus what sounds robotic.</em></p>
+            
+            <p><strong>I don't consider myself a "tech person."</strong> I'm just someone who got tired of wasting time, finally swallowed my pride, and asked software for help.</p>
+        </div>
+    </section>
+
+    <!-- The Tools -->
+    <section class="tools-section">
+        <div class="container">
+            <h2>What I Actually Use</h2>
+            <p class="tools-intro">No theory. No "let me show you a tool you might use someday." These are the 10 tools I open every single day. Total monthly cost: less than dinner out.</p>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>📝 ChatGPT Plus</h3>
+                    <span class="price paid">$20/mo</span>
+                    <p>My go-to for everything: email drafts that don't suck, blog post outlines, brainstorming when I'm stuck, turning messy notes into coherent scripts. I tell it about my business once — it remembers forever.</p>
                 </div>
-                <div class="problem-card">
-                    <h3>The Design Dilemma</h3>
-                    <p>Need a quick graphic for social media. Waiting days for a designer. Paying $100+ for something simple.</p>
+                
+                <div class="tool-card">
+                    <h3>🎨 Canva</h3>
+                    <span class="price">FREE</span>
+                    <p>I used to hire designers for $75-150 per graphic. Now I make YouTube thumbnails, social posts, and presentation slides in under 5 minutes. Professional templates + AI suggestions = dinner out tonight, not next month.</p>
                 </div>
-                <div class="problem-card">
-                    <h3>The Scheduling Shuffle</h3>
-                    <p>Eight emails just to book one meeting. The back-and-forth. The timezone confusion. The wasted time.</p>
+                
+                <div class="tool-card">
+                    <h3>🎙️ Fireflies.ai</h3>
+                    <span class="price">FREE</span>
+                    <p>Never take meeting notes again. It records, transcribes, and pulls out action items automatically. I can actually LISTEN to people now instead of typing furiously. A friend used this to turn 3 hours of notes into a $600 billable hour.</p>
                 </div>
-                <div class="problem-card">
-                    <h3>Tool Overload</h3>
-                    <p>Signed up for 20 AI tools. Used none of them. Overwhelmed by options. No idea where to start.</p>
+                
+                <div class="tool-card">
+                    <h3>📅 Calendly</h3>
+                    <span class="price">FREE</span>
+                    <p>End the scheduling email ping-pong. I send one link. People book themselves. Timezones handled. Reminders sent. I literally laughed out loud the first time this worked — saved me 8 emails just to book a coffee meeting.</p>
                 </div>
+                
+                <div class="tool-card">
+                    <h3>✍️ Copy.ai</h3>
+                    <span class="price paid">$12/mo</span>
+                    <p>Marketing copy at scale. Blog post drafts, ad copy, social captions — basically a junior copywriter who never sleeps. I give it bullets, it gives me paragraphs. I edit to add my voice. Takes 15 minutes instead of 4 hours.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>📧 Reply.io</h3>
+                    <span class="price paid">$15/mo</span>
+                    <p>Email automation that doesn't feel like spam. Follow-up sequences that actually sound human because I write the first one myself. Clients think I'm personally emailing them. It's running while I sleep.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>🐦 Buffer</h3>
+                    <span class="price">FREE</span>
+                    <p>Queue up a week of social posts in 30 minutes. I batch my content creation instead of scrambling every day. Scheduling at optimal times, analytics to see what works. My social presence runs on autopilot now.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>📝 Otter.ai</h3>
+                    <span class="price">FREE</span>
+                    <p>Quick voice-to-text for ideas that strike at weird times. Walking the dog? Record a whole blog post. Driving? Capture a brilliant thought. Transcribes fast, edits easy. I capture 3x more ideas now because friction is gone.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>📚 Notion</h3>
+                    <span class="price">FREE</span>
+                    <p>My second brain. Blog post drafts, research, project planning, content calendars — all in one place with AI search. I used to have 12 different notebooks and apps. Now it's just Notion. Everything searchable in seconds.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>✓ Grammarly</h3>
+                    <span class="price">FREE</span>
+                    <p>The safety net. Catches the typos my eyes miss after the 5th read-through. Tone suggestions so I don't accidentally sound like a jerk in emails (a real problem when you're writing fast at 11 PM).</p>
+                </div>
+            </div>
+            
+            <div class="tools-summary">
+                <p><strong>7 Free Tools + 3 Paid = $47/month</strong></p>
+                <p style="margin-top: 10px;">Replaces what most people pay $1,500-$2,500/month for in services</p>
             </div>
         </div>
     </section>
 
-    <!-- Solution Section -->
-    <section class="solution">
+    <!-- What You'll See -->
+    <section class="demo-section">
         <div class="container">
-            <h2 class="section-title">The $47 AI Stack</h2>
-            <p style="text-align: center; font-size: 18px; color: #6b7280; margin-bottom: 40px;">10 tools I use every day. Total cost: what most people pay for coffee.</p>
+            <h2>What We'll Actually Do Together</h2>
+            <p>In 60 minutes, I'm not going to talk at you about AI theory. We're going to USE these tools together. You'll watch my screen as I:</p>
             
-            <table class="tools-table">
-                <thead>
-                    <tr>
-                        <th>Tool</th>
-                        <th>Cost</th>
-                        <th>Replaces</th>
-                        <th>Saves You</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>ChatGPT Plus</strong></td>
-                        <td><span class="cost-highlight">$20/mo</span></td>
-                        <td>Ghostwriter + Assistant</td>
-                        <td>5 hrs/week</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Canva Free</strong></td>
-                        <td><span class="cost-highlight">$0</span></td>
-                        <td>Basic Designer</td>
-                        <td>3 hrs/week</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Fireflies Free</strong></td>
-                        <td><span class="cost-highlight">$0</span></td>
-                        <td>Notetaker</td>
-                        <td>2 hrs/week</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Calendly Free</strong></td>
-                        <td><span class="cost-highlight">$0</span></td>
-                        <td>Scheduling Assistant</td>
-                        <td>2 hrs/week</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Copy.ai Starter</strong></td>
-                        <td><span class="cost-highlight">$12/mo</span></td>
-                        <td>Junior Copywriter</td>
-                        <td>3 hrs/week</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Buffer Free</strong></td>
-                        <td><span class="cost-highlight">$0</span></td>
-                        <td>Social Media Manager</td>
-                        <td>2 hrs/week</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Otter Free</strong></td>
-                        <td><span class="cost-highlight">$0</span></td>
-                        <td>Transcription Service</td>
-                        <td>1 hr/week</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Notion Free</strong></td>
-                        <td><span class="cost-highlight">$0</span></td>
-                        <td>Multiple Notebooks</td>
-                        <td>1 hr/week</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Grammarly Free</strong></td>
-                        <td><span class="cost-highlight">$0</span></td>
-                        <td>Proofreader</td>
-                        <td>1 hr/week</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Reply.io Starter</strong></td>
-                        <td><span class="cost-highlight">$15/mo</span></td>
-                        <td>Email Automation</td>
-                        <td>2 hrs/week</td>
-                    </tr>
-                </tbody>
-            </table>
+            <ul class="demo-list">
+                <li><strong>Build a YouTube script from a half-formed idea</strong> — Take a random thought and turn it into a complete production outline with hook, sections, and call-to-action</li>
+                
+                <li><strong>Create a week's worth of social posts in 10 minutes</strong> — From one blog post to 5+ platform-specific posts, complete with graphics</li>
+                
+                <li><strong>Turn a rambling voice note into a professional email</strong> — Otter to ChatGPT to Gmail, without losing your actual voice</li>
+                
+                <li><strong>Make a thumbnail that doesn't look like everyone else's</strong> — Using AI for design elements but keeping it personal</li>
+                
+                <li><strong>Set up one automation that runs without you</strong> — The gateway drug: one simple workflow that proves AI automation isn't scary</li>
+                
+                <li><strong>Fix a real problem someone brings to the webinar</strong> — Live troubleshooting. Your actual stuck-ness, solved in real-time</li>
+            </ul>
             
-            <div style="background: #2563eb; color: white; padding: 30px; border-radius: 12px; text-align: center; margin-top: 40px;">
-                <p style="font-size: 28px; font-weight: 700; margin-bottom: 10px;">Total: 8 Free Tools + 2 Paid = $47/month</p>
-                <p style="font-size: 20px;">Replaces $2,000+ in monthly services • Saves 22 hours per week</p>
+            <div class="highlight-box" style="margin-top: 40px;">
+                <p><strong>I'm not selling you a course.</strong> I'm showing you the exact setup I use every day. Then you decide which pieces work for your business. Some people walk away with 3 tools. Others implement all 10. There's no wrong answer.</p>
             </div>
         </div>
     </section>
 
-    <!-- What You Get -->
-    <section class="what-you-get" id="register">
+    <!-- Trust -->
+    <section class="trust-section">
         <div class="container">
-            <h2 class="section-title">What You'll Walk Away With</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎥</div>
-                    <h3>LIVE Demos</h3>
-                    <p>Watch me set up each tool in real-time. See exactly how they work. No theory, just action.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📋</div>
-                    <h3>Complete Cheat Sheet</h3>
-                    <p>Every tool with direct links, setup instructions, and implementation order. No overwhelm, just next steps.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📹</div>
-                    <h3>Recording Included</h3>
-                    <p>Miss something? No worries. Full recording emailed within 24 hours. Yours to keep forever.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">💬</div>
-                    <h3>Live Q&A</h3>
-                    <p>Bring your specific questions. I'll solve YOUR business problems live. Real answers, not generic advice.</p>
-                </div>
-            </div>
+            <h2>This Is Specifically For You If...</h2>
             
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK_HERE" class="cta-button" style="font-size: 24px; padding: 20px 50px;">Get Instant Access — $39.95</a>
-                <p style="margin-top: 20px; color: #6b7280;">Next webinar: [DATE] at [TIME] Eastern</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Webinar Details -->
-    <section class="webinar-details">
-        <div class="container">
-            <div class="details-grid">
-                <div class="details-content">
-                    <h3>Webinar Agenda</h3>
-                    <p style="font-size: 18px; color: #6b7280; margin-bottom: 30px;">60 minutes that will change how you work</p>
-                    <ul>
-                        <li><strong>The $47 Stack Overview</strong> (5 min) — What you'll build today</li>
-                        <li><strong>Live Demo: ChatGPT Plus</strong> (8 min) — Writing that pays for itself</li>
-                        <li><strong>Live Demo: Canva</strong> (6 min) — Graphics in 90 seconds</li>
-                        <li><strong>Live Demo: Fireflies</strong> (6 min) — Never take notes again</li>
-                        <li><strong>Live Demo: Calendly</strong> (6 min) — End the scheduling shuffle</li>
-                        <li><strong>Live Demo: Copy.ai</strong> (7 min) — Marketing copy on autopilot</li>
-                        <li><strong>Q&A Session</strong> (15 min) — Your specific questions answered</li>
-                    </ul>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <h4>🤔 You Feel AI-Curious But Overwhelmed</h4>
+                    <p>You know AI could help, but every time you open a tool you're paralyzed by options. I'll show you the "just do this" version — not the entire menu.</p>
                 </div>
-                <div class="countdown-box">
-                    <h4>Next Webinar Starts In:</h4>
-                    <div id="countdown" style="font-size: 48px; font-weight: 700; margin: 20px 0;">
-                        <!-- Countdown will be added via JavaScript -->
-                        [DAYS] DAYS [HOURS]:[MINUTES]:[SECONDS]
-                    </div>
-                    <p style="font-size: 16px; opacity: 0.9;">Thursday, [DATE] at [TIME] Eastern</p>
-                    <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK_HERE" style="display: inline-block; background: #f59e0b; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; margin-top: 20px; font-weight: 600;">Reserve My Spot</a>
+                
+                <div class="trust-item">
+                    <h4>⏰ You're Working Too Many Hours</h4>
+                    <p>Not dramatic "burning out" hours, just... too much busywork. Hours that feel necessary but aren't actually moving your business forward.</p>
+                </div>
+                
+                <div class="trust-item">
+                    <h4>💰 You've Tried Tools But Nothing Stuck</h4>
+                    <p>Signed up for 15 free trials, used none of them. The problem wasn't willpower — it was not having a system. I'll show you the order that actually works.</p>
+                </div>
+                
+                <div class="trust-item">
+                    <h4>🎯 You Want Practical, Not Theoretical</h4>
+                    <p>You don't need to understand how the AI sausage is made. You need to know: "Tuesday, I have to write a proposal — which button do I press?"</p>
+                </div>
+                
+                <div class="trust-item">
+                    <h4>😬 You Worry You'll Look "Tech-Ignorant"</h4>
+                    <p>Imposter syndrome is real. I'm a regular business owner who learned this stuff. Not a developer. Not a "tech guy." Just someone who got tired of wasting time.</p>
+                </div>
+                
+                <div class="trust-item">
+                    <h4>✅ You're Willing to Try One Thing</h4>
+                    <p>You don't have to become an "AI expert." But if you're willing to try ONE tool that might save you 3 hours this week, this is for you.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="faq">
+    <section class="faq-section">
         <div class="container">
-            <h2 class="section-title">Common Questions</h2>
+            <h2>Questions You Might Have</h2>
             
             <div class="faq-item">
-                <h4>What if I can't make it live?</h4>
-                <p>You'll get the full recording within 24 hours. Plus your cheat sheet, tool stack, and all bonuses. The only thing you miss is live Q&A.</p>
+                <h4>"This sounds too technical for me."</h4>
+                <p>I specifically chose tools that require typing skills, not coding skills. If you can write an email, you can use these. And I'll show you the "cheat codes" — the settings and prompts that make everything 10x easier. Plus, you get the recording. Watch it twice if you need to. Nobody's judging.</p>
             </div>
             
             <div class="faq-item">
-                <h4>Do I need to be technical?</h4>
-                <p>If you can write an email, you can use these tools. I specifically chose tools with ZERO learning curve. If anything feels complicated, I'll simplify it live.</p>
+                <h4>"What if I can't make it live?"</h4>
+                <p>Life happens. You'll get the full recording within 24 hours, plus the cheat sheet with all the tool links and my exact templates. You'll miss the live Q&A, but you'll get 90% of the value. The real question is: are you willing to watch the recording and implement, or will it sit in your inbox forever?</p>
             </div>
             
             <div class="faq-item">
-                <h4>Can I really get by with free versions?</h4>
-                <p>Yes. 8 out of 10 tools are permanently free. The 2 paid ones ($32 total) pay for themselves in the first week. Start free, upgrade when you see ROI.</p>
+                <h4>"Can't I just figure this out on my own?"</h4>
+                <p>Sure. I did. It took me about 6 months of trial and error, testing tools that didn't work, and wasting money on stuff I didn't need. This webinar shortcuts all that. For $39.95, you're buying 6 months of my learning, condensed into 60 minutes. Your call on what that's worth.</p>
             </div>
             
             <div class="faq-item">
-                <h4>What if I don't like it?</h4>
-                <p>30-day money-back guarantee. No questions, no hassle. Watch the webinar, try the tools, and if you're not saving time within 30 days, I'll refund every penny.</p>
+                <h4>"What if it doesn't work for my specific business?"</h4>
+                <p>Here are the businesses I know this works for: Consultants, real estate agents, coaches, course creators, local service providers, agencies, anyone who writes content, anyone who schedules meetings, anyone who creates proposals for clients. If your business has emails, content, or meetings — this applies to you. And if you join and realize it's not for you, 30-day money-back guarantee. Zero risk.</p>
             </div>
             
             <div class="faq-item">
-                <h4>Will this work for my business?</h4>
-                <p>If you: write emails, schedule meetings, create content, or have repetitive tasks — yes. I've helped real estate agents, consultants, coaches, agencies, and local service businesses. The principles are universal.</p>
+                <h4>"Do I need to sign up for all 10 tools?"</h4>
+                <p>God no. I show you all 10 so you can choose. Most people walk away with 3-5 tools that solve THEIR specific problems. One person might only implement ChatGPT and Calendly. Another might go deep on Copy.ai and Buffer. This is a menu, not a mandate. You pick what works for you.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>"What if I don't like the webinar?"</h4>
+                <p>30-day money-back guarantee. Watch the whole thing, try the tools, and if you're not happy for literally any reason, email me and I'll refund you. No interrogation, no guilt trip. I want people here who want to be here. If that's not you after watching, I don't want your money.</p>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section class="final-cta">
+    <section class="final-cta" id="register">
         <div class="container">
-            <h2>Stop Paying the "Busywork Tax"</h2>
-            <p style="font-size: 22px; margin-bottom: 30px; opacity: 0.95;">22 hours per week. 1,056 hours per year. What could you do with that time?</p>
-            <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK_HERE" class="cta-button" style="font-size: 26px; padding: 22px 60px; background: #f59e0b;">Join the Webinar — $39.95</a>
-            <p style="margin-top: 25px; font-size: 16px; opacity: 0.9;">Recording included • Instant cheat sheet • 30-day guarantee</p>
+            <h2>Ready to Get Your Tuesday Afternoons Back?</h2>
+            <p>For the price of a nice dinner, you get a system that saves you 15+ hours every week. That's 60+ hours a month. 750+ hours a year. This isn't about becoming an "AI person." It's about becoming someone who chose not to waste time anymore.</p>
+            
+            <div class="price-box">
+                <span class="amount">$39.95</span>
+                <span class="note">One-time payment • 60-minute webinar • Recording included</span>
+            </div>
+            
+            <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK_HERE" class="cta-button" style="font-size: 22px; padding: 20px 50px;">Join the Webinar Now</a>
+            
+            <p style="margin-top: 25px; font-size: 16px; opacity: 0.9;">Next session: [DATE] at [TIME] Eastern<br>30-day money-back guarantee • Questions? hello@shaynesailab.com</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2026 Shayne's AI Lab. All rights reserved.</p>
-            <p style="margin-top: 10px;">Questions? Email <a href="mailto:hello@shaynesailab.com" style="color: #2563eb;">hello@shaynesailab.com</a></p>
-            <p style="margin-top: 15px; font-size: 12px; color: #9ca3af;">
-                <a href="#" style="color: #9ca3af;">Privacy Policy</a> • 
-                <a href="#" style="color: #9ca3af;">Terms of Service</a>
+            <p>© 2026 Shayne's AI Lab</p>
+            <p style="margin-top: 8px;">Real talk, real tools, real results. No BS.</p>
+            <p style="margin-top: 15px; font-size: 12px;">
+                <a href="#">Privacy Policy</a> • 
+                <a href="#">Terms of Service</a> • 
+                <a href="mailto:hello@shaynesailab.com">Contact</a>
             </p>
         </div>
     </footer>
