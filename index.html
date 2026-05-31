@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shayne's AI Lab — The $47 AI Stack</title>
-    <meta name="description" content="Join me for a 60-minute webinar where I'll show you the exact AI tools I use to save 15+ hours a week. No coding. No overwhelm. Just practical stuff that works.">
+    <title>Shayne's AI Lab — Practical AI That Actually Saves Time</title>
+    <meta name="description" content="Free AI Starter Kit + $29 workshop. The exact 8 tools I use to save 15+ hours a week. No hype. Just honest workflows that work.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            /* Brand Colors from Logo */
+            --brand-dark: #0f172a;
+            --brand-navy: #1e293b;
+            --brand-teal: #14b8a6;
+            --brand-cyan: #06b6d4;
+            --brand-accent: #2dd4bf;
+            --brand-glow: rgba(45, 212, 191, 0.15);
+            
+            /* Semantic Colors */
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-elevated: #334155;
+            --border: #334155;
+            --success: #10b981;
+            --warning: #f59e0b;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -13,642 +49,1066 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #1f2937;
-            background: #ffffff;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            color: white;
-            padding: 60px 0 50px;
-            text-align: center;
-        }
+        /* Typography */
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; }
+        h3 { font-size: 1.5rem; font-weight: 600; }
+        h4 { font-size: 1.25rem; font-weight: 600; }
         
-        .brand {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 25px;
-            opacity: 0.9;
-            letter-spacing: 0.5px;
-        }
-        
-        h1 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.15;
-        }
-        
-        .subtitle {
-            font-size: 20px;
-            opacity: 0.95;
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-        
-        .hero-story {
-            background: rgba(255,255,255,0.15);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-            text-align: left;
-            font-size: 17px;
+        p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
             line-height: 1.7;
         }
         
-        .cta-button {
-            display: inline-block;
-            background: #f59e0b;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            padding: 16px 36px;
-            border-radius: 8px;
-            text-decoration: none;
-            margin: 20px 0 10px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        
-        .small-text {
-            font-size: 14px;
-            opacity: 0.85;
-        }
-        
-        /* Story Section */
-        .story-section {
-            padding: 60px 0 40px;
-            background: #fff;
-        }
-        
-        .story-section h2 {
-            font-size: 32px;
-            margin-bottom: 25px;
-            color: #1f2937;
-        }
-        
-        .story-section p {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #374151;
-        }
-        
-        .highlight-box {
-            background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 20px 25px;
-            margin: 25px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .highlight-box p {
-            margin: 0;
-            font-size: 17px;
-        }
-        
-        /* What I Use */
-        .tools-section {
-            padding: 50px 0;
-            background: #f9fafb;
-        }
-        
-        .tools-section h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .tools-intro {
-            text-align: center;
-            font-size: 18px;
-            color: #6b7280;
-            margin-bottom: 40px;
-        }
-        
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-        }
-        
-        .tool-card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border: 1px solid #e5e7eb;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .tool-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        
-        .tool-card h3 {
-            font-size: 20px;
-            color: #2563eb;
-            margin-bottom: 8px;
+        /* Logo */
+        .logo {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: var(--space-sm);
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.5rem;
         }
         
-        .tool-card .price {
-            display: inline-block;
-            background: #10b981;
-            color: white;
-            font-size: 13px;
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: var(--space-md) 0;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--brand-accent);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
+            padding: 1rem 2rem;
+            border-radius: 8px;
             font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 4px;
-            margin-bottom: 12px;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
         }
         
-        .tool-card .price.paid {
-            background: #f59e0b;
+        .btn-primary {
+            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
+            color: var(--brand-dark);
+            box-shadow: 0 4px 20px var(--brand-glow);
         }
         
-        .tool-card p {
-            font-size: 15px;
-            color: #4b5563;
-            line-height: 1.6;
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--brand-glow);
         }
         
-        .tools-summary {
-            background: #2563eb;
-            color: white;
-            padding: 25px;
-            border-radius: 10px;
+        .btn-secondary {
+            background: transparent;
+            color: var(--brand-accent);
+            border: 2px solid var(--brand-accent);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--brand-accent);
+            color: var(--brand-dark);
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-primary);
+        }
+        
+        .btn-ghost:hover {
+            color: var(--brand-accent);
+        }
+        
+        /* Hero */
+        .hero {
+            padding: calc(var(--space-3xl) + 60px) 0 var(--space-3xl);
             text-align: center;
-            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
         }
         
-        .tools-summary p {
-            font-size: 20px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at top, var(--brand-glow) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-md);
+            background: rgba(45, 212, 191, 0.1);
+            border: 1px solid var(--brand-accent);
+            border-radius: 100px;
+            color: var(--brand-accent);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .hero h1 {
+            max-width: 900px;
+            margin: 0 auto var(--space-md);
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.375rem;
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+            color: var(--text-secondary);
+        }
+        
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            justify-content: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .hero-guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-md);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .hero-guarantee span {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        /* Honesty Banner */
+        .honesty-banner {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--brand-accent);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin: var(--space-xl) auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        
+        .honesty-banner h3 {
+            color: var(--brand-accent);
+            margin-bottom: var(--space-sm);
+            font-size: 1.125rem;
+        }
+        
+        .honesty-banner p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .honesty-banner .highlight {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        /* Lead Magnet Section */
+        .lead-magnet {
+            padding: var(--space-3xl) 0;
+            background: var(--bg-secondary);
+        }
+        
+        .lead-magnet-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+        }
+        
+        .kit-preview {
+            background: var(--bg-primary);
+            border: 2px dashed var(--border);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            text-align: center;
+        }
+        
+        .kit-preview h3 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .kit-features {
+            list-style: none;
+            text-align: left;
+            margin: var(--space-lg) 0;
+        }
+        
+        .kit-features li {
+            padding: var(--space-xs) 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+        
+        .kit-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--brand-accent);
+        }
+        
+        .form-note {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: var(--space-sm);
+        }
+        
+        /* Workshop Cards */
+        .workshops {
+            padding: var(--space-3xl) 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .section-header h2 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .workshop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-xl);
+        }
+        
+        .workshop-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            transition: transform 0.2s, border-color 0.2s;
+            position: relative;
+        }
+        
+        .workshop-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--brand-accent);
+        }
+        
+        .workshop-card.featured {
+            border: 2px solid var(--brand-accent);
+            background: linear-gradient(135deg, var(--bg-secondary), rgba(45, 212, 191, 0.05));
+        }
+        
+        .workshop-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--brand-accent);
+            color: var(--brand-dark);
+            padding: 4px 16px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .workshop-badge {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-sm);
+            background: rgba(45, 212, 191, 0.1);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--brand-accent);
+            margin-bottom: var(--space-md);
+        }
+        
+        .workshop-card h3 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .workshop-meta {
+            display: flex;
+            gap: var(--space-md);
+            margin: var(--space-md) 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .workshop-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: var(--space-md) 0;
+        }
+        
+        .workshop-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        
+        .workshop-features {
+            list-style: none;
+            margin: var(--space-lg) 0;
+        }
+        
+        .workshop-features li {
+            padding: var(--space-xs) 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .workshop-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--brand-accent);
+        }
+        
+        /* Bonus Banner */
+        .bonus-banner {
+            background: linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid var(--brand-accent);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+            text-align: center;
+        }
+        
+        .bonus-banner h4 {
+            color: var(--brand-accent);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .bonus-banner p {
+            font-size: 1rem;
             margin: 0;
         }
         
-        .tools-summary strong {
-            font-size: 24px;
-            display: block;
-            margin-bottom: 5px;
+        /* What's Included */
+        .whats-included {
+            padding: var(--space-3xl) 0;
+            background: var(--bg-secondary);
         }
         
-        /* Demo Section */
-        .demo-section {
-            padding: 60px 0;
-            background: white;
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
         }
         
-        .demo-section h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
+        .included-item {
+            display: flex;
+            gap: var(--space-md);
+            padding: var(--space-lg);
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 1px solid var(--border);
         }
         
-        .demo-section > .container > p {
-            font-size: 18px;
-            color: #4b5563;
-            margin-bottom: 30px;
+        .included-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
         
-        .demo-list {
-            list-style: none;
-            padding: 0;
+        .included-item h4 {
+            margin-bottom: var(--space-xs);
+            font-size: 1.1rem;
         }
         
-        .demo-list li {
-            padding: 18px 0 18px 40px;
-            position: relative;
-            border-bottom: 1px solid #e5e7eb;
-            font-size: 17px;
-            line-height: 1.6;
-        }
-        
-        .demo-list li:before {
-            content: "▶";
-            position: absolute;
-            left: 0;
-            color: #2563eb;
-            font-size: 14px;
-        }
-        
-        .demo-list li strong {
-            color: #1f2937;
+        .included-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
         }
         
         /* Trust Section */
-        .trust-section {
-            padding: 60px 0;
-            background: #f9fafb;
-            text-align: center;
-        }
-        
-        .trust-section h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
+        .trust {
+            padding: var(--space-3xl) 0;
         }
         
         .trust-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            text-align: left;
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
         }
         
         .trust-item {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            text-align: center;
+            padding: var(--space-lg);
+        }
+        
+        .trust-item .icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            font-size: 1.5rem;
         }
         
         .trust-item h4 {
-            color: #2563eb;
-            font-size: 18px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            margin-bottom: var(--space-sm);
+            font-size: 1.1rem;
         }
         
         .trust-item p {
-            font-size: 15px;
-            color: #4b5563;
+            font-size: 0.95rem;
+            color: var(--text-muted);
             margin: 0;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: var(--space-3xl) 0;
+            background: var(--bg-secondary);
+        }
+        
+        .faq-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin-bottom: var(--space-md);
+        }
+        
+        .faq-item h4 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+            font-size: 1.1rem;
+        }
+        
+        .faq-item p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        .faq-item a {
+            color: var(--brand-accent);
+            text-decoration: none;
+        }
+        
+        .faq-item a:hover {
+            text-decoration: underline;
         }
         
         /* Final CTA */
         .final-cta {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            color: white;
+            padding: var(--space-3xl) 0;
             text-align: center;
+            position: relative;
+        }
+        
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, var(--brand-glow) 0%, transparent 60%);
+            pointer-events: none;
         }
         
         .final-cta h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            margin-bottom: var(--space-md);
         }
         
         .final-cta p {
-            font-size: 18px;
-            opacity: 0.95;
-            margin-bottom: 30px;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto var(--space-xl);
         }
         
-        .price-box {
-            background: rgba(255,255,255,0.2);
+        .price-highlight {
             display: inline-block;
-            padding: 20px 40px;
-            border-radius: 10px;
-            margin: 20px 0;
+            padding: var(--space-sm) var(--space-lg);
+            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
+            border-radius: 100px;
+            color: var(--brand-dark);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
         }
         
-        .price-box .amount {
-            font-size: 48px;
-            font-weight: 800;
-            display: block;
+        .guarantee-box {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-lg);
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            color: var(--success);
+            font-size: 0.9rem;
         }
         
-        .price-box .note {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        
-        .faq-section {
-            padding: 60px 0;
-            background: white;
-        }
-        
-        .faq-section h2 {
-            font-size: 28px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        
-        .faq-item {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-        
-        .faq-item h4 {
-            font-size: 18px;
-            color: #1f2937;
-            margin-bottom: 10px;
-        }
-        
-        .faq-item p {
-            font-size: 16px;
-            color: #4b5563;
-            line-height: 1.7;
-        }
-        
+        /* Footer */
         footer {
-            padding: 40px 0;
+            padding: var(--space-xl) 0;
+            border-top: 1px solid var(--border);
             text-align: center;
-            color: #6b7280;
-            font-size: 14px;
-            background: #f9fafb;
         }
         
-        footer a {
-            color: #2563eb;
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-md);
+            list-style: none;
         }
-
+        
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--brand-accent);
+        }
+        
+        footer p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin: var(--space-xs) 0;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 32px;
+            .nav-links {
+                display: none;
             }
             
-            .hero-story {
-                font-size: 15px;
-                padding: 20px;
+            .hero h1 {
+                font-size: 2.25rem;
             }
             
-            .tools-grid {
+            .lead-magnet-grid {
                 grid-template-columns: 1fr;
             }
             
-            .demo-list li {
-                padding-left: 30px;
-                font-size: 16px;
+            .workshop-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .included-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-guarantee {
+                flex-direction: column;
+            }
+            
+            .workshop-meta {
+                flex-direction: column;
+                gap: var(--space-xs);
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
+    <!-- Navigation -->
+    <nav>
         <div class="container">
-            <div class="brand">Shayne's AI Lab</div>
-            <h1>The $47 AI Stack</h1>
-            <p class="subtitle">The exact tools I use to save 15+ hours a week — and how you can too</p>
-            
-            <div class="hero-story">
-                <p><strong>Here's something embarrassing:</strong> Six months ago, I spent an entire Tuesday afternoon trying to write one email. Just one. To a potential partner. I wrote four different versions, overthought every word, and eventually sent something mediocre at 6 PM.</p>
-                <p style="margin-top: 12px;">That same task now takes me 90 seconds. The email is better. And I spent Tuesday afternoon doing actual work instead of staring at a blinking cursor.</p>
-                <p style="margin-top: 12px;">The difference? I finally swallowed my pride and let AI help me.</p>
-            </div>
-            
-            <a href="#register" class="cta-button">Join the Webinar — $39.95</a>
-            <p class="small-text">60 minutes • Live demos • Recording included • 30-day guarantee</p>
-        </div>
-    </header>
-
-    <!-- My Story -->
-    <section class="story-section">
-        <div class="container">
-            <h2>I've Been Where You Are</h2>
-            <p>I've spent my career building businesses, and I'll be honest: for a long time, I thought AI was either overhyped or "not for me." The word "automation" sounded like something that required a computer science degree and a server farm.</p>
-            
-            <p>But I was drowning. Not in big dramatic "business is failing" ways, but in death-by-a-thousand-cuts ways. The proposal that took 3 hours. The YouTube thumbnail I stared at for 45 minutes. The blog post I kept meaning to write but never started because the blank page felt too overwhelming.</p>
-            
-            <div class="highlight-box">
-                <p><strong>Then one Tuesday changed everything.</strong> I watched a friend crank out a full proposal in 20 minutes that would've taken me half a day. When I asked how, he just said: "ChatGPT, dude. You gotta try it."</p>
-            </div>
-            
-            <p>I was skeptical. I'd poked at ChatGPT once, asked it something random, gotten a generic answer, and concluded it was a gimmick.</p>
-            
-            <p>But my friend showed me what I'd been missing: <strong>it's not about the tool, it's about how you use it.</strong></p>
-            
-            <p>Now? I use AI across multiple businesses: content creation for <a href="https://www.vhicklegarage.com" style="color: #2563eb; text-decoration: underline;">Vhickle Garage</a> (my automotive media site), running <a href="https://www.worthitgoods.com" style="color: #2563eb; text-decoration: underline;">WorthItGoods</a> (an affiliate site I built entirely with AI tools), and building <a href="https://www.chipradar.io" style="color: #2563eb; text-decoration: underline;">ChipRadar.io</a> — a hardware price tracker that's still in development but already proving the value of AI agents for monitoring. I write YouTube scripts that don't suck, draft blog posts that actually sound like me, create thumbnails and graphics, brainstorm when I'm stuck, even write Python code when I need something automated.</p>
-            
-            <p><strong>I test these tools across different business types.</strong> Not just one niche. Content creation, e-commerce, automation workflows — that means what I'm showing you works whether you're creating content, running a service business, or building a product.</p>
-            
-            <p><em>Side note: This wasn't just trial and error for my own projects. I've done contract work for Mercor building AI tasks, engineering prompts, and reviewing AI-generated content for quality. Real platforms hire me when they need someone who can spot what works versus what sounds robotic.</em></p>
-            
-            <p><strong>I don't consider myself a "tech person."</strong> I'm just someone who got tired of wasting time, finally swallowed my pride, and asked software for help.</p>
-        </div>
-    </section>
-
-    <!-- The Tools -->
-    <section class="tools-section">
-        <div class="container">
-            <h2>What I Actually Use</h2>
-            <p class="tools-intro">No theory. No "let me show you a tool you might use someday." These are the 10 tools I open every single day. Total monthly cost: less than dinner out.</p>
-            
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <h3>📝 ChatGPT Plus</h3>
-                    <span class="price paid">$20/mo</span>
-                    <p>My go-to for everything: email drafts that don't suck, blog post outlines, brainstorming when I'm stuck, turning messy notes into coherent scripts. I tell it about my business once — it remembers forever.</p>
-                </div>
-                
-                <div class="tool-card">
-                    <h3>🎨 Canva</h3>
-                    <span class="price">FREE</span>
-                    <p>I used to hire designers for $75-150 per graphic. Now I make YouTube thumbnails, social posts, and presentation slides in under 5 minutes. Professional templates + AI suggestions = dinner out tonight, not next month.</p>
-                </div>
-                
-                <div class="tool-card">
-                    <h3>🎙️ Fireflies.ai</h3>
-                    <span class="price">FREE</span>
-                    <p>Never take meeting notes again. It records, transcribes, and pulls out action items automatically. I can actually LISTEN to people now instead of typing furiously. A friend used this to turn 3 hours of notes into a $600 billable hour.</p>
-                </div>
-                
-                <div class="tool-card">
-                    <h3>📅 Calendly</h3>
-                    <span class="price">FREE</span>
-                    <p>End the scheduling email ping-pong. I send one link. People book themselves. Timezones handled. Reminders sent. I literally laughed out loud the first time this worked — saved me 8 emails just to book a coffee meeting.</p>
-                </div>
-                
-                <div class="tool-card">
-                    <h3>✍️ Copy.ai</h3>
-                    <span class="price paid">$12/mo</span>
-                    <p>Marketing copy at scale. Blog post drafts, ad copy, social captions — basically a junior copywriter who never sleeps. I give it bullets, it gives me paragraphs. I edit to add my voice. Takes 15 minutes instead of 4 hours.</p>
-                </div>
-                
-                <div class="tool-card">
-                    <h3>📧 Reply.io</h3>
-                    <span class="price paid">$15/mo</span>
-                    <p>Email automation that doesn't feel like spam. Follow-up sequences that actually sound human because I write the first one myself. Clients think I'm personally emailing them. It's running while I sleep.</p>
-                </div>
-                
-                <div class="tool-card">
-                    <h3>🐦 Buffer</h3>
-                    <span class="price">FREE</span>
-                    <p>Queue up a week of social posts in 30 minutes. I batch my content creation instead of scrambling every day. Scheduling at optimal times, analytics to see what works. My social presence runs on autopilot now.</p>
-                </div>
-                
-                <div class="tool-card">
-                    <h3>📝 Otter.ai</h3>
-                    <span class="price">FREE</span>
-                    <p>Quick voice-to-text for ideas that strike at weird times. Walking the dog? Record a whole blog post. Driving? Capture a brilliant thought. Transcribes fast, edits easy. I capture 3x more ideas now because friction is gone.</p>
-                </div>
-                
-                <div class="tool-card">
-                    <h3>📚 Notion</h3>
-                    <span class="price">FREE</span>
-                    <p>My second brain. Blog post drafts, research, project planning, content calendars — all in one place with AI search. I used to have 12 different notebooks and apps. Now it's just Notion. Everything searchable in seconds.</p>
-                </div>
-                
-                <div class="tool-card">
-                    <h3>✓ Grammarly</h3>
-                    <span class="price">FREE</span>
-                    <p>The safety net. Catches the typos my eyes miss after the 5th read-through. Tone suggestions so I don't accidentally sound like a jerk in emails (a real problem when you're writing fast at 11 PM).</p>
-                </div>
-            </div>
-            
-            <div class="tools-summary">
-                <p><strong>7 Free Tools + 3 Paid = $47/month</strong></p>
-                <p style="margin-top: 10px;">Replaces what most people pay $1,500-$2,500/month for in services</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- What You'll See -->
-    <section class="demo-section">
-        <div class="container">
-            <h2>What We'll Actually Do Together</h2>
-            <p>In 60 minutes, I'm not going to talk at you about AI theory. We're going to USE these tools together. You'll watch my screen as I:</p>
-            
-            <ul class="demo-list">
-                <li><strong>Build a YouTube script from a half-formed idea</strong> — Take a random thought and turn it into a complete production outline with hook, sections, and call-to-action</li>
-                
-                <li><strong>Create a week's worth of social posts in 10 minutes</strong> — From one blog post to 5+ platform-specific posts, complete with graphics</li>
-                
-                <li><strong>Turn a rambling voice note into a professional email</strong> — Otter to ChatGPT to Gmail, without losing your actual voice</li>
-                
-                <li><strong>Make a thumbnail that doesn't look like everyone else's</strong> — Using AI for design elements but keeping it personal</li>
-                
-                <li><strong>Set up one automation that runs without you</strong> — The gateway drug: one simple workflow that proves AI automation isn't scary</li>
-                
-                <li><strong>Fix a real problem someone brings to the webinar</strong> — Live troubleshooting. Your actual stuck-ness, solved in real-time</li>
+            <a href="#" class="logo">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Flask with circuit design matching the provided logo -->
+                    <path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/>
+                    <path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#2dd4bf"/>
+                            <stop offset="1" stop-color="#06b6d4"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links">
+                <li><a href="#free-kit">Free Kit</a></li>
+                <li><a href="#workshops">Workshops</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <span>✓</span> Practical AI for Busy Business Owners
+            </div>
+            <h1>
+                AI That Actually Saves Time — <span>With Full Honesty About What I Really Use</span>
+            </h1>
+            <p class="hero-subtitle">
+                Most small business owners have tried AI once or twice… got overwhelmed… and quietly stopped. 
+                If that's you, you're not alone. I built something simple that actually works.
+            </p>
+            <div class="hero-cta">
+                <a href="#free-kit" class="btn btn-primary">Get the Free AI Starter Kit</a>
+                <a href="#workshops" class="btn btn-secondary">See the Workshop ($29)</a>
+            </div>
+            <div class="hero-guarantee">
+                <span>✓ No spam, ever</span>
+                <span>✓ Unsubscribe anytime</span>
+                <span>✓ 30-day money-back guarantee</span>
+            </div>
             
-            <div class="highlight-box" style="margin-top: 40px;">
-                <p><strong>I'm not selling you a course.</strong> I'm showing you the exact setup I use every day. Then you decide which pieces work for your business. Some people walk away with 3 tools. Others implement all 10. There's no wrong answer.</p>
+            <!-- Honesty Banner -->
+            <div class="honesty-banner">
+                <h3>🎯 The Brutal Honesty</h3>
+                <p>
+                    I don't use ChatGPT as my daily driver. I use <span class="highlight">Grok + custom OpenClaw swarms</span>. 
+                    But you probably don't need that. Here's my honest recommendation: Start with 8 simple tools. 
+                    Master those. <em>Then</em> decide if you ever need more.
+                </p>
+                <p style="margin-top: var(--space-sm); font-size: 0.95rem;">
+                    <strong>The "My Real Workflow" bonus</strong> shows you exactly what I built — so you know I'm not BS-ing you.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Trust -->
-    <section class="trust-section">
+    <!-- Lead Magnet Section -->
+    <section class="lead-magnet" id="free-kit">
         <div class="container">
-            <h2>This Is Specifically For You If...</h2>
+            <div class="lead-magnet-grid">
+                <div>
+                    <h2>Start With the Free AI Starter Kit</h2>
+                    <p>
+                        The 8-tool cheat sheet I wish I had 18 months ago. No email required to download.
+                        (But if you want me to send you updates when I find new tools, drop your email below.)
+                    </p>
+                    <ul class="kit-features">
+                        <li>The 8 tools that actually save time (and 12 to skip)</li>
+                        <li>Cost breakdown: free vs. paid tiers</li>
+                        <li>Quick-start checklist for each tool</li>
+                        <li>My "first 30 days" implementation guide</li>
+                        <li>Bonus: "My Real Workflow" sneak peek</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Download Free Kit — Instant Access</a>
+                </div>
+                <div>
+                    <div class="kit-preview">
+                        <h3>📋 AI Starter Kit</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);">Free • PDF + Bonus Materials</p>
+                        <ul class="kit-features">
+                            <li>8-Tool Cheat Sheet</li>
+                            <li>Cost Comparison Guide</li>
+                            <li>30-Day Implementation Plan</li>
+                            <li>My Real Workflow Preview</li>
+                        </ul>
+                        <form style="margin-top: var(--space-lg);">
+                            <div class="form-group">
+                                <label for="email">Email (optional — for updates)</label>
+                                <input type="email" id="email" placeholder="you@example.com">
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Get Free Kit</button>
+                            <p class="form-note">✓ No credit card required • Unsubscribe anytime</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section class="workshops" id="workshops">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Workshops</h2>
+                <p>Progressive learning. Start with the basics. Level up when (and if) you need to.</p>
+            </div>
+            
+            <div class="workshop-grid">
+                <!-- Workshop #1 -->
+                <div class="workshop-card featured">
+                    <div class="workshop-badge">Workshop #1</div>
+                    <h3>AI That Saves 15+ Hours/Week</h3>
+                    <p>The complete 8-tool system for small business owners who are tired of the AI hype.</p>
+                    
+                    <div class="workshop-meta">
+                        <span>📅 50 minutes</span>
+                        <span>💻 Live + Recording</span>
+                    </div>
+                    
+                    <div class="workshop-price">$29 <span>one-time</span></div>
+                    
+                    <ul class="workshop-features">
+                        <li>6 live tool demos (watch my screen)</li>
+                        <li>Email, content, and customer service workflows</li>
+                        <li>What I use vs. what I recommend (honest split)</li>
+                        <li>Full cheat sheet + 50-prompt library</li>
+                        <li><strong>"My Real Workflow" bonus video</strong></li>
+                        <li>Recording yours forever</li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-primary" style="width: 100%;">Join Next Session — $29</a>
+                </div>
+                
+                <!-- Workshop #2 -->
+                <div class="workshop-card">
+                    <div class="workshop-badge">Workshop #2</div>
+                    <h3>AI That Answers Your Customers</h3>
+                    <p>Advanced automation for businesses ready to scale their customer communication.</p>
+                    
+                    <div class="workshop-meta">
+                        <span>📅 Coming Soon</span>
+                        <span>🎓 Prerequisite: Workshop #1</span>
+                    </div>
+                    
+                    <div class="workshop-price">$39 <span>one-time</span></div>
+                    
+                    <ul class="workshop-features">
+                        <li>Customer service automation that feels human</li>
+                        <li>Chatbot setup (without coding)</li>
+                        <li>Email sequences that don't suck</li>
+                        <li>When to automate vs. when to stay personal</li>
+                        <li>Industry-specific templates</li>
+                    </ul>
+                    
+                    <button class="btn btn-secondary" style="width: 100%;" disabled>Coming in Month 2</button>
+                </div>
+            </div>
+            
+            <div class="bonus-banner">
+                <h4>🎁 Workshop #1 Bonus: "My Real Workflow"</h4>
+                <p>A 20-minute video breaking down my <em>actual</em> daily setup using Grok + OpenClaw swarms. When to stick with the 8 tools. When to consider upgrading. Full transparency.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="whats-included">
+        <div class="container">
+            <div class="section-header">
+                <h2>What You'll Actually Get</h2>
+                <p>No theory. No "you'll figure it out." Specific deliverables you can use immediately.</p>
+            </div>
+            
+            <div class="included-grid">
+                <div class="included-item">
+                    <div class="included-icon">📹</div>
+                    <div>
+                        <h4>50-Minute Workshop Recording</h4>
+                        <p>Watch live or at your own pace. Yours forever.</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon">📋</div>
+                    <div>
+                        <h4>Complete Cheat Sheet</h4>
+                        <p>8 tools, pricing, links, setup instructions.</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon">📝</div>
+                    <div>
+                        <h4>50-Prompt Library</h4>
+                        <p>Copy-paste prompts for emails, content, analysis.</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon">💡</div>
+                    <div>
+                        <h4>"My Real Workflow" Video</h4>
+                        <p>The tools I actually use day-to-day.</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon">🎯</div>
+                    <div>
+                        <h4>30-Day Implementation Plan</h4>
+                        <p>Start small. Build momentum. No overwhelm.</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon">💬</div>
+                    <div>
+                        <h4>Live Q&A Access</h4>
+                        <p>Ask your specific questions. Get real answers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust">
+        <div class="container">
+            <div class="section-header">
+                <h2>This Is For You If...</h2>
+                <p>Not everyone. Just specific people with specific problems I've actually solved.</p>
+            </div>
             
             <div class="trust-grid">
                 <div class="trust-item">
-                    <h4>🤔 You Feel AI-Curious But Overwhelmed</h4>
-                    <p>You know AI could help, but every time you open a tool you're paralyzed by options. I'll show you the "just do this" version — not the entire menu.</p>
+                    <div class="icon">🤔</div>
+                    <h4>Tried AI, Got Overwhelmed</h4>
+                    <p>You've played with ChatGPT but didn't know what to do with it. This gives you the system.</p>
                 </div>
-                
                 <div class="trust-item">
-                    <h4>⏰ You're Working Too Many Hours</h4>
-                    <p>Not dramatic "burning out" hours, just... too much busywork. Hours that feel necessary but aren't actually moving your business forward.</p>
+                    <div class="icon">⏰</div>
+                    <h4>Working Too Many Hours</h4>
+                    <p>Not dramatic burnout. Just death by a thousand cuts. Emails. Scheduling. Content.</p>
                 </div>
-                
                 <div class="trust-item">
-                    <h4>💰 You've Tried Tools But Nothing Stuck</h4>
-                    <p>Signed up for 15 free trials, used none of them. The problem wasn't willpower — it was not having a system. I'll show you the order that actually works.</p>
+                    <div class="icon">💰</div>
+                    <h4>Hired Help, Not Sustainable</h4>
+                    <p>$500 VAs and $75 designers add up. These tools replace that overhead.</p>
                 </div>
-                
                 <div class="trust-item">
-                    <h4>🎯 You Want Practical, Not Theoretical</h4>
-                    <p>You don't need to understand how the AI sausage is made. You need to know: "Tuesday, I have to write a proposal — which button do I press?"</p>
+                    <div class="icon">🎯</div>
+                    <h4>Want Practical, Not Theoretical</h4>
+                    <p>You don't care how AI works. You care which button to press on Tuesday.</p>
                 </div>
-                
                 <div class="trust-item">
-                    <h4>😬 You Worry You'll Look "Tech-Ignorant"</h4>
-                    <p>Imposter syndrome is real. I'm a regular business owner who learned this stuff. Not a developer. Not a "tech guy." Just someone who got tired of wasting time.</p>
+                    <div class="icon">😬</div>
+                    <h4>Skeptical of "AI Gurus"</h4>
+                    <p>Good. So am I. No promises of transformation. Just 10 hours back per week.</p>
                 </div>
-                
                 <div class="trust-item">
-                    <h4>✅ You're Willing to Try One Thing</h4>
-                    <p>You don't have to become an "AI expert." But if you're willing to try ONE tool that might save you 3 hours this week, this is for you.</p>
+                    <div class="icon">✅</div>
+                    <h4>Willing to Try One Thing</h4>
+                    <p>You don't need to become an expert. Just open to one new tool that might help.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="faq-section">
+    <section class="faq" id="faq">
         <div class="container">
-            <h2>Questions You Might Have</h2>
-            
-            <div class="faq-item">
-                <h4>"This sounds too technical for me."</h4>
-                <p>I specifically chose tools that require typing skills, not coding skills. If you can write an email, you can use these. And I'll show you the "cheat codes" — the settings and prompts that make everything 10x easier. Plus, you get the recording. Watch it twice if you need to. Nobody's judging.</p>
+            <div class="section-header">
+                <h2>Questions You Might Have</h2>
+                <p>Honest answers. No obfuscation.</p>
             </div>
             
             <div class="faq-item">
-                <h4>"What if I can't make it live?"</h4>
-                <p>Life happens. You'll get the full recording within 24 hours, plus the cheat sheet with all the tool links and my exact templates. You'll miss the live Q&A, but you'll get 90% of the value. The real question is: are you willing to watch the recording and implement, or will it sit in your inbox forever?</p>
+                <h4>Do I need to be technical?</h4>
+                <p>
+                    If you can write an email, you can use these tools. I specifically picked tools with 
+                    ZERO learning curve. If anything feels complicated, I'll simplify it live in the workshop.
+                </p>
             </div>
             
             <div class="faq-item">
-                <h4>"Can't I just figure this out on my own?"</h4>
-                <p>Sure. I did. It took me about 6 months of trial and error, testing tools that didn't work, and wasting money on stuff I didn't need. This webinar shortcuts all that. For $39.95, you're buying 6 months of my learning, condensed into 60 minutes. Your call on what that's worth.</p>
+                <h4>What if I can't make it live?</h4>
+                <p>
+                    You get the full recording within 24 hours. Plus all materials. You'll miss the live Q&A 
+                    but you can email me questions. (I actually respond.)
+                </p>
             </div>
             
             <div class="faq-item">
-                <h4>"What if it doesn't work for my specific business?"</h4>
-                <p>Here are the businesses I know this works for: Consultants, real estate agents, coaches, course creators, local service providers, agencies, anyone who writes content, anyone who schedules meetings, anyone who creates proposals for clients. If your business has emails, content, or meetings — this applies to you. And if you join and realize it's not for you, 30-day money-back guarantee. Zero risk.</p>
+                <h4>Can't I just figure this out on my own?</h4>
+                <p>
+                    Sure. I did. It took 6 months of trial, error, and wasted money on tools I didn't need. 
+                    This workshop shortcuts that. For $29, you're buying my learning. Your call.
+                </p>
             </div>
             
             <div class="faq-item">
-                <h4>"Do I need to sign up for all 10 tools?"</h4>
-                <p>God no. I show you all 10 so you can choose. Most people walk away with 3-5 tools that solve THEIR specific problems. One person might only implement ChatGPT and Calendly. Another might go deep on Copy.ai and Buffer. This is a menu, not a mandate. You pick what works for you.</p>
+                <h4>Will this work for my industry?</h4>
+                <p>
+                    I work with: coaches, consultants, agencies, local service businesses, content creators, 
+                    e-commerce, and more. If you write emails, create content, or schedule meetings — yes.
+                </p>
             </div>
             
             <div class="faq-item">
-                <h4>"What if I don't like the webinar?"</h4>
-                <p>30-day money-back guarantee. Watch the whole thing, try the tools, and if you're not happy for literally any reason, email me and I'll refund you. No interrogation, no guilt trip. I want people here who want to be here. If that's not you after watching, I don't want your money.</p>
+                <h4>What's the refund policy?</h4>
+                <p>
+                    30 days. Watch the workshop, try the tools, email me if you're unhappy for ANY reason. 
+                    I'll refund you. No interrogation. I only want happy customers.
+                </p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Why is it so cheap? ($29)</h4>
+                <p>
+                    Two reasons: (1) This is a <strong>soft launch</strong> — I'm testing the content with real 
+                    people and want feedback. (2) Most people should start with the <strong>free kit</strong>. 
+                    This workshop is for folks who want live demos and the full breakdown. Price will go up 
+                    after I iterate based on feedback.
+                </p>
+            </n            </div>
+            
+            <div class="faq-item">
+                <h4>What's "My Real Workflow" bonus?</h4>
+                <p>
+                    A 20-minute video showing my ACTUAL setup: Grok for daily queries, OpenClaw swarms for 
+                    automation, custom agents that run 24/7. I include this so you know I'm not hiding 
+                    anything. You can see what I actually built — then decide if you ever need that complexity.
+                    <strong>Spoiler: Most people don't.</strong>
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section class="final-cta" id="register">
+    <section class="final-cta">
         <div class="container">
-            <h2>Ready to Get Your Tuesday Afternoons Back?</h2>
-            <p>For the price of a nice dinner, you get a system that saves you 15+ hours every week. That's 60+ hours a month. 750+ hours a year. This isn't about becoming an "AI person." It's about becoming someone who chose not to waste time anymore.</p>
-            
-            <div class="price-box">
-                <span class="amount">$39.95</span>
-                <span class="note">One-time payment • 60-minute webinar • Recording included</span>
+            <h2>Practical AI. Real Time Savings. No BS.</h2>
+            <p>
+                Join 25+ business owners learning the 8-tool system that's actually saving 10–15 hours weekly. 
+                Not hype. Just workflows that work.
+            </p>
+            <div class="price-highlight">$29 — One Time</div>
+            <br>
+            <a href="#workshops" class="btn btn-primary">Join the Workshop</a>
+            <br>
+            <div class="guarantee-box">
+                <span>✓</span> 30-Day Money-Back Guarantee
             </div>
-            
-            <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK_HERE" class="cta-button" style="font-size: 22px; padding: 20px 50px;">Join the Webinar Now</a>
-            
-            <p style="margin-top: 25px; font-size: 16px; opacity: 0.9;">Next session: [DATE] at [TIME] Eastern<br>30-day money-back guarantee • Questions? hello@shaynesailab.com</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2026 Shayne's AI Lab</p>
-            <p style="margin-top: 8px;">Real talk, real tools, real results. No BS.</p>
-            <p style="margin-top: 15px; font-size: 12px;">
-                <a href="#">Privacy Policy</a> • 
-                <a href="#">Terms of Service</a> • 
-                <a href="mailto:hello@shaynesailab.com">Contact</a>
-            </p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="mailto:hello@shaynesailab.com">Contact</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+            <p>Practical AI for busy business owners. No hype. No BS.</p>
         </div>
     </footer>
 
