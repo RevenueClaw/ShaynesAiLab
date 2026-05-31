@@ -13,15 +13,12 @@
     
     <style>
         :root {
-            /* Brand Colors from Logo */
             --brand-dark: #0f172a;
             --brand-navy: #1e293b;
             --brand-teal: #14b8a6;
             --brand-cyan: #06b6d4;
             --brand-accent: #2dd4bf;
             --brand-glow: rgba(45, 212, 191, 0.15);
-            
-            /* Semantic Colors */
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
@@ -30,9 +27,7 @@
             --bg-elevated: #334155;
             --border: #334155;
             --success: #10b981;
-            --warning: #f59e0b;
-            
-            /* Spacing */
+            --error: #ef4444;
             --space-xs: 0.5rem;
             --space-sm: 1rem;
             --space-md: 1.5rem;
@@ -42,11 +37,7 @@
             --space-3xl: 6rem;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -56,10 +47,7 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        img {
-            max-width: 100%;
-            height: auto;
-        }
+        img { max-width: 100%; height: auto; }
         
         .container {
             max-width: 1200px;
@@ -67,7 +55,6 @@
             padding: 0 20px;
         }
         
-        /* Typography */
         h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; }
         h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; }
         h3 { font-size: 1.5rem; font-weight: 600; }
@@ -77,22 +64,6 @@
             color: var(--text-secondary);
             font-size: 1.125rem;
             line-height: 1.7;
-        }
-        
-        /* Logo */
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-        
-        .logo-icon {
-            width: 48px;
-            height: 48px;
         }
         
         /* Navigation */
@@ -114,6 +85,21 @@
             align-items: center;
         }
         
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+        }
+        
         .nav-links {
             display: flex;
             gap: var(--space-lg);
@@ -128,9 +114,7 @@
             font-size: 0.95rem;
         }
         
-        .nav-links a:hover {
-            color: var(--brand-accent);
-        }
+        .nav-links a:hover { color: var(--brand-accent); }
         
         /* Buttons */
         .btn {
@@ -170,13 +154,9 @@
             color: var(--brand-dark);
         }
         
-        .btn-ghost {
-            background: transparent;
-            color: var(--text-primary);
-        }
-        
-        .btn-ghost:hover {
-            color: var(--brand-accent);
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
         
         /* Hero */
@@ -212,10 +192,7 @@
             margin-bottom: var(--space-lg);
         }
         
-        .hero h1 {
-            max-width: 900px;
-            margin: 0 auto var(--space-md);
-        }
+        .hero h1 { max-width: 900px; margin: 0 auto var(--space-md); }
         
         .hero h1 span {
             background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
@@ -248,12 +225,6 @@
             font-size: 0.9rem;
         }
         
-        .hero-guarantee span {
-            display: flex;
-            align-items: center;
-            gap: var(--space-xs);
-        }
-        
         /* Honesty Banner */
         .honesty-banner {
             background: var(--bg-secondary);
@@ -266,28 +237,12 @@
             text-align: left;
         }
         
-        .honesty-banner h3 {
-            color: var(--brand-accent);
-            margin-bottom: var(--space-sm);
-            font-size: 1.125rem;
-        }
-        
-        .honesty-banner p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: var(--space-sm);
-        }
-        
-        .honesty-banner .highlight {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
+        .honesty-banner h3 { color: var(--brand-accent); margin-bottom: var(--space-sm); font-size: 1.125rem; }
+        .honesty-banner p { font-size: 1rem; color: var(--text-secondary); margin-bottom: var(--space-sm); }
+        .honesty-banner .highlight { color: var(--text-primary); font-weight: 600; }
         
         /* Lead Magnet Section */
-        .lead-magnet {
-            padding: var(--space-3xl) 0;
-            background: var(--bg-secondary);
-        }
+        .lead-magnet { padding: var(--space-3xl) 0; background: var(--bg-secondary); }
         
         .lead-magnet-grid {
             display: grid;
@@ -304,9 +259,7 @@
             text-align: center;
         }
         
-        .kit-preview h3 {
-            margin-bottom: var(--space-md);
-        }
+        .kit-preview h3 { margin-bottom: var(--space-md); }
         
         .kit-features {
             list-style: none;
@@ -329,15 +282,15 @@
             font-weight: 700;
         }
         
-        .form-group {
-            margin-bottom: var(--space-md);
-        }
+        /* Form Styles */
+        .form-group { margin-bottom: var(--space-md); }
         
         .form-group label {
             display: block;
             margin-bottom: var(--space-xs);
             font-weight: 500;
             color: var(--text-secondary);
+            font-size: 0.9rem;
         }
         
         .form-group input {
@@ -349,6 +302,7 @@
             color: var(--text-primary);
             font-size: 1rem;
             transition: border-color 0.2s;
+            font-family: inherit;
         }
         
         .form-group input:focus {
@@ -356,30 +310,80 @@
             border-color: var(--brand-accent);
         }
         
+        .form-group input.error { border-color: var(--error); }
+        
         .form-note {
             font-size: 0.875rem;
             color: var(--text-muted);
             margin-top: var(--space-sm);
         }
         
-        /* Workshop Cards */
-        .workshops {
-            padding: var(--space-3xl) 0;
+        .form-success {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: var(--space-md);
+            margin-top: var(--space-md);
+            display: none;
         }
+        
+        .form-success.visible { display: block; }
+        
+        .form-success h4 {
+            color: var(--success);
+            margin-bottom: var(--space-xs);
+            font-size: 1.1rem;
+        }
+        
+        .form-success p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            margin-top: var(--space-md);
+            padding: var(--space-sm) var(--space-md);
+            background: var(--success);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: var(--brand-dark);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .btn.loading .spinner { display: inline-block; }
+        .btn.loading .btn-text { opacity: 0; }
+        
+        /* Workshop Cards */
+        .workshops { padding: var(--space-3xl) 0; }
         
         .section-header {
             text-align: center;
             margin-bottom: var(--space-2xl);
         }
         
-        .section-header h2 {
-            margin-bottom: var(--space-md);
-        }
-        
-        .section-header p {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .section-header h2 { margin-bottom: var(--space-md); }
+        .section-header p { max-width: 600px; margin: 0 auto; }
         
         .workshop-grid {
             display: grid;
@@ -433,9 +437,7 @@
             margin-bottom: var(--space-md);
         }
         
-        .workshop-card h3 {
-            margin-bottom: var(--space-sm);
-        }
+        .workshop-card h3 { margin-bottom: var(--space-sm); }
         
         .workshop-meta {
             display: flex;
@@ -452,11 +454,7 @@
             margin: var(--space-md) 0;
         }
         
-        .workshop-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--text-muted);
-        }
+        .workshop-price span { font-size: 1rem; font-weight: 400; color: var(--text-muted); }
         
         .workshop-features {
             list-style: none;
@@ -488,15 +486,8 @@
             text-align: center;
         }
         
-        .bonus-banner h4 {
-            color: var(--brand-accent);
-            margin-bottom: var(--space-sm);
-        }
-        
-        .bonus-banner p {
-            font-size: 1rem;
-            margin: 0;
-        }
+        .bonus-banner h4 { color: var(--brand-accent); margin-bottom: var(--space-sm); }
+        .bonus-banner p { font-size: 1rem; margin: 0; }
         
         /* What's Included */
         .whats-included {
@@ -532,21 +523,11 @@
             flex-shrink: 0;
         }
         
-        .included-item h4 {
-            margin-bottom: var(--space-xs);
-            font-size: 1.1rem;
-        }
-        
-        .included-item p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin: 0;
-        }
+        .included-item h4 { margin-bottom: var(--space-xs); font-size: 1.1rem; }
+        .included-item p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
         
         /* Trust Section */
-        .trust {
-            padding: var(--space-3xl) 0;
-        }
+        .trust { padding: var(--space-3xl) 0; }
         
         .trust-grid {
             display: grid;
@@ -555,10 +536,7 @@
             margin-top: var(--space-2xl);
         }
         
-        .trust-item {
-            text-align: center;
-            padding: var(--space-lg);
-        }
+        .trust-item { text-align: center; padding: var(--space-lg); }
         
         .trust-item .icon {
             width: 60px;
@@ -572,22 +550,11 @@
             font-size: 1.5rem;
         }
         
-        .trust-item h4 {
-            margin-bottom: var(--space-sm);
-            font-size: 1.1rem;
-        }
-        
-        .trust-item p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin: 0;
-        }
+        .trust-item h4 { margin-bottom: var(--space-sm); font-size: 1.1rem; }
+        .trust-item p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
         
         /* FAQ */
-        .faq {
-            padding: var(--space-3xl) 0;
-            background: var(--bg-secondary);
-        }
+        .faq { padding: var(--space-3xl) 0; background: var(--bg-secondary); }
         
         .faq-item {
             background: var(--bg-primary);
@@ -597,33 +564,13 @@
             margin-bottom: var(--space-md);
         }
         
-        .faq-item h4 {
-            color: var(--text-primary);
-            margin-bottom: var(--space-sm);
-            font-size: 1.1rem;
-        }
-        
-        .faq-item p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-        
-        .faq-item a {
-            color: var(--brand-accent);
-            text-decoration: none;
-        }
-        
-        .faq-item a:hover {
-            text-decoration: underline;
-        }
+        .faq-item h4 { color: var(--text-primary); margin-bottom: var(--space-sm); font-size: 1.1rem; }
+        .faq-item p { font-size: 1rem; color: var(--text-secondary); margin: 0; }
+        .faq-item a { color: var(--brand-accent); text-decoration: none; }
+        .faq-item a:hover { text-decoration: underline; }
         
         /* Final CTA */
-        .final-cta {
-            padding: var(--space-3xl) 0;
-            text-align: center;
-            position: relative;
-        }
+        .final-cta { padding: var(--space-3xl) 0; text-align: center; position: relative; }
         
         .final-cta::before {
             content: '';
@@ -636,14 +583,8 @@
             pointer-events: none;
         }
         
-        .final-cta h2 {
-            margin-bottom: var(--space-md);
-        }
-        
-        .final-cta p {
-            max-width: 600px;
-            margin: 0 auto var(--space-xl);
-        }
+        .final-cta h2 { margin-bottom: var(--space-md); }
+        .final-cta p { max-width: 600px; margin: 0 auto var(--space-xl); }
         
         .price-highlight {
             display: inline-block;
@@ -670,11 +611,7 @@
         }
         
         /* Footer */
-        footer {
-            padding: var(--space-xl) 0;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
+        footer { padding: var(--space-xl) 0; border-top: 1px solid var(--border); text-align: center; }
         
         .footer-links {
             display: flex;
@@ -690,52 +627,25 @@
             font-size: 0.9rem;
         }
         
-        .footer-links a:hover {
-            color: var(--brand-accent);
-        }
+        .footer-links a:hover { color: var(--brand-accent); }
         
-        footer p {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            margin: var(--space-xs) 0;
-        }
+        footer p { font-size: 0.875rem; color: var(--text-muted); margin: var(--space-xs) 0; }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-            
-            .lead-magnet-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .workshop-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .included-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .hero-guarantee {
-                flex-direction: column;
-            }
-            
-            .workshop-meta {
-                flex-direction: column;
-                gap: var(--space-xs);
-            }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.25rem; }
+            .lead-magnet-grid { grid-template-columns: 1fr; }
+            .workshop-grid { grid-template-columns: 1fr; }
+            .included-grid { grid-template-columns: 1fr; }
+            .hero-cta { flex-direction: column; align-items: center; }
+            .hero-guarantee { flex-direction: column; }
+            .workshop-meta { flex-direction: column; gap: var(--space-xs); }
         }
+
+        /* No-JS fallback */
+        .no-js .form-success { display: block; }
+        .no-js button[type="submit"] { display: none; }
     </style>
 </head>
 <body>
@@ -744,19 +654,7 @@
     <nav>
         <div class="container">
             <a href="#" class="logo">
-                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Flask with circuit design matching the provided logo -->
-                    <path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/>
-                    <path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/>
-                    <defs>
-                        <linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#2dd4bf"/>
-                            <stop offset="1" stop-color="#06b6d4"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                Shayne's AI Lab
+                <img src="logo.png" alt="Shayne's AI Lab" style="height: 48px; width: auto;">
             </a>
             <ul class="nav-links">
                 <li><a href="#free-kit">Free Kit</a></li>
@@ -811,8 +709,7 @@
                 <div>
                     <h2>Start With the Free AI Starter Kit</h2>
                     <p>
-                        The 8-tool cheat sheet I wish I had 18 months ago. No email required to download.
-                        (But if you want me to send you updates when I find new tools, drop your email below.)
+                        The 8-tool cheat sheet I wish I had 18 months ago. Enter your email and get instant access.
                     </p>
                     <ul class="kit-features">
                         <li>The 8 tools that actually save time (and 12 to skip)</li>
@@ -821,26 +718,38 @@
                         <li>My "first 30 days" implementation guide</li>
                         <li>Bonus: "My Real Workflow" sneak peek</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Download Free Kit — Instant Access</a>
                 </div>
                 <div>
-                    <div class="kit-preview">
+                    <div class="kit-preview" id="kit-form-container">
                         <h3>📋 AI Starter Kit</h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);">Free • PDF + Bonus Materials</p>
-                        <ul class="kit-features">
-                            <li>8-Tool Cheat Sheet</li>
-                            <li>Cost Comparison Guide</li>
-                            <li>30-Day Implementation Plan</li>
-                            <li>My Real Workflow Preview</li>
-                        </ul>
-                        <form style="margin-top: var(--space-lg);">
+                        <p style="font-size: 0.95rem; color: var(--text-muted);">Free • PDF Download</p>
+                        
+                        <form id="lead-capture-form">
                             <div class="form-group">
-                                <label for="email">Email (optional — for updates)</label>
-                                <input type="email" id="email" placeholder="you@example.com">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" name="firstName" placeholder="John" required>
                             </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Get Free Kit</button>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <span class="spinner"></span>
+                                <span class="btn-text">Get Free Kit — Instant Download</span>
+                            </button>
                             <p class="form-note">✓ No credit card required • Unsubscribe anytime</p>
                         </form>
+                        
+                        <div id="form-success" class="form-success">
+                            <h4>✓ Check your email!</h4>
+                            <p>Your AI Starter Kit is on its way. (Check spam/junk if you don't see it within 2 minutes.)</p>
+                            <p style="margin-top: var(--space-sm);">
+                                <strong>While you wait:</strong> See my upcoming workshop for live demos of all 8 tools.
+                            </p>
+                            <a href="#workshops" class="btn btn-primary" style="margin-top: var(--space-md);">
+                                See the Workshop ($29)
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -885,232 +794,4 @@
                 <div class="workshop-card">
                     <div class="workshop-badge">Workshop #2</div>
                     <h3>AI That Answers Your Customers</h3>
-                    <p>Advanced automation for businesses ready to scale their customer communication.</p>
-                    
-                    <div class="workshop-meta">
-                        <span>📅 Coming Soon</span>
-                        <span>🎓 Prerequisite: Workshop #1</span>
-                    </div>
-                    
-                    <div class="workshop-price">$39 <span>one-time</span></div>
-                    
-                    <ul class="workshop-features">
-                        <li>Customer service automation that feels human</li>
-                        <li>Chatbot setup (without coding)</li>
-                        <li>Email sequences that don't suck</li>
-                        <li>When to automate vs. when to stay personal</li>
-                        <li>Industry-specific templates</li>
-                    </ul>
-                    
-                    <button class="btn btn-secondary" style="width: 100%;" disabled>Coming in Month 2</button>
-                </div>
-            </div>
-            
-            <div class="bonus-banner">
-                <h4>🎁 Workshop #1 Bonus: "My Real Workflow"</h4>
-                <p>A 20-minute video breaking down my <em>actual</em> daily setup using Grok + OpenClaw swarms. When to stick with the 8 tools. When to consider upgrading. Full transparency.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- What's Included -->
-    <section class="whats-included">
-        <div class="container">
-            <div class="section-header">
-                <h2>What You'll Actually Get</h2>
-                <p>No theory. No "you'll figure it out." Specific deliverables you can use immediately.</p>
-            </div>
-            
-            <div class="included-grid">
-                <div class="included-item">
-                    <div class="included-icon">📹</div>
-                    <div>
-                        <h4>50-Minute Workshop Recording</h4>
-                        <p>Watch live or at your own pace. Yours forever.</p>
-                    </div>
-                </div>
-                <div class="included-item">
-                    <div class="included-icon">📋</div>
-                    <div>
-                        <h4>Complete Cheat Sheet</h4>
-                        <p>8 tools, pricing, links, setup instructions.</p>
-                    </div>
-                </div>
-                <div class="included-item">
-                    <div class="included-icon">📝</div>
-                    <div>
-                        <h4>50-Prompt Library</h4>
-                        <p>Copy-paste prompts for emails, content, analysis.</p>
-                    </div>
-                </div>
-                <div class="included-item">
-                    <div class="included-icon">💡</div>
-                    <div>
-                        <h4>"My Real Workflow" Video</h4>
-                        <p>The tools I actually use day-to-day.</p>
-                    </div>
-                </div>
-                <div class="included-item">
-                    <div class="included-icon">🎯</div>
-                    <div>
-                        <h4>30-Day Implementation Plan</h4>
-                        <p>Start small. Build momentum. No overwhelm.</p>
-                    </div>
-                </div>
-                <div class="included-item">
-                    <div class="included-icon">💬</div>
-                    <div>
-                        <h4>Live Q&A Access</h4>
-                        <p>Ask your specific questions. Get real answers.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Section -->
-    <section class="trust">
-        <div class="container">
-            <div class="section-header">
-                <h2>This Is For You If...</h2>
-                <p>Not everyone. Just specific people with specific problems I've actually solved.</p>
-            </div>
-            
-            <div class="trust-grid">
-                <div class="trust-item">
-                    <div class="icon">🤔</div>
-                    <h4>Tried AI, Got Overwhelmed</h4>
-                    <p>You've played with ChatGPT but didn't know what to do with it. This gives you the system.</p>
-                </div>
-                <div class="trust-item">
-                    <div class="icon">⏰</div>
-                    <h4>Working Too Many Hours</h4>
-                    <p>Not dramatic burnout. Just death by a thousand cuts. Emails. Scheduling. Content.</p>
-                </div>
-                <div class="trust-item">
-                    <div class="icon">💰</div>
-                    <h4>Hired Help, Not Sustainable</h4>
-                    <p>$500 VAs and $75 designers add up. These tools replace that overhead.</p>
-                </div>
-                <div class="trust-item">
-                    <div class="icon">🎯</div>
-                    <h4>Want Practical, Not Theoretical</h4>
-                    <p>You don't care how AI works. You care which button to press on Tuesday.</p>
-                </div>
-                <div class="trust-item">
-                    <div class="icon">😬</div>
-                    <h4>Skeptical of "AI Gurus"</h4>
-                    <p>Good. So am I. No promises of transformation. Just 10 hours back per week.</p>
-                </div>
-                <div class="trust-item">
-                    <div class="icon">✅</div>
-                    <h4>Willing to Try One Thing</h4>
-                    <p>You don't need to become an expert. Just open to one new tool that might help.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2>Questions You Might Have</h2>
-                <p>Honest answers. No obfuscation.</p>
-            </div>
-            
-            <div class="faq-item">
-                <h4>Do I need to be technical?</h4>
-                <p>
-                    If you can write an email, you can use these tools. I specifically picked tools with 
-                    ZERO learning curve. If anything feels complicated, I'll simplify it live in the workshop.
-                </p>
-            </div>
-            
-            <div class="faq-item">
-                <h4>What if I can't make it live?</h4>
-                <p>
-                    You get the full recording within 24 hours. Plus all materials. You'll miss the live Q&A 
-                    but you can email me questions. (I actually respond.)
-                </p>
-            </div>
-            
-            <div class="faq-item">
-                <h4>Can't I just figure this out on my own?</h4>
-                <p>
-                    Sure. I did. It took 6 months of trial, error, and wasted money on tools I didn't need. 
-                    This workshop shortcuts that. For $29, you're buying my learning. Your call.
-                </p>
-            </div>
-            
-            <div class="faq-item">
-                <h4>Will this work for my industry?</h4>
-                <p>
-                    I work with: coaches, consultants, agencies, local service businesses, content creators, 
-                    e-commerce, and more. If you write emails, create content, or schedule meetings — yes.
-                </p>
-            </div>
-            
-            <div class="faq-item">
-                <h4>What's the refund policy?</h4>
-                <p>
-                    30 days. Watch the workshop, try the tools, email me if you're unhappy for ANY reason. 
-                    I'll refund you. No interrogation. I only want happy customers.
-                </p>
-            </div>
-            
-            <div class="faq-item">
-                <h4>Why is it so cheap? ($29)</h4>
-                <p>
-                    Two reasons: (1) This is a <strong>soft launch</strong> — I'm testing the content with real 
-                    people and want feedback. (2) Most people should start with the <strong>free kit</strong>. 
-                    This workshop is for folks who want live demos and the full breakdown. Price will go up 
-                    after I iterate based on feedback.
-                </p>
-            </n            </div>
-            
-            <div class="faq-item">
-                <h4>What's "My Real Workflow" bonus?</h4>
-                <p>
-                    A 20-minute video showing my ACTUAL setup: Grok for daily queries, OpenClaw swarms for 
-                    automation, custom agents that run 24/7. I include this so you know I'm not hiding 
-                    anything. You can see what I actually built — then decide if you ever need that complexity.
-                    <strong>Spoiler: Most people don't.</strong>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>Practical AI. Real Time Savings. No BS.</h2>
-            <p>
-                Join 25+ business owners learning the 8-tool system that's actually saving 10–15 hours weekly. 
-                Not hype. Just workflows that work.
-            </p>
-            <div class="price-highlight">$29 — One Time</div>
-            <br>
-            <a href="#workshops" class="btn btn-primary">Join the Workshop</a>
-            <br>
-            <div class="guarantee-box">
-                <span>✓</span> 30-Day Money-Back Guarantee
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <ul class="footer-links">
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="mailto:hello@shaynesailab.com">Contact</a></li>
-            </ul>
-            <p>&copy; 2026 Shayne's AI Lab</p>
-            <p>Practical AI for busy business owners. No hype. No BS.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+                    <p>Advanced automation for businesses ready to
