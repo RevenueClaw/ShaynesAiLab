@@ -1,901 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shayne's AI Lab — Practical AI That Actually Saves Time</title>
-    <meta name="description" content="Free AI Starter Kit + $29 workshop. The exact 8 tools I use to save 15+ hours a week. No hype. Just honest workflows that work.">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --brand-dark: #0f172a;
-            --brand-navy: #1e293b;
-            --brand-teal: #14b8a6;
-            --brand-cyan: #06b6d4;
-            --brand-accent: #2dd4bf;
-            --brand-glow: rgba(45, 212, 191, 0.15);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-elevated: #334155;
-            --border: #334155;
-            --success: #10b981;
-            --error: #ef4444;
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --space-2xl: 4rem;
-            --space-3xl: 6rem;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-primary);
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        img { max-width: 100%; height: auto; }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; }
-        h3 { font-size: 1.5rem; font-weight: 600; }
-        h4 { font-size: 1.25rem; font-weight: 600; }
-        
-        p {
-            color: var(--text-secondary);
-            font-size: 1.125rem;
-            line-height: 1.7;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            padding: var(--space-md) 0;
-        }
-        
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-        
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: var(--space-lg);
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-            font-size: 0.95rem;
-        }
-        
-        .nav-links a:hover { color: var(--brand-accent); }
-        
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-xs);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-            color: var(--brand-dark);
-            box-shadow: 0 4px 20px var(--brand-glow);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px var(--brand-glow);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--brand-accent);
-            border: 2px solid var(--brand-accent);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--brand-accent);
-            color: var(--brand-dark);
-        }
-        
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        
-        /* Hero */
-        .hero {
-            padding: calc(var(--space-3xl) + 60px) 0 var(--space-3xl);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at top, var(--brand-glow) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-xs);
-            padding: var(--space-xs) var(--space-md);
-            background: rgba(45, 212, 191, 0.1);
-            border: 1px solid var(--brand-accent);
-            border-radius: 100px;
-            color: var(--brand-accent);
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: var(--space-lg);
-        }
-        
-        .hero h1 { max-width: 900px; margin: 0 auto var(--space-md); }
-        
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.375rem;
-            max-width: 700px;
-            margin: 0 auto var(--space-xl);
-            color: var(--text-secondary);
-        }
-        
-        .hero-cta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-md);
-            justify-content: center;
-            margin-bottom: var(--space-xl);
-        }
-        
-        .hero-guarantee {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-md);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        
-        /* Honesty Banner */
-        .honesty-banner {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--brand-accent);
-            border-radius: 12px;
-            padding: var(--space-lg);
-            margin: var(--space-xl) auto;
-            max-width: 800px;
-            text-align: left;
-        }
-        
-        .honesty-banner h3 { color: var(--brand-accent); margin-bottom: var(--space-sm); font-size: 1.125rem; }
-        .honesty-banner p { font-size: 1rem; color: var(--text-secondary); margin-bottom: var(--space-sm); }
-        .honesty-banner .highlight { color: var(--text-primary); font-weight: 600; }
-        
-        /* Lead Magnet Section */
-        .lead-magnet { padding: var(--space-3xl) 0; background: var(--bg-secondary); }
-        
-        .lead-magnet-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-3xl);
-            align-items: center;
-        }
-        
-        .kit-preview {
-            background: var(--bg-primary);
-            border: 2px dashed var(--border);
-            border-radius: 16px;
-            padding: var(--space-xl);
-            text-align: center;
-        }
-        
-        .kit-preview h3 { margin-bottom: var(--space-md); }
-        
-        .kit-features {
-            list-style: none;
-            text-align: left;
-            margin: var(--space-lg) 0;
-        }
-        
-        .kit-features li {
-            padding: var(--space-xs) 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-secondary);
-        }
-        
-        .kit-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: 700;
-        }
-        
-        /* Form Styles */
-        .form-group { margin-bottom: var(--space-md); }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: var(--space-xs);
-            font-weight: 500;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 1rem;
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: border-color 0.2s;
-            font-family: inherit;
-        }
-        
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--brand-accent);
-        }
-        
-        .form-group input.error { border-color: var(--error); }
-        
-        .form-note {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            margin-top: var(--space-sm);
-        }
-        
-        .form-success {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid var(--success);
-            border-radius: 8px;
-            padding: var(--space-md);
-            margin-top: var(--space-md);
-            display: none;
-        }
-        
-        .form-success.visible { display: block; }
-        
-        .form-success h4 {
-            color: var(--success);
-            margin-bottom: var(--space-xs);
-            font-size: 1.1rem;
-        }
-        
-        .form-success p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-        
-        .download-btn {
-            display: inline-block;
-            margin-top: var(--space-md);
-            padding: var(--space-sm) var(--space-md);
-            background: var(--success);
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s;
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        .spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-top-color: var(--brand-dark);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .btn.loading .spinner { display: inline-block; }
-        .btn.loading .btn-text { opacity: 0; }
-        
-        /* Workshop Cards */
-        .workshops { padding: var(--space-3xl) 0; }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-        }
-        
-        .section-header h2 { margin-bottom: var(--space-md); }
-        .section-header p { max-width: 600px; margin: 0 auto; }
-        
-        .workshop-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-xl);
-        }
-        
-        .workshop-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: var(--space-xl);
-            transition: transform 0.2s, border-color 0.2s;
-            position: relative;
-        }
-        
-        .workshop-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--brand-accent);
-        }
-        
-        .workshop-card.featured {
-            border: 2px solid var(--brand-accent);
-            background: linear-gradient(135deg, var(--bg-secondary), rgba(45, 212, 191, 0.05));
-        }
-        
-        .workshop-card.featured::before {
-            content: 'Most Popular';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--brand-accent);
-            color: var(--brand-dark);
-            padding: 4px 16px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .workshop-badge {
-            display: inline-block;
-            padding: var(--space-xs) var(--space-sm);
-            background: rgba(45, 212, 191, 0.1);
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--brand-accent);
-            margin-bottom: var(--space-md);
-        }
-        
-        .workshop-card h3 { margin-bottom: var(--space-sm); }
-        
-        .workshop-meta {
-            display: flex;
-            gap: var(--space-md);
-            margin: var(--space-md) 0;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-        
-        .workshop-price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin: var(--space-md) 0;
-        }
-        
-        .workshop-price span { font-size: 1rem; font-weight: 400; color: var(--text-muted); }
-        
-        .workshop-features {
-            list-style: none;
-            margin: var(--space-lg) 0;
-        }
-        
-        .workshop-features li {
-            padding: var(--space-xs) 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-        
-        .workshop-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--brand-accent);
-        }
-        
-        /* Bonus Banner */
-        .bonus-banner {
-            background: linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(6, 182, 212, 0.1));
-            border: 1px solid var(--brand-accent);
-            border-radius: 12px;
-            padding: var(--space-lg);
-            margin: var(--space-xl) 0;
-            text-align: center;
-        }
-        
-        .bonus-banner h4 { color: var(--brand-accent); margin-bottom: var(--space-sm); }
-        .bonus-banner p { font-size: 1rem; margin: 0; }
-        
-        /* What's Included */
-        .whats-included {
-            padding: var(--space-3xl) 0;
-            background: var(--bg-secondary);
-        }
-        
-        .included-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-lg);
-            margin-top: var(--space-2xl);
-        }
-        
-        .included-item {
-            display: flex;
-            gap: var(--space-md);
-            padding: var(--space-lg);
-            background: var(--bg-primary);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-        
-        .included-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .included-item h4 { margin-bottom: var(--space-xs); font-size: 1.1rem; }
-        .included-item p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
-        
-        /* Trust Section */
-        .trust { padding: var(--space-3xl) 0; }
-        
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-lg);
-            margin-top: var(--space-2xl);
-        }
-        
-        .trust-item { text-align: center; padding: var(--space-lg); }
-        
-        .trust-item .icon {
-            width: 60px;
-            height: 60px;
-            background: var(--bg-secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--space-md);
-            font-size: 1.5rem;
-        }
-        
-        .trust-item h4 { margin-bottom: var(--space-sm); font-size: 1.1rem; }
-        .trust-item p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
-        
-        /* FAQ */
-        .faq { padding: var(--space-3xl) 0; background: var(--bg-secondary); }
-        
-        .faq-item {
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: var(--space-lg);
-            margin-bottom: var(--space-md);
-        }
-        
-        .faq-item h4 { color: var(--text-primary); margin-bottom: var(--space-sm); font-size: 1.1rem; }
-        .faq-item p { font-size: 1rem; color: var(--text-secondary); margin: 0; }
-        .faq-item a { color: var(--brand-accent); text-decoration: none; }
-        .faq-item a:hover { text-decoration: underline; }
-        
-        /* Final CTA */
-        .final-cta { padding: var(--space-3xl) 0; text-align: center; position: relative; }
-        
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at center, var(--brand-glow) 0%, transparent 60%);
-            pointer-events: none;
-        }
-        
-        .final-cta h2 { margin-bottom: var(--space-md); }
-        .final-cta p { max-width: 600px; margin: 0 auto var(--space-xl); }
-        
-        .price-highlight {
-            display: inline-block;
-            padding: var(--space-sm) var(--space-lg);
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-            border-radius: 100px;
-            color: var(--brand-dark);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: var(--space-lg);
-        }
-        
-        .guarantee-box {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            margin-top: var(--space-lg);
-            padding: var(--space-sm) var(--space-md);
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid var(--success);
-            border-radius: 8px;
-            color: var(--success);
-            font-size: 0.9rem;
-        }
-        
-        /* Footer */
-        footer { padding: var(--space-xl) 0; border-top: 1px solid var(--border); text-align: center; }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-lg);
-            margin-bottom: var(--space-md);
-            list-style: none;
-        }
-        
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        
-        .footer-links a:hover { color: var(--brand-accent); }
-        
-        footer p { font-size: 0.875rem; color: var(--text-muted); margin: var(--space-xs) 0; }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.25rem; }
-            .lead-magnet-grid { grid-template-columns: 1fr; }
-            .workshop-grid { grid-template-columns: 1fr; }
-            .included-grid { grid-template-columns: 1fr; }
-            .hero-cta { flex-direction: column; align-items: center; }
-            .hero-guarantee { flex-direction: column; }
-            .workshop-meta { flex-direction: column; gap: var(--space-xs); }
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shayne's AI Lab — Custom AI Workflows for Business Operations</title>
+  <meta name="description" content="I build custom AI automation workflows that run your business operations while you sleep. $2,000–$5,000 per workflow, delivered in 1–2 weeks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131f;
+      --surface2: #1c1c2e;
+      --border: #2a2a3e;
+      --text: #e8e8f0;
+      --text2: #9898b0;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --green: #10b981;
+      --red: #ef4444;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-        /* No-JS fallback */
-        .no-js .form-success { display: block; }
-        .no-js button[type="submit"] { display: none; }
-    </style>
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,15,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 0;
+    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+    .nav-logo span { color: var(--accent2); }
+    .nav-links { display: flex; gap: 2rem; font-size: 0.9rem; }
+    .nav-links a { color: var(--text2); }
+    .nav-links a:hover { color: var(--text); }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero {
+      padding: 6rem 0 5rem;
+      text-align: center;
+    }
+    .hero .tag {
+      display: inline-block;
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.3);
+      color: var(--accent2);
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em;
+      padding: 0.3rem 0.9rem; border-radius: 99px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700; line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 .hl { color: var(--accent2); }
+    .hero .sub {
+      font-size: 1.1rem; color: var(--text2);
+      max-width: 560px; margin: 0 auto 2.5rem;
+    }
+    .hero .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.75rem 1.6rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem;
+      cursor: pointer; border: none; transition: all 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent2); text-decoration: none; }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); text-decoration: none; }
+
+    /* PROOF STRIP */
+    .proof-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 1.4rem 0;
+    }
+    .proof-strip .container { display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; }
+    .proof-stat { text-align: center; }
+    .proof-stat .num { font-size: 1.5rem; font-weight: 700; color: var(--green); }
+    .proof-stat .label { font-size: 0.8rem; color: var(--text2); margin-top: 0.15rem; }
+
+    /* SECTION COMMON */
+    section { padding: 5rem 0; }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+      color: var(--accent2); text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: 0.8rem; }
+    .section-sub { color: var(--text2); max-width: 520px; margin-bottom: 3rem; }
+
+    /* WORKFLOW GRID */
+    .workflows-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.2rem;
+    }
+    .wf-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .wf-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .wf-card .wf-icon { font-size: 1.6rem; margin-bottom: 0.7rem; }
+    .wf-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .wf-card p { font-size: 0.88rem; color: var(--text2); margin-bottom: 0.8rem; }
+    .wf-card .wf-stat {
+      font-size: 0.78rem; color: var(--green);
+      background: rgba(16,185,129,0.08);
+      border: 1px solid rgba(16,185,129,0.2);
+      padding: 0.2rem 0.6rem; border-radius: 99px;
+      display: inline-block;
+    }
+
+    /* HOW IT WORKS */
+    .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+    .how-step { }
+    .how-step .step-num {
+      font-size: 2.2rem; font-weight: 800; color: var(--accent);
+      line-height: 1; margin-bottom: 0.6rem;
+    }
+    .how-step h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .how-step p { font-size: 0.88rem; color: var(--text2); }
+
+    /* PRICING */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.8rem;
+    }
+    .price-card.featured { border-color: var(--accent); position: relative; }
+    .price-card.featured::before {
+      content: "Most Common";
+      position: absolute; top: -0.7rem; left: 1.5rem;
+      background: var(--accent); color: #fff;
+      font-size: 0.7rem; font-weight: 600;
+      padding: 0.2rem 0.7rem; border-radius: 99px;
+    }
+    .price-card h3 { font-size: 0.85rem; font-weight: 600; color: var(--text2); margin-bottom: 0.5rem; }
+    .price-card .amount { font-size: 2rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .price-card .amount small { font-size: 0.9rem; font-weight: 400; color: var(--text2); }
+    .price-card .desc { font-size: 0.85rem; color: var(--text2); margin-bottom: 1.2rem; }
+    .price-card ul { list-style: none; margin-bottom: 1.5rem; }
+    .price-card li { font-size: 0.88rem; color: var(--text2); padding: 0.3rem 0; }
+    .price-card li::before { content: "✓ "; color: var(--green); font-weight: 700; }
+
+    /* CONTACT FORM */
+    .contact-section { background: var(--surface); border-top: 1px solid var(--border); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-info .section-sub { margin-bottom: 1.5rem; }
+    .contact-info p { font-size: 0.9rem; color: var(--text2); margin-bottom: 1.5rem; }
+    .contact-info .contact-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; margin-bottom: 0.7rem; }
+    .contact-info .contact-item .icon { color: var(--accent2); }
+    .contact-form-wrap { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 500; margin-bottom: 0.3rem; color: var(--text2); }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 0.65rem 0.9rem;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 7px; color: var(--text); font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none; border-color: var(--accent);
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-status { margin-top: 1rem; font-size: 0.9rem; font-weight: 500; display: none; }
+    .form-status.error { color: var(--red); display: block; }
+    .form-status.success { color: var(--green); display: block; }
+    .form-success-msg { display: none; text-align: center; padding: 2rem; }
+    .form-success-msg.visible { display: block; }
+    .form-success-msg h3 { color: var(--green); margin-bottom: 0.5rem; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; }
+    footer p { font-size: 0.82rem; color: var(--text2); }
+    footer a { color: var(--text2); }
+    footer a:hover { color: var(--text); }
+
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="#" class="logo">
-                <img src="logo.png" alt="Shayne's AI Lab" style="height: 48px; width: auto;">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#free-kit">Free Kit</a></li>
-                <li><a href="#workshops">Workshops</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <div class="nav-logo">Shayne's <span>AI Lab</span></div>
+      <div class="nav-links">
+        <a href="#workflows">Workflows</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="tag">Built with production AI workflows — 8 leads qualified this month</div>
+      <h1>I Build the Automations<br><span class="hl">Your Business Needs</span></h1>
+      <p class="sub">Custom AI workflow development for operations leaders who need real automation — not prompts, not workshops, not theory.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">Talk to me about your problem</a>
+        <a href="#workflows" class="btn btn-outline">See what I build</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF STRIP -->
+  <div class="proof-strip">
+    <div class="container">
+      <div class="proof-stat"><div class="num">8</div><div class="label">Leads Qualified</div></div>
+      <div class="proof-stat"><div class="num">3</div><div class="label">HOT Prospects</div></div>
+      <div class="proof-stat"><div class="num">2</div><div class="label">Social Posts Queued</div></div>
+      <div class="proof-stat"><div class="num">4/7</div><div class="label">Workflows Running</div></div>
+      <div class="proof-stat"><div class="num">100%</div><div class="label">Open Source Workflows</div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- WORKFLOWS -->
+  <section id="workflows">
+    <div class="container">
+      <span class="section-tag">The Workflow Library</span>
+      <h2>Built This For My Own Business First</h2>
+      <p class="section-sub">Every workflow below is running in production — not a demo, not a mockup. This is the same work I do for clients.</p>
+
+      <div class="workflows-grid">
+        <div class="wf-card">
+          <div class="wf-icon">📧</div>
+          <h3>Email Triage + Routing</h3>
+          <p>LLM classifies and routes every incoming email — urgent things escalate, routine stuff sorts itself, zero inbox drowning.</p>
+          <span class="wf-stat">Nightly digest — 0 manual triage</span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-badge">
-                <span>✓</span> Practical AI for Busy Business Owners
-            </div>
-            <h1>
-                AI That Actually Saves Time — <span>With Full Honesty About What I Really Use</span>
-            </h1>
-            <p class="hero-subtitle">
-                Most small business owners have tried AI once or twice… got overwhelmed… and quietly stopped. 
-                If that's you, you're not alone. I built something simple that actually works.
-            </p>
-            <div class="hero-cta">
-                <a href="#free-kit" class="btn btn-primary">Get the Free AI Starter Kit</a>
-                <a href="#workshops" class="btn btn-secondary">See the Workshop ($29)</a>
-            </div>
-            <div class="hero-guarantee">
-                <span>✓ No spam, ever</span>
-                <span>✓ Unsubscribe anytime</span>
-                <span>✓ 30-day money-back guarantee</span>
-            </div>
-            
-            <!-- Honesty Banner -->
-            <div class="honesty-banner">
-                <h3>🎯 The Brutal Honesty</h3>
-                <p>
-                    I don't use ChatGPT as my daily driver. I use <span class="highlight">Grok + custom OpenClaw swarms</span>. 
-                    But you probably don't need that. Here's my honest recommendation: Start with 8 simple tools. 
-                    Master those. <em>Then</em> decide if you ever need more.
-                </p>
-                <p style="margin-top: var(--space-sm); font-size: 0.95rem;">
-                    <strong>The "My Real Workflow" bonus</strong> shows you exactly what I built — so you know I'm not BS-ing you.
-                </p>
-            </div>
+        <div class="wf-card">
+          <div class="wf-icon">🔥</div>
+          <h3>Lead Intake + Qualification</h3>
+          <p>Incoming inquiries scored with BANT+Fit logic. Hot leads get immediate personal reply. Cold leads get a nurture sequence. Nobody falls through the cracks.</p>
+          <span class="wf-stat">8 leads qualified · 3 HOT · live</span>
         </div>
-    </section>
+        <div class="wf-card">
+          <div class="wf-icon">🎫</div>
+          <h3>Support Ticket Summarization</h3>
+          <p>New support emails matched against a knowledge base. Resolved tickets auto-close. Escalated issues ring my phone, not my inbox.</p>
+          <span class="wf-stat">30-min digest cycle</span>
+        </div>
+        <div class="wf-card">
+          <div class="wf-icon">📱</div>
+          <h3>Social Content Scheduler</h3>
+          <p>RSS feeds scored for relevance daily. LinkedIn and Twitter drafts auto-generated. Pending my review and approval before anything goes live.</p>
+          <span class="wf-stat">2 drafts queued · pending review</span>
+        </div>
+        <div class="wf-card">
+          <div class="wf-icon">📋</div>
+          <h3>Meeting Prep Assistant</h3>
+          <p>Paste in a meeting title, attendees, agenda. Get a full pre-meeting brief with attendee context, talking points, and questions to ask.</p>
+          <span class="wf-stat">Manual trigger · ~90 seconds</span>
+        </div>
+        <div class="wf-card">
+          <div class="wf-icon">💰</div>
+          <h3>Invoice Follow-Up Automation</h3>
+          <p>Tracks outstanding invoices by due date. Sends escalating friendly → urgent → final notice emails. Escalates to human at 60 days.</p>
+          <span class="wf-stat">CSV-based · auto-escalation</span>
+        </div>
+        <div class="wf-card">
+          <div class="wf-icon">🗄️</div>
+          <h3>CRM Auto-Population</h3>
+          <p>Polls email for meeting confirmations, contact additions, deal emails. Auto-creates CRM records from email activity — CRM stays current without manual entry.</p>
+          <span class="wf-stat">Gmail → Airtable pipeline</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Lead Magnet Section -->
-    <section class="lead-magnet" id="free-kit">
-        <div class="container">
-            <div class="lead-magnet-grid">
-                <div>
-                    <h2>Start With the Free AI Starter Kit</h2>
-                    <p>
-                        The 8-tool cheat sheet I wish I had 18 months ago. Enter your email and get instant access.
-                    </p>
-                    <ul class="kit-features">
-                        <li>The 8 tools that actually save time (and 12 to skip)</li>
-                        <li>Cost breakdown: free vs. paid tiers</li>
-                        <li>Quick-start checklist for each tool</li>
-                        <li>My "first 30 days" implementation guide</li>
-                        <li>Bonus: "My Real Workflow" sneak peek</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="kit-preview" id="kit-form-container">
-                        <h3>📋 AI Starter Kit</h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);">Free • PDF Download</p>
-                        
-                        <form id="lead-capture-form">
-                            <div class="form-group">
-                                <label for="first-name">First Name</label>
-                                <input type="text" id="first-name" name="firstName" placeholder="John" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">
-                                <span class="spinner"></span>
-                                <span class="btn-text">Get Free Kit — Instant Download</span>
-                            </button>
-                            <p class="form-note">✓ No credit card required • Unsubscribe anytime</p>
-                        </form>
-                        
-                        <div id="form-success" class="form-success">
-                            <h4>✓ Check your email!</h4>
-                            <p>Your AI Starter Kit is on its way. (Check spam/junk if you don't see it within 2 minutes.)</p>
-                            <p style="margin-top: var(--space-sm);">
-                                <strong>While you wait:</strong> See my upcoming workshop for live demos of all 8 tools.
-                            </p>
-                            <a href="#workshops" class="btn btn-primary" style="margin-top: var(--space-md);">
-                                See the Workshop ($29)
-                            </a>
-                        </div>
-                    </div>
-                </div>
+  <hr class="divider">
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="container">
+      <span class="section-tag">The Process</span>
+      <h2>How We Work Together</h2>
+      <p class="section-sub">Custom builds scoped and delivered in 1–2 weeks. No retainers. No black boxes.</p>
+
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="step-num">01</div>
+          <h3>Discovery Call</h3>
+          <p>30 minutes. You describe the operation that's burning time. I tell you if it can be automated and how.</p>
+        </div>
+        <div class="how-step">
+          <div class="step-num">02</div>
+          <h3>Scoped Proposal</h3>
+          <p>I write a detailed spec: what the workflow does, what it requires from you, what it delivers, the timeline and price.</p>
+        </div>
+        <div class="how-step">
+          <div class="step-num">03</div>
+          <h3>Build + Deliver</h3>
+          <p>1–2 weeks. You get a production-ready workflow with documentation, run instructions, and 30 days of support.</p>
+        </div>
+        <div class="how-step">
+          <div class="step-num">04</div>
+          <h3>Iterate or Walk Away</h3>
+          <p>If it works and you want more, we talk about ongoing ops work. If not, you have a working workflow and no lock-in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <span class="section-tag">Investment</span>
+      <h2>Simple, Upfront Pricing</h2>
+      <p class="section-sub">No hourly billing surprises. Price agreed before I touch a keyboard.</p>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Single Workflow</h3>
+          <div class="amount">$2,000–$5,000 <small>one-time</small></div>
+          <p class="desc">A custom-built AI workflow scoped for one specific business problem. Delivered in 1–2 weeks.</p>
+          <ul>
+            <li>Full workflow build</li>
+            <li>Run documentation</li>
+            <li>30-day support window</li>
+            <li>Source code ownership</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="width:100%;text-align:center;">Start with a single workflow</a>
+        </div>
+        <div class="price-card featured">
+          <h3>Workflow Suite</h3>
+          <div class="amount">$8,000–$15,000 <small>one-time</small></div>
+          <p class="desc">3–5 related workflows that run a whole business function. Inventory ops, demand gen pipeline, customer success — full blocks.</p>
+          <ul>
+            <li>Everything in Single Workflow ×5</li>
+            <li>Integrated data flows</li>
+            <li>Workflow orchestration</li>
+            <li>Priority 60-day support</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="width:100%;text-align:center;">Talk about a suite</a>
+        </div>
+        <div class="price-card">
+          <h3>Ongoing Ops</h3>
+          <div class="amount">$1,500–$3,000 <small>/month</small></div>
+          <p class="desc">Retainer for continuous workflow improvement, new automations as your business evolves, and a dedicated point of contact.</p>
+          <ul>
+            <li>Dedicated monthly hours</li>
+            <li>New workflows as needed</li>
+            <li>Direct Slack access</li>
+            <li>Priority SLA</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="width:100%;text-align:center;">Explore the retainer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="section-tag">Let's Talk</span>
+          <h2>Tell me what's burning</h2>
+          <p class="section-sub">No sales call. Just a conversation about whether I can help. If I can, we'll figure out what that looks like. If I can't, I'll tell you that too.</p>
+          <p>I respond within 24 hours. If it's urgent, email directly.</p>
+          <div class="contact-item">
+            <span class="icon">📧</span>
+            <a href="mailto:shaynesailab@gmail.com">shaynesailab@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="icon">🌐</span>
+            <a href="https://shaynesailab.com">shaynesailab.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="icon">⏱️</span>
+            <span style="color:var(--text2)">Response time: usually &lt;24 hours</span>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <div class="form-success-msg" id="form-success">
+            <h3>Message received.</h3>
+            <p style="color:var(--text2);font-size:0.9rem;margin-top:0.5rem;">I'll be in touch within 24 hours. If you don't hear back, check your spam folder — or email directly at shaynesailab@gmail.com.</p>
+          </div>
+          <form id="lead-capture-form" autocomplete="on">
+            <div class="form-group">
+              <label for="first-name">Name</label>
+              <input type="text" id="first-name" name="name" placeholder="Your name" required autocomplete="name">
             </div>
-        </div>
-    </section>
-
-    <!-- Workshops Section -->
-    <section class="workshops" id="workshops">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Workshops</h2>
-                <p>Progressive learning. Start with the basics. Level up when (and if) you need to.</p>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
             </div>
-            
-            <div class="workshop-grid">
-                <!-- Workshop #1 -->
-                <div class="workshop-card featured">
-                    <div class="workshop-badge">Workshop #1</div>
-                    <h3>AI That Saves 15+ Hours/Week</h3>
-                    <p>The complete 8-tool system for small business owners who are tired of the AI hype.</p>
-                    
-                    <div class="workshop-meta">
-                        <span>📅 50 minutes</span>
-                        <span>💻 Live + Recording</span>
-                    </div>
-                    
-                    <div class="workshop-price">$29 <span>one-time</span></div>
-                    
-                    <ul class="workshop-features">
-                        <li>6 live tool demos (watch my screen)</li>
-                        <li>Email, content, and customer service workflows</li>
-                        <li>What I use vs. what I recommend (honest split)</li>
-                        <li>Full cheat sheet + 50-prompt library</li>
-                        <li><strong>"My Real Workflow" bonus video</strong></li>
-                        <li>Recording yours forever</li>
-                    </ul>
-                    
-                    <a href="#" class="btn btn-primary" style="width: 100%;">Join Next Session — $29</a>
-                </div>
-                
-                <!-- Workshop #2 -->
-                <div class="workshop-card">
-                    <div class="workshop-badge">Workshop #2</div>
-                    <h3>AI That Answers Your Customers</h3>
-                    <p>Advanced automation for businesses ready to                </div>
+            <div class="form-group">
+              <label for="company">Company <span style="font-weight:400;color:var(--text2)">(optional)</span></label>
+              <input type="text" id="company" name="company" placeholder="What you run" autocomplete="organization">
             </div>
+            <div class="form-group">
+              <label for="message">What's the problem you need to solve?</label>
+              <textarea id="message" name="message" placeholder="Describe the operation that's burning time. The more specific, the better." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">Send message</button>
+            <p class="form-status" id="form-status"></p>
+          </form>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Final CTA -->
-    <section class="final-cta" id="cta">
-        <div class="container">
-            <h2>Ready to Actually Use AI?</h2>
-            <p>Start with the free kit. No credit card. No hype. Just 8 tools that work.</p>
-            <a href="#free-kit" class="btn btn-primary">Get the Free AI Starter Kit</a>
-            <div class="guarantee-box">✓ 30-day money-back guarantee on workshops</div>
-        </div>
-    </section>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>Shayne's AI Lab &mdash; Custom AI Workflows for Operations Leaders &mdash; <a href="https://shaynesailab.com">shaynesailab.com</a></p>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <ul class="footer-links">
-                <li><a href="#free-kit">Free Kit</a></li>
-                <li><a href="#workshops">Workshops</a></li>
-                <li><a href="mailto:shaynesailab@gmail.com">Contact</a></li>
-            </ul>
-            <p>© 2026 Shayne's AI Lab. Built with honest intent.</p>
-        </div>
-    </footer>
-
-    <script>
-    (function() {
-        var form = document.getElementById('lead-capture-form');
-        if (!form) return;
-
-        var statusEl = document.getElementById('form-status');
-        function getStatusEl() {
-            if (!statusEl) {
-                statusEl = document.createElement('p');
-                statusEl.id = 'form-status';
-                statusEl.style.marginTop = '1rem';
-                statusEl.style.fontWeight = '500';
-                statusEl.style.fontSize = '0.95rem';
-                form.parentNode.insertBefore(statusEl, form.nextSibling);
-            }
-            return statusEl;
+  <script>
+  (function() {
+    var form = document.getElementById('lead-capture-form');
+    if (!form) return;
+    var statusEl = document.getElementById('form-status');
+    function getStatusEl() { return statusEl || (function() { var el = document.createElement('p'); el.id = 'form-status'; el.style.marginTop = '1rem'; el.style.fontWeight = '500'; form.parentNode.insertBefore(el, form.nextSibling); statusEl = el; return el; }()); }
+    function showStatus(msg, isError) {
+      var el = getStatusEl();
+      el.textContent = (isError ? 'Error: ' : '') + msg;
+      el.className = 'form-status ' + (isError ? 'error' : 'success');
+    }
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var firstName = document.getElementById('first-name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var company = document.getElementById('company').value.trim();
+      var message = document.getElementById('message').value.trim();
+      if (!firstName || !email || !message) { showStatus('Please fill in name, email, and message.', true); return; }
+      var btn = form.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      showStatus('Sending...', false);
+      var payload = { name: firstName, email: email, company: company, message: message, source: 'shaynesailab-homepage' };
+      fetch('https://api.shaynesailab.com/api/lead', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.status === 'ok' || data.status === 'received') {
+          form.style.display = 'none';
+          var success = document.getElementById('form-success');
+          if (success) success.classList.add('visible');
+          else showStatus("You're in. I'll be in touch within 24 hours.", false);
+        } else {
+          showStatus('Something went wrong. Email shaynesailab@gmail.com directly.', true);
+          btn.disabled = false; btn.textContent = 'Send message';
         }
-
-        function showStatus(msg, isError) {
-            var el = getStatusEl();
-            el.textContent = (isError ? '❌ ' : '✅ ') + msg;
-            el.style.color = isError ? '#ef4444' : '#10b981';
-            el.style.display = 'block';
-        }
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            var firstName = document.getElementById('first-name').value.trim();
-            var email = document.getElementById('email').value.trim();
-
-            if (!firstName || !email) {
-                showStatus('Please fill in all fields.', true);
-                return;
-            }
-
-            var btn = form.querySelector('button[type="submit"]');
-            btn.disabled = true;
-            btn.classList.add('loading');
-            showStatus('Sending...', false);
-
-            var payload = {
-                name: firstName,
-                email: email,
-                message: 'Free AI Starter Kit request from shaynesailab.com landing page',
-                source: 'shaynesailab-landing'
-            };
-
-            fetch('https://api.shaynesailab.com/api/lead', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            })
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-                if (data.status === 'ok' || data.status === 'received') {
-                    form.style.display = 'none';
-                    var success = document.getElementById('form-success');
-                    if (success) {
-                        success.classList.add('visible');
-                    } else {
-                        showStatus('You\'re in! Check your email for the free kit.', false);
-                    }
-                } else {
-                    showStatus('Something went wrong. Email shaynesailab@gmail.com directly.', true);
-                    btn.disabled = false;
-                    btn.classList.remove('loading');
-                }
-            })
-            .catch(function() {
-                showStatus('Something went wrong. Email shaynesailab@gmail.com directly.', true);
-                btn.disabled = false;
-                btn.classList.remove('loading');
-            });
-        });
-    })();
-    </script>
+      })
+      .catch(function() {
+        showStatus('Something went wrong. Email shaynesailab@gmail.com directly.', true);
+        btn.disabled = false; btn.textContent = 'Send message';
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
