@@ -794,4 +794,108 @@
                 <div class="workshop-card">
                     <div class="workshop-badge">Workshop #2</div>
                     <h3>AI That Answers Your Customers</h3>
-                    <p>Advanced automation for businesses ready to
+                    <p>Advanced automation for businesses ready to                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="cta">
+        <div class="container">
+            <h2>Ready to Actually Use AI?</h2>
+            <p>Start with the free kit. No credit card. No hype. Just 8 tools that work.</p>
+            <a href="#free-kit" class="btn btn-primary">Get the Free AI Starter Kit</a>
+            <div class="guarantee-box">✓ 30-day money-back guarantee on workshops</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#free-kit">Free Kit</a></li>
+                <li><a href="#workshops">Workshops</a></li>
+                <li><a href="mailto:shaynesailab@gmail.com">Contact</a></li>
+            </ul>
+            <p>© 2026 Shayne's AI Lab. Built with honest intent.</p>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        var form = document.getElementById('lead-capture-form');
+        if (!form) return;
+
+        var statusEl = document.getElementById('form-status');
+        function getStatusEl() {
+            if (!statusEl) {
+                statusEl = document.createElement('p');
+                statusEl.id = 'form-status';
+                statusEl.style.marginTop = '1rem';
+                statusEl.style.fontWeight = '500';
+                statusEl.style.fontSize = '0.95rem';
+                form.parentNode.insertBefore(statusEl, form.nextSibling);
+            }
+            return statusEl;
+        }
+
+        function showStatus(msg, isError) {
+            var el = getStatusEl();
+            el.textContent = (isError ? '❌ ' : '✅ ') + msg;
+            el.style.color = isError ? '#ef4444' : '#10b981';
+            el.style.display = 'block';
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var firstName = document.getElementById('first-name').value.trim();
+            var email = document.getElementById('email').value.trim();
+
+            if (!firstName || !email) {
+                showStatus('Please fill in all fields.', true);
+                return;
+            }
+
+            var btn = form.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.classList.add('loading');
+            showStatus('Sending...', false);
+
+            var payload = {
+                name: firstName,
+                email: email,
+                message: 'Free AI Starter Kit request from shaynesailab.com landing page',
+                source: 'shaynesailab-landing'
+            };
+
+            fetch('https://api.shaynesailab.com/api/lead', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if (data.status === 'ok' || data.status === 'received') {
+                    form.style.display = 'none';
+                    var success = document.getElementById('form-success');
+                    if (success) {
+                        success.classList.add('visible');
+                    } else {
+                        showStatus('You\'re in! Check your email for the free kit.', false);
+                    }
+                } else {
+                    showStatus('Something went wrong. Email shaynesailab@gmail.com directly.', true);
+                    btn.disabled = false;
+                    btn.classList.remove('loading');
+                }
+            })
+            .catch(function() {
+                showStatus('Something went wrong. Email shaynesailab@gmail.com directly.', true);
+                btn.disabled = false;
+                btn.classList.remove('loading');
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
