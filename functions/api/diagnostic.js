@@ -232,7 +232,8 @@ async function sendReport(data, env) {
     throw new Error('AGENTMAIL_API_KEY not configured');
   }
 
-  const response = await fetch(`${AGENTMAIL_BASE}/inboxes/${FROM_INBOX}/messages`, {
+  const encodedInbox = encodeURIComponent(FROM_INBOX);
+  const response = await fetch(`${AGENTMAIL_BASE}/inboxes/${encodedInbox}/messages`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${apiKey}`,
