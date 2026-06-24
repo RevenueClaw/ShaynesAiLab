@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shayne's AI Lab — Custom AI Workflows for Operations Leaders</title>
+    <title>Shayne's AI Lab — AI Workflows That Give You Your Week Back</title>
     <meta name="description" content="Practical AI workflows for operations leaders at 10–100 person companies. Built and used in my own business first. No hype, no lock-in.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,7 @@
         .hero { padding: calc(var(--space-3xl) + 70px) 0 var(--space-2xl); text-align: center; }
         .hero-badge { display: inline-flex; align-items: center; gap: var(--space-xs); padding: 0.4rem 0.9rem; background: rgba(45, 212, 191, 0.08); border: 1px solid rgba(45, 212, 191, 0.3); border-radius: 100px; color: var(--brand-accent); font-size: 0.85rem; font-weight: 600; margin-bottom: var(--space-lg); }
         .hero h1 { margin-bottom: var(--space-md); }
-        .hero h1 span { background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero h1 span { color: var(--brand-accent); }
         .hero-subtitle { font-size: 1.2rem; max-width: 650px; margin: 0 auto var(--space-xl); }
         .hero-cta { display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center; margin-bottom: var(--space-xl); }
         .trust-bar { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 100px; padding: 0.6rem 1.2rem; color: var(--text-muted); font-size: 0.85rem; }
@@ -59,6 +59,8 @@
         .diagnostic-card { background: linear-gradient(135deg, rgba(45, 212, 191, 0.08), rgba(6, 182, 212, 0.05)); border: 1px solid rgba(45, 212, 191, 0.25); border-radius: 20px; padding: var(--space-xl); max-width: 720px; margin: 0 auto; text-align: center; }
         .diagnostic-card h2 { margin-bottom: var(--space-sm); }
         .diagnostic-card p { margin-bottom: var(--space-lg); }
+        .diagnostic-list { text-align: left; max-width: 480px; margin: 0 auto var(--space-lg); }
+        .diagnostic-list li { color: var(--text-secondary); margin-bottom: var(--space-sm); font-size: 1rem; line-height: 1.5; }
         
         .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-lg); }
         .proof-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: var(--space-lg); transition: transform 0.2s, border-color 0.2s; }
@@ -66,7 +68,7 @@
         .proof-card .icon { width: 46px; height: 46px; background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: var(--space-md); }
         .proof-card h3 { color: var(--text-primary); margin-bottom: var(--space-sm); }
         .proof-card p { font-size: 0.97rem; margin-bottom: var(--space-sm); }
-        .proof-card .meta { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; }
+        .proof-card .meta { color: var(--brand-accent); font-size: 0.9rem; font-weight: 600; }
         
         .kit-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: var(--space-xl); display: grid; grid-template-columns: 1fr auto; gap: var(--space-xl); align-items: center; }
         .kit-card h3 { margin-bottom: var(--space-sm); font-size: 1.35rem; }
@@ -143,10 +145,16 @@
         <div class="container">
             <div class="hero-badge">🙋 Built and used in my own business first</div>
             <h1>
-                AI Workflows That Actually <span>Give You Time Back</span>
+                AI That Actually Gives You <span>Your Week Back</span>
             </h1>
             <p class="hero-subtitle">
-                I'm Shayne. I help operations leaders at 10–100 person companies automate the repetitive work that eats their week. No hype. No theory. Just workflows I use in my own business every day.
+                For operations leaders at 10–100 person companies who are tired of being the glue holding everything together.
+            </p>
+            <p style="max-width: 620px; margin: 0 auto var(--space-xl); color: var(--text-secondary); font-size: 1.1rem;">
+                If your days feel like a loop of triaging email, chasing follow-ups, pushing data between tools, and putting out fires that shouldn't need you — you're not alone. I help ops leaders automate the work that keeps eating their time.
+            </p>
+            <p style="max-width: 620px; margin: 0 auto var(--space-xl); color: var(--text-muted); font-size: 1rem;">
+                I'm Shayne. I build practical AI workflows. No hype, no jargon, no six-month consulting engagement. Every workflow I offer is one I built and use in my own business first.
             </p>
             <div class="hero-cta">
                 <a href="/diagnostic" class="btn btn-primary">Get Your Free Ops Diagnostic — 5 min</a>
@@ -163,9 +171,15 @@
     <section class="section section-alt">
         <div class="container">
             <div class="diagnostic-card">
-                <h2>Start With a Free Ops Diagnostic</h2>
-                <p>Tell me where your team is losing time. I'll send you a short, personalized report with the one workflow that will save you the most hours first.</p>
-                <a href="/diagnostic" class="btn btn-primary">Take the 5-Minute Diagnostic</a>
+                <h2>Find Your Biggest Time Leak — Free</h2>
+                <p>Spend five minutes telling me where your team loses time. I'll send you a short, personalized report showing:</p>
+                <ol class="diagnostic-list">
+                    <li>The one workflow that will save you the most hours first</li>
+                    <li>Roughly how many hours you can expect to get back</li>
+                    <li>Whether a self-install kit, custom build, or wait-and-see makes the most sense for you</li>
+                </ol>
+                <p style="margin-bottom: var(--space-lg); color: var(--text-muted); font-size: 0.95rem;">No call required. No spam. Just a clear starting point.</p>
+                <a href="/diagnostic" class="btn btn-primary">Take the Free Diagnostic</a>
             </div>
         </div>
     </section>
@@ -173,30 +187,30 @@
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2>Real Workflows I Use Every Day</h2>
-                <p>I won't sell you anything I haven't built, broken, fixed, and run myself. These three made the biggest difference.</p>
+                <h2>What "Finally Under Control" Actually Looks Like</h2>
+                <p>I won't sell you anything I haven't built, broken, fixed, and run myself. These three workflows made a real difference.</p>
             </div>
             <div class="proof-grid">
                 <div class="proof-card">
                     <div class="icon">📧</div>
                     <h3>Email Triage & Routing</h3>
-                    <p><strong>Before:</strong> My inbox felt like a firehose. Everything seemed urgent.</p>
-                    <p><strong>Now:</strong> Every email gets sorted automatically. Important stuff reaches me right away. Everything else waits in a nightly digest.</p>
-                    <p class="meta"><strong>Result:</strong> I check email once a day. Nothing important gets missed.</p>
+                    <p><strong>Before:</strong> My inbox ran my day. Every message felt urgent. I'd check email 40 times and still miss the important ones.</p>
+                    <p><strong>Now:</strong> New emails get sorted automatically. The urgent ones reach me right away. The rest go into a once-a-day digest I review on my terms.</p>
+                    <p class="meta">Result: I check email once a day. About 5–8 hours saved per week.</p>
                 </div>
                 <div class="proof-card">
                     <div class="icon">🔥</div>
                     <h3>Lead Intake & Qualification</h3>
-                    <p><strong>Before:</strong> Inquiries came from everywhere. Some got replies, some didn't.</p>
-                    <p><strong>Now:</strong> Every lead is scored on budget, authority, need, timeline, and fit. Hot leads get a fast response. Cold ones enter a nurture track.</p>
-                    <p class="meta"><strong>Result:</strong> 8 leads qualified, 3 flagged hot, zero lost to follow-up.</p>
+                    <p><strong>Before:</strong> Inquiries came in from email, forms, and LinkedIn. Some got fast replies. Some silently disappeared.</p>
+                    <p><strong>Now:</strong> Every lead gets scored on budget, authority, need, timeline, and fit. Hot leads get an immediate response. Everyone else enters a gentle follow-up track.</p>
+                    <p class="meta">Result: Zero leads lost to slow follow-up. 8 qualified, 3 flagged hot.</p>
                 </div>
                 <div class="proof-card">
                     <div class="icon">💰</div>
                     <h3>Invoice Follow-Up Automation</h3>
-                    <p><strong>Before:</strong> I hated chasing unpaid invoices, so they sat.</p>
-                    <p><strong>Now:</strong> Friendly reminders go out at day 1, 7, 14, 30, and 60. I only step in when needed.</p>
-                    <p class="meta"><strong>Result:</strong> Better cash flow, zero awkward manual chasing.</p>
+                    <p><strong>Before:</strong> I hated chasing unpaid invoices, so I put it off. Cash flow suffered.</p>
+                    <p><strong>Now:</strong> Polite reminders go out at day 1, 7, 14, 30, and 60. I only step in if a real conversation is needed.</p>
+                    <p class="meta">Result: Better cash flow. No more awkward manual chasing.</p>
                 </div>
             </div>
             <div style="text-align: center; margin-top: var(--space-xl);">
@@ -208,17 +222,17 @@
     <section class="section section-alt">
         <div class="container">
             <div class="section-header">
-                <h2>A Gentle Starting Point</h2>
-                <p>If email is your biggest time sink, the Email Triage Kit is a good way to test what automation can do — without committing to a custom project.</p>
+                <h2>A Gentle Way to Start</h2>
+                <p>If email is where you're losing the most time, the Email Triage Kit is a low-pressure way to test what automation can do for you.</p>
             </div>
             <div class="kit-card">
                 <div>
                     <h3>Email Triage + Routing Kit</h3>
-                    <p>The same workflow I use to keep my inbox sane, packaged so a Gmail-based team can install it in one afternoon.</p>
+                    <p>It's the same workflow I use every day to keep my inbox sane, packaged so a Gmail-based team can install it in one afternoon.</p>
                     <ul class="kit-features">
-                        <li>Complete Python workflow + config file</li>
+                        <li>Complete Python workflow + simple config file</li>
                         <li>Plain-English setup guide</li>
-                        <li>15-minute setup walkthrough</li>
+                        <li>15-minute walkthrough video</li>
                         <li>14-day email support</li>
                     </ul>
                     <span class="soft-note">💡 Not sure if this fits? Start with the free diagnostic and we can talk custom work if needed.</span>
@@ -258,7 +272,7 @@
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Get Time Back</h3>
+                    <h3>Get Your Time Back</h3>
                     <p>Most workflows pay for themselves in 30–60 days.</p>
                 </div>
             </div>
@@ -273,19 +287,19 @@
             <div class="faq-list">
                 <div class="faq-item">
                     <h3>Do I need to be technical?</h3>
-                    <p>For kits, if you can use Gmail and edit a config file, you'll be fine. For custom builds, I do the technical work and hand you documented, runnable code.</p>
+                    <p>For kits, if you can use Gmail and edit a config file, you'll be fine. For custom builds, I do the technical work and hand you documented, runnable code your team can operate.</p>
                 </div>
                 <div class="faq-item">
                     <h3>What if I want custom work later?</h3>
                     <p>The full kit price applies as credit toward a custom build of the same workflow. So trying a kit is genuinely low-risk.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>What does "built and used in my own business" mean?</h3>
-                    <p>It means I built the workflow for myself first, ran it, fixed what broke, and only then offered it to others. These aren't templates I guessed at — they're what I rely on.</p>
+                    <h3>How do I know these actually work?</h3>
+                    <p>Because I built them for myself first. I run them in my own business. I fix them when they break. They're not templates I guessed at — they're the systems I rely on.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Do you do sales calls?</h3>
-                    <p>Only short discovery calls for custom projects if we really need one. Everything else happens async: form, report, written proposal.</p>
+                    <p>Only for custom projects if we genuinely need one. Everything else happens async: form, report, written proposal.</p>
                 </div>
             </div>
         </div>
@@ -293,8 +307,8 @@
 
     <section class="section final-cta">
         <div class="container">
-            <h2>Find Your Biggest Time Leak — Free</h2>
-            <p>Get a personalized diagnostic report in under 5 minutes. No call required. No spam. Just a clear starting point for getting your time back.</p>
+            <h2>Let's Find Your First Win</h2>
+            <p>Get a personalized diagnostic report in under 5 minutes. No call. No spam. Just a clear recommendation for the workflow that will save you the most time first.</p>
             <a href="/diagnostic" class="btn btn-primary">Get Your Free Ops Diagnostic</a>
         </div>
     </section>
