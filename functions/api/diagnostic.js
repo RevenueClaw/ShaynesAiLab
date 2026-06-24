@@ -233,7 +233,7 @@ async function sendReport(data, env) {
   }
 
   const encodedInbox = encodeURIComponent(FROM_INBOX);
-  const response = await fetch(`${AGENTMAIL_BASE}/inboxes/${encodedInbox}/messages`, {
+  const response = await fetch(`${AGENTMAIL_BASE}/inboxes/${encodedInbox}/messages/send`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${apiKey}`,
