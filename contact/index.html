@@ -123,6 +123,7 @@
     <section class="section">
         <div class="container">
             <div class="contact-card">
+                <!-- TODO: Replace YOUR_FORM_ID with actual Formspree endpoint or backend URL before launch -->
                 <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -148,7 +149,7 @@
                         <textarea id="message" name="message" placeholder="Tell me what you're trying to automate or the problem you're seeing." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                    <p class="form-note">This form uses Formspree. Replace YOUR_FORM_ID with your actual endpoint before going live.</p>
+                    <p class="form-note">This form uses Formspree. Replace YOUR_FORM_ID with your actual endpoint before going live. <!-- TODO: replace placeholder --></p>
                 </form>
             </div>
 
@@ -178,6 +179,8 @@
         </div>
     </footer>
 
+    <!-- TODO: Replace *** with actual Cloudflare Web Analytics beacon token before launch -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+    <!-- END Cloudflare Web Analytics -->
 </body>
 </html>

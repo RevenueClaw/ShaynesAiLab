@@ -174,6 +174,7 @@
     <section class="section">
         <div class="container">
             <div class="diagnostic-form">
+                <!-- TODO: Wire this form to a real backend (Cloudflare Worker, Formspree + webhook, or Python handler) before launch -->
                 <form id="diagnostic-form" action="/diagnostic/submit" method="POST">
                     
                     <!-- Question 1 -->
@@ -380,13 +381,13 @@
                         <span class="btn-text">Get My Free Diagnostic Report</span>
                     </button>
 
-                    <p class="hint" style="text-align: center; margin-top: var(--space-sm);">Takes about 5 minutes. Report arrives within a few minutes.</p>
+                    <p class="hint" style="text-align: center; margin-top: var(--space-sm);">Takes about 5 minutes. Report arrives within 15 minutes while we set up automated generation.</p>
                 </form>
 
                 <div id="form-success" class="form-success">
-                    <h2>✓ Check your email</h2>
-                    <p>Your diagnostic report is on its way. If you don't see it within 5 minutes, check spam/junk.</p>
-                    <p>While you wait, take a look at the workflow I recommended in the report, or browse the full library.</p>
+                    <h2>✓ Thanks — report incoming</h2>
+                    <p>Your diagnostic report is being generated and will arrive within 15 minutes. If you don't see it, check spam/junk.</p>
+                    <p>Need faster help? Email <a href="mailto:hello@shaynesailab.com" style="color: var(--brand-accent);">hello@shaynesailab.com</a>.</p>
                     <a href="/workflows" class="btn btn-primary">Browse Workflows</a>
                 </div>
             </div>
@@ -417,8 +418,8 @@
             btn.classList.add('loading');
             btn.disabled = true;
             
+            // Backend note: until the report backend is live, this simulates submission and shows a 'report incoming' message.
             // TODO: Wire this to your actual backend (Cloudflare Worker, Formspree, etc.)
-            // For now, simulate submission and show success
             try {
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData);
@@ -443,6 +444,8 @@
         });
     </script>
 
+    <!-- TODO: Replace *** with actual Cloudflare Web Analytics beacon token before launch -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+    <!-- END Cloudflare Web Analytics -->
 </body>
 </html>
