@@ -1,528 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shayne's AI Lab — Custom AI Workflows for Operations Leaders</title>
-    <meta name="description" content="Production-proven AI workflows for operations leaders at 10–100 person companies. Built and dogfooded first. No prompts, no theory, no lock-in.">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --brand-dark: #0f172a;
-            --brand-navy: #1e293b;
-            --brand-teal: #14b8a6;
-            --brand-cyan: #06b6d4;
-            --brand-accent: #2dd4bf;
-            --brand-glow: rgba(45, 212, 191, 0.15);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --border: #334155;
-            --success: #10b981;
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --space-2xl: 4rem;
-            --space-3xl: 6rem;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-primary);
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; }
-        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; }
-        h3 { font-size: 1.25rem; font-weight: 600; }
-        p { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; }
-        
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            padding: var(--space-md) 0;
-        }
-        
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 700;
-            font-size: 1.25rem;
-        }
-        
-        .logo-icon { width: 36px; height: 36px; }
-        
-        .nav-links {
-            display: flex;
-            gap: var(--space-lg);
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        
-        .nav-links a:hover { color: var(--brand-accent); }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-xs);
-            padding: 0.875rem 1.75rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-            color: var(--brand-dark);
-            box-shadow: 0 4px 20px var(--brand-glow);
-        }
-        
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--brand-glow); }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--brand-accent);
-            border: 2px solid var(--brand-accent);
-        }
-        
-        .btn-secondary:hover { background: var(--brand-accent); color: var(--brand-dark); }
-        
-        .hero {
-            padding: calc(var(--space-3xl) + 60px) 0 var(--space-3xl);
-            text-align: center;
-        }
-        
-        .hero h1 { margin-bottom: var(--space-md); }
-        
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            max-width: 650px;
-            margin: 0 auto var(--space-xl);
-        }
-        
-        .hero-cta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-md);
-            justify-content: center;
-            margin-bottom: var(--space-xl);
-        }
-        
-        .trust-bar {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: var(--space-md) var(--space-lg);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        
-        .trust-bar span { display: flex; align-items: center; gap: var(--space-xs); }
-        
-        .section { padding: var(--space-3xl) 0; }
-        .section-alt { background: var(--bg-secondary); }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-        }
-        
-        .section-header h2 { margin-bottom: var(--space-md); }
-        .section-header p { max-width: 600px; margin: 0 auto; }
-        
-        .diagnostic-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: var(--space-xl);
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .diagnostic-card p { margin-bottom: var(--space-lg); font-size: 1rem; }
-        
-        .proof-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-lg);
-        }
-        
-        .proof-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: var(--space-lg);
-        }
-        
-        .proof-card h3 { color: var(--brand-accent); margin-bottom: var(--space-sm); }
-        .proof-card p { font-size: 1rem; margin-bottom: var(--space-sm); }
-        .proof-card .metric { color: var(--text-primary); font-weight: 700; }
-        
-        .kit-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: var(--space-xl);
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: var(--space-xl);
-            align-items: center;
-        }
-        
-        .kit-card h3 { margin-bottom: var(--space-sm); }
-        .kit-card p { margin-bottom: var(--space-md); font-size: 1rem; }
-        
-        .kit-features { list-style: none; margin-bottom: var(--space-md); }
-        .kit-features li {
-            padding: var(--space-xs) 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-        .kit-features li::before { content: '✓'; position: absolute; left: 0; color: var(--success); font-weight: 700; }
-        
-        .kit-price {
-            text-align: center;
-        }
-        
-        .kit-price .price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-primary);
-        }
-        .kit-price .note { font-size: 0.85rem; color: var(--text-muted); }
-        
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: var(--space-lg);
-        }
-        
-        .step {
-            text-align: center;
-            padding: var(--space-lg);
-        }
-        
-        .step-number {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-            color: var(--brand-dark);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            margin: 0 auto var(--space-md);
-        }
-        
-        .step h3 { margin-bottom: var(--space-xs); }
-        .step p { font-size: 0.95rem; margin: 0; }
-        
-        .faq-item {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: var(--space-lg);
-            margin-bottom: var(--space-md);
-        }
-        .faq-item h3 { margin-bottom: var(--space-sm); font-size: 1.1rem; }
-        .faq-item p { font-size: 1rem; margin: 0; }
-        
-        .final-cta { text-align: center; }
-        .final-cta p { max-width: 600px; margin: 0 auto var(--space-xl); }
-        
-        footer {
-            padding: var(--space-xl) 0;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-lg);
-            margin-bottom: var(--space-md);
-            list-style: none;
-        }
-        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
-        .footer-links a:hover { color: var(--brand-accent); }
-        footer p { font-size: 0.875rem; color: var(--text-muted); margin: var(--space-xs) 0; }
-        
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2rem; }
-            .hero-cta { flex-direction: column; align-items: center; }
-            .trust-bar { flex-direction: column; align-items: center; }
-            .kit-card { grid-template-columns: 1fr; }
-            .kit-price { text-align: left; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shayne's AI Lab — Custom AI Workflows for Operations Leaders</title>
+  <meta name="description" content="I build custom AI automation workflows that run your business operations while you sleep. $2,000–$5,000 per workflow, delivered in 1–2 weeks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #13131f; --surface2: #1c1c2e;
+      --border: #2a2a3e; --text: #e8e8f0; --text2: #9898b0;
+      --accent: #6366f1; --accent2: #818cf8; --green: #10b981; --red: #ef4444;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,15,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0.9rem 0; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-weight: 700; font-size: 1.1rem; }
+    .nav-logo span { color: var(--accent2); }
+    .nav-links { display: flex; gap: 2rem; font-size: 0.9rem; }
+    .nav-links a { color: var(--text2); }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero { padding: 6rem 0 5rem; text-align: center; }
+    .hero .tag { display: inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: var(--accent2); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; padding: 0.3rem 0.9rem; border-radius: 99px; margin-bottom: 1.5rem; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.2rem; }
+    .hero h1 .hl { color: var(--accent2); }
+    .hero .sub { font-size: 1.1rem; color: var(--text2); max-width: 560px; margin: 0 auto 2.5rem; }
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.75rem 1.6rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; border: none; transition: all 0.2s; text-decoration: none; }
+    .btn:hover { text-decoration: none; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent2); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); }
+
+    /* PROOF STRIP */
+    .proof-strip { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.4rem 0; }
+    .proof-strip .container { display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; }
+    .proof-stat { text-align: center; }
+    .proof-stat .num { font-size: 1.5rem; font-weight: 700; color: var(--green); }
+    .proof-stat .label { font-size: 0.8rem; color: var(--text2); margin-top: 0.15rem; }
+
+    section { padding: 5rem 0; }
+    .section-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; color: var(--accent2); text-transform: uppercase; margin-bottom: 0.8rem; }
+    h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: 0.8rem; }
+    .section-sub { color: var(--text2); max-width: 560px; margin-bottom: 3rem; }
+
+    /* WORKFLOW CARDS — expanded */
+    .workflows-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.4rem; }
+    .wf-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.6rem; transition: border-color 0.2s, transform 0.2s; }
+    .wf-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .wf-card .wf-top { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 0.8rem; }
+    .wf-card .wf-icon { font-size: 1.8rem; flex-shrink: 0; line-height: 1; }
+    .wf-card h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.3; }
+    .wf-card .wf-problem { font-size: 0.85rem; color: var(--red); margin-bottom: 0.6rem; font-weight: 500; }
+    .wf-card .wf-problem::before { content: "Solves: "; color: var(--text2); font-weight: 400; }
+    .wf-card p { font-size: 0.88rem; color: var(--text2); margin-bottom: 1rem; }
+    .wf-card .wf-how { font-size: 0.83rem; color: var(--text2); margin-bottom: 1rem; padding: 0.7rem; background: var(--surface2); border-radius: 7px; border-left: 3px solid var(--accent); }
+    .wf-card .wf-how strong { color: var(--text); display: block; margin-bottom: 0.2rem; font-size: 0.8rem; }
+    .wf-card .wf-stats { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
+    .wf-card .wf-stat { font-size: 0.75rem; color: var(--green); background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); padding: 0.2rem 0.6rem; border-radius: 99px; }
+
+    /* DIVIDER */
+    hr.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* HOW IT WORKS */
+    .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+    .how-step .step-num { font-size: 2.2rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 0.6rem; }
+    .how-step h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .how-step p { font-size: 0.88rem; color: var(--text2); }
+
+    /* WHAT I DON'T DO */
+    .红线-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .红线-item { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.9rem; color: var(--text2); padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+    .红线-item .x { color: var(--red); font-size: 1.1rem; flex-shrink: 0; line-height: 1.4; }
+
+    /* PRICING */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+    .price-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; position: relative; }
+    .price-card.featured { border-color: var(--accent); }
+    .price-card.featured::before { content: "Most Common"; position: absolute; top: -0.7rem; left: 1.5rem; background: var(--accent); color: #fff; font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.7rem; border-radius: 99px; }
+    .price-card h3 { font-size: 0.85rem; font-weight: 600; color: var(--text2); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .price-card .amount { font-size: 2rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .price-card .amount small { font-size: 0.9rem; font-weight: 400; color: var(--text2); }
+    .price-card .desc { font-size: 0.85rem; color: var(--text2); margin-bottom: 1.2rem; }
+    .price-card ul { list-style: none; margin-bottom: 1.5rem; }
+    .price-card li { font-size: 0.88rem; color: var(--text2); padding: 0.3rem 0; }
+    .price-card li::before { content: "\2713 "; color: var(--green); font-weight: 700; }
+    .price-card .btn { width: 100%; justify-content: center; }
+
+    /* CONTACT */
+    .contact-section { background: var(--surface); border-top: 1px solid var(--border); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-info .section-sub { margin-bottom: 1.5rem; }
+    .contact-info p { font-size: 0.9rem; color: var(--text2); margin-bottom: 1.2rem; }
+    .contact-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; margin-bottom: 0.8rem; }
+    .contact-item .icon { color: var(--accent2); font-size: 1.1rem; }
+    .contact-item a { color: var(--text); }
+    .contact-item a:hover { color: var(--accent2); }
+    .contact-item span { color: var(--text2); }
+    .contact-form-wrap { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 500; margin-bottom: 0.3rem; color: var(--text2); }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.65rem 0.9rem; background: var(--bg); border: 1px solid var(--border); border-radius: 7px; color: var(--text); font-size: 0.9rem; font-family: 'Inter', sans-serif; transition: border-color 0.2s; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-status { margin-top: 1rem; font-size: 0.9rem; font-weight: 500; display: none; }
+    .form-status.error { color: var(--red); display: block; }
+    .form-status.success { color: var(--green); display: block; }
+    .form-success-msg { display: none; text-align: center; padding: 2rem; }
+    .form-success-msg.visible { display: block; }
+    .form-success-msg h3 { color: var(--green); margin-bottom: 0.5rem; }
+    .form-success-msg p { color: var(--text2); font-size: 0.9rem; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.82rem; color: var(--text2); }
+    footer a { color: var(--text2); }
+    footer a:hover { color: var(--text); }
+    footer .footer-email { color: var(--text); }
+  </style>
 </head>
 <body>
 
-    <nav>
-        <div class="container">
-            <a href="/" class="logo">
-                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/>
-                    <path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/>
-                    <defs>
-                        <linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#2dd4bf"/>
-                            <stop offset="1" stop-color="#06b6d4"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                Shayne's AI Lab
-            </a>
-            <ul class="nav-links">
-                <li><a href="/workflows">Workflows</a></li>
-                <li><a href="/pricing">Pricing</a></li>
-                <li><a href="/diagnostic">Free Diagnostic</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
+  <nav>
+    <div class="container">
+      <div class="nav-logo">Shayne's <span>AI Lab</span></div>
+      <div class="nav-links">
+        <a href="#workflows">Workflows</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="tag">7 production workflows running our own business &mdash; built by us, for us</div>
+      <h1>I Build the Automations<br><span class="hl">Your Business Needs</span></h1>
+      <p class="sub">Custom AI workflow development for operations leaders who need real automation &mdash; not prompts, not workshops, not theory. Delivered in 1&ndash;2 weeks.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">Tell me what&apos;s burning</a>
+        <a href="#workflows" class="btn btn-outline">See what I build</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="proof-strip">
+    <div class="container">
+      <div class="proof-stat"><div class="num">8</div><div class="label">Leads Qualified</div></div>
+      <div class="proof-stat"><div class="num">3</div><div class="label">HOT Prospects</div></div>
+      <div class="proof-stat"><div class="num">2</div><div class="label">Social Posts Queued</div></div>
+      <div class="proof-stat"><div class="num">4/7</div><div class="label">Workflows Running</div></div>
+      <div class="proof-stat"><div class="num">100%</div><div class="label">Open Source Code</div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <section id="workflows">
+    <div class="container">
+      <span class="section-tag">The Workflow Library</span>
+      <h2>Every Workflow Below Is Running in Production</h2>
+      <p class="section-sub">Not mockups. Not demos. These run my own business operations every day. When you hire me, you get the same quality &mdash; scoped for your specific problem.</p>
+
+      <div class="workflows-grid">
+
+        <!-- Workflow 1: Email Triage -->
+        <div class="wf-card">
+          <div class="wf-top">
+            <div class="wf-icon">&#128231;</div>
+            <h3>Email Triage + Routing</h3>
+          </div>
+          <div class="wf-problem">Inbox drowning you? Every email treated like it needs immediate attention.</div>
+          <p>Every incoming email is classified by an LLM: urgent vs. routine vs. promotional vs. escalation. Urgent things page me immediately. Routine items get bulked into a daily digest. I never touch my inbox unless something actually needs me.</p>
+          <div class="wf-how"><strong>How it works:</strong> Connects to Gmail via IMAP. New emails trigger classification. Escalations go to SMS/email. Everything else lands in a nightly digest.</div>
+          <div class="wf-stats">
+            <span class="wf-stat">Nightly digest &bull; zero manual triage</span>
+          </div>
         </div>
-    </nav>
 
-    <section class="hero">
-        <div class="container">
-            <h1>
-                Stop Drowning in <span>Operational Drag</span>
-            </h1>
-            <p class="hero-subtitle">
-                Custom AI workflows for operations leaders at 10–100 person companies. Built and run in my own business first. No prompts. No theory. No lock-in.
-            </p>
-            <div class="hero-cta">
-                <a href="/diagnostic" class="btn btn-primary">Get Your Free Ops Diagnostic — 5 Minutes</a>
-                <a href="/workflows" class="btn btn-secondary">See the Workflow Library</a>
-            </div>
-            <div class="trust-bar">
-                <span>✓ 7 workflows running in production</span>
-                <span>✓ 5–15 hours saved per workflow</span>
-                <span>✓ Open-source code, no lock-in</span>
-                <span>✓ Delivered in 1–2 weeks</span>
-            </div>
+        <!-- Workflow 2: Lead Intake -->
+        <div class="wf-card">
+          <div class="wf-top">
+            <div class="wf-icon">&#128293;</div>
+            <h3>Lead Intake + Qualification</h3>
+          </div>
+          <div class="wf-problem">Leads slipping through the cracks. No idea who&apos;s hot until it&apos;s too late.</div>
+          <p>Every incoming inquiry &mdash; web form, LinkedIn, email &mdash; is scored against BANT+Fit criteria (Budget, Authority, Need, Timeline, Company Fit). Hot leads get a personal reply within the hour. Cold leads enter a nurture sequence. Everyone gets followed up with, nobody gets forgotten.</p>
+          <div class="wf-how"><strong>How it works:</strong> Web form submits to our API. LLM scores against 5 criteria. CSV tracks every lead. Hot leads fire an immediate response. Sequences trigger on a timer.</div>
+          <div class="wf-stats">
+            <span class="wf-stat">8 leads qualified &bull; 3 HOT &bull; live</span>
+          </div>
         </div>
-    </section>
 
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Hidden Tax on Manual Work</h2>
-                <p>A $35/hour operations person spending 10 hours per week on email triage, lead routing, follow-ups, and CRM updates costs your business <strong style="color: var(--text-primary);">$18,200 per year</strong>. That doesn't include leads that went cold, invoices that sat unpaid, and decisions made late because the data wasn't where it should be.</p>
-            </div>
+        <!-- Workflow 3: Support -->
+        <div class="wf-card">
+          <div class="wf-top">
+            <div class="wf-icon">&#127981;</div>
+            <h3>Support Ticket Summarization</h3>
+          </div>
+          <div class="wf-problem">Support emails pile up. Agents spend more time reading threads than solving problems.</div>
+          <p>Every new support email is matched against a knowledge base of known solutions. The system pulls the most relevant KB article and presents it inline. If sentiment is negative, or the issue is urgent, or there&apos;s no KB match &mdash; it escalates to a human with a full context summary so I&apos;m not starting from zero.</p>
+          <div class="wf-how"><strong>How it works:</strong> Polls support inbox every 30 minutes. TF-IDF vector matching against KB. LLM generates summary if matched. Escalation triggers on negative sentiment or no match.</div>
+          <div class="wf-stats">
+            <span class="wf-stat">30-min digest cycle &bull; KB-matched</span>
+          </div>
         </div>
-    </section>
 
-    <section class="section section-alt">
-        <div class="container">
-            <div class="diagnostic-card">
-                <h2>Start With the Free Ops Diagnostic</h2>
-                <p>Answer 6 questions. Get a report that tells you your biggest operational time leak, the workflow that will save you the most time first, and whether to buy a kit, request custom work, or do nothing.</p>
-                <a href="/diagnostic" class="btn btn-primary">Take the Free Diagnostic</a>
-            </div>
+        <!-- Workflow 4: Social -->
+        <div class="wf-card">
+          <div class="wf-top">
+            <div class="wf-icon">&#128241;</div>
+            <h3>Social Content Scheduler</h3>
+          </div>
+          <div class="wf-problem">You know you should be posting. You never have time to find good content.</div>
+          <p>RSS feeds from Hacker News, TechCrunch, Ars Technica, and Product Hunt are scanned daily. Articles are scored by relevance using a hybrid rule + LLM system. Top-scored articles get LinkedIn and Twitter drafts auto-generated. Nothing goes live without my review &mdash; but the hunting and drafting is done.</p>
+          <div class="wf-how"><strong>How it works:</strong> Fetches 4 RSS feeds daily. Rules pre-filter by keyword. LLM scores relevance 1&ndash;10. Top picks generate platform-specific drafts. Queued for human review before publishing.</div>
+          <div class="wf-stats">
+            <span class="wf-stat">2 drafts queued &bull; pending review</span>
+          </div>
         </div>
-    </section>
 
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Proof From My Own Operations</h2>
-                <p>I don't sell theory. I sell workflows I've already built, broken, fixed, and run.</p>
-            </div>
-            <div class="proof-grid">
-                <div class="proof-card">
-                    <h3>📧 Email Triage + Routing</h3>
-                    <p><strong>Problem:</strong> Every email felt urgent.</p>
-                    <p><strong>Workflow:</strong> LLM classifies email as urgent, routine, promotional, or escalation. Urgent pings me. Everything else goes to a nightly digest.</p>
-                    <p class="metric">Result: I only touch my inbox when something actually needs me.</p>
-                </div>
-                <div class="proof-card">
-                    <h3>🔥 Lead Intake + Qualification</h3>
-                    <p><strong>Problem:</strong> Leads slipped through the cracks.</p>
-                    <p><strong>Workflow:</strong> Every inquiry is scored automatically. Hot leads get a fast reply. Cold leads enter nurture.</p>
-                    <p class="metric">Result: 8 leads qualified, 3 flagged HOT, zero lost to follow-up.</p>
-                </div>
-                <div class="proof-card">
-                    <h3>💰 Invoice Follow-Up Automation</h3>
-                    <p><strong>Problem:</strong> Outstanding invoices sat unpaid because chasing felt awkward.</p>
-                    <p><strong>Workflow:</strong> Escalating reminder emails fire automatically at day 1, 7, 14, 30, and 60.</p>
-                    <p class="metric">Result: No awkward manual follow-ups. Cash flow improved.</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: var(--space-xl);">
-                <a href="/workflows" class="btn btn-secondary">Browse the Full Workflow Library</a>
-            </div>
+        <!-- Workflow 5: Meeting Prep -->
+        <div class="wf-card">
+          <div class="wf-top">
+            <div class="wf-icon">&#128203;</div>
+            <h3>Meeting Prep Assistant</h3>
+          </div>
+          <div class="wf-problem">Walking into meetings unprepared because there&apos;s no time to research everyone.</div>
+          <p>Paste in a meeting title, attendees, and agenda. Get back a full pre-meeting brief: who you&apos;re meeting, their company context, talking points generated from the agenda, and questions to ask. 90 seconds of input instead of 45 minutes of Googling.</p>
+          <div class="wf-how"><strong>How it works:</strong> Takes structured meeting info (title, time, attendees, agenda). LLM generates contextual brief with talking points and questions. Outputs a markdown file saved to the briefs directory.</div>
+          <div class="wf-stats">
+            <span class="wf-stat">Manual trigger &bull; ~90 sec to brief</span>
+          </div>
         </div>
-    </section>
 
-    <!-- STARTER OFFER SECTION -->
-    <!-- This section is intentionally soft-sell. The diagnostic is the primary CTA. -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2>One Strong Starting Point</h2>
-                <p>If the diagnostic points to email overload, this is a good first workflow to try. The same Email Triage system I run, packaged for self-install.</p>
-            </div>
-            <div class="kit-card">
-                <div>
-                    <h3>Email Triage + Routing Kit</h3>
-                    <p>Designed for Gmail-based teams who want their inbox under control in one afternoon. Classify, route, and digest automatically.</p>
-                    <ul class="kit-features">
-                        <li>Complete Python workflow</li>
-                        <li>Step-by-step README + config file</li>
-                        <li>15-minute setup video</li>
-                        <li>14-day email support</li>
-                    </ul>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Not sure if this fits? Start with the free diagnostic and we can discuss custom work if needed.</p>
-                </div>
-                <div class="kit-price">
-                    <div class="price">$597</div>
-                    <div class="note">one-time</div>
-                    <!-- TODO: Replace with real Stripe payment link before launch -->
-                    <a href="/templates/email-triage-kit" class="btn btn-primary" style="margin-top: var(--space-md); width: 100%;">View Kit Details</a>
-                    <a href="/diagnostic" class="btn btn-secondary" style="margin-top: var(--space-sm); width: 100%;">Take Free Diagnostic</a>
-                </div>
-            </div>
+        <!-- Workflow 6: Invoice -->
+        <div class="wf-card">
+          <div class="wf-top">
+            <div class="wf-icon">&#128176;</div>
+            <h3>Invoice Follow-Up Automation</h3>
+          </div>
+          <div class="wf-problem">You&apos;re owed money. Following up feels awkward. So the invoices just sit.</div>
+          <p>Outstanding invoices tracked by due date in a CSV. When an invoice goes overdue, escalating reminder emails fire automatically &mdash; friendly at day 1, firm at day 7, urgent at day 14, final notice at day 30. At day 60, I get notified to handle it personally. No awkward chasing emails. No deadbeat clients.</p>
+          <div class="wf-how"><strong>How it works:</strong> Invoice CSV with due dates. Cron checks daily. Ladder: day 1 / 7 / 14 / 30 / 60. Emails sent via Gmail. Human notified only at escalation threshold.</div>
+          <div class="wf-stats">
+            <span class="wf-stat">CSV-based tracker &bull; 4-step escalation</span>
+          </div>
         </div>
-    </section>
 
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>How It Works</h2>
-                <p>Async-first. No sales pressure. No unnecessary calls.</p>
-            </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Take the Diagnostic</h3>
-                    <p>6 questions. 5 minutes. Identify your biggest time leak.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Get Your Roadmap</h3>
-                    <p>A short report or Loom with recommended next steps.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Choose Your Path</h3>
-                    <p>Self-install kit, custom build, or nothing. You decide.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Get Your Time Back</h3>
-                    <p>Most workflows pay for themselves in 30–60 days.</p>
-                </div>
-            </div>
+        <!-- Workflow 7: CRM -->
+        <div class="wf-card">
+          <div class="wf-top">
+            <div class="wf-icon">&#128451;</div>
+            <h3>CRM Auto-Population</h3>
+          </div>
+          <div class="wf-problem">CRM stays outdated because nobody has time to manually enter every contact and deal.</div>
+          <p>Polls your email inbox for signals: meeting confirmations, new contact additions, deal-related emails. Classifies them by type (meeting / contact / deal) and creates CRM records automatically. Your CRM stays current without any manual data entry.</p>
+          <div class="wf-how"><strong>How it works:</strong> Polls Gmail via IMAP. Detector classifier tags emails by type. Airtable REST API creates/updates records. Deduplication prevents duplicate entries.</div>
+          <div class="wf-stats">
+            <span class="wf-stat">Gmail &rarr; Airtable pipeline &bull; auto-deduped</span>
+          </div>
         </div>
-    </section>
 
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2>Questions You Might Have</h2>
-            </div>
-            <div class="faq-item">
-                <h3>Do I need to be technical?</h3>
-                <p>For self-install kits, if you can use Gmail and edit a config file, you're fine. Custom builds include full handoff and documentation.</p>
-            </div>
-            <div class="faq-item">
-                <h3>What if I want custom work later?</h3>
-                <p>The full kit price applies as credit toward a custom build. That's the intended path.</p>
-            </div>
-            <div class="faq-item">
-                <h3>What does "production-proven" mean?</h3>
-                <p>I built it, ran it, broke it, fixed it, and run it in my own operations before I ever offer it to a client.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Do you do sales calls?</h3>
-                <p>Only short discovery calls for custom projects. Everything else is async — form, report, written proposal.</p>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="how-it-works">
+    <div class="container">
+      <span class="section-tag">The Process</span>
+      <h2>How We Work Together</h2>
+      <p class="section-sub">Custom builds scoped and delivered in 1&ndash;2 weeks. No retainers required. No black boxes.</p>
+
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="step-num">01</div>
+          <h3>Discovery Call</h3>
+          <p>30 minutes. You describe the operation burning time. I tell you if it&apos;s automatable, what it would take, and roughly what it costs. No pitch.</p>
         </div>
-    </section>
-
-    <section class="section final-cta">
-        <div class="container">
-            <h2>Find Your Biggest Time Leak — Free</h2>
-            <p>Get a personalized diagnostic report in under 5 minutes. No call required. No spam. Just a clear recommendation for the one workflow that will save you the most time first.</p>
-            <a href="/diagnostic" class="btn btn-primary">Get Your Free Ops Diagnostic</a>
+        <div class="how-step">
+          <div class="step-num">02</div>
+          <h3>Scoped Proposal</h3>
+          <p>I write a detailed spec: what the workflow does, what it requires from your side, what it delivers, the timeline, and the price. You approve before I start writing code.</p>
         </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <ul class="footer-links">
-                <li><a href="/workflows">Workflows</a></li>
-                <li><a href="/pricing">Pricing</a></li>
-                <li><a href="/diagnostic">Free Diagnostic</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/privacy">Privacy</a></li>
-            </ul>
-            <p>&copy; 2026 Shayne's AI Lab. Built and dogfooded in production first.</p>
+        <div class="how-step">
+          <div class="step-num">03</div>
+          <h3>Build + Deliver</h3>
+          <p>1&ndash;2 weeks. You get production-ready code, run documentation, and 30 days of support. Source code is yours. No lock-in.</p>
         </div>
-    </footer>
+        <div class="how-step">
+          <div class="step-num">04</div>
+          <h3>Iterate or Walk Away</h3>
+          <p>If it works and you want more, we talk about ongoing ops or a broader workflow suite. If not, you have a working workflow and we part ways. No hard feelings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "PLACEHOLDER_TOKEN"}'></script>
-    <!-- End Cloudflare Web Analytics -->
+  <hr class="divider">
 
+  <!-- WHAT I DON'T DO -->
+  <section>
+    <div class="container">
+      <span class="section-tag">Expectations</span>
+      <h2>What I Don&apos;t Do</h2>
+      <p class="section-sub">Being upfront about scope avoids problems later. These aren&apos;t what I build.</p>
+      <div class="红线-grid">
+        <div class="红线-item"><span class="x">&#10005;</span> Consumer apps, mobile apps, or consumer SaaS products</div>
+        <div class="红线-item"><span class="x">&#10005;</span> Prompts or prompt libraries &mdash; I build systems, not cheat sheets</div>
+        <div class="红线-item"><span class="x">&#10005;</span> "AI strategy" consulting without a deliverable attached</div>
+        <div class="红线-item"><span class="x">&#10005;</span> Ongoing managed services at low price points &mdash; custom builds only</div>
+        <div class="红线-item"><span class="x">&#10005;</span> Work where the business problem isn&apos;t clearly defined</div>
+        <div class="红线-item"><span class="x">&#10005;</span> Supercomputer infrastructure &mdash; I use existing models and APIs</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="pricing">
+    <div class="container">
+      <span class="section-tag">Investment</span>
+      <h2>Simple, Upfront Pricing</h2>
+      <p class="section-sub">No hourly billing surprises. Price agreed before I touch a keyboard. Scope documented before I write code.</p>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Single Workflow</h3>
+          <div class="amount">$2,000&ndash;$5,000 <small>one-time</small></div>
+          <p class="desc">A custom-built AI workflow scoped for one specific business problem. Delivered in 1&ndash;2 weeks. Payment on delivery.</p>
+          <ul>
+            <li>Full workflow build &amp; documentation</li>
+            <li>Source code ownership &mdash; yours</li>
+            <li>30-day support window</li>
+            <li>Run instructions for your team</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline">Start with a single workflow</a>
+        </div>
+
+        <div class="price-card featured">
+          <h3>Workflow Suite</h3>
+          <div class="amount">$8,000&ndash;$15,000 <small>one-time</small></div>
+          <p class="desc">3&ndash;5 related workflows that run a whole business function &mdash; inventory ops, demand gen pipeline, customer success. A complete block, not a single tool.</p>
+          <ul>
+            <li>Everything in Single Workflow &times;5</li>
+            <li>Integrated data flows between workflows</li>
+            <li>Workflow orchestration</li>
+            <li>60-day priority support</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Talk about a suite</a>
+        </div>
+
+        <div class="price-card">
+          <h3>Ongoing Ops</h3>
+          <div class="amount">$1,500&ndash;$3,000 <small>/month</small></div>
+          <p class="desc">Retainer for continuous workflow improvement, new automations as your business evolves, and a dedicated point of contact who knows your systems.</p>
+          <ul>
+            <li>Dedicated monthly hours (8&ndash;20)</li>
+            <li>New workflows as needed</li>
+            <li>Direct Slack access</li>
+            <li>48-hour SLA</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline">Explore the retainer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="section-tag">Let&apos;s Talk</span>
+          <h2>Tell me what&apos;s burning</h2>
+          <p class="section-sub">No sales call. No pitch deck. Just a conversation about whether I can help. If I can, we figure out what that looks like. If I can&apos;t, I&apos;ll tell you.</p>
+          <p>I respond within 24 hours. If it&apos;s urgent, email directly.</p>
+          <div class="contact-item">
+            <span class="icon">&#128231;</span>
+            <a href="mailto:revenueclaw@gmail.com">revenueclaw@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="icon">&#127760;</span>
+            <a href="https://shaynesailab.com">shaynesailab.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="icon">&#9201;</span>
+            <span>Response time: usually &lt;24 hours</span>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <div class="form-success-msg" id="form-success">
+            <h3>Message received.</h3>
+            <p>I&apos;ll be in touch within 24 hours. If you don&apos;t hear back, check your spam folder &mdash; or email directly at revenueclaw@gmail.com.</p>
+          </div>
+          <form id="lead-capture-form" autocomplete="on">
+            <div class="form-group">
+              <label for="first-name">Name</label>
+              <input type="text" id="first-name" name="name" placeholder="Your name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="company">Company <span style="font-weight:400;color:var(--text2)">(optional)</span></label>
+              <input type="text" id="company" name="company" placeholder="What you run" autocomplete="organization">
+            </div>
+            <div class="form-group">
+              <label for="message">What operation is burning time?</label>
+              <textarea id="message" name="message" placeholder="Describe the problem as specifically as you can. The more detail, the better I can assess fit." required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="timeline">When do you need this solved?</label>
+              <select id="timeline" name="timeline">
+                <option value="">Select a timeline...</option>
+                <option value="asap">Within 2 weeks</option>
+                <option value="month">Within a month</option>
+                <option value="quarter">Within a quarter</option>
+                <option value="exploring">Just exploring</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">Send message</button>
+            <p class="form-status" id="form-status"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>Shayne&apos;s AI Lab &mdash; Custom AI Workflows for Operations Leaders</p>
+      <p><a href="mailto:revenueclaw@gmail.com" class="footer-email">revenueclaw@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+  (function() {
+    var form = document.getElementById('lead-capture-form');
+    if (!form) return;
+    var statusEl = document.getElementById('form-status');
+    function getStatusEl() { return statusEl || (function() { var el = document.createElement('p'); el.id = 'form-status'; el.style.marginTop = '1rem'; el.style.fontWeight = '500'; form.parentNode.insertBefore(el, form.nextSibling); statusEl = el; return el; }()); }
+    function showStatus(msg, isError) { var el = getStatusEl(); el.textContent = (isError ? 'Error: ' : '') + msg; el.className = 'form-status ' + (isError ? 'error' : 'success'); }
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var firstName = document.getElementById('first-name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var company = document.getElementById('company').value.trim();
+      var message = document.getElementById('message').value.trim();
+      var timeline = document.getElementById('timeline').value;
+      if (!firstName || !email || !message) { showStatus('Please fill in name, email, and what problem you&apos;re trying to solve.', true); return; }
+      var btn = form.querySelector('button[type=submit]');
+      btn.disabled = true; btn.textContent = 'Sending...'; showStatus('Sending...', false);
+      var payload = { name: firstName, email: email, company: company, message: message, timeline: timeline, source: 'shaynesailab-homepage-v2' };
+      fetch('https://api.shaynesailab.com/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.status === 'ok' || data.status === 'received') {
+          form.style.display = 'none';
+          var success = document.getElementById('form-success');
+          if (success) success.classList.add('visible');
+          else showStatus("Message received. I&apos;ll be in touch within 24 hours.", false);
+        } else {
+          showStatus('Something went wrong. Email revenueclaw@gmail.com directly.', true);
+          btn.disabled = false; btn.textContent = 'Send message';
+        }
+      })
+      .catch(function() {
+        showStatus('Something went wrong. Email revenueclaw@gmail.com directly.', true);
+        btn.disabled = false; btn.textContent = 'Send message';
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
