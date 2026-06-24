@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Ops Diagnostic — Shayne's AI Lab</title>
+    <meta name="description" content="Answer 6 questions and get a personalized AI workflow recommendation with estimated time savings.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-dark: #0f172a; --brand-navy: #1e293b; --brand-teal: #14b8a6;
+            --brand-cyan: #06b6d4; --brand-accent: #2dd4bf; --brand-glow: rgba(45, 212, 191, 0.15);
+            --text-primary: #f8fafc; --text-secondary: #94a3b8; --text-muted: #64748b;
+            --bg-primary: #0f172a; --bg-secondary: #1e293b; --border: #334155; --success: #10b981;
+            --space-xs: 0.5rem; --space-sm: 1rem; --space-md: 1.5rem; --space-lg: 2rem;
+            --space-xl: 3rem; --space-2xl: 4rem; --space-3xl: 6rem;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-primary); background: var(--bg-primary); line-height: 1.6; }
+        .container { max-width: 700px; margin: 0 auto; padding: 0 20px; }
+        h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.1; }
+        h2 { font-size: 1.25rem; font-weight: 600; }
+        p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
+        
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15,23,42,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: var(--space-md) 0; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; }
+        .logo { display: flex; align-items: center; gap: var(--space-sm); text-decoration: none; color: var(--text-primary); font-weight: 700; font-size: 1.25rem; }
+        .logo-icon { width: 36px; height: 36px; }
+        .nav-links { display: flex; gap: var(--space-lg); list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--brand-accent); }
+        .nav-links a.active { color: var(--brand-accent); }
+        
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); padding: 0.875rem 1.75rem; border-radius: 8px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
+        .btn-primary { background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan)); color: var(--brand-dark); box-shadow: 0 4px 20px var(--brand-glow); }
+        .btn-primary:hover { transform: translateY(-2px); }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        
+        .hero { padding: calc(var(--space-3xl) + 60px) 0 var(--space-xl); text-align: center; }
+        .hero h1 { margin-bottom: var(--space-md); }
+        .hero-subtitle { max-width: 600px; margin: 0 auto; }
+        
+        .section { padding: var(--space-2xl) 0; }
+        
+        .diagnostic-form {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: var(--space-xl);
+        }
+        
+        .form-group { margin-bottom: var(--space-lg); }
+        .form-group label { display: block; margin-bottom: var(--space-sm); font-weight: 600; color: var(--text-primary); }
+        .form-group .hint { font-size: 0.9rem; color: var(--text-muted); margin-top: var(--space-xs); font-weight: 400; }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { outline: none; border-color: var(--brand-accent); }
+        .form-group textarea { min-height: 100px; resize: vertical; }
+        
+        .radio-group { display: flex; flex-direction: column; gap: var(--space-sm); }
+        .radio-option {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-sm);
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .radio-option:hover { border-color: var(--brand-accent); }
+        .radio-option input { margin-top: 3px; accent-color: var(--brand-accent); }
+        .radio-option .option-label { font-weight: 500; color: var(--text-primary); }
+        .radio-option .option-hint { font-size: 0.85rem; color: var(--text-muted); display: block; }
+        
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm);
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .checkbox-option input { accent-color: var(--brand-accent); }
+        .checkbox-option span { font-size: 0.95rem; }
+        
+        .form-success {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            text-align: center;
+        }
+        .form-success.visible { display: block; }
+        .form-success h2 { color: var(--success); margin-bottom: var(--space-sm); }
+        .form-success p { font-size: 1rem; margin-bottom: var(--space-md); }
+        
+        .spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(15,23,42,0.3);
+            border-top-color: var(--brand-dark);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .btn.loading .spinner { display: inline-block; }
+        .btn.loading .btn-text { opacity: 0; }
+        
+        footer { padding: var(--space-xl) 0; border-top: 1px solid var(--border); text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: var(--space-lg); margin-bottom: var(--space-md); list-style: none; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--brand-accent); }
+        footer p { font-size: 0.875rem; color: var(--text-muted); margin: var(--space-xs) 0; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/>
+                    <path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/>
+                    <defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+                </svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links">
+                <li><a href="/workflows">Workflows</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/diagnostic" class="active">Free Diagnostic</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Free Ops Diagnostic</h1>
+            <p class="hero-subtitle">Answer 6 questions. Get a personalized report with your biggest time leak and the workflow that will save you the most time first.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="diagnostic-form">
+                <form id="diagnostic-form" action="/diagnostic/submit" method="POST">
+                    
+                    <!-- Question 1 -->
+                    <div class="form-group">
+                        <label>1. What is your role?</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="role" value="Owner / Founder" required>
+                                <div>
+                                    <span class="option-label">Owner / Founder</span>
+                                </div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="role" value="Operations Manager">
+                                <div>
+                                    <span class="option-label">Operations Manager</span>
+                                </div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="role" value="COO / VP Ops">
+                                <div>
+                                    <span class="option-label">COO / VP Ops</span>
+                                </div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="role" value="Office / Admin Manager">
+                                <div>
+                                    <span class="option-label">Office / Admin Manager</span>
+                                </div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="role" value="Other">
+                                <div>
+                                    <span class="option-label">Other</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="form-group">
+                        <label>2. How many employees does your company have?</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="company_size" value="1-10" required>
+                                <div><span class="option-label">1–10</span></div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="company_size" value="11-50">
+                                <div><span class="option-label">11–50</span></div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="company_size" value="51-100">
+                                <div><span class="option-label">51–100</span></div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="company_size" value="100+">
+                                <div><span class="option-label">100+</span></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="form-group">
+                        <label>3. Which task eats the most of your team's time right now?</label>
+                        <p class="hint">Pick the one you would automate first if you could.</p>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="biggest_time_leak" value="email_triage" required>
+                                <div>
+                                    <span class="option-label">Email triage and routing</span>
+                                    <span class="option-hint">Too much time sorting, forwarding, and deciding what matters</span>
+                                </div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="biggest_time_leak" value="lead_qualification">
+                                <div>
+                                    <span class="option-label">Qualifying and following up with leads</span>
+                                    <span class="option-hint">Leads slip through, hot ones aren't prioritized</span>
+                                </div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="biggest_time_leak" value="support_tickets">
+                                <div>
+                                    <span class="option-label">Support ticket handling</span>
+                                    <span class="option-hint">Agents spend too long reading and routing</span>
+                                </div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="biggest_time_leak" value="crm_data_entry">
+                                <div>
+                                    <span class="option-label">CRM data entry and updates</span>
+                                    <span class="option-hint">Contacts and deals never make it into the CRM</span>
+                                </div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="biggest_time_leak" value="invoicing">
+                                <div>
+                                    <span class="option-label">Invoicing and payment follow-ups</span>
+                                    <span class="option-hint">Outstanding invoices sit awkwardly unpaid</span>
+                                </div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="biggest_time_leak" value="meeting_prep">
+                                <div>
+                                    <span class="option-label">Meeting prep and scheduling</span>
+                                    <span class="option-hint">Researching attendees and context eats hours</span>
+                                </div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="biggest_time_leak" value="content_social">
+                                <div>
+                                    <span class="option-label">Content creation / social media</span>
+                                    <span class="option-hint">Hunting content and drafting posts takes forever</span>
+                                </div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="biggest_time_leak" value="other">
+                                <div><span class="option-label">Something else</span></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="form-group">
+                        <label>4. What tools do you already use for this work?</label>
+                        <p class="hint">Select all that apply.</p>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="Gmail / Google Workspace">
+                                <span>Gmail</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="Airtable">
+                                <span>Airtable</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="Notion">
+                                <span>Notion</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="Slack">
+                                <span>Slack</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="HubSpot">
+                                <span>HubSpot</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="Pipedrive">
+                                <span>Pipedrive</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="Make.com / Zapier">
+                                <span>Make/Zapier</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="QuickBooks">
+                                <span>QuickBooks</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="Other">
+                                <span>Other</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="form-group">
+                        <label>5. If you got 5–10 hours back per week, what would you spend them on?</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="time_use" value="growing_revenue" required>
+                                <div><span class="option-label">Growing revenue / sales</span></div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="time_use" value="serving_customers">
+                                <div><span class="option-label">Serving customers better</span></div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="time_use" value="building_systems">
+                                <div><span class="option-label">Building better systems</span></div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="time_use" value="life_balance">
+                                <div><span class="option-label">Finally leaving earlier</span></div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="time_use" value="other">
+                                <div><span class="option-label">Something else</span></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 6 -->
+                    <div class="form-group">
+                        <label for="email">6. Email address for your report</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        <p class="hint">I'll send your diagnostic report here. No spam, unsubscribe anytime.</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <span class="spinner"></span>
+                        <span class="btn-text">Get My Free Diagnostic Report</span>
+                    </button>
+
+                    <p class="hint" style="text-align: center; margin-top: var(--space-sm);">Takes about 5 minutes. Report arrives within a few minutes.</p>
+                </form>
+
+                <div id="form-success" class="form-success">
+                    <h2>✓ Check your email</h2>
+                    <p>Your diagnostic report is on its way. If you don't see it within 5 minutes, check spam/junk.</p>
+                    <p>While you wait, take a look at the workflow I recommended in the report, or browse the full library.</p>
+                    <a href="/workflows" class="btn btn-primary">Browse Workflows</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/workflows">Workflows</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/diagnostic">Free Diagnostic</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab. Built and dogfooded in production first.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Basic form handling — replace with backend integration
+        document.getElementById('diagnostic-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const form = this;
+            const success = document.getElementById('form-success');
+            
+            btn.classList.add('loading');
+            btn.disabled = true;
+            
+            // TODO: Wire this to your actual backend (Cloudflare Worker, Formspree, etc.)
+            // For now, simulate submission and show success
+            try {
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                // If you have a backend endpoint, uncomment and use:
+                // const response = await fetch('/diagnostic/submit', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(data)
+                // });
+                
+                // Simulate network delay
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                form.style.display = 'none';
+                success.classList.add('visible');
+            } catch (error) {
+                alert('Something went wrong. Please try again or email hello@shaynesailab.com');
+                btn.classList.remove('loading');
+                btn.disabled = false;
+            }
+        });
+    </script>
+
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>

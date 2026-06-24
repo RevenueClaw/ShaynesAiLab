@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing — Shayne's AI Lab</title>
+    <meta name="description" content="Start free with the Ops Diagnostic, then scale from self-install kits to custom workflows and retainers.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-dark: #0f172a; --brand-navy: #1e293b; --brand-teal: #14b8a6;
+            --brand-cyan: #06b6d4; --brand-accent: #2dd4bf; --brand-glow: rgba(45, 212, 191, 0.15);
+            --text-primary: #f8fafc; --text-secondary: #94a3b8; --text-muted: #64748b;
+            --bg-primary: #0f172a; --bg-secondary: #1e293b; --border: #334155; --success: #10b981;
+            --space-xs: 0.5rem; --space-sm: 1rem; --space-md: 1.5rem; --space-lg: 2rem;
+            --space-xl: 3rem; --space-2xl: 4rem; --space-3xl: 6rem;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-primary); background: var(--bg-primary); line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.1; }
+        h2 { font-size: 1.5rem; font-weight: 700; }
+        p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
+        
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15,23,42,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: var(--space-md) 0; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: var(--space-sm); text-decoration: none; color: var(--text-primary); font-weight: 700; font-size: 1.25rem; }
+        .logo-icon { width: 36px; height: 36px; }
+        .nav-links { display: flex; gap: var(--space-lg); list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--brand-accent); }
+        .nav-links a.active { color: var(--brand-accent); }
+        
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); padding: 0.875rem 1.75rem; border-radius: 8px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
+        .btn-primary { background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan)); color: var(--brand-dark); box-shadow: 0 4px 20px var(--brand-glow); }
+        .btn-primary:hover { transform: translateY(-2px); }
+        .btn-secondary { background: transparent; color: var(--brand-accent); border: 2px solid var(--brand-accent); }
+        .btn-secondary:hover { background: var(--brand-accent); color: var(--brand-dark); }
+        .btn-sm { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+        
+        .hero { padding: calc(var(--space-3xl) + 60px) 0 var(--space-xl); text-align: center; }
+        .hero h1 { margin-bottom: var(--space-md); }
+        .hero-subtitle { max-width: 650px; margin: 0 auto; }
+        
+        .section { padding: var(--space-2xl) 0; }
+        .section-alt { background: var(--bg-secondary); }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-xl) 0;
+        }
+        .pricing-table th,
+        .pricing-table td {
+            padding: var(--space-md);
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .pricing-table th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .pricing-table td { color: var(--text-secondary); }
+        .pricing-table td:first-child { color: var(--text-primary); font-weight: 600; }
+        .pricing-table .price { color: var(--brand-accent); font-weight: 700; }
+        
+        .tier-note {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin-bottom: var(--space-md);
+        }
+        .tier-note h3 { margin-bottom: var(--space-sm); color: var(--text-primary); }
+        .tier-note p { font-size: 1rem; margin: 0; }
+        
+        .final-cta { text-align: center; padding: var(--space-2xl) 0; }
+        .final-cta p { max-width: 600px; margin: 0 auto var(--space-xl); }
+        
+        footer { padding: var(--space-xl) 0; border-top: 1px solid var(--border); text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: var(--space-lg); margin-bottom: var(--space-md); list-style: none; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--brand-accent); }
+        footer p { font-size: 0.875rem; color: var(--text-muted); margin: var(--space-xs) 0; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .pricing-table { font-size: 0.85rem; }
+            .pricing-table th, .pricing-table td { padding: var(--space-sm); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/>
+                    <path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/>
+                    <defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+                </svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links">
+                <li><a href="/workflows">Workflows</a></li>
+                <li><a href="/pricing" class="active">Pricing</a></li>
+                <li><a href="/diagnostic">Free Diagnostic</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Start Free. Scale When It Works.</h1>
+            <p class="hero-subtitle">No hidden fees. No hourly billing surprises. Every tier is designed to either solve your problem or clarify whether custom work is worth it.</p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Tier</th>
+                        <th>Price</th>
+                        <th>Best For</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Free Ops Diagnostic</td>
+                        <td class="price">$0</td>
+                        <td>Identify your biggest time leak and best first workflow</td>
+                        <td><a href="/diagnostic" class="btn btn-secondary btn-sm">Start</a></td>
+                    </tr>
+                    <tr>
+                        <td>Self-Install Workflow Kit</td>
+                        <td class="price">$397–$597</td>
+                        <td>Install a proven workflow yourself in one afternoon</td>
+                        <td><a href="/templates/email-triage-kit" class="btn btn-secondary btn-sm">View Kits</a></td>
+                    </tr>
+                    <tr>
+                        <td>Workflow Starter Pack</td>
+                        <td class="price">$1,297–$1,797</td>
+                        <td>3 kits + 1 round of async customization support</td>
+                        <td><a href="/contact" class="btn btn-secondary btn-sm">Ask</a></td>
+                    </tr>
+                    <tr>
+                        <td>Custom Single Workflow</td>
+                        <td class="price">$2,500–$5,000</td>
+                        <td>Done-for-you build scoped to one specific problem</td>
+                        <td><a href="/diagnostic" class="btn btn-secondary btn-sm">Scope It</a></td>
+                    </tr>
+                    <tr>
+                        <td>Workflow Suite</td>
+                        <td class="price">$8,000–$14,000</td>
+                        <td>3–5 integrated workflows solving one business function</td>
+                        <td><a href="/contact" class="btn btn-secondary btn-sm">Talk</a></td>
+                    </tr>
+                    <tr>
+                        <td>Operations Retainer</td>
+                        <td class="price">$1,500–$2,800/mo</td>
+                        <td>Ongoing improvements, 3-month minimum</td>
+                        <td><a href="/contact" class="btn btn-secondary btn-sm">Ask</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tier-note">
+                <h3>Kit → Custom Credit</h3>
+                <p>The full price of any self-install kit is applied as credit toward a custom build of the same workflow. So if you try the Email Triage Kit ($597) and want it customized later, your custom build starts at $1,903 instead of $2,500.</p>
+            </div>
+
+            <div class="tier-note">
+                <h3>What's Included in Every Custom Build</h3>
+                <p>Production-ready code, setup and run documentation, source code ownership, and 30 days of support. No lock-in. No recurring fees unless you choose a retainer.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Not Sure Which Tier Fits?</h2>
+            <p>Take the free diagnostic. It will tell you exactly where to start.</p>
+            <a href="/diagnostic" class="btn btn-primary">Take the Free Diagnostic</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/workflows">Workflows</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/diagnostic">Free Diagnostic</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab. Built and dogfooded in production first.</p>
+        </div>
+    </footer>
+
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>

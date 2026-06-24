@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shayne's AI Lab — Practical AI That Actually Saves Time</title>
-    <meta name="description" content="Free AI Starter Kit + $29 workshop. The exact 8 tools I use to save 15+ hours a week. No hype. Just honest workflows that work.">
+    <title>Shayne's AI Lab — Custom AI Workflows for Operations Leaders</title>
+    <meta name="description" content="Production-proven AI workflows for operations leaders at 10–100 person companies. Built and dogfooded first. No prompts, no theory, no lock-in.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,10 +24,8 @@
             --text-muted: #64748b;
             --bg-primary: #0f172a;
             --bg-secondary: #1e293b;
-            --bg-elevated: #334155;
             --border: #334155;
             --success: #10b981;
-            --error: #ef4444;
             --space-xs: 0.5rem;
             --space-sm: 1rem;
             --space-md: 1.5rem;
@@ -47,26 +45,17 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        img { max-width: 100%; height: auto; }
-        
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; }
-        h3 { font-size: 1.5rem; font-weight: 600; }
-        h4 { font-size: 1.25rem; font-weight: 600; }
+        h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; }
+        h3 { font-size: 1.25rem; font-weight: 600; }
+        p { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; }
         
-        p {
-            color: var(--text-secondary);
-            font-size: 1.125rem;
-            line-height: 1.7;
-        }
-        
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -92,13 +81,10 @@
             text-decoration: none;
             color: var(--text-primary);
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
         }
         
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-        }
+        .logo-icon { width: 36px; height: 36px; }
         
         .nav-links {
             display: flex;
@@ -110,19 +96,18 @@
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.9rem;
             transition: color 0.2s;
-            font-size: 0.95rem;
         }
         
         .nav-links a:hover { color: var(--brand-accent); }
         
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: var(--space-xs);
-            padding: 1rem 2rem;
+            padding: 0.875rem 1.75rem;
             border-radius: 8px;
             font-weight: 600;
             font-size: 1rem;
@@ -138,10 +123,7 @@
             box-shadow: 0 4px 20px var(--brand-glow);
         }
         
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px var(--brand-glow);
-        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--brand-glow); }
         
         .btn-secondary {
             background: transparent;
@@ -149,50 +131,14 @@
             border: 2px solid var(--brand-accent);
         }
         
-        .btn-secondary:hover {
-            background: var(--brand-accent);
-            color: var(--brand-dark);
-        }
+        .btn-secondary:hover { background: var(--brand-accent); color: var(--brand-dark); }
         
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        
-        /* Hero */
         .hero {
             padding: calc(var(--space-3xl) + 60px) 0 var(--space-3xl);
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at top, var(--brand-glow) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-xs);
-            padding: var(--space-xs) var(--space-md);
-            background: rgba(45, 212, 191, 0.1);
-            border: 1px solid var(--brand-accent);
-            border-radius: 100px;
-            color: var(--brand-accent);
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: var(--space-lg);
-        }
-        
-        .hero h1 { max-width: 900px; margin: 0 auto var(--space-md); }
+        .hero h1 { margin-bottom: var(--space-md); }
         
         .hero h1 span {
             background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
@@ -202,10 +148,9 @@
         }
         
         .hero-subtitle {
-            font-size: 1.375rem;
-            max-width: 700px;
+            font-size: 1.25rem;
+            max-width: 650px;
             margin: 0 auto var(--space-xl);
-            color: var(--text-secondary);
         }
         
         .hero-cta {
@@ -216,166 +161,19 @@
             margin-bottom: var(--space-xl);
         }
         
-        .hero-guarantee {
+        .trust-bar {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: var(--space-md);
+            gap: var(--space-md) var(--space-lg);
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
-        /* Honesty Banner */
-        .honesty-banner {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--brand-accent);
-            border-radius: 12px;
-            padding: var(--space-lg);
-            margin: var(--space-xl) auto;
-            max-width: 800px;
-            text-align: left;
-        }
+        .trust-bar span { display: flex; align-items: center; gap: var(--space-xs); }
         
-        .honesty-banner h3 { color: var(--brand-accent); margin-bottom: var(--space-sm); font-size: 1.125rem; }
-        .honesty-banner p { font-size: 1rem; color: var(--text-secondary); margin-bottom: var(--space-sm); }
-        .honesty-banner .highlight { color: var(--text-primary); font-weight: 600; }
-        
-        /* Lead Magnet Section */
-        .lead-magnet { padding: var(--space-3xl) 0; background: var(--bg-secondary); }
-        
-        .lead-magnet-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-3xl);
-            align-items: center;
-        }
-        
-        .kit-preview {
-            background: var(--bg-primary);
-            border: 2px dashed var(--border);
-            border-radius: 16px;
-            padding: var(--space-xl);
-            text-align: center;
-        }
-        
-        .kit-preview h3 { margin-bottom: var(--space-md); }
-        
-        .kit-features {
-            list-style: none;
-            text-align: left;
-            margin: var(--space-lg) 0;
-        }
-        
-        .kit-features li {
-            padding: var(--space-xs) 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-secondary);
-        }
-        
-        .kit-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: 700;
-        }
-        
-        /* Form Styles */
-        .form-group { margin-bottom: var(--space-md); }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: var(--space-xs);
-            font-weight: 500;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 1rem;
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: border-color 0.2s;
-            font-family: inherit;
-        }
-        
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--brand-accent);
-        }
-        
-        .form-group input.error { border-color: var(--error); }
-        
-        .form-note {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            margin-top: var(--space-sm);
-        }
-        
-        .form-success {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid var(--success);
-            border-radius: 8px;
-            padding: var(--space-md);
-            margin-top: var(--space-md);
-            display: none;
-        }
-        
-        .form-success.visible { display: block; }
-        
-        .form-success h4 {
-            color: var(--success);
-            margin-bottom: var(--space-xs);
-            font-size: 1.1rem;
-        }
-        
-        .form-success p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-        
-        .download-btn {
-            display: inline-block;
-            margin-top: var(--space-md);
-            padding: var(--space-sm) var(--space-md);
-            background: var(--success);
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s;
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        .spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-top-color: var(--brand-dark);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .btn.loading .spinner { display: inline-block; }
-        .btn.loading .btn-text { opacity: 0; }
-        
-        /* Workshop Cards */
-        .workshops { padding: var(--space-3xl) 0; }
+        .section { padding: var(--space-3xl) 0; }
+        .section-alt { background: var(--bg-secondary); }
         
         .section-header {
             text-align: center;
@@ -385,233 +183,115 @@
         .section-header h2 { margin-bottom: var(--space-md); }
         .section-header p { max-width: 600px; margin: 0 auto; }
         
-        .workshop-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-xl);
-        }
-        
-        .workshop-card {
+        .diagnostic-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: var(--space-xl);
-            transition: transform 0.2s, border-color 0.2s;
-            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
         }
         
-        .workshop-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--brand-accent);
+        .diagnostic-card p { margin-bottom: var(--space-lg); font-size: 1rem; }
+        
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
         }
         
-        .workshop-card.featured {
-            border: 2px solid var(--brand-accent);
-            background: linear-gradient(135deg, var(--bg-secondary), rgba(45, 212, 191, 0.05));
+        .proof-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-lg);
         }
         
-        .workshop-card.featured::before {
-            content: 'Most Popular';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--brand-accent);
-            color: var(--brand-dark);
-            padding: 4px 16px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .proof-card h3 { color: var(--brand-accent); margin-bottom: var(--space-sm); }
+        .proof-card p { font-size: 1rem; margin-bottom: var(--space-sm); }
+        .proof-card .metric { color: var(--text-primary); font-weight: 700; }
+        
+        .kit-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: var(--space-xl);
+            align-items: center;
         }
         
-        .workshop-badge {
-            display: inline-block;
-            padding: var(--space-xs) var(--space-sm);
-            background: rgba(45, 212, 191, 0.1);
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--brand-accent);
-            margin-bottom: var(--space-md);
-        }
+        .kit-card h3 { margin-bottom: var(--space-sm); }
+        .kit-card p { margin-bottom: var(--space-md); font-size: 1rem; }
         
-        .workshop-card h3 { margin-bottom: var(--space-sm); }
-        
-        .workshop-meta {
-            display: flex;
-            gap: var(--space-md);
-            margin: var(--space-md) 0;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-        
-        .workshop-price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin: var(--space-md) 0;
-        }
-        
-        .workshop-price span { font-size: 1rem; font-weight: 400; color: var(--text-muted); }
-        
-        .workshop-features {
-            list-style: none;
-            margin: var(--space-lg) 0;
-        }
-        
-        .workshop-features li {
+        .kit-features { list-style: none; margin-bottom: var(--space-md); }
+        .kit-features li {
             padding: var(--space-xs) 0;
             padding-left: 1.5rem;
             position: relative;
             color: var(--text-secondary);
             font-size: 0.95rem;
         }
+        .kit-features li::before { content: '✓'; position: absolute; left: 0; color: var(--success); font-weight: 700; }
         
-        .workshop-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--brand-accent);
-        }
-        
-        /* Bonus Banner */
-        .bonus-banner {
-            background: linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(6, 182, 212, 0.1));
-            border: 1px solid var(--brand-accent);
-            border-radius: 12px;
-            padding: var(--space-lg);
-            margin: var(--space-xl) 0;
+        .kit-price {
             text-align: center;
         }
         
-        .bonus-banner h4 { color: var(--brand-accent); margin-bottom: var(--space-sm); }
-        .bonus-banner p { font-size: 1rem; margin: 0; }
-        
-        /* What's Included */
-        .whats-included {
-            padding: var(--space-3xl) 0;
-            background: var(--bg-secondary);
+        .kit-price .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
         }
+        .kit-price .note { font-size: 0.85rem; color: var(--text-muted); }
         
-        .included-grid {
+        .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: var(--space-lg);
-            margin-top: var(--space-2xl);
         }
         
-        .included-item {
-            display: flex;
-            gap: var(--space-md);
+        .step {
+            text-align: center;
             padding: var(--space-lg);
-            background: var(--bg-primary);
-            border-radius: 12px;
-            border: 1px solid var(--border);
         }
         
-        .included-icon {
+        .step-number {
             width: 48px;
             height: 48px;
             background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .included-item h4 { margin-bottom: var(--space-xs); font-size: 1.1rem; }
-        .included-item p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
-        
-        /* Trust Section */
-        .trust { padding: var(--space-3xl) 0; }
-        
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-lg);
-            margin-top: var(--space-2xl);
-        }
-        
-        .trust-item { text-align: center; padding: var(--space-lg); }
-        
-        .trust-item .icon {
-            width: 60px;
-            height: 60px;
-            background: var(--bg-secondary);
+            color: var(--brand-dark);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: 800;
             margin: 0 auto var(--space-md);
-            font-size: 1.5rem;
         }
         
-        .trust-item h4 { margin-bottom: var(--space-sm); font-size: 1.1rem; }
-        .trust-item p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
-        
-        /* FAQ */
-        .faq { padding: var(--space-3xl) 0; background: var(--bg-secondary); }
+        .step h3 { margin-bottom: var(--space-xs); }
+        .step p { font-size: 0.95rem; margin: 0; }
         
         .faq-item {
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: var(--space-lg);
             margin-bottom: var(--space-md);
         }
+        .faq-item h3 { margin-bottom: var(--space-sm); font-size: 1.1rem; }
+        .faq-item p { font-size: 1rem; margin: 0; }
         
-        .faq-item h4 { color: var(--text-primary); margin-bottom: var(--space-sm); font-size: 1.1rem; }
-        .faq-item p { font-size: 1rem; color: var(--text-secondary); margin: 0; }
-        .faq-item a { color: var(--brand-accent); text-decoration: none; }
-        .faq-item a:hover { text-decoration: underline; }
-        
-        /* Final CTA */
-        .final-cta { padding: var(--space-3xl) 0; text-align: center; position: relative; }
-        
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at center, var(--brand-glow) 0%, transparent 60%);
-            pointer-events: none;
-        }
-        
-        .final-cta h2 { margin-bottom: var(--space-md); }
+        .final-cta { text-align: center; }
         .final-cta p { max-width: 600px; margin: 0 auto var(--space-xl); }
         
-        .price-highlight {
-            display: inline-block;
-            padding: var(--space-sm) var(--space-lg);
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-            border-radius: 100px;
-            color: var(--brand-dark);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: var(--space-lg);
+        footer {
+            padding: var(--space-xl) 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
         }
-        
-        .guarantee-box {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            margin-top: var(--space-lg);
-            padding: var(--space-sm) var(--space-md);
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid var(--success);
-            border-radius: 8px;
-            color: var(--success);
-            font-size: 0.9rem;
-        }
-        
-        /* Footer */
-        footer { padding: var(--space-xl) 0; border-top: 1px solid var(--border); text-align: center; }
         
         .footer-links {
             display: flex;
@@ -620,178 +300,226 @@
             margin-bottom: var(--space-md);
             list-style: none;
         }
-        
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
         .footer-links a:hover { color: var(--brand-accent); }
-        
         footer p { font-size: 0.875rem; color: var(--text-muted); margin: var(--space-xs) 0; }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero h1 { font-size: 2.25rem; }
-            .lead-magnet-grid { grid-template-columns: 1fr; }
-            .workshop-grid { grid-template-columns: 1fr; }
-            .included-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
             .hero-cta { flex-direction: column; align-items: center; }
-            .hero-guarantee { flex-direction: column; }
-            .workshop-meta { flex-direction: column; gap: var(--space-xs); }
+            .trust-bar { flex-direction: column; align-items: center; }
+            .kit-card { grid-template-columns: 1fr; }
+            .kit-price { text-align: left; }
         }
-
-        /* No-JS fallback */
-        .no-js .form-success { display: block; }
-        .no-js button[type="submit"] { display: none; }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="#" class="logo">
-                <img src="logo.png" alt="Shayne's AI Lab" style="height: 48px; width: auto;">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/>
+                    <path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#2dd4bf"/>
+                            <stop offset="1" stop-color="#06b6d4"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                Shayne's AI Lab
             </a>
             <ul class="nav-links">
-                <li><a href="#free-kit">Free Kit</a></li>
-                <li><a href="#workshops">Workshops</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="/workflows">Workflows</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/diagnostic">Free Diagnostic</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">
-                <span>✓</span> Practical AI for Busy Business Owners
-            </div>
             <h1>
-                AI That Actually Saves Time — <span>With Full Honesty About What I Really Use</span>
+                Stop Drowning in <span>Operational Drag</span>
             </h1>
             <p class="hero-subtitle">
-                Most small business owners have tried AI once or twice… got overwhelmed… and quietly stopped. 
-                If that's you, you're not alone. I built something simple that actually works.
+                Custom AI workflows for operations leaders at 10–100 person companies. Built and run in my own business first. No prompts. No theory. No lock-in.
             </p>
             <div class="hero-cta">
-                <a href="#free-kit" class="btn btn-primary">Get the Free AI Starter Kit</a>
-                <a href="#workshops" class="btn btn-secondary">See the Workshop ($29)</a>
+                <a href="/diagnostic" class="btn btn-primary">Get Your Free Ops Diagnostic — 5 Minutes</a>
+                <a href="/workflows" class="btn btn-secondary">See the Workflow Library</a>
             </div>
-            <div class="hero-guarantee">
-                <span>✓ No spam, ever</span>
-                <span>✓ Unsubscribe anytime</span>
-                <span>✓ 30-day money-back guarantee</span>
-            </div>
-            
-            <!-- Honesty Banner -->
-            <div class="honesty-banner">
-                <h3>🎯 The Brutal Honesty</h3>
-                <p>
-                    I don't use ChatGPT as my daily driver. I use <span class="highlight">Grok + custom OpenClaw swarms</span>. 
-                    But you probably don't need that. Here's my honest recommendation: Start with 8 simple tools. 
-                    Master those. <em>Then</em> decide if you ever need more.
-                </p>
-                <p style="margin-top: var(--space-sm); font-size: 0.95rem;">
-                    <strong>The "My Real Workflow" bonus</strong> shows you exactly what I built — so you know I'm not BS-ing you.
-                </p>
+            <div class="trust-bar">
+                <span>✓ 7 workflows running in production</span>
+                <span>✓ 5–15 hours saved per workflow</span>
+                <span>✓ Open-source code, no lock-in</span>
+                <span>✓ Delivered in 1–2 weeks</span>
             </div>
         </div>
     </section>
 
-    <!-- Lead Magnet Section -->
-    <section class="lead-magnet" id="free-kit">
-        <div class="container">
-            <div class="lead-magnet-grid">
-                <div>
-                    <h2>Start With the Free AI Starter Kit</h2>
-                    <p>
-                        The 8-tool cheat sheet I wish I had 18 months ago. Enter your email and get instant access.
-                    </p>
-                    <ul class="kit-features">
-                        <li>The 8 tools that actually save time (and 12 to skip)</li>
-                        <li>Cost breakdown: free vs. paid tiers</li>
-                        <li>Quick-start checklist for each tool</li>
-                        <li>My "first 30 days" implementation guide</li>
-                        <li>Bonus: "My Real Workflow" sneak peek</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="kit-preview" id="kit-form-container">
-                        <h3>📋 AI Starter Kit</h3>
-                        <p style="font-size: 0.95rem; color: var(--text-muted);">Free • PDF Download</p>
-                        
-                        <form id="lead-capture-form">
-                            <div class="form-group">
-                                <label for="first-name">First Name</label>
-                                <input type="text" id="first-name" name="firstName" placeholder="John" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">
-                                <span class="spinner"></span>
-                                <span class="btn-text">Get Free Kit — Instant Download</span>
-                            </button>
-                            <p class="form-note">✓ No credit card required • Unsubscribe anytime</p>
-                        </form>
-                        
-                        <div id="form-success" class="form-success">
-                            <h4>✓ Check your email!</h4>
-                            <p>Your AI Starter Kit is on its way. (Check spam/junk if you don't see it within 2 minutes.)</p>
-                            <p style="margin-top: var(--space-sm);">
-                                <strong>While you wait:</strong> See my upcoming workshop for live demos of all 8 tools.
-                            </p>
-                            <a href="#workshops" class="btn btn-primary" style="margin-top: var(--space-md);">
-                                See the Workshop ($29)
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Workshops Section -->
-    <section class="workshops" id="workshops">
+    <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2>The Workshops</h2>
-                <p>Progressive learning. Start with the basics. Level up when (and if) you need to.</p>
+                <h2>The Hidden Tax on Manual Work</h2>
+                <p>A $35/hour operations person spending 10 hours per week on email triage, lead routing, follow-ups, and CRM updates costs your business <strong style="color: var(--text-primary);">$18,200 per year</strong>. That doesn't include leads that went cold, invoices that sat unpaid, and decisions made late because the data wasn't where it should be.</p>
             </div>
-            
-            <div class="workshop-grid">
-                <!-- Workshop #1 -->
-                <div class="workshop-card featured">
-                    <div class="workshop-badge">Workshop #1</div>
-                    <h3>AI That Saves 15+ Hours/Week</h3>
-                    <p>The complete 8-tool system for small business owners who are tired of the AI hype.</p>
-                    
-                    <div class="workshop-meta">
-                        <span>📅 50 minutes</span>
-                        <span>💻 Live + Recording</span>
-                    </div>
-                    
-                    <div class="workshop-price">$29 <span>one-time</span></div>
-                    
-                    <ul class="workshop-features">
-                        <li>6 live tool demos (watch my screen)</li>
-                        <li>Email, content, and customer service workflows</li>
-                        <li>What I use vs. what I recommend (honest split)</li>
-                        <li>Full cheat sheet + 50-prompt library</li>
-                        <li><strong>"My Real Workflow" bonus video</strong></li>
-                        <li>Recording yours forever</li>
-                    </ul>
-                    
-                    <a href="#" class="btn btn-primary" style="width: 100%;">Join Next Session — $29</a>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="diagnostic-card">
+                <h2>Start With the Free Ops Diagnostic</h2>
+                <p>Answer 6 questions. Get a report that tells you your biggest operational time leak, the workflow that will save you the most time first, and whether to buy a kit, request custom work, or do nothing.</p>
+                <a href="/diagnostic" class="btn btn-primary">Take the Free Diagnostic</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Proof From My Own Operations</h2>
+                <p>I don't sell theory. I sell workflows I've already built, broken, fixed, and run.</p>
+            </div>
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <h3>📧 Email Triage + Routing</h3>
+                    <p><strong>Problem:</strong> Every email felt urgent.</p>
+                    <p><strong>Workflow:</strong> LLM classifies email as urgent, routine, promotional, or escalation. Urgent pings me. Everything else goes to a nightly digest.</p>
+                    <p class="metric">Result: I only touch my inbox when something actually needs me.</p>
                 </div>
-                
-                <!-- Workshop #2 -->
-                <div class="workshop-card">
-                    <div class="workshop-badge">Workshop #2</div>
-                    <h3>AI That Answers Your Customers</h3>
-                    <p>Advanced automation for businesses ready to
+                <div class="proof-card">
+                    <h3>🔥 Lead Intake + Qualification</h3>
+                    <p><strong>Problem:</strong> Leads slipped through the cracks.</p>
+                    <p><strong>Workflow:</strong> Every inquiry is scored automatically. Hot leads get a fast reply. Cold leads enter nurture.</p>
+                    <p class="metric">Result: 8 leads qualified, 3 flagged HOT, zero lost to follow-up.</p>
+                </div>
+                <div class="proof-card">
+                    <h3>💰 Invoice Follow-Up Automation</h3>
+                    <p><strong>Problem:</strong> Outstanding invoices sat unpaid because chasing felt awkward.</p>
+                    <p><strong>Workflow:</strong> Escalating reminder emails fire automatically at day 1, 7, 14, 30, and 60.</p>
+                    <p class="metric">Result: No awkward manual follow-ups. Cash flow improved.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: var(--space-xl);">
+                <a href="/workflows" class="btn btn-secondary">Browse the Full Workflow Library</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>A Strong First Workflow to Try</h2>
+                <p>Not ready for custom work? The Email Triage Kit is the same workflow I run every day, packaged so you can install it yourself.</p>
+            </div>
+            <div class="kit-card">
+                <div>
+                    <h3>Email Triage + Routing Kit</h3>
+                    <p>Designed for Gmail-based teams who want their inbox under control in one afternoon. Classify, route, and digest automatically.</p>
+                    <ul class="kit-features">
+                        <li>Complete Python workflow</li>
+                        <li>Step-by-step README + config file</li>
+                        <li>15-minute setup video</li>
+                        <li>14-day email support</li>
+                    </ul>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Not sure yet? Start with the free diagnostic and we can discuss custom if needed.</p>
+                </div>
+                <div class="kit-price">
+                    <div class="price">$597</div>
+                    <div class="note">one-time</div>
+                    <a href="/templates/email-triage-kit" class="btn btn-primary" style="margin-top: var(--space-md); width: 100%;">View Kit Details</a>
+                    <a href="/diagnostic" class="btn btn-secondary" style="margin-top: var(--space-sm); width: 100%;">Take Free Diagnostic</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Async-first. No sales pressure. No unnecessary calls.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Take the Diagnostic</h3>
+                    <p>6 questions. 5 minutes. Identify your biggest time leak.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Your Roadmap</h3>
+                    <p>A short report or Loom with recommended next steps.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Choose Your Path</h3>
+                    <p>Self-install kit, custom build, or nothing. You decide.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Get Your Time Back</h3>
+                    <p>Most workflows pay for themselves in 30–60 days.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Questions You Might Have</h2>
+            </div>
+            <div class="faq-item">
+                <h3>Do I need to be technical?</h3>
+                <p>For self-install kits, if you can use Gmail and edit a config file, you're fine. Custom builds include full handoff and documentation.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What if I want custom work later?</h3>
+                <p>The full kit price applies as credit toward a custom build. That's the intended path.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What does "production-proven" mean?</h3>
+                <p>I built it, ran it, broke it, fixed it, and run it in my own operations before I ever offer it to a client.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Do you do sales calls?</h3>
+                <p>Only short discovery calls for custom projects. Everything else is async — form, report, written proposal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section final-cta">
+        <div class="container">
+            <h2>Find Your Biggest Time Leak — Free</h2>
+            <p>Get a personalized diagnostic report in under 5 minutes. No call required. No spam. Just a clear recommendation for the one workflow that will save you the most time first.</p>
+            <a href="/diagnostic" class="btn btn-primary">Get Your Free Ops Diagnostic</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/workflows">Workflows</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/diagnostic">Free Diagnostic</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab. Built and dogfooded in production first.</p>
+        </div>
+    </footer>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "PLACEHOLDER_TOKEN"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
