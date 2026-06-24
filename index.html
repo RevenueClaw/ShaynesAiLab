@@ -4,313 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shayne's AI Lab — Custom AI Workflows for Operations Leaders</title>
-    <meta name="description" content="Production-proven AI workflows for operations leaders at 10–100 person companies. Built and dogfooded first. No prompts, no theory, no lock-in.">
+    <meta name="description" content="Practical AI workflows for operations leaders at 10–100 person companies. Built and used in my own business first. No hype, no lock-in.">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --brand-dark: #0f172a;
-            --brand-navy: #1e293b;
-            --brand-teal: #14b8a6;
-            --brand-cyan: #06b6d4;
-            --brand-accent: #2dd4bf;
-            --brand-glow: rgba(45, 212, 191, 0.15);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --border: #334155;
-            --success: #10b981;
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --space-2xl: 4rem;
-            --space-3xl: 6rem;
+            --brand-dark: #0f172a; --brand-navy: #1e293b; --brand-teal: #14b8a6;
+            --brand-cyan: #06b6d4; --brand-accent: #2dd4bf; --brand-glow: rgba(45, 212, 191, 0.15);
+            --text-primary: #f8fafc; --text-secondary: #94a3b8; --text-muted: #64748b;
+            --bg-primary: #0f172a; --bg-secondary: #1e293b; --border: #334155; --success: #10b981;
+            --space-xs: 0.5rem; --space-sm: 1rem; --space-md: 1.5rem; --space-lg: 2rem;
+            --space-xl: 3rem; --space-2xl: 5rem; --space-3xl: 7rem;
         }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-primary); background: var(--bg-primary); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
+        h1 { font-size: clamp(2.2rem, 5.5vw, 3.6rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+        h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; }
+        h3 { font-size: 1.15rem; font-weight: 600; }
+        p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
         
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-primary);
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; }
-        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; }
-        h3 { font-size: 1.25rem; font-weight: 600; }
-        p { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; }
-        
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            padding: var(--space-md) 0;
-        }
-        
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 700;
-            font-size: 1.25rem;
-        }
-        
-        .logo-icon { width: 36px; height: 36px; }
-        
-        .nav-links {
-            display: flex;
-            gap: var(--space-lg);
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15,23,42,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: var(--space-md) 0; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: var(--space-sm); text-decoration: none; color: var(--text-primary); font-weight: 700; font-size: 1.2rem; }
+        .logo-icon { width: 34px; height: 34px; }
+        .nav-links { display: flex; gap: var(--space-lg); list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
         .nav-links a:hover { color: var(--brand-accent); }
         
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-xs);
-            padding: 0.875rem 1.75rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-            color: var(--brand-dark);
-            box-shadow: 0 4px 20px var(--brand-glow);
-        }
-        
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--brand-glow); }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--brand-accent);
-            border: 2px solid var(--brand-accent);
-        }
-        
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); padding: 0.95rem 1.8rem; border-radius: 10px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
+        .btn-primary { background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan)); color: var(--brand-dark); box-shadow: 0 4px 22px var(--brand-glow); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--brand-glow); }
+        .btn-secondary { background: transparent; color: var(--brand-accent); border: 2px solid var(--brand-accent); }
         .btn-secondary:hover { background: var(--brand-accent); color: var(--brand-dark); }
+        .btn-small { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
         
-        .hero {
-            padding: calc(var(--space-3xl) + 60px) 0 var(--space-3xl);
-            text-align: center;
-        }
-        
+        .hero { padding: calc(var(--space-3xl) + 70px) 0 var(--space-2xl); text-align: center; }
+        .hero-badge { display: inline-flex; align-items: center; gap: var(--space-xs); padding: 0.4rem 0.9rem; background: rgba(45, 212, 191, 0.08); border: 1px solid rgba(45, 212, 191, 0.3); border-radius: 100px; color: var(--brand-accent); font-size: 0.85rem; font-weight: 600; margin-bottom: var(--space-lg); }
         .hero h1 { margin-bottom: var(--space-md); }
+        .hero h1 span { background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-subtitle { font-size: 1.2rem; max-width: 650px; margin: 0 auto var(--space-xl); }
+        .hero-cta { display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center; margin-bottom: var(--space-xl); }
+        .trust-bar { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 100px; padding: 0.6rem 1.2rem; color: var(--text-muted); font-size: 0.85rem; }
         
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            max-width: 650px;
-            margin: 0 auto var(--space-xl);
-        }
-        
-        .hero-cta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-md);
-            justify-content: center;
-            margin-bottom: var(--space-xl);
-        }
-        
-        .trust-bar {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: var(--space-md) var(--space-lg);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        
-        .trust-bar span { display: flex; align-items: center; gap: var(--space-xs); }
-        
-        .section { padding: var(--space-3xl) 0; }
+        .section { padding: var(--space-2xl) 0; }
         .section-alt { background: var(--bg-secondary); }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-        }
-        
+        .section-header { text-align: center; margin-bottom: var(--space-xl); }
         .section-header h2 { margin-bottom: var(--space-md); }
-        .section-header p { max-width: 600px; margin: 0 auto; }
+        .section-header p { max-width: 620px; margin: 0 auto; }
         
-        .diagnostic-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: var(--space-xl);
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
+        .diagnostic-card { background: linear-gradient(135deg, rgba(45, 212, 191, 0.08), rgba(6, 182, 212, 0.05)); border: 1px solid rgba(45, 212, 191, 0.25); border-radius: 20px; padding: var(--space-xl); max-width: 720px; margin: 0 auto; text-align: center; }
+        .diagnostic-card h2 { margin-bottom: var(--space-sm); }
+        .diagnostic-card p { margin-bottom: var(--space-lg); }
         
-        .diagnostic-card p { margin-bottom: var(--space-lg); font-size: 1rem; }
+        .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-lg); }
+        .proof-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: var(--space-lg); transition: transform 0.2s, border-color 0.2s; }
+        .proof-card:hover { transform: translateY(-3px); border-color: rgba(45, 212, 191, 0.4); }
+        .proof-card .icon { width: 46px; height: 46px; background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: var(--space-md); }
+        .proof-card h3 { color: var(--text-primary); margin-bottom: var(--space-sm); }
+        .proof-card p { font-size: 0.97rem; margin-bottom: var(--space-sm); }
+        .proof-card .meta { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; }
         
-        .proof-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-lg);
-        }
-        
-        .proof-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: var(--space-lg);
-        }
-        
-        .proof-card h3 { color: var(--brand-accent); margin-bottom: var(--space-sm); }
-        .proof-card p { font-size: 1rem; margin-bottom: var(--space-sm); }
-        .proof-card .metric { color: var(--text-primary); font-weight: 700; }
-        
-        .kit-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: var(--space-xl);
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: var(--space-xl);
-            align-items: center;
-        }
-        
-        .kit-card h3 { margin-bottom: var(--space-sm); }
+        .kit-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: var(--space-xl); display: grid; grid-template-columns: 1fr auto; gap: var(--space-xl); align-items: center; }
+        .kit-card h3 { margin-bottom: var(--space-sm); font-size: 1.35rem; }
         .kit-card p { margin-bottom: var(--space-md); font-size: 1rem; }
-        
         .kit-features { list-style: none; margin-bottom: var(--space-md); }
-        .kit-features li {
-            padding: var(--space-xs) 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
+        .kit-features li { padding: var(--space-xs) 0; padding-left: 1.6rem; position: relative; color: var(--text-secondary); font-size: 0.95rem; }
         .kit-features li::before { content: '✓'; position: absolute; left: 0; color: var(--success); font-weight: 700; }
+        .kit-price { text-align: center; min-width: 180px; }
+        .kit-price .price { font-size: 2.4rem; font-weight: 800; color: var(--text-primary); line-height: 1; }
+        .kit-price .note { font-size: 0.85rem; color: var(--text-muted); margin-bottom: var(--space-md); }
+        .soft-note { display: inline-block; margin-top: var(--space-md); padding: 0.7rem 1rem; background: rgba(100, 116, 139, 0.15); border-radius: 8px; font-size: 0.9rem; color: var(--text-muted); }
         
-        .kit-price {
-            text-align: center;
-        }
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); position: relative; }
+        .steps::before { content: ''; position: absolute; top: 24px; left: 12.5%; right: 12.5%; height: 2px; background: linear-gradient(90deg, var(--brand-teal), var(--brand-cyan)); z-index: 0; }
+        .step { text-align: center; padding: var(--space-md) var(--space-sm); position: relative; z-index: 1; }
+        .step-number { width: 50px; height: 50px; background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan)); color: var(--brand-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; margin: 0 auto var(--space-md); box-shadow: 0 4px 20px var(--brand-glow); }
+        .step h3 { margin-bottom: var(--space-xs); font-size: 1.05rem; }
+        .step p { font-size: 0.92rem; margin: 0; color: var(--text-muted); }
         
-        .kit-price .price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-primary);
-        }
-        .kit-price .note { font-size: 0.85rem; color: var(--text-muted); }
-        
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: var(--space-lg);
-        }
-        
-        .step {
-            text-align: center;
-            padding: var(--space-lg);
-        }
-        
-        .step-number {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-            color: var(--brand-dark);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            margin: 0 auto var(--space-md);
-        }
-        
-        .step h3 { margin-bottom: var(--space-xs); }
-        .step p { font-size: 0.95rem; margin: 0; }
-        
-        .faq-item {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: var(--space-lg);
-            margin-bottom: var(--space-md);
-        }
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; padding: var(--space-lg); margin-bottom: var(--space-md); }
         .faq-item h3 { margin-bottom: var(--space-sm); font-size: 1.1rem; }
         .faq-item p { font-size: 1rem; margin: 0; }
         
-        .final-cta { text-align: center; }
-        .final-cta p { max-width: 600px; margin: 0 auto var(--space-xl); }
+        .final-cta { text-align: center; padding: var(--space-3xl) 0; }
+        .final-cta h2 { margin-bottom: var(--space-md); }
+        .final-cta p { max-width: 620px; margin: 0 auto var(--space-xl); }
         
-        footer {
-            padding: var(--space-xl) 0;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-lg);
-            margin-bottom: var(--space-md);
-            list-style: none;
-        }
+        footer { padding: var(--space-xl) 0; border-top: 1px solid var(--border); text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: var(--space-lg); margin-bottom: var(--space-md); list-style: none; }
         .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
         .footer-links a:hover { color: var(--brand-accent); }
         footer p { font-size: 0.875rem; color: var(--text-muted); margin: var(--space-xs) 0; }
         
+        @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } .steps::before { display: none; } }
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero h1 { font-size: 2rem; }
-            .hero-cta { flex-direction: column; align-items: center; }
-            .trust-bar { flex-direction: column; align-items: center; }
+            .hero { padding-top: calc(var(--space-2xl) + 80px); }
+            .hero h1 { font-size: 2.1rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .hero-cta { flex-direction: column; align-items: stretch; }
+            .hero-cta .btn { width: 100%; }
+            .trust-bar { border-radius: 12px; flex-direction: column; align-items: flex-start; }
+            .section { padding: var(--space-xl) 0; }
             .kit-card { grid-template-columns: 1fr; }
             .kit-price { text-align: left; }
+            .steps { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -323,12 +126,7 @@
                     <path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/>
                     <path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/>
-                    <defs>
-                        <linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#2dd4bf"/>
-                            <stop offset="1" stop-color="#06b6d4"/>
-                        </linearGradient>
-                    </defs>
+                    <defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
                 </svg>
                 Shayne's AI Lab
             </a>
@@ -343,30 +141,21 @@
 
     <section class="hero">
         <div class="container">
+            <div class="hero-badge">🙋 Built and used in my own business first</div>
             <h1>
-                Stop Drowning in <span>Operational Drag</span>
+                AI Workflows That Actually <span>Give You Time Back</span>
             </h1>
             <p class="hero-subtitle">
-                Custom AI workflows for operations leaders at 10–100 person companies. Built and run in my own business first. No prompts. No theory. No lock-in.
+                I'm Shayne. I help operations leaders at 10–100 person companies automate the repetitive work that eats their week. No hype. No theory. Just workflows I use in my own business every day.
             </p>
             <div class="hero-cta">
-                <a href="/diagnostic" class="btn btn-primary">Get Your Free Ops Diagnostic — 5 Minutes</a>
-                <a href="/workflows" class="btn btn-secondary">See the Workflow Library</a>
+                <a href="/diagnostic" class="btn btn-primary">Get Your Free Ops Diagnostic — 5 min</a>
+                <a href="/workflows" class="btn btn-secondary">See the Workflows I Use</a>
             </div>
             <div class="trust-bar">
-                <span>✓ 7 workflows running in production</span>
-                <span>✓ 5–15 hours saved per workflow</span>
-                <span>✓ Open-source code, no lock-in</span>
-                <span>✓ Delivered in 1–2 weeks</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Hidden Tax on Manual Work</h2>
-                <p>A $35/hour operations person spending 10 hours per week on email triage, lead routing, follow-ups, and CRM updates costs your business <strong style="color: var(--text-primary);">$18,200 per year</strong>. That doesn't include leads that went cold, invoices that sat unpaid, and decisions made late because the data wasn't where it should be.</p>
+                <span>✓ 7 workflows running</span>
+                <span>✓ 5–15 hrs saved each</span>
+                <span>✓ No lock-in</span>
             </div>
         </div>
     </section>
@@ -374,9 +163,9 @@
     <section class="section section-alt">
         <div class="container">
             <div class="diagnostic-card">
-                <h2>Start With the Free Ops Diagnostic</h2>
-                <p>Answer 6 questions. Get a report that tells you your biggest operational time leak, the workflow that will save you the most time first, and whether to buy a kit, request custom work, or do nothing.</p>
-                <a href="/diagnostic" class="btn btn-primary">Take the Free Diagnostic</a>
+                <h2>Start With a Free Ops Diagnostic</h2>
+                <p>Tell me where your team is losing time. I'll send you a short, personalized report with the one workflow that will save you the most hours first.</p>
+                <a href="/diagnostic" class="btn btn-primary">Take the 5-Minute Diagnostic</a>
             </div>
         </div>
     </section>
@@ -384,54 +173,55 @@
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2>Proof From My Own Operations</h2>
-                <p>I don't sell theory. I sell workflows I've already built, broken, fixed, and run.</p>
+                <h2>Real Workflows I Use Every Day</h2>
+                <p>I won't sell you anything I haven't built, broken, fixed, and run myself. These three made the biggest difference.</p>
             </div>
             <div class="proof-grid">
                 <div class="proof-card">
-                    <h3>📧 Email Triage + Routing</h3>
-                    <p><strong>Problem:</strong> Every email felt urgent.</p>
-                    <p><strong>Workflow:</strong> LLM classifies email as urgent, routine, promotional, or escalation. Urgent pings me. Everything else goes to a nightly digest.</p>
-                    <p class="metric">Result: I only touch my inbox when something actually needs me.</p>
+                    <div class="icon">📧</div>
+                    <h3>Email Triage & Routing</h3>
+                    <p><strong>Before:</strong> My inbox felt like a firehose. Everything seemed urgent.</p>
+                    <p><strong>Now:</strong> Every email gets sorted automatically. Important stuff reaches me right away. Everything else waits in a nightly digest.</p>
+                    <p class="meta"><strong>Result:</strong> I check email once a day. Nothing important gets missed.</p>
                 </div>
                 <div class="proof-card">
-                    <h3>🔥 Lead Intake + Qualification</h3>
-                    <p><strong>Problem:</strong> Leads slipped through the cracks.</p>
-                    <p><strong>Workflow:</strong> Every inquiry is scored automatically. Hot leads get a fast reply. Cold leads enter nurture.</p>
-                    <p class="metric">Result: 8 leads qualified, 3 flagged HOT, zero lost to follow-up.</p>
+                    <div class="icon">🔥</div>
+                    <h3>Lead Intake & Qualification</h3>
+                    <p><strong>Before:</strong> Inquiries came from everywhere. Some got replies, some didn't.</p>
+                    <p><strong>Now:</strong> Every lead is scored on budget, authority, need, timeline, and fit. Hot leads get a fast response. Cold ones enter a nurture track.</p>
+                    <p class="meta"><strong>Result:</strong> 8 leads qualified, 3 flagged hot, zero lost to follow-up.</p>
                 </div>
                 <div class="proof-card">
-                    <h3>💰 Invoice Follow-Up Automation</h3>
-                    <p><strong>Problem:</strong> Outstanding invoices sat unpaid because chasing felt awkward.</p>
-                    <p><strong>Workflow:</strong> Escalating reminder emails fire automatically at day 1, 7, 14, 30, and 60.</p>
-                    <p class="metric">Result: No awkward manual follow-ups. Cash flow improved.</p>
+                    <div class="icon">💰</div>
+                    <h3>Invoice Follow-Up Automation</h3>
+                    <p><strong>Before:</strong> I hated chasing unpaid invoices, so they sat.</p>
+                    <p><strong>Now:</strong> Friendly reminders go out at day 1, 7, 14, 30, and 60. I only step in when needed.</p>
+                    <p class="meta"><strong>Result:</strong> Better cash flow, zero awkward manual chasing.</p>
                 </div>
             </div>
             <div style="text-align: center; margin-top: var(--space-xl);">
-                <a href="/workflows" class="btn btn-secondary">Browse the Full Workflow Library</a>
+                <a href="/workflows" class="btn btn-secondary btn-small">Browse All 7 Workflows</a>
             </div>
         </div>
     </section>
 
-    <!-- STARTER OFFER SECTION -->
-    <!-- This section is intentionally soft-sell. The diagnostic is the primary CTA. -->
     <section class="section section-alt">
         <div class="container">
             <div class="section-header">
-                <h2>One Strong Starting Point</h2>
-                <p>If the diagnostic points to email overload, this is a good first workflow to try. The same Email Triage system I run, packaged for self-install.</p>
+                <h2>A Gentle Starting Point</h2>
+                <p>If email is your biggest time sink, the Email Triage Kit is a good way to test what automation can do — without committing to a custom project.</p>
             </div>
             <div class="kit-card">
                 <div>
                     <h3>Email Triage + Routing Kit</h3>
-                    <p>Designed for Gmail-based teams who want their inbox under control in one afternoon. Classify, route, and digest automatically.</p>
+                    <p>The same workflow I use to keep my inbox sane, packaged so a Gmail-based team can install it in one afternoon.</p>
                     <ul class="kit-features">
-                        <li>Complete Python workflow</li>
-                        <li>Step-by-step README + config file</li>
-                        <li>15-minute setup video</li>
+                        <li>Complete Python workflow + config file</li>
+                        <li>Plain-English setup guide</li>
+                        <li>15-minute setup walkthrough</li>
                         <li>14-day email support</li>
                     </ul>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Not sure if this fits? Start with the free diagnostic and we can discuss custom work if needed.</p>
+                    <span class="soft-note">💡 Not sure if this fits? Start with the free diagnostic and we can talk custom work if needed.</span>
                 </div>
                 <div class="kit-price">
                     <div class="price">$597</div>
@@ -454,21 +244,21 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Take the Diagnostic</h3>
-                    <p>6 questions. 5 minutes. Identify your biggest time leak.</p>
+                    <p>6 questions. 5 minutes. Find your biggest time leak.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Get Your Roadmap</h3>
-                    <p>A short report or Loom with recommended next steps.</p>
+                    <p>A short report or video with clear next steps.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Choose Your Path</h3>
-                    <p>Self-install kit, custom build, or nothing. You decide.</p>
+                    <h3>Pick a Path</h3>
+                    <p>Self-install kit, custom build, or nothing yet.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Get Your Time Back</h3>
+                    <h3>Get Time Back</h3>
                     <p>Most workflows pay for themselves in 30–60 days.</p>
                 </div>
             </div>
@@ -480,21 +270,23 @@
             <div class="section-header">
                 <h2>Questions You Might Have</h2>
             </div>
-            <div class="faq-item">
-                <h3>Do I need to be technical?</h3>
-                <p>For self-install kits, if you can use Gmail and edit a config file, you're fine. Custom builds include full handoff and documentation.</p>
-            </div>
-            <div class="faq-item">
-                <h3>What if I want custom work later?</h3>
-                <p>The full kit price applies as credit toward a custom build. That's the intended path.</p>
-            </div>
-            <div class="faq-item">
-                <h3>What does "production-proven" mean?</h3>
-                <p>I built it, ran it, broke it, fixed it, and run it in my own operations before I ever offer it to a client.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Do you do sales calls?</h3>
-                <p>Only short discovery calls for custom projects. Everything else is async — form, report, written proposal.</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Do I need to be technical?</h3>
+                    <p>For kits, if you can use Gmail and edit a config file, you'll be fine. For custom builds, I do the technical work and hand you documented, runnable code.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if I want custom work later?</h3>
+                    <p>The full kit price applies as credit toward a custom build of the same workflow. So trying a kit is genuinely low-risk.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What does "built and used in my own business" mean?</h3>
+                    <p>It means I built the workflow for myself first, ran it, fixed what broke, and only then offered it to others. These aren't templates I guessed at — they're what I rely on.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you do sales calls?</h3>
+                    <p>Only short discovery calls for custom projects if we really need one. Everything else happens async: form, report, written proposal.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -502,7 +294,7 @@
     <section class="section final-cta">
         <div class="container">
             <h2>Find Your Biggest Time Leak — Free</h2>
-            <p>Get a personalized diagnostic report in under 5 minutes. No call required. No spam. Just a clear recommendation for the one workflow that will save you the most time first.</p>
+            <p>Get a personalized diagnostic report in under 5 minutes. No call required. No spam. Just a clear starting point for getting your time back.</p>
             <a href="/diagnostic" class="btn btn-primary">Get Your Free Ops Diagnostic</a>
         </div>
     </section>
@@ -516,12 +308,12 @@
                 <li><a href="/contact">Contact</a></li>
                 <li><a href="/privacy">Privacy</a></li>
             </ul>
-            <p>&copy; 2026 Shayne's AI Lab. Built and dogfooded in production first.</p>
+            <p>&copy; 2026 Shayne's AI Lab. Built and used in my own business first.</p>
         </div>
     </footer>
 
-    <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "PLACEHOLDER_TOKEN"}'></script>
+    <!-- TODO: Replace PLACEHOLDER_TOKEN with actual Cloudflare Web Analytics beacon token before launch -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
     <!-- End Cloudflare Web Analytics -->
 
 </body>

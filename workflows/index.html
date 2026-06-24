@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workflow Library — Shayne's AI Lab</title>
-    <meta name="description" content="7 production-proven AI workflows for operations leaders. Every workflow is running in my own business first.">
+    <meta name="description" content="7 practical AI workflows I use in my own business. Built for operations leaders at 10–100 person companies.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,31 +21,30 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: var(--text-primary); background: var(--bg-primary); line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
         h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.1; }
         h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; }
-        h3 { font-size: 1.25rem; font-weight: 600; }
+        h3 { font-size: 1.2rem; font-weight: 600; }
         p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
         
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15,23,42,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: var(--space-md) 0; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15,23,42,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: var(--space-md) 0; }
         nav .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: var(--space-sm); text-decoration: none; color: var(--text-primary); font-weight: 700; font-size: 1.25rem; }
-        .logo-icon { width: 36px; height: 36px; }
+        .logo { display: flex; align-items: center; gap: var(--space-sm); text-decoration: none; color: var(--text-primary); font-weight: 700; font-size: 1.2rem; }
+        .logo-icon { width: 34px; height: 34px; }
         .nav-links { display: flex; gap: var(--space-lg); list-style: none; }
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
         .nav-links a:hover { color: var(--brand-accent); }
         .nav-links a.active { color: var(--brand-accent); }
         
-        .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); padding: 0.875rem 1.75rem; border-radius: 8px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); padding: 0.875rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
         .btn-primary { background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan)); color: var(--brand-dark); box-shadow: 0 4px 20px var(--brand-glow); }
         .btn-primary:hover { transform: translateY(-2px); }
         .btn-secondary { background: transparent; color: var(--brand-accent); border: 2px solid var(--brand-accent); }
         .btn-secondary:hover { background: var(--brand-accent); color: var(--brand-dark); }
-        .btn-sm { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
         
-        .hero { padding: calc(var(--space-3xl) + 60px) 0 var(--space-xl); text-align: center; }
+        .hero { padding: calc(var(--space-3xl) + 70px) 0 var(--space-xl); text-align: center; }
         .hero h1 { margin-bottom: var(--space-md); }
-        .hero-subtitle { max-width: 650px; margin: 0 auto; }
+        .hero-subtitle { max-width: 620px; margin: 0 auto; }
         
         .section { padding: var(--space-2xl) 0; }
         .section-alt { background: var(--bg-secondary); }
@@ -55,14 +54,17 @@
         .workflow-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: var(--space-lg);
             display: grid;
             grid-template-columns: 1fr auto;
             gap: var(--space-lg);
             align-items: start;
+            transition: border-color 0.2s;
         }
+        .workflow-card:hover { border-color: rgba(45, 212, 191, 0.4); }
         
+        .workflow-icon { width: 46px; height: 46px; background: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: var(--space-sm); }
         .workflow-card h3 { margin-bottom: var(--space-sm); color: var(--text-primary); }
         .workflow-card p { font-size: 1rem; margin-bottom: var(--space-sm); }
         
@@ -70,10 +72,10 @@
         .workflow-meta span { font-size: 0.85rem; color: var(--text-muted); }
         .status-badge { color: var(--success) !important; font-weight: 600; }
         
-        .workflow-actions { display: flex; flex-direction: column; gap: var(--space-sm); min-width: 160px; }
+        .workflow-actions { display: flex; flex-direction: column; gap: var(--space-sm); min-width: 150px; }
         
         .final-cta { text-align: center; padding: var(--space-3xl) 0; }
-        .final-cta p { max-width: 600px; margin: 0 auto var(--space-xl); }
+        .final-cta p { max-width: 620px; margin: 0 auto var(--space-xl); }
         
         footer { padding: var(--space-xl) 0; border-top: 1px solid var(--border); text-align: center; }
         .footer-links { display: flex; justify-content: center; gap: var(--space-lg); margin-bottom: var(--space-md); list-style: none; }
@@ -83,6 +85,7 @@
         
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .hero { padding-top: calc(var(--space-2xl) + 80px); }
             .workflow-card { grid-template-columns: 1fr; }
             .workflow-actions { flex-direction: row; }
         }
@@ -113,7 +116,7 @@
     <section class="hero">
         <div class="container">
             <h1>The Workflow Library</h1>
-            <p class="hero-subtitle">Every workflow below is running in my own operations. Not mockups. Not demos. Production-proven.</p>
+            <p class="hero-subtitle">Seven workflows I actually run in my own business. No mockups, no theory — just systems that save me hours every week.</p>
         </div>
     </section>
 
@@ -123,100 +126,107 @@
                 
                 <div class="workflow-card">
                     <div>
-                        <h3>📧 Email Triage + Routing</h3>
-                        <p>Every incoming email is classified by an LLM: urgent vs. routine vs. promotional vs. escalation. Urgent items page you. Routine items land in a nightly digest.</p>
+                        <div class="workflow-icon">📧</div>
+                        <h3>Email Triage + Routing</h3>
+                        <p>Every incoming email gets sorted automatically. Important stuff reaches you right away. The rest is batched into a daily digest.</p>
                         <div class="workflow-meta">
                             <span>⏱ 5–8 hrs/week saved</span>
-                            <span class="status-badge">● Running 24/7</span>
+                            <span class="status-badge">● Running now</span>
                         </div>
                     </div>
                     <div class="workflow-actions">
-                        <a href="/templates/email-triage-kit" class="btn btn-primary btn-sm">View Kit</a>
-                        <a href="/diagnostic" class="btn btn-secondary btn-sm">Custom?</a>
+                        <a href="/templates/email-triage-kit" class="btn btn-primary">View Kit</a>
+                        <a href="/diagnostic" class="btn btn-secondary">Custom?</a>
                     </div>
                 </div>
 
                 <div class="workflow-card">
                     <div>
-                        <h3>🔥 Lead Intake + Qualification</h3>
-                        <p>Every inquiry is scored against Budget, Authority, Need, Timeline, and Fit. Hot leads get a fast reply. Cold leads enter a nurture sequence. Nobody gets forgotten.</p>
+                        <div class="workflow-icon">🔥</div>
+                        <h3>Lead Intake + Qualification</h3>
+                        <p>Every inquiry gets scored and routed. Hot leads get a fast reply. Warm leads enter a follow-up sequence. Nothing falls through the cracks.</p>
                         <div class="workflow-meta">
                             <span>⏱ 4–6 hrs/week saved</span>
-                            <span class="status-badge">● Running 24/7</span>
+                            <span class="status-badge">● Running now</span>
                         </div>
                     </div>
                     <div class="workflow-actions">
-                        <a href="/diagnostic" class="btn btn-secondary btn-sm">Request Custom</a>
+                        <a href="/diagnostic" class="btn btn-secondary">Request Custom</a>
                     </div>
                 </div>
 
                 <div class="workflow-card">
                     <div>
-                        <h3>🏭 Support Ticket Summarization</h3>
-                        <p>New support emails are matched against a knowledge base of known solutions. Escalations get a full context summary so humans don't start from zero.</p>
+                        <div class="workflow-icon">🎧</div>
+                        <h3>Support Ticket Summarization</h3>
+                        <p>New support emails get matched to past solutions. Complex issues get a full summary so your team starts with context, not from zero.</p>
                         <div class="workflow-meta">
                             <span>⏱ 3–5 hrs/week saved</span>
-                            <span class="status-badge">● Running 24/7</span>
+                            <span class="status-badge">● Running now</span>
                         </div>
                     </div>
                     <div class="workflow-actions">
-                        <a href="/diagnostic" class="btn btn-secondary btn-sm">Request Custom</a>
+                        <a href="/diagnostic" class="btn btn-secondary">Request Custom</a>
                     </div>
                 </div>
 
                 <div class="workflow-card">
                     <div>
-                        <h3>📱 Social Content Scheduler</h3>
-                        <p>RSS feeds are scanned daily. Articles scored by relevance. Platform-specific drafts are generated and queued for human review before publishing.</p>
+                        <div class="workflow-icon">📱</div>
+                        <h3>Social Content Scheduler</h3>
+                        <p>Relevant articles and updates are surfaced daily, scored for fit, and drafted for the right platform. A human reviews before anything goes live.</p>
                         <div class="workflow-meta">
                             <span>⏱ 3–4 hrs/week saved</span>
-                            <span class="status-badge">● Running 24/7</span>
+                            <span class="status-badge">● Running now</span>
                         </div>
                     </div>
                     <div class="workflow-actions">
-                        <a href="/diagnostic" class="btn btn-secondary btn-sm">Request Custom</a>
+                        <a href="/diagnostic" class="btn btn-secondary">Request Custom</a>
                     </div>
                 </div>
 
                 <div class="workflow-card">
                     <div>
-                        <h3>📋 Meeting Prep Assistant</h3>
-                        <p>Paste meeting title, attendees, and agenda. Get back a full brief with company context, talking points, and questions to ask. 90 seconds of input instead of 45 minutes of research.</p>
+                        <div class="workflow-icon">📋</div>
+                        <h3>Meeting Prep Assistant</h3>
+                        <p>Give it a meeting title and attendees. It pulls together company context, useful background, and smart questions — in under 2 minutes.</p>
                         <div class="workflow-meta">
                             <span>⏱ 2–3 hrs/week saved</span>
-                            <span class="status-badge">● Running 24/7</span>
+                            <span class="status-badge">● Running now</span>
                         </div>
                     </div>
                     <div class="workflow-actions">
-                        <a href="/diagnostic" class="btn btn-secondary btn-sm">Request Custom</a>
+                        <a href="/diagnostic" class="btn btn-secondary">Request Custom</a>
                     </div>
                 </div>
 
                 <div class="workflow-card">
                     <div>
-                        <h3>💰 Invoice Follow-Up Automation</h3>
-                        <p>Outstanding invoices tracked by due date. Escalating reminder emails fire automatically — friendly at day 1, firm at day 7, urgent at day 14, final notice at day 30.</p>
+                        <div class="workflow-icon">💰</div>
+                        <h3>Invoice Follow-Up Automation</h3>
+                        <p>Payment reminders go out automatically — friendly, then firmer as time passes. You only get involved when a conversation is actually needed.</p>
                         <div class="workflow-meta">
                             <span>⏱ 2–4 hrs/week saved</span>
-                            <span class="status-badge">● Running 24/7</span>
+                            <span class="status-badge">● Running now</span>
                         </div>
                     </div>
                     <div class="workflow-actions">
-                        <a href="/diagnostic" class="btn btn-secondary btn-sm">Request Custom</a>
+                        <a href="/diagnostic" class="btn btn-secondary">Request Custom</a>
                     </div>
                 </div>
 
                 <div class="workflow-card">
                     <div>
-                        <h3>🗃 CRM Auto-Population</h3>
-                        <p>Polls your inbox for meeting confirmations, new contacts, and deal-related emails. Creates CRM records automatically with deduplication.</p>
+                        <div class="workflow-icon">🗃</div>
+                        <h3>CRM Auto-Population</h3>
+                        <p>New contacts, meeting confirmations, and deal-related emails are pulled from your inbox and added to your CRM. Duplicate records are caught before they happen.</p>
                         <div class="workflow-meta">
                             <span>⏱ 4–7 hrs/week saved</span>
-                            <span class="status-badge">● Running 24/7</span>
+                            <span class="status-badge">● Running now</span>
                         </div>
                     </div>
                     <div class="workflow-actions">
-                        <a href="/diagnostic" class="btn btn-secondary btn-sm">Request Custom</a>
+                        <a href="/diagnostic" class="btn btn-secondary">Request Custom</a>
                     </div>
                 </div>
 
@@ -227,7 +237,7 @@
     <section class="final-cta">
         <div class="container">
             <h2>Not Sure Where to Start?</h2>
-            <p>Take the free diagnostic and get a personalized recommendation for the highest-ROI workflow for your situation.</p>
+            <p>Take the free diagnostic. I'll point you to the one workflow that will save you the most time first.</p>
             <a href="/diagnostic" class="btn btn-primary">Take the Free Diagnostic</a>
         </div>
     </section>
@@ -241,7 +251,7 @@
                 <li><a href="/contact">Contact</a></li>
                 <li><a href="/privacy">Privacy</a></li>
             </ul>
-            <p>&copy; 2026 Shayne's AI Lab. Built and dogfooded in production first.</p>
+            <p>&copy; 2026 Shayne's AI Lab. Built and used in my own business first.</p>
         </div>
     </footer>
 
