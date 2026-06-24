@@ -1,0 +1,6 @@
+name = "shaynesailab-diagnostic"
+main = "diagnostic.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+AGENTMAIL_API_KEY = "am_us_inbox_363623ff44e2e1d6261d8f545fbab191a26a70408ee45d9356c9d582dda5ddf4"
