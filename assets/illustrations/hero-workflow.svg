@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#22d3ee" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="bar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="bar2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#g1)"/>
+  <rect width="1200" height="520" fill="url(#glow)"/>
+
+  <!-- abstract orbit rings -->
+  <g stroke="rgba(148,163,184,0.07)" fill="none" stroke-width="1.5">
+    <ellipse cx="600" cy="280" rx="420" ry="160"/>
+    <ellipse cx="600" cy="280" rx="330" ry="120"/>
+    <ellipse cx="600" cy="280" rx="230" ry="80"/>
+  </g>
+
+  <!-- pipeline bars -->
+  <g transform="translate(180,120)">
+    <!-- messy input side -->
+    <g transform="translate(0,60)" opacity="0.55">
+      <rect x="0" y="0" width="70" height="70" rx="12" fill="#151e32" stroke="rgba(245,158,11,0.25)" stroke-width="2"/>
+      <path d="M20 28h30M20 42h20" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="60" cy="16" r="5" fill="#f59e0b"/>
+      <circle cx="16" cy="60" r="4" fill="#f59e0b"/>
+    </g>
+
+    <g transform="translate(90,40)" opacity="0.4">
+      <rect x="0" y="0" width="70" height="70" rx="12" fill="#151e32" stroke="rgba(245,158,11,0.2)" stroke-width="2"/>
+      <path d="M20 28h30M20 42h20" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="60" cy="16" r="5" fill="#f59e0b"/>
+    </g>
+
+    <!-- classifier core -->
+    <g transform="translate(280,110)">
+      <rect x="0" y="0" width="180" height="140" rx="24" fill="#151e32" stroke="rgba(45,212,191,0.35)" stroke-width="2.5" filter="url(#soft)"/>
+      <circle cx="90" cy="55" r="28" fill="none" stroke="url(#bar)" stroke-width="5"/>
+      <path d="M78 55l8 8 16-16" stroke="url(#bar)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="42" y="100" width="96" height="14" rx="7" fill="rgba(45,212,191,0.15)"/>
+      <rect x="42" y="100" width="62" height="14" rx="7" fill="url(#bar)"/>
+    </g>
+
+    <!-- outputs -->
+    <g transform="translate(520,50)">
+      <rect x="0" y="0" width="130" height="90" rx="16" fill="#151e32" stroke="rgba(52,211,153,0.3)" stroke-width="2"/>
+      <path d="M20 30h60M20 48h45" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="108" cy="22" r="6" fill="#34d399"/>
+      <text x="30" y="76" fill="#34d399" font-family="Inter, sans-serif" font-size="12" font-weight="700">URGENT</text>
+    </g>
+
+    <g transform="translate(520,170)">
+      <rect x="0" y="0" width="130" height="90" rx="16" fill="#151e32" stroke="rgba(34,211,238,0.3)" stroke-width="2"/>
+      <path d="M20 30h55M20 48h35" stroke="#22d3ee" stroke-width="4" stroke-linecap="round"/>
+      <text x="30" y="76" fill="#22d3ee" font-family="Inter, sans-serif" font-size="12" font-weight="700">DAILY DIGEST</text>
+    </g>
+
+    <!-- connector lines -->
+    <path d="M70 95 Q140 95 180 115" fill="none" stroke="rgba(245,158,11,0.25)" stroke-width="2" stroke-dasharray="6 4"/>
+    <path d="M160 75 Q220 75 280 145" fill="none" stroke="rgba(245,158,11,0.2)" stroke-width="2" stroke-dasharray="6 4"/>
+    <path d="M460 180 L520 215" fill="none" stroke="rgba(34,211,238,0.35)" stroke-width="2"/>
+    <path d="M460 180 L520 95" fill="none" stroke="rgba(52,211,153,0.35)" stroke-width="2"/>
+  </g>
+
+  <!-- right-hand calm figure/device motif -->
+  <g transform="translate(820,150)" opacity="0.9">
+    <rect x="0" y="0" width="240" height="220" rx="32" fill="#151e32" stroke="rgba(148,163,184,0.12)" stroke-width="1.5"/>
+    <rect x="24" y="24" width="192" height="14" rx="7" fill="rgba(45,212,191,0.12)"/>
+    <rect x="24" y="24" width="124" height="14" rx="7" fill="url(#bar)"/>
+    <g transform="translate(24,60)">
+      <rect x="0" y="0" width="86" height="64" rx="12" fill="rgba(52,211,153,0.08)" stroke="rgba(52,211,153,0.25)" stroke-width="1.5"/>
+      <circle cx="43" cy="28" r="14" fill="none" stroke="#34d399" stroke-width="3"/>
+      <path d="M36 28l5 5 10-10" stroke="#34d399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(130,60)">
+      <rect x="0" y="0" width="86" height="64" rx="12" fill="rgba(34,211,238,0.06)" stroke="rgba(34,211,238,0.2)" stroke-width="1.5"/>
+      <path d="M20 24h46M20 38h32" stroke="#22d3ee" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <rect x="24" y="150" width="192" height="46" rx="12" fill="rgba(45,212,191,0.08)"/>
+    <circle cx="48" cy="173" r="10" fill="url(#bar)"/>
+    <path d="M44 173l3 3 7-7" stroke="#0b1120" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="72" y="165" width="120" height="8" rx="4" fill="rgba(248,250,252,0.25)"/>
+    <rect x="72" y="177" width="84" height="8" rx="4" fill="rgba(248,250,252,0.12)"/>
+  </g>
+
+  <!-- small floating badges -->
+  <g transform="translate(110,360)" opacity="0.9">
+    <rect x="0" y="0" width="130" height="40" rx="20" fill="#151e32" stroke="rgba(52,211,153,0.3)" stroke-width="1.5"/>
+    <circle cx="24" cy="20" r="6" fill="#34d399"/>
+    <text x="40" y="25" fill="#f8fafc" font-family="Inter, sans-serif" font-size="12" font-weight="600">5–8 hrs back</text>
+  </g>
+  <g transform="translate(940,100)" opacity="0.9">
+    <rect x="0" y="0" width="120" height="36" rx="18" fill="#151e32" stroke="rgba(34,211,238,0.25)" stroke-width="1.5"/>
+    <circle cx="20" cy="18" r="5" fill="#22d3ee"/>
+    <text x="34" y="23" fill="#f8fafc" font-family="Inter, sans-serif" font-size="11" font-weight="600">Runs daily</text>
+  </g>
+</svg>
