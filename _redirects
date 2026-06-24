@@ -5,5 +5,8 @@ http://shaynesailab.com/* https://shaynesailab.com/:splat 301!
 http://www.shaynesailab.com/* https://shaynesailab.com/:splat 301!
 https://www.shaynesailab.com/* https://shaynesailab.com/:splat 301!
 
+# Let Functions handle API routes (must come before catch-all)
+/api/* /api/:splat 200
+
 # SPA fallback for unknown routes to 404
 /* /404.html 404
