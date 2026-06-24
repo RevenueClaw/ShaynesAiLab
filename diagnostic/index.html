@@ -418,10 +418,10 @@
             btn.classList.add('loading');
             btn.disabled = true;
             
-            // Backend note: the diagnostic worker is live at https://diagnostic.shaynesailab.workers.dev
+            // Backend note: the diagnostic API runs at /api/diagnostic within the same site.
             // It processes the form, maps answers, and emails a personalized report.
             try {
-                const response = await fetch('https://diagnostic.shaynesailab.workers.dev/', {
+                const response = await fetch('/api/diagnostic', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
