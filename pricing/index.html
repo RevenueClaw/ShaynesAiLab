@@ -31,6 +31,7 @@
             .pricing-table td:nth-child(4) { justify-content: flex-start; }
         }
     </style>
+</head>
 <body>
 
     <nav>
@@ -50,6 +51,9 @@
                 <li><a href="/diagnostic">Free Diagnostic</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
         </div>
     </nav>
 
@@ -143,9 +147,31 @@
                 <li><a href="/contact">Contact</a></li>
                 <li><a href="/privacy">Privacy</a></li>
             </ul>
-            <p>&copy; 2026 Shayne's AI Lab. Built and dogfooded in production first.</p>
+            <p>&copy; 2026 Shayne's AI Lab. Built and used in my own business first.</p>
         </div>
     </footer>
+
+    <script>
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileBtn && navLinks) {
+            mobileBtn.addEventListener('click', () => {
+                const isOpen = navLinks.style.display === 'flex';
+                navLinks.style.display = isOpen ? 'none' : 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'var(--bg-glass)';
+                navLinks.style.backdropFilter = 'blur(14px)';
+                navLinks.style.padding = '1rem 1.5rem';
+                navLinks.style.borderBottom = '1px solid var(--border)';
+                navLinks.style.gap = '0.75rem';
+                mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+            });
+        }
+    </script>
 
     <!-- TODO: Replace *** with actual Cloudflare Web Analytics beacon token before launch -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
