@@ -1,10 +1,19 @@
 {
+    "comment": "TODO markers = Shayne needs to sign up and provide referral link",
     "shaynesailab": {
         "amazon_tag": "shaynesailab-20",
         "notion": "TODO:NOTION_AFFILIATE_LINK",
         "make": "TODO:MAKE_AFFILIATE_LINK",
         "hubspot": "TODO:HUBSPOT_AFFILIATE_LINK",
-        "canva": "TODO:CANVA_AFFILIATE_LINK"
+        "canva": "TODO:CANVA_AFFILIATE_LINK",
+        "go_high_level": "TODO:GOHIGHLEVEL_AFFILIATE_LINK",
+        "jotform": "TODO:JOTFORM_AFFILIATE_LINK",
+        "kit": "TODO:KIT_AFFILIATE_LINK",
+        "mailerlite": "TODO:MAILERLITE_AFFILIATE_LINK",
+        "reclaim": "TODO:RECLAIM_AFFILIATE_LINK",
+        "cal_dot_com": "TODO:CALCOM_AFFILIATE_LINK",
+        "typeform": "TODO:TYPEFORM_AFFILIATE_LINK",
+        "miro": "TODO:MIRO_AFFILIATE_LINK"
     },
     "chipradar": {
         "amazon_tag": "vhicklegar011-20"
