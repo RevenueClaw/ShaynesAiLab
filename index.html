@@ -28,6 +28,7 @@
                 <li><a href="/blog" role="menuitem">Blog</a></li>
                 <li><a href="/resources" role="menuitem">Tools</a></li>
                 <li><a href="/starter-kit" role="menuitem">Free Starter Kit</a></li>
+                <li><a href="/about" role="menuitem">About</a></li>
                 <li><a href="/contact" role="menuitem">Contact</a></li>
             </ul>
             <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
@@ -53,28 +54,7 @@
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div style="background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.5rem; max-width:360px; margin:0 auto;">
-                        <p style="font-size:0.85rem; color:var(--text-dim); margin:0 0 0.75rem 0; text-transform:uppercase; letter-spacing:0.05em;">Recently Published</p>
-                        <ul style="list-style:none; padding:0; margin:0;">
-                            <li style="padding:0.5rem 0; border-bottom:1px solid var(--border);">
-                                <a href="/blog" style="color:var(--text); text-decoration:none; font-size:0.95rem;">Notion vs ClickUp for Ops Teams</a>
-                                <span style="display:block; font-size:0.78rem; color:var(--text-dim);">Tool Comparison</span>
-                            </li>
-                            <li style="padding:0.5rem 0; border-bottom:1px solid var(--border);">
-                                <a href="/blog" style="color:var(--text); text-decoration:none; font-size:0.95rem;">Make.com vs Zapier: Which Wins?</a>
-                                <span style="display:block; font-size:0.78rem; color:var(--text-dim);">Automation Guide</span>
-                            </li>
-                            <li style="padding:0.5rem 0; border-bottom:1px solid var(--border);">
-                                <a href="/blog" style="color:var(--text); text-decoration:none; font-size:0.95rem;">5 Free Tools Every Ops Team Needs</a>
-                                <span style="display:block; font-size:0.78rem; color:var(--text-dim);">Roundup</span>
-                            </li>
-                            <li style="padding:0.5rem 0;">
-                                <a href="/blog" style="color:var(--text); text-decoration:none; font-size:0.95rem;">Automating Email Triage</a>
-                                <span style="display:block; font-size:0.78rem; color:var(--text-dim);">How-To Guide</span>
-                            </li>
-                        </ul>
-                        <a href="/blog" style="display:block; text-align:center; margin-top:0.75rem; color:var(--brand-teal-light); font-size:0.9rem;">View All Articles →</a>
-                    </div>
+                    <img src="/assets/shaynesailab-hero.png" alt="Tool comparisons for operations teams" style="width:100%; height:auto; border-radius:var(--radius-lg); box-shadow:var(--shadow-card);" loading="lazy" width="1536" height="1024">
                 </div>
             </div>
         </div>
@@ -144,23 +124,49 @@
             </div>
             <div class="proof-grid">
                 <div class="proof-card card" style="text-align:center;">
-                    <h3 style="margin-bottom:0.3rem;">Notion</h3>
-                    <p style="color:var(--text-muted); font-size:0.85rem;">Docs, wikis, project management</p>
-                    <a href="TODO:NOTION_AFFILIATE_LINK" style="color:var(--brand-teal-light); font-size:0.9rem;">Learn more →</a>
-                </div>
-                <div class="proof-card card" style="text-align:center;">
+                    <div class="icon" style="margin-bottom:0.5rem;">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
                     <h3 style="margin-bottom:0.3rem;">Make.com</h3>
                     <p style="color:var(--text-muted); font-size:0.85rem;">No-code automation platform</p>
-                    <a href="https://www.make.com/en/register?pc=shaynesailab" style="color:var(--brand-teal-light); font-size:0.9rem;">Learn more →</a>
+                    <p style="color:var(--text-muted); font-size:0.82rem; margin:0.5rem 0; line-height:1.5;">Build email triage, lead routing, and reporting automations. One setup, no per-seat cost. <a href="/blog/email-triage-tools" style="color:var(--brand-teal-light);">See our comparison →</a></p>
+                    <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link" style="color:var(--brand-teal-light); font-size:0.9rem;">Sign up →</a>
                 </div>
                 <div class="proof-card card" style="text-align:center;">
+                    <div class="icon" style="margin-bottom:0.5rem;">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    </div>
+                    <h3 style="margin-bottom:0.3rem;">Notion</h3>
+                    <p style="color:var(--text-muted); font-size:0.85rem;">Docs, wikis, project management</p>
+                    <p style="color:var(--text-muted); font-size:0.82rem; margin:0.5rem 0; line-height:1.5;">Centralize SOPs, meeting notes, and project tracking. The default choice for ops docs. Application pending.</p>
+                    <span style="color:var(--text-dim); font-size:0.82rem;">Link pending approval</span>
+                </div>
+                <div class="proof-card card" style="text-align:center;">
+                    <div class="icon" style="margin-bottom:0.5rem;">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                    </div>
                     <h3 style="margin-bottom:0.3rem;">Jotform</h3>
                     <p style="color:var(--text-muted); font-size:0.85rem;">Forms, automation, reporting</p>
-                    <a href="TODO:JOTFORM_AFFILIATE_LINK" style="color:var(--brand-teal-light); font-size:0.9rem;">Learn more →</a>
+                    <p style="color:var(--text-muted); font-size:0.82rem; margin:0.5rem 0; line-height:1.5;">Intake forms, order forms, lead capture — 30% recurring commission. Application pending.</p>
+                    <span style="color:var(--text-dim); font-size:0.82rem;">Link pending approval</span>
                 </div>
             </div>
             <div style="text-align:center; margin-top:var(--space-md);">
                 <a href="/resources" class="btn btn-secondary btn-small">View All Tools</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Latest Article</span>
+                <h2>Email Triage Tools Compared</h2>
+                <p>We compared dedicated email clients, automation platforms, and AI assistants for ops teams. Here's what we found.</p>
+            </div>
+            <div style="text-align:center;">
+                <a href="/blog/email-triage-tools" class="btn btn-primary">Read the Full Comparison</a>
+                <a href="/blog" class="btn btn-secondary">Browse All Articles</a>
             </div>
         </div>
     </section>
@@ -183,6 +189,7 @@
                 <li><a href="/resources">Tools</a></li>
                 <li><a href="/starter-kit">Free Starter Kit</a></li>
                 <li><a href="/diagnostic">Free Diagnostic</a></li>
+                <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li><a href="/privacy">Privacy</a></li>
             </ul>

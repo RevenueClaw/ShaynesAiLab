@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Triage Tools Compared: Finding What Actually Works for Ops Teams — Shayne's AI Lab</title>
+    <meta name="description" content="A practical comparison of email management tools for operations teams. From Make.com automations to dedicated inbox tools, here's what we found.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <style>
+        .article-body { max-width: 740px; margin: 0 auto; }
+        .article-body h2 { margin-top: var(--space-xl); color: var(--text); }
+        .article-body h3 { margin-top: var(--space-lg); color: var(--text); }
+        .article-body p { margin-bottom: var(--space-sm); color: var(--text-secondary); line-height: 1.8; }
+        .article-body ul, .article-body ol { margin-bottom: var(--space-md); color: var(--text-secondary); padding-left: 1.5rem; }
+        .article-body li { margin-bottom: 0.3rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-md) 0; }
+        .article-body th, .article-body td { padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .article-body th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .article-body td { color: var(--text-secondary); font-size: 0.95rem; }
+        .article-body .quick-verdict { border-left: 3px solid var(--brand-teal); padding: 0.7rem 1.2rem; margin-bottom: var(--space-lg); background: var(--bg-glass); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 0.95rem; }
+        .article-body .quick-verdict strong { color: var(--text); }
+        .article-body .affiliate-disclosure { border-left: 2px solid var(--brand-amber); padding: 0.5rem 1rem; margin-bottom: var(--space-lg); background: var(--brand-amber-soft); border-radius: 4px; font-size: 0.82rem; color: var(--text-dim); }
+        .article-meta { font-size: 0.85rem; color: var(--text-dim); margin-bottom: var(--space-lg); text-align: center; }
+        .article-hero { width: 100%; border-radius: var(--radius-lg); margin-bottom: var(--space-lg); }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/><path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/blog" class="active">Blog</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/starter-kit">Free Starter Kit</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container" style="max-width: 740px;">
+            <span class="section-label">Blog</span>
+            <h1>Email Triage Tools Compared: What Actually Works for Ops Teams</h1>
+            <p class="article-meta">July 13, 2026 · 6 min read</p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="article-body">
+
+                <div class="quick-verdict">
+                    <strong>Quick verdict:</strong> If you just need to sort and filter, most email clients can do that. If you want intelligent triage — auto-categorization, priority routing, digest summaries — you need either a dedicated email AI tool or a custom automation setup. 
+                    <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> is the best middle ground for teams that want control without coding.
+                </div>
+
+                <p class="affiliate-disclosure">Some links below are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+
+                <p>Email management is one of those problems that feels like it should be solved by now. Every team has someone who's drowning in it — often the ops person. The tools exist, but finding the right one for your team size and workflow is harder than it should be.</p>
+
+                <p>This comparison covers the main approaches we've seen work for ops teams at 1-50 person companies. We're not going to recommend enterprise email security platforms or AI tools that cost $50/seat/month. We're looking at practical, affordable options that actually reduce inbox time.</p>
+
+                <h2>The Problem With Most Email Triage Tools</h2>
+                <p>There's a huge gap between what most email triage tools promise and what they deliver. The big ones (Superhuman, Missive, Spike) are polished but expensive — $15-30/seat/month adds up fast for a team of 20. The free options (Gmail filters, Outlook rules) are powerful but require manual setup and constant maintenance.</p>
+
+                <p>The middle ground — automation platforms like <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> — is surprisingly effective for teams that have someone willing to spend an afternoon on setup. Once it's running, it handles the grunt work without any per-seat costs.</p>
+
+                <h2>Option 1: Dedicated Email Clients</h2>
+                <table>
+                    <tr><th>Tool</th><th>Price</th><th>Best For</th><th>Limitation</th></tr>
+                    <tr><td>Superhuman</td><td>$30/seat/mo</td><td>Individual speed</td><td>Expensive per seat, no team triage</td></tr>
+                    <tr><td>Missive</td><td>$14-18/seat/mo</td><td>Shared inboxes, team collaboration</td><td>Less useful for individual inbox management</td></tr>
+                    <tr><td>Spike</td><td>$8-12/seat/mo</td><td>Chat-like email experience</td><td>Conversational UI isn't for everyone</td></tr>
+                    <tr><td>Gmail (native)</td><td>Free</td><td>Simple filtering + labels</td><td>Manual setup, no AI triage</td></tr>
+                </table>
+                <p>Dedicated email clients are the most polished experience but also the most expensive per seat. For a team of 5, you're looking at $75-150/month just for email. For a team of 20, that's $300-600/month. At that point, you have to ask whether the time savings justify the cost.</p>
+
+                <h2>Option 2: Automation Platforms</h2>
+                <p>This is where we see the most upside for ops teams. Instead of paying per seat for a premium email client, you build a triage system that works for everyone in your org, regardless of which email client they use.</p>
+
+                <p><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> is our pick here. Here's why:</p>
+                <ul>
+                    <li><strong>One-time setup, runs forever.</strong> You build the triage workflow once. It runs on a schedule (every 5 minutes, every hour, whatever you need) and processes emails automatically.</li>
+                    <li><strong>No per-seat cost.</strong> Make.com's pricing is based on operations (how many tasks you run), not how many users benefit. A single automation can serve your whole team.</li>
+                    <li><strong>Flexible routing.</strong> You can sort by sender domain, keywords, attachment types, reply patterns — anything you can filter on, you can route.</li>
+                    <li><strong>Slack/Teams integration.</strong> Route urgent emails to a Slack channel instead of someone's inbox. The non-urgent stuff gets a daily digest.</li>
+                </ul>
+
+                <p>The downside: it takes setup time. You need someone comfortable with basic automation logic (if-this-then-that style). Most ops people can handle this, but it's not as plug-and-play as a dedicated email client.</p>
+
+                <h2>Option 3: AI-Powered Email Assistants</h2>
+                <p>This is the newest category and the most promising for teams that want zero setup. Tools like SaneBox, Mailbutler, and Shortwave use AI to learn what's important and surface it automatically.</p>
+                <table>
+                    <tr><th>Tool</th><th>Price</th><th>AI Approach</th><th>Best For</th></tr>
+                    <tr><td>SaneBox</td><td>$7-12/mo</td><td>Learns importance from your behavior</td><td>Individual inbox decluttering</td></tr>
+                    <tr><td>Mailbutler</td><td>$5-11/seat/mo</td><td>Smart sorting + task management</td><td>Gmail/Outlook power users</td></tr>
+                    <tr><td>Shortwave</td><td>$9-25/seat/mo</td><td>AI summaries + prioritization</td><td>Teams that want AI-native email</td></tr>
+                </table>
+                <p>AI assistants are good for individuals but get expensive and complicated for team-wide deployment. They also require access to your email (OAuth), which some companies are uncomfortable with for compliance reasons.</p>
+
+                <h2>Our Recommendation</h2>
+                <p>For most ops teams we've worked with, the best approach is a hybrid:</p>
+                <ol>
+                    <li><strong>Use <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> for automated triage.</strong> Set up a workflow that checks incoming mail, categorizes it (urgent, client, internal, newsletter), and routes it to the right place. This takes an afternoon to build and saves hours per week.</li>
+                    <li><strong>Keep your existing email client.</strong> The automation runs in the background. Your team doesn't need to switch tools.</li>
+                    <li><strong>Add an AI assistant for individuals who need it.</strong> If someone is drowning, a $7-12/month SaneBox subscription is cheaper than the time they're losing.</li>
+                </ol>
+                <p>Start with the automation layer. It's the most impact per dollar, and it works for everyone in the org regardless of their email preferences.</p>
+
+                <h2>Further Reading</h2>
+                <ul>
+                    <li><a href="/starter-kit">Free AI Starter Kit</a> — 8 tools worth knowing about</li>
+                    <li><a href="/resources">Tools Reference</a> — Full list of tools we've compared</li>
+                    <li><a href="/diagnostic">Free Ops Diagnostic</a> — 6 questions, personalized report</li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Keep Exploring</span>
+            <h2>More Tool Comparisons</h2>
+            <a href="/blog" class="btn btn-secondary">Back to Blog</a>
+            <a href="/starter-kit" class="btn btn-primary">Get the Free Starter Kit</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/starter-kit">Free Starter Kit</a></li>
+                <li><a href="/diagnostic">Free Diagnostic</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+            <p style="font-size:0.78rem; color:var(--text-dim); margin-top:var(--space-xs);">Some links on this site are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click',function(){const e=document.querySelector('.nav-links');const n=e.style.display==='flex';e.style.display=n?'none':'flex';e.style.flexDirection='column';e.style.position='absolute';e.style.top='100%';e.style.left='0';e.style.right='0';e.style.background='var(--bg-glass)';e.style.backdropFilter='blur(14px)';e.style.padding='1rem 1.5rem';e.style.borderBottom='1px solid var(--border)';e.style.gap='0.75rem';this.setAttribute('aria-expanded',String(!n));});
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>

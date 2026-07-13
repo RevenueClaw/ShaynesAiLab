@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Shayne's AI Lab</title>
+    <meta name="description" content="What Shayne's AI Lab is, who runs it, and why we're here.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <style>
+        .about-body { max-width: 700px; margin: 0 auto; }
+        .about-body p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: var(--space-md); }
+        .about-body h2 { margin-top: var(--space-xl); color: var(--text); }
+        .about-body ul { list-style: none; padding: 0; margin-bottom: var(--space-md); }
+        .about-body ul li { padding: 0.5rem 0; color: var(--text-secondary); padding-left: 1.5rem; position: relative; }
+        .about-body ul li::before { content: "→"; position: absolute; left: 0; color: var(--brand-teal-light); }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/><path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/starter-kit">Free Starter Kit</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container" style="max-width:700px;">
+            <span class="section-label">About</span>
+            <h1>What This Site Is</h1>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="about-body">
+                <p>Shayne's AI Lab is a resource hub for operations leaders at growing companies. We publish honest tool comparisons, practical automation guides, and free resources — all aimed at helping teams work more effectively without the hype.</p>
+
+                <h2>Who Runs It</h2>
+                <p>This site is run by someone who has spent years building and running operations systems for small-to-mid-size companies. The perspective here comes from real experience — what actually works when you're not a 500-person enterprise with a dedicated IT team.</p>
+                <p>We don't claim to have all the answers. What we do is share what we've learned, compare tools honestly, and flag both the strengths and the frustrations of the tools we cover.</p>
+
+                <h2>Why It Exists</h2>
+                <p>Most operations tool content falls into two camps: shallow listicles that don't compare anything meaningfully, or enterprise-focused consultant speak. We wanted a middle ground — a place where someone running operations for a 10-person company can get genuinely useful, specific information about what tools might work for them.</p>
+                <p>The site started as a consulting business. We're pivoting because the thing our visitors actually found useful was the tool comparisons and the starter kit — not the sales calls.</p>
+
+                <h2>How We Make Money</h2>
+                <p>This site uses affiliate links. If you sign up for a tool through one of our links, we may earn a commission — at no extra cost to you. This is how we keep the site running and the content free.</p>
+                <ul>
+                    <li>We only recommend tools we believe are genuinely useful for our audience</li>
+                    <li>We don't take sponsored placements or write paid reviews</li>
+                    <li>We flag tools' real weaknesses, not just their strengths</li>
+                    <li>When we compare two tools, our recommendation is based on what we think fits, not which pays more</li>
+                </ul>
+                <p>The email nurture sequence and starter kit are free, no strings attached. We don't sell your data or run ads.</p>
+
+                <h2>What We Don't Do</h2>
+                <ul>
+                    <li>We don't do paid placements or sponsored content</li>
+                    <li>We don't claim to have used every tool we list (we tell you when we have and when we haven't)</li>
+                    <li>We don't publish AI-generated articles without real human editing and honest assessment</li>
+                    <li>We don't do consulting or custom workflow builds anymore</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Start Here</span>
+            <h2>Not sure where to begin?</h2>
+            <a href="/starter-kit" class="btn btn-primary">Get the Free Starter Kit</a>
+            <a href="/diagnostic" class="btn btn-secondary">Take the Free Diagnostic</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/starter-kit">Free Starter Kit</a></li>
+                <li><a href="/diagnostic">Free Diagnostic</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+            <p style="font-size:0.78rem; color:var(--text-dim); margin-top:var(--space-xs);">Some links on this site are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click',function(){const e=document.querySelector('.nav-links');const n=e.style.display==='flex';e.style.display=n?'none':'flex';e.style.flexDirection='column';e.style.position='absolute';e.style.top='100%';e.style.left='0';e.style.right='0';e.style.background='var(--bg-glass)';e.style.backdropFilter='blur(14px)';e.style.padding='1rem 1.5rem';e.style.borderBottom='1px solid var(--border)';e.style.gap='0.75rem';this.setAttribute('aria-expanded',String(!n));});
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>
