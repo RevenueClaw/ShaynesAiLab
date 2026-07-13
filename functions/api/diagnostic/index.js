@@ -159,6 +159,14 @@ function buildReportHtml(data, workflow) {
           <p style="color:#94a3b8; font-size:14px; line-height:1.6;">
             Not ready to decide? Just reply to this email with your #1 question and I'll answer personally.
           </p>
+
+          <div style="background:#0f172a; border:1px solid #334155; border-radius:12px; padding:20px; margin-bottom:24px;">
+            <h3 style="margin:0 0 8px; font-size:16px; color:#f8fafc;">Bonus: Free AI Starter Kit</h3>
+            <p style="margin:0; color:#94a3b8; font-size:14px; line-height:1.6;">
+              While you're figuring out the right workflow, grab my <a href="https://shaynesailab.com/starter-kit" style="color:#2dd4bf;">free AI Starter Kit</a> — 
+              8 tools that actually save time, with a 30-day plan and honest cost breakdowns. No commitment.
+            </p>
+          </div>
           
           <hr style="border:0; border-top:1px solid #334155; margin:24px 0;">
           <p style="margin:0; color:#64748b; font-size:13px;">
@@ -195,6 +203,11 @@ Your best next step:
 ${nextStep}
 
 Not ready to decide? Reply to this email with your #1 question and I'll answer personally.
+
+Bonus: Free AI Starter Kit
+While you're figuring it out, grab the free AI Starter Kit:
+8 tools that actually save time, with a 30-day plan.
+https://shaynesailab.com/starter-kit
 
 — Shayne
 Shayne's AI Lab
