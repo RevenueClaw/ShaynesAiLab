@@ -12,29 +12,25 @@ const AGENTMAIL_BASE = 'https://api.agentmail.to/v0';
 
 const STARTER_KIT_CONTENT = `
 # AI Starter Kit
-## The 8 Tools That Actually Save Time
-
-**By Shayne | shaynesailab.com**
+## 8 Tools That Are Actually Useful
 
 ---
 
 ## Welcome
 
-This is the kit I wish I had 18 months ago.
+A curated list of tools that have strong reputations for doing what they claim.
 
-Not 47 tools. Not a "complete AI transformation." Just 8 tools that actually do the work.
-
-If you're overwhelmed by AI, start here.
+Not 47 tools. Not a "complete AI transformation." Just 8 tools worth knowing about if you're getting started with practical software and AI.
 
 ---
 
-### THE 8-TOOL STACK
+### THE 8-TOOL OVERVIEW
 
 **1. ChatGPT (Free tier to start)**
-- **What it does:** Your AI assistant for writing, brainstorming, analysis
+- **What it does:** AI assistant for writing, brainstorming, analysis
 - **When to use:** Drafting emails, outlining content, explaining complex topics, brainstorming
-- **Pro tip:** Use the voice feature to "talk" your ideas out while walking
-- **Cost:** Free (upgrade to Plus at $20/mo only if you hit limits)
+- **Pro tip:** The voice feature works well for talking through ideas while mobile
+- **Cost:** Free (Plus at $20/mo for priority access and advanced models)
 
 **2. Claude (Free tier)**
 - **What it does:** Long-form documents and nuanced analysis
@@ -132,8 +128,8 @@ function buildHtmlEmail(firstName) {
           <p style="margin:0 0 24px; color:#94a3b8; font-size:15px;">${greeting}</p>
           
           <p style="color:#f8fafc; line-height:1.6; margin-bottom:24px;">
-            Here's the kit I wish I had 18 months ago. Not 47 tools. Not a "complete AI transformation." 
-            Just 8 tools that actually do the work. If you're overwhelmed by AI, start here.
+            A curated list of 8 tools that have strong reputations for doing what they claim. Not 47 tools. Not a "complete AI transformation."
+            Just 8 tools worth knowing about if you're getting started with practical software and AI.
           </p>
 
           ${items}
@@ -156,7 +152,7 @@ function buildPlaintextEmail(firstName) {
   const greeting = firstName ? `Hi ${firstName},` : 'Hi there,';
   return `${greeting}
 
-Here's the kit I wish I had 18 months ago. Not 47 tools. Not a "complete AI transformation." Just 8 tools that actually do the work.
+A curated list of 8 tools that have strong reputations for doing what they claim. Not 47 tools. Not a "complete AI transformation." Just 8 tools worth knowing about if you're getting started with practical software and AI.
 
 ${STARTER_KIT_CONTENT}
 

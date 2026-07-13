@@ -1,31 +1,29 @@
 # AI Starter Kit
-## The 8 Tools That Actually Save Time
-
-**By Shayne | shaynesailab.com**
+## 8 Tools That Are Actually Useful
 
 ---
 
 ## Welcome
 
-This is the kit I wish I had 18 months ago.
+A curated list of tools that have strong reputations for doing what they claim.
 
-Not 47 tools. Not a "complete AI transformation." Just 8 tools that actually do the work.
+Not 47 tools. Not a "complete AI transformation." Just 8 tools worth knowing about if you're getting started with practical software and AI.
 
-If you're overwhelmed by AI, start here.
+If you're overwhelmed by AI, this is a reasonable place to start.
 
 ---
 
-## THE 8-TOOL STACK
+## THE 8-TOOL OVERVIEW
 
 ### 1. ChatGPT (Free tier to start)
-**What it does:** Your AI assistant for writing, brainstorming, analysis
+**What it does:** AI assistant for writing, brainstorming, analysis
 **When to use:**
 - Drafting emails that don't sound robotic
 - Outlining blog posts and content
 - Explaining complex topics simply
 - Brainstorming when you're stuck
 
-**Pro tip:** Use the voice feature to "talk" your ideas out while walking
+**Note:** The voice feature works well for talking through ideas while mobile.
 
 **Cost:** Free (upgrade to Plus at $20/mo only if you hit limits)
 
@@ -44,23 +42,10 @@ If you're overwhelmed by AI, start here.
 
 ---
 
-### 3. Grok (via X/Twitter)
-**What it does:** Real-time info, current events, unfiltered answers
-**When to use:**
-- "What are people saying about [topic] right now?"
-- Current news and trends
-- When you want less corporate-speak
-
-**Note:** This is my daily driver. But start with ChatGPT first.
-
-**Cost:** Free tier available
-
----
-
-### 4. Canva (Free)
+### 3. Canva (Free)
 **What it does:** Graphics, thumbnails, social posts
 **When to use:**
-- YouTube thumbnails (used to take me an hour, now 5 minutes)
+- Thumbnails (can take an hour doing it manually, 5 minutes with Canva)
 - Instagram/Facebook graphics
 - Quick presentations
 - Logo mockups
@@ -71,20 +56,7 @@ If you're overwhelmed by AI, start here.
 
 ---
 
-### 5. Fireflies.ai (Free tier)
-**What it does:** Records and transcribes meetings
-**When to use:**
-- Never take meeting notes again
-- Capture customer calls
-- Remember what you agreed to
-
-**My workflow:** Let it record, get the transcript, search for action items
-
-**Cost:** Free tier (paid starts at $10/mo for more minutes)
-
----
-
-### 6. Perplexity (Free)
+### 4. Perplexity (Free)
 **What it does:** AI search with sources
 **When to use:**
 - "What are the latest email marketing regulations?"
@@ -97,7 +69,7 @@ If you're overwhelmed by AI, start here.
 
 ---
 
-### 7. Notion (Free)
+### 5. Notion (Free)
 **What it does:** Notes, docs, databases, wikis
 **When to use:**
 - Project documentation
@@ -110,7 +82,18 @@ If you're overwhelmed by AI, start here.
 
 ---
 
-### 8. Calendly (Free)
+### 6. Fireflies.ai (Free tier)
+**What it does:** Records and transcribes meetings
+**When to use:**
+- Avoid manual meeting notes
+- Capture customer calls
+- Search past conversations for action items
+
+**Cost:** Free tier (paid starts at $10/mo for more minutes)
+
+---
+
+### 7. Calendly (Free)
 **What it does:** Scheduling without the back-and-forth
 **When to use:**
 - Booking calls with clients
@@ -123,22 +106,32 @@ If you're overwhelmed by AI, start here.
 
 ---
 
+### 8. Cloudflare (Free tier)
+**What it does:** Website hosting, DNS, security, CDN
+**When to use:**
+- Hosting static sites
+- Managing DNS
+- DDoS protection
+- Serverless functions
+
+**Cost:** Free tier handles most needs. Paid plans for advanced features.
+
+---
+
 ## TOTAL COST BREAKDOWN
 
 | Tool | Cost | When to Pay |
 |------|------|-------------|
 | ChatGPT | $0 | Upgrade only if you use it heavily |
 | Claude | $0 | Free is plenty |
-| Grok | $0 | Free tier works |
 | Canva | $0 | Upgrade if you need brand consistency |
-| Fireflies | $0 | Pay if you record lots of meetings |
 | Perplexity | $0 | Free is fine |
+| Fireflies | $0 | Pay if you record lots of meetings |
 | Notion | $0 | AI included free |
 | Calendly | $0 | Pay for advanced features |
+| Cloudflare | $0 | Pay for advanced Workers/security |
 
 **Total: $0 to start. Maybe $20-50/mo if you're using everything heavily.**
-
-Compare to: $500+/mo for VAs, designers, assistants.
 
 ---
 
@@ -185,52 +178,15 @@ What worked? What didn't? Cut what doesn't help.
 
 ---
 
-## WHAT I ACTUALLY USE (BONUS)
+## A NOTE ON THIS LIST
 
-Here's where I need to be honest:
-
-I use more than these 8 tools. I have:
-- Custom OpenClaw automations
-- Self-hosted models
-- Personal AI agents
-
-But that took MONTHS to build. And it breaks sometimes. And I have to fix it.
-
-**These 8 tools? They just work.**
-
-Start here. Master these. Then decide if you ever need more.
-
----
-
-## THE HONEST TRUTH
-
-AI won't transform your business overnight. But it will save you 10-15 hours a week if you use it right.
-
-The key: Consistency over complexity.
-
-Pick tools. Use them. Build habits. That's it.
-
----
-
-## WANT MORE?
-
-If this was helpful, check out my workshop:
-
-**"AI That Saves 15+ Hours/Week"**
-- 50 minutes of live demos
-- Watch my screen as I use each tool
-- See my actual workflows
-- Q&A for your specific situation
-
-$29 at shaynesailab.com
+Every business is different. These tools work well for many people, but the right tool depends on your specific needs, workflow, and budget. Use this as a starting point, do your own research, and pick what fits you.
 
 ---
 
 **Questions?** hello@shaynesailab.com
 
-I read every email.
-
 ---
 
 **© 2026 Shayne's AI Lab**
-**Version 1.0 | Practical AI for busy business owners**
+**Version 2.0 | Practical tools for busy business owners**
