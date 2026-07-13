@@ -35,7 +35,7 @@ TOPICS=(
 
 # Affiliate links — replace TODO once Shayne provides them
 NOTION_AFF="TODO:NOTION_AFFILIATE_LINK"
-MAKE_AFF="TODO:MAKE_AFFILIATE_LINK"
+MAKE_AFF="https://www.make.com/en/register?pc=shaynesailab"
 HUBSPOT_AFF="TODO:HUBSPOT_AFFILIATE_LINK"
 CANVA_AFF="TODO:CANVA_AFFILIATE_LINK"
 AMAZON_AFF="shaynesailab-20"

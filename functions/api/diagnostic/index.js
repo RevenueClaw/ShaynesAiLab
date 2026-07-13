@@ -166,7 +166,7 @@ function buildReportHtml(data, workflow) {
               While you're figuring out the right workflow, here are tools worth evaluating:<br>
               <a href="TODO:NOTION_AFFILIATE_LINK" style="color:#2dd4bf;">Notion</a> — Docs, wikis, and project management<br>
               <a href="TODO:CANVA_AFFILIATE_LINK" style="color:#2dd4bf;">Canva</a> — Fast design for non-designers<br>
-              <a href="TODO:MAKE_AFFILIATE_LINK" style="color:#2dd4bf;">Make.com</a> — No-code automation<br>
+              <a href="https://www.make.com/en/register?pc=shaynesailab" style="color:#2dd4bf;">Make.com</a> — No-code automation<br>
               <span style="color:#64748b; font-size:11px;">We may earn a commission if you sign up through these links.</span>
             </p>
           </div>
@@ -217,7 +217,7 @@ Not ready to decide? Reply to this email with your #1 question and I'll answer p
 Tools Worth Trying While You Decide:
 Notion: TODO:NOTION_AFFILIATE_LINK
 Canva: TODO:CANVA_AFFILIATE_LINK
-Make.com: TODO:MAKE_AFFILIATE_LINK
+Make.com: https://www.make.com/en/register?pc=shaynesailab
 (We may earn a commission if you sign up through these links.)
 
 Bonus: Free AI Starter Kit

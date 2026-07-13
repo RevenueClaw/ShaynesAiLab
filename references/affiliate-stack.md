@@ -152,7 +152,7 @@ When you have all the referral links, send them to me and I'll run:
 for f in functions/api/starter-kit/index.js functions/api/diagnostic/index.js \
          resources/index.html blog/*.html scripts/overnight/generate_content.sh; do
   sed -i "s|TODO:NOTION_AFFILIATE_LINK|$NOTION_LINK|g" "$f"
-  sed -i "s|TODO:MAKE_AFFILIATE_LINK|$MAKE_LINK|g" "$f"
+  sed -i "s|https://www.make.com/en/register?pc=shaynesailab|$MAKE_LINK|g" "$f"
   # ... etc
 done
 ```

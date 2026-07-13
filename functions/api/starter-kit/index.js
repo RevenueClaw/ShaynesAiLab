@@ -139,7 +139,7 @@ function buildHtmlEmail(firstName) {
             <strong style="color:#f8fafc;">Try the tools mentioned in this guide:</strong><br>
             <a href="TODO:NOTION_AFFILIATE_LINK" style="color:#2dd4bf;">Notion</a> — Docs, wikis, project management.<br>
             <a href="TODO:CANVA_AFFILIATE_LINK" style="color:#2dd4bf;">Canva</a> — Graphic design, fast.<br>
-            <a href="TODO:MAKE_AFFILIATE_LINK" style="color:#2dd4bf;">Make.com</a> — Automation workflows.<br>
+            <a href="https://www.make.com/en/register?pc=shaynesailab" style="color:#2dd4bf;">Make.com</a> — Automation workflows.<br>
             <span style="color:#64748b; font-size:11px;">Affiliate disclosure: We may earn a commission if you sign up through these links.</span>
           </p>
           <hr style="border:0; border-top:1px solid #334155; margin:24px 0;">
@@ -168,7 +168,7 @@ ${STARTER_KIT_CONTENT}
 Try the tools mentioned in this guide:
 Notion: TODO:NOTION_AFFILIATE_LINK
 Canva: TODO:CANVA_AFFILIATE_LINK
-Make.com: TODO:MAKE_AFFILIATE_LINK
+Make.com: https://www.make.com/en/register?pc=shaynesailab
 (Affiliate disclosure: We may earn a commission if you sign up through these links.)
 ---
 
