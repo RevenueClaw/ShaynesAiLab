@@ -17,7 +17,16 @@
         .contact-option p { font-size: 0.98rem; margin: 0; }
         @media (max-width: 640px) { .contact-options { grid-template-columns: 1fr; } }
     </style>
-</head>
+    <meta property="og:title" content="Contact — Shayne's AI Lab">
+    <meta property="og:description" content="Get in touch with Shayne's AI Lab. Tool suggestions, blog feedback, general questions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shaynesailab.com/contact">
+    <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact — Shayne's AI Lab">
+    <meta name="twitter:description" content="Get in touch with Shayne's AI Lab. Tool suggestions, blog feedback, general questions.">
+    <meta name="twitter:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+    </head>
 <body>
 
     <nav>
@@ -58,8 +67,8 @@
     <section class="section section-alt">
         <div class="container" style="max-width: 760px;">
             <div class="contact-card">
-                <!-- TODO: Replace YOUR_FORM_ID with actual Formspree endpoint or backend URL before launch -->
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <!-- Form submits via mailto as fallback until backend is wired -->
+                <form action="mailto:hello@shaynesailab.com" method="post" enctype="text/plain" onsubmit="return confirm('This will open your email client. Alternatively, send directly to hello@shaynesailab.com');">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -83,7 +92,7 @@
                         <textarea id="message" name="message" placeholder="What tool would you like us to compare or what's on your mind?" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-wide">Send Message</button>
-                    <p class="form-note">This form uses Formspree. Replace YOUR_FORM_ID with your actual endpoint before going live.</p>
+
                 </form>
             </div>
 
@@ -138,7 +147,7 @@
         }
     </script>
 
-    <!-- TODO: Replace *** with actual Cloudflare Web Analytics beacon token before launch -->
+    
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
     <!-- END Cloudflare Web Analytics -->
 </body>

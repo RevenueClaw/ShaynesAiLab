@@ -90,6 +90,17 @@ END
         echo "[$(date)] ERROR: Failed to generate content for $slug" | tee -a "$LOG_FILE"
         return 1
     fi
+
+    # Quality check: reject AI slop phrases
+    BODY_LC=$(echo "$BODY" | tr '[:upper:]' '[:lower:]')
+    SLOP_PHRASES=("in today's digital" "in today's fast-paced" "in the ever-evolving" "game-changer" "game changer" "revolutionize" "unlock the full potential" "dive in" "let's dive" "the power of" "harness the power" "cutting-edge" "transformative" "solutions that" "best-in-class" "robust")
+    for phrase in "${SLOP_PHRASES[@]}"; do
+        if echo "$BODY_LC" | grep -q "$phrase"; then
+            echo "[$(date)] QUALITY FAIL: $slug contains AI slop phrase: '$phrase'" | tee -a "$LOG_FILE"
+            return 1
+        fi
+    done
+    echo "[$(date)] Quality check passed for $slug" | tee -a "$LOG_FILE"
     
     # Write the article HTML
     cat > "$output_file" <<EOF
@@ -104,6 +115,12 @@ END
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="$topic — Shayne's AI Lab">
+    <meta property="og:description" content="$(echo "$focus" | head -c 160)">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://shaynesailab.com/blog/$slug">
+    <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         .article-body { max-width: 740px; margin: 0 auto; }
         .article-body h2 { margin-top: var(--space-xl); color: var(--text); }
@@ -156,6 +173,17 @@ END
 
     <section class="section" style="text-align:center;">
         <div class="container">
+            <span class="section-label">Share This Article</span>
+            <p style="color:var(--text-muted);">If you found this useful, share it with someone else.</p>
+            <p style="margin-bottom:var(--space-md);">
+                <a href="https://twitter.com/intent/tweet?text=$topic%20—%20a%20practical%20comparison%20for%20ops%20teams&url=https://shaynesailab.com/blog/$slug" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://shaynesailab.com/blog/$slug" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on LinkedIn</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
             <span class="section-label">Keep Exploring</span>
             <h2>More Tools & Comparisons</h2>
             <a href="/blog" class="btn btn-secondary">Back to Blog</a>
@@ -168,6 +196,7 @@ END
             <ul class="footer-links">
                 <li><a href="/blog">Blog</a></li>
                 <li><a href="/resources">Tools</a></li>
+                <li><a href="/about">About</a></li>
                 <li><a href="/starter-kit">Free Starter Kit</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li><a href="/privacy">Privacy</a></li>
@@ -267,5 +296,61 @@ echo "{\"index\":$NEXT_INDEX}" > "$STATE_FILE"
 
 # Rebuild blog index after adding new article
 build_blog_index
+
+# Generate social media draft for the article if one was written
+if [ -n "$SLUG" ] && [ -f "$BLOG_DIR/$SLUG.html" ]; then
+    SOCIAL_DIR="$SCRIPTS_DIR/overnight/social"
+    mkdir -p "$SOCIAL_DIR"
+    
+    SOCIAL_DRAFT="$SOCIAL_DIR/${SLUG}_social.txt"
+    cat > "$SOCIAL_DRAFT" <<ENDSOCIAL
+📝 NEW: $TOPIC
+
+A practical, no-hype comparison for ops teams.
+
+Read the full comparison → https://shaynesailab.com/blog/$SLUG
+
+#OpsTools #Automation
+ENDSOCIAL
+    echo "[$(date)] Social draft saved: $SOCIAL_DRAFT" | tee -a "$LOG_FILE"
+fi
+
+# Update sitemap.xml
+python3 << 'PYEOF' 2>/dev/null
+import json
+from datetime import date
+
+pages = [
+    {"loc": "https://shaynesailab.com/", "priority": "1.0", "changefreq": "weekly"},
+    {"loc": "https://shaynesailab.com/blog", "priority": "0.9", "changefreq": "daily"},
+    {"loc": "https://shaynesailab.com/resources", "priority": "0.8", "changefreq": "weekly"},
+    {"loc": "https://shaynesailab.com/starter-kit", "priority": "0.8", "changefreq": "monthly"},
+    {"loc": "https://shaynesailab.com/diagnostic", "priority": "0.7", "changefreq": "monthly"},
+    {"loc": "https://shaynesailab.com/about", "priority": "0.7", "changefreq": "monthly"},
+    {"loc": "https://shaynesailab.com/contact", "priority": "0.5", "changefreq": "monthly"},
+    {"loc": "https://shaynesailab.com/privacy", "priority": "0.3", "changefreq": "yearly"},
+]
+
+ARTICLES_FILE = '$BLOG_DIR/articles.json'
+try:
+    articles = json.load(open(ARTICLES_FILE))
+    for a in articles:
+        pages.append({
+            "loc": f"https://shaynesailab.com{a['url']}",
+            "priority": "0.8",
+            "changefreq": "monthly"
+        })
+except:
+    pass
+
+xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+for p in pages:
+    xml += f'  <url>\n    <loc>{p["loc"]}</loc>\n    <priority>{p["priority"]}</priority>\n    <changefreq>{p["changefreq"]}</changefreq>\n  </url>\n'
+xml += '</urlset>'
+
+with open('$REPO_DIR/sitemap.xml', 'w') as f:
+    f.write(xml)
+print(f"[sitemap] Updated with {len(pages)} URLs")
+PYEOF
 
 echo "[$(date)] Content generation complete. Next topic index: $NEXT_INDEX" | tee -a "$LOG_FILE"

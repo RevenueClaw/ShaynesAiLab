@@ -10,7 +10,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/design-system.css">
-</head>
+    <meta property="og:title" content="Free Ops Diagnostic — Shayne's AI Lab">
+    <meta property="og:description" content="6 questions, 5 minutes. Get a personalized report with your highest-ROI tool recommendations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shaynesailab.com/diagnostic">
+    <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Ops Diagnostic — Shayne's AI Lab">
+    <meta name="twitter:description" content="6 questions, 5 minutes. Get a personalized report with your highest-ROI tool recommendations.">
+    <meta name="twitter:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+    </head>
 <body>
 
     <nav>
@@ -52,7 +61,7 @@
     <section class="section section-alt">
         <div class="container narrow">
             <div class="diagnostic-form">
-                <!-- TODO: Wire this form to a real backend (Cloudflare Worker, Formspree + webhook, or Python handler) before launch -->
+                
                 <form id="diagnostic-form" action="/diagnostic/submit" method="POST">
                     
                     <div class="form-group">
@@ -354,7 +363,7 @@
         });
     </script>
 
-    <!-- TODO: Replace *** with actual Cloudflare Web Analytics beacon token before launch -->
+    
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
     <!-- END Cloudflare Web Analytics -->
 </body>
