@@ -94,6 +94,7 @@ Requirements:
 - Include affiliate disclosure at the top: "\u003cp class=\"affiliate-disclosure\"\u003eSome links below are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.\u003c/p\u003e"
 - Use class "affiliate-link" on any affiliate links
 - For Make.com link use: \u003ca href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link"\u003eMake.com\u003c/a\u003e
+- For ClickUp link use: \u003ca href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link"\u003eClickUp\u003c/a\u003e
 - For other affiliate links use \u003ca href="LINK" class="affiliate-link"\u003eNAME\u003c/a\u003e format
 - Keep the tone neutral, not promotional
 - End with a "Further Reading" section linking to relevant tools

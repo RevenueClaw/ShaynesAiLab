@@ -105,6 +105,7 @@ Requirements:
 - Include affiliate disclosure at the top
 - Use class "affiliate-link" on any affiliate links
 - For Make.com link use: <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a>
+- For ClickUp link use: <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a>
 - Keep the tone neutral, not promotional
 - End with a "Further Reading" section"""
 
