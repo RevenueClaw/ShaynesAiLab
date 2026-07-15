@@ -1,5 +1,61 @@
 [
   {
+    "title": "AI Meeting Assistants Compared: Otter vs Fireflies vs Fathom",
+    "slug": "ai-meeting-assistants",
+    "date": "2026-07-15",
+    "description": "Comparing AI meeting note-taking and transcription tools for teams that want to capture and action meeting content",
+    "url": "/blog/ai-meeting-assistants"
+  },
+  {
+    "title": "Best Free AI Tools for Small Business Operations",
+    "slug": "free-ai-tools-ops",
+    "date": "2026-07-15",
+    "description": "Free and low-cost AI tools that operations teams at 1-50 person companies can use immediately",
+    "url": "/blog/free-ai-tools-ops"
+  },
+  {
+    "title": "Make.com vs Zapier vs n8n: Best Automation Platform for Ops",
+    "slug": "automation-platforms",
+    "date": "2026-07-15",
+    "description": "Comparing Make.com, Zapier, and n8n for operations automation \u2014 pricing, features, and use cases",
+    "url": "/blog/automation-platforms"
+  },
+  {
+    "title": "AI Tool Pricing Compared: What Everything Actually Costs in 2026",
+    "slug": "ai-tool-pricing",
+    "date": "2026-07-15",
+    "description": "Monthly cost comparison of popular AI tools including ChatGPT, Claude, Midjourney, Jasper, and more",
+    "url": "/blog/ai-tool-pricing"
+  },
+  {
+    "title": "Best AI Image Generators for Business: Midjourney vs DALL-E vs Stable Diffusion",
+    "slug": "best-ai-image-generators",
+    "date": "2026-07-15",
+    "description": "Comparing AI image generation tools for marketing assets, presentations, and social media content",
+    "url": "/blog/best-ai-image-generators"
+  },
+  {
+    "title": "AI Code Assistants Compared: GitHub Copilot vs Cursor vs Codeium",
+    "slug": "ai-code-assistants",
+    "date": "2026-07-15",
+    "description": "Comparing three AI coding tools for teams that need automation scripts and integrations",
+    "url": "/blog/ai-code-assistants"
+  },
+  {
+    "title": "Best AI Writing Tools for Ops Teams in 2026",
+    "slug": "best-ai-writing-tools",
+    "date": "2026-07-15",
+    "description": "Comparing Jasper, Copy.ai, Writesonic, and other AI writing tools for operations documentation and communication",
+    "url": "/blog/best-ai-writing-tools"
+  },
+  {
+    "title": "ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams?",
+    "slug": "chatgpt-vs-claude-vs-gemini",
+    "date": "2026-07-15",
+    "description": "Comparing the three major AI assistants for operations tasks \u2014 writing, analysis, and automation workflows",
+    "url": "/blog/chatgpt-vs-claude-vs-gemini"
+  },
+  {
     "title": "Email Triage Tools Compared: What Actually Works for Ops Teams",
     "slug": "email-triage-tools",
     "date": "2026-07-13",

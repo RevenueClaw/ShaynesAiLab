@@ -1,0 +1,44 @@
+[Wed Jul 15 11:55:02 AM EDT 2026] Starting ShayneAiLab content generation...
+[Wed Jul 15 11:55:02 AM EDT 2026] Generating: ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams? (chatgpt-vs-claude-vs-gemini)
+Comparing the three major AI assistants for operations tasks — writing, analysis, and automation workflows
+[Wed Jul 15 11:55:02 AM EDT 2026] Using model: mistral-small at http://192.168.4.108:11435/api/generate
+[Wed Jul 15 11:55:03 AM EDT 2026] ERROR: Failed to generate content for chatgpt-vs-claude-vs-gemini
+[Wed Jul 15 11:55:03 AM EDT 2026] Building blog index page...
+[Wed Jul 15 11:55:03 AM EDT 2026] Blog index updated with 1 articles
+[Wed Jul 15 11:55:03 AM EDT 2026] Content generation complete. Next topic index: 1
+[Wed Jul 15 11:57:17 AM EDT 2026] Starting ShayneAiLab content generation...
+[Wed Jul 15 11:57:17 AM EDT 2026] Generating: ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams? (chatgpt-vs-claude-vs-gemini)
+Comparing the three major AI assistants for operations tasks — writing, analysis, and automation workflows
+[Wed Jul 15 11:57:17 AM EDT 2026] Using model: phi4-mini:3.8b at http://192.168.4.108:11435/api/generate
+[Wed Jul 15 11:57:17 AM EDT 2026] ERROR: Failed to generate content for chatgpt-vs-claude-vs-gemini
+[Wed Jul 15 11:57:17 AM EDT 2026] Building blog index page...
+[Wed Jul 15 11:57:17 AM EDT 2026] Blog index updated with 1 articles
+[Wed Jul 15 11:57:17 AM EDT 2026] Content generation complete. Next topic index: 1
+[Wed Jul 15 12:26:49 PM EDT 2026] Starting ShayneAiLab content generation...
+[Wed Jul 15 12:26:49 PM EDT 2026] Generating: ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams? (chatgpt-vs-claude-vs-gemini)
+Comparing the three major AI assistants for operations tasks — writing, analysis, and automation workflows
+[Wed Jul 15 12:26:49 PM EDT 2026] Using model: phi4-mini at http://192.168.4.108:11434/api/generate
+[Wed Jul 15 12:26:50 PM EDT 2026] ERROR: Failed to generate content for chatgpt-vs-claude-vs-gemini
+[Wed Jul 15 12:26:50 PM EDT 2026] Building blog index page...
+[Wed Jul 15 12:26:50 PM EDT 2026] Blog index updated with 1 articles
+[Wed Jul 15 12:26:50 PM EDT 2026] Content generation complete. Next topic index: 1
+[Wed Jul 15 12:28:15 PM EDT 2026] Starting ShayneAiLab content generation...
+[Wed Jul 15 12:28:15 PM EDT 2026] Generating: ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams? (chatgpt-vs-claude-vs-gemini)
+Comparing the three major AI assistants for operations tasks — writing, analysis, and automation workflows
+[Wed Jul 15 12:28:15 PM EDT 2026] Using model: phi4-mini at http://192.168.4.108:11434/api/generate
+[Wed Jul 15 12:30:57 PM EDT 2026] QUALITY FAIL: chatgpt-vs-claude-vs-gemini contains AI slop phrase: 'dive in'
+[Wed Jul 15 12:30:57 PM EDT 2026] Building blog index page...
+[Wed Jul 15 12:30:58 PM EDT 2026] Blog index updated with 1 articles
+[Wed Jul 15 12:30:58 PM EDT 2026] Content generation complete. Next topic index: 1
+[Wed Jul 15 12:31:28 PM EDT 2026] Starting ShayneAiLab content generation...
+[Wed Jul 15 12:31:28 PM EDT 2026] Generating: ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams? (chatgpt-vs-claude-vs-gemini)
+Comparing the three major AI assistants for operations tasks — writing, analysis, and automation workflows
+[Wed Jul 15 12:31:28 PM EDT 2026] Using model: phi4-mini at http://192.168.4.108:11434/api/generate
+[Wed Jul 15 12:33:26 PM EDT 2026] QUALITY FAIL: chatgpt-vs-claude-vs-gemini contains AI slop phrase: 'robust'
+[Wed Jul 15 12:33:26 PM EDT 2026] Retrying chatgpt-vs-claude-vs-gemini with stricter prompt...
+[Wed Jul 15 12:35:53 PM EDT 2026] Retry quality check passed for chatgpt-vs-claude-vs-gemini
+[Wed Jul 15 12:35:53 PM EDT 2026] Generated: chatgpt-vs-claude-vs-gemini → /home/rock/shaynesailab/blog/chatgpt-vs-claude-vs-gemini/index.html
+[Wed Jul 15 12:35:55 PM EDT 2026] Building blog index page...
+[Wed Jul 15 12:40:24 PM EDT 2026] Starting ShayneAiLab content generation...
+[Wed Jul 15 12:40:24 PM EDT 2026] Skipping chatgpt-vs-claude-vs-gemini — generated 0 days ago
+[Wed Jul 15 12:40:24 PM EDT 2026] Building blog index page...
