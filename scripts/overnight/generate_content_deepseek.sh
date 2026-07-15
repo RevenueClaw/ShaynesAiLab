@@ -106,6 +106,7 @@ Requirements:
 - Use class "affiliate-link" on any affiliate links
 - For Make.com link use: <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a>
 - For ClickUp link use: <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a>
+- For Fireflies link use: <a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a>
 - Keep the tone neutral, not promotional
 - End with a "Further Reading" section"""
 
