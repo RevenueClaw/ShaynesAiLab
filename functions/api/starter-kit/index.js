@@ -61,11 +61,11 @@ Not 47 tools. Not a "complete AI transformation." Just 8 tools worth knowing abo
 - **When to use:** Never take meeting notes again, capture customer calls
 - **Cost:** Free tier (paid starts at $10/mo for more minutes)
 
-**7. Calendly (Free)**
-- **What it does:** Scheduling without the back-and-forth
+**7. Cal.com (Free)**
+- **What it does:** Open source scheduling without the back-and-forth
 - **When to use:** Booking calls, eliminating "when works for you?" email chains
 - **Savings:** 2-3 emails per meeting
-- **Cost:** Free
+- **Cost:** Free (use [referral link](https://refer.cal.com/revenueclaw-b4rdpz-0ze3) for 20% off)
 
 **8. Cloudflare (Free tier)**
 - **What it does:** Website hosting, DNS, security

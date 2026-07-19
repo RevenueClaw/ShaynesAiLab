@@ -93,8 +93,8 @@ If you're overwhelmed by AI, this is a reasonable place to start.
 
 ---
 
-### 7. Calendly (Free)
-**What it does:** Scheduling without the back-and-forth
+### 7. [Cal.com](https://refer.cal.com/revenueclaw-b4rdpz-0ze3) (Free)
+**What it does:** Open source scheduling without the back-and-forth
 **When to use:**
 - Booking calls with clients
 - Team meetings
@@ -102,7 +102,7 @@ If you're overwhelmed by AI, this is a reasonable place to start.
 
 **Saves:** 2-3 emails per meeting
 
-**Cost:** Free (paid tiers for more event types)
+**Cost:** Free (paid tiers at $12/mo). [Sign up with referral link for 20% off](https://refer.cal.com/revenueclaw-b4rdpz-0ze3).
 
 ---
 
@@ -128,7 +128,7 @@ If you're overwhelmed by AI, this is a reasonable place to start.
 | Perplexity | $0 | Free is fine |
 | Fireflies | $0 | Pay if you record lots of meetings |
 | Notion | $0 | AI included free |
-| Calendly | $0 | Pay for advanced features |
+| [Cal.com](https://refer.cal.com/revenueclaw-b4rdpz-0ze3) | $0 | Pay for advanced features |
 | Cloudflare | $0 | Pay for advanced Workers/security |
 
 **Total: $0 to start. Maybe $20-50/mo if you're using everything heavily.**
