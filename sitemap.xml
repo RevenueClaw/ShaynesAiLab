@@ -41,32 +41,42 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://shaynesailab.com/blog/notion-ops-templates</loc>
+    <loc>https://shaynesailab.com/blog/ai-meeting-assistants</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://shaynesailab.com/blog/automate-email-triage</loc>
+    <loc>https://shaynesailab.com/blog/free-ai-tools-ops</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://shaynesailab.com/blog/hubspot-vs-free-crm</loc>
+    <loc>https://shaynesailab.com/blog/automation-platforms</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://shaynesailab.com/blog/best-ai-writing</loc>
+    <loc>https://shaynesailab.com/blog/ai-tool-pricing</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://shaynesailab.com/blog/make-vs-zapier</loc>
+    <loc>https://shaynesailab.com/blog/best-ai-image-generators</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://shaynesailab.com/blog/notion-vs-clickup</loc>
+    <loc>https://shaynesailab.com/blog/ai-code-assistants</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shaynesailab.com/blog/best-ai-writing-tools</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shaynesailab.com/blog/chatgpt-vs-claude-vs-gemini</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>

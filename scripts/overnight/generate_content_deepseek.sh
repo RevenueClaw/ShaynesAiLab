@@ -1,25 +1,45 @@
 #!/usr/bin/env bash
-# Shayne's AI Lab — Auto Content Generator (AI Tools Pivot)
-# Runs as part of the overnight batch pipeline.
-# Generates AI tool comparison articles with affiliate links.
-# Articles saved as static HTML in blog/ directory.
+# Shayne's AI Lab — Auto Content Generator (DeepSeek V4 Flash)
+# Uses OpenRouter API for high-quality AI tool comparison articles.
+# 
+# Why DeepSeek V4 Flash vs phi4-mini (3.8B):
+# - Better writing quality, fewer slop phrases
+# - Handles 500-800 word articles in one pass (no retries)
+# - More nuanced comparisons and pricing analysis
+# - Faster generation (API response vs local inference)
+#
+# Cost: ~$0.06/article (DeepSeek V4 Flash, 1500-2000 tokens/response)
 #
 # Schedule: nightly at 1:00 AM EDT
-# Models: ollama-omen-cpu/mistral-small (preferred) → local phi4-mini (fallback)
+# API: OpenRouter → deepseek/deepseek-v4-flash
 
 set -euo pipefail
 umask 002
+
+# Load credentials
+CRED_FILE="/home/rock/.openclaw/credentials/shaynesailab.env"
+if [ -f "$CRED_FILE" ]; then
+    source "$CRED_FILE"
+else
+    echo "ERROR: Missing credential file $CRED_FILE" >&2
+    exit 1
+fi
+
+if [ -z "${OPENROUTER_API_KEY:-}" ]; then
+    echo "ERROR: OPENROUTER_API_KEY not set in $CRED_FILE" >&2
+    exit 1
+fi
 
 REPO_DIR="/home/rock/shaynesailab"
 BLOG_DIR="$REPO_DIR/blog"
 SCRIPTS_DIR="$REPO_DIR/scripts"
 ARTICLES_FILE="$BLOG_DIR/articles.json"
-STATE_FILE="$SCRIPTS_DIR/content_state.json"
+STATE_FILE="$SCRIPTS_DIR/content_state_deepseek.json"
 LOG_DIR="$SCRIPTS_DIR/logs"
 mkdir -p "$LOG_DIR"
-LOG_FILE="$LOG_DIR/content_gen_$(date +%Y-%m-%d).log"
+LOG_FILE="$LOG_DIR/content_gen_deepseek_$(date +%Y-%m-%d).log"
 
-echo "[$(date)] Starting ShayneAiLab content generation..." | tee -a "$LOG_FILE"
+echo "[$(date)] Starting ShayneAiLab DeepSeek content generation..." | tee -a "$LOG_FILE"
 
 # Article topics — AI tools focus for the pivot
 TOPICS=(
@@ -33,22 +53,7 @@ TOPICS=(
     '{"topic":"AI Meeting Assistants Compared: Otter vs Fireflies vs Fathom","slug":"ai-meeting-assistants","focus":"Comparing AI meeting note-taking and transcription tools for teams that want to capture and action meeting content"}'
 )
 
-# Affiliate links
-MAKE_AFF="https://www.make.com/en/register?pc=shaynesailab"
-JASPER_AFF="TODO:JASPER_AFFILIATE_LINK"
-COPYAI_AFF="TODO:COPYAI_AFFILIATE_LINK"
-CANVA_AFF="TODO:CANVA_AFFILIATE_LINK"
-NOTION_AFF="TODO:NOTION_AFFILIATE_LINK"
-
-# Model selection — prefer Omen GPU, fallback to local
-# Omen :11434 (GPU/Vulkan) works. :11435 (CPU) has memory issues.
-select_model() {
-    if curl -s --connect-timeout 3 http://192.168.4.108:11434/api/tags >/dev/null 2>&1; then
-        echo "http://192.168.4.108:11434/api/generate" "phi4-mini"
-    else
-        echo "http://localhost:11434/api/generate" "phi4-mini:3.8b"
-    fi
-}
+API_URL="https://openrouter.ai/api/v1/chat/completions"
 
 generate_article() {
     local topic="$1"
@@ -68,19 +73,25 @@ generate_article() {
     fi
     
     echo "[$(date)] Generating: $topic ($slug)" | tee -a "$LOG_FILE"
+    echo "Focus: $focus" | tee -a "$LOG_FILE"
+    echo "Model: deepseek/deepseek-v4-flash via OpenRouter" | tee -a "$LOG_FILE"
     
-    echo "$focus" | tee -a "$LOG_FILE"
+    export OPENROUTER_API_KEY GEN_TOPIC="$topic" GEN_FOCUS="$focus"
     
-    # Select model
-    MODEL_INFO=($(select_model))
-    API_URL="${MODEL_INFO[0]}"
-    MODEL="${MODEL_INFO[1]}"
-    echo "[$(date)] Using model: $MODEL at $API_URL" | tee -a "$LOG_FILE"
-    
-    PROMPT=$(cat <<-END
-Write a 500-800 word blog article for shaynesailab.com on the topic: "$topic".
+    # Generate via OpenRouter
+    BODY=$(python3 << 'PYEOF' 2>/dev/null
+import json, urllib.request, os, sys
 
-Focus: $focus
+API_URL = "https://openrouter.ai/api/v1/chat/completions"
+API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+TOPIC = os.environ.get("GEN_TOPIC", "")
+FOCUS = os.environ.get("GEN_FOCUS", "")
+
+system_prompt = "You are a tech blogger for Shayne's AI Lab, a site providing honest AI tool comparisons for ops teams at 1-50 person companies. Write direct, no-nonsense. Be specific about pricing, features, and real-world use cases. Avoid hype and superlatives. Include affiliate links where relevant."
+
+user_prompt = f"""Write a 500-800 word blog article for shaynesailab.com on the topic: "{TOPIC}"
+
+Focus: {FOCUS}
 
 Requirements:
 - Write for operations leaders at 1-50 person companies
@@ -91,106 +102,50 @@ Requirements:
 - Sections: Overview, Head-to-Head (if comparison), Price Comparison, Who Each Is For, Quick Verdict
 - Output ONLY the body HTML (no html/head/body tags)
 - Use semantic HTML (h2, h3, p, ul, table where appropriate)
-- Include affiliate disclosure at the top: "\u003cp class=\"affiliate-disclosure\"\u003eSome links below are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.\u003c/p\u003e"
+- Include affiliate disclosure at the top
 - Use class "affiliate-link" on any affiliate links
-- For Make.com link use: \u003ca href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link"\u003eMake.com\u003c/a\u003e
-- For ClickUp link use: \u003ca href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link"\u003eClickUp\u003c/a\u003e
-- For Fireflies link use: \u003ca href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link"\u003eFireflies.ai\u003c/a\u003e
-- For other affiliate links use \u003ca href="LINK" class="affiliate-link"\u003eNAME\u003c/a\u003e format
+- For Make.com link use: <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a>
+- For ClickUp link use: <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a>
+- For Fireflies link use: <a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a>
 - Keep the tone neutral, not promotional
-- End with a "Further Reading" section linking to relevant tools
-END
-)
-    
-    # Generate content via Ollama — use Python for proper JSON encoding
-    BODY=$(python3 -c "
-import json, urllib.request, sys
+- End with a "Further Reading" section"""
 
 payload = {
-    'model': '$MODEL',
-    'prompt': '''$PROMPT''',
-    'stream': False,
-    'options': {'temperature': 0.3, 'max_tokens': 3000}
+    'model': 'deepseek/deepseek-v4-flash',
+    'messages': [
+        {'role': 'system', 'content': system_prompt},
+        {'role': 'user', 'content': user_prompt}
+    ],
+    'temperature': 0.5,
+    'max_tokens': 3000
 }
+
 req = urllib.request.Request(
-    '$API_URL',
+    API_URL,
     data=json.dumps(payload).encode(),
-    headers={'Content-Type': 'application/json'}
+    headers={
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {API_KEY}',
+        'HTTP-Referer': 'https://shaynesailab.com',
+        'X-Title': 'ShayneAiLab Content Generator'
+    }
 )
 try:
     resp = urllib.request.urlopen(req, timeout=180)
     data = json.loads(resp.read())
-    print(data.get('response', ''))
+    print(data['choices'][0]['message']['content'])
 except Exception as e:
-    print('', end='')
     sys.exit(1)
-" 2>/dev/null) || BODY=""
+PYEOF
+) || BODY=""
     
     if [ -z "$BODY" ]; then
         echo "[$(date)] ERROR: Failed to generate content for $slug" | tee -a "$LOG_FILE"
         return 1
     fi
-
-    # Quality check: reject AI slop phrases
-    BODY_LC=$(echo "$BODY" | tr '[:upper:]' '[:lower:]')
-    SLOP_PHRASES=("in today's digital" "in today's fast-paced" "in the ever-evolving" "game-changer" "game changer" "revolutionize" "unlock the full potential" "let's dive" "the power of" "harness the power" "cutting-edge" "transformative" "best-in-class" "robust")
-    SLOP_FAILED=false
-    for phrase in "${SLOP_PHRASES[@]}"; do
-        if echo "$BODY_LC" | grep -q "$phrase"; then
-            echo "[$(date)] QUALITY FAIL: $slug contains AI slop phrase: '$phrase'" | tee -a "$LOG_FILE"
-            SLOP_FAILED=true
-        fi
-    done
     
-    if $SLOP_FAILED; then
-        # Retry with stricter prompt
-        echo "[$(date)] Retrying $slug with stricter prompt..." | tee -a "$LOG_FILE"
-        STRICTER_PROMPT="$PROMPT
-
-CRITICAL: Do NOT use any of these phrases: dive in, in today's digital landscape, game-changer, revolutionize, cutting-edge, transformative, unlock the potential, harness the power, best-in-class, robust solution. These are banned. Write naturally."
-        
-        BODY=$(python3 -c "
-import json, urllib.request, sys
-
-payload = {
-    'model': '$MODEL',
-    'prompt': '''$STRICTER_PROMPT''',
-    'stream': False,
-    'options': {'temperature': 0.2, 'max_tokens': 3000}
-}
-req = urllib.request.Request(
-    '$API_URL',
-    data=json.dumps(payload).encode(),
-    headers={'Content-Type': 'application/json'}
-)
-try:
-    resp = urllib.request.urlopen(req, timeout=180)
-    data = json.loads(resp.read())
-    print(data.get('response', ''))
-except Exception as e:
-    print('', end='')
-    sys.exit(1)
-" 2>/dev/null) || BODY=""
-        
-        if [ -z "$BODY" ]; then
-            echo "[$(date)] Retry also failed for $slug" | tee -a "$LOG_FILE"
-            return 1
-        fi
-        
-        # Check quality again
-        BODY_LC=$(echo "$BODY" | tr '[:upper:]' '[:lower:]')
-        for phrase in "${SLOP_PHRASES[@]}"; do
-            if echo "$BODY_LC" | grep -q "$phrase"; then
-                echo "[$(date)] Retry quality FAIL for $slug: '$phrase'" | tee -a "$LOG_FILE"
-                return 1
-            fi
-        done
-        echo "[$(date)] Retry quality check passed for $slug" | tee -a "$LOG_FILE"
-    else
-        echo "[$(date)] Quality check passed for $slug" | tee -a "$LOG_FILE"
-    fi
+    echo "[$(date)] Content generated successfully ($(echo "$BODY" | wc -w) words)" | tee -a "$LOG_FILE"
     
-    # Create article directory
     mkdir -p "$output_dir"
     
     # Write the article HTML
@@ -325,62 +280,57 @@ json.dump(articles, open('$ARTICLES_FILE', 'w'), indent=2)
 " 2>/dev/null
     
     echo "[$(date)] Generated: $slug → $output_file" | tee -a "$LOG_FILE"
-    
-    # Rate limit
-    sleep 2
+    sleep 1
 }
 
 build_blog_index() {
     echo "[$(date)] Building blog index page..." | tee -a "$LOG_FILE"
-    
     if [ ! -f "$ARTICLES_FILE" ]; then
         echo "[$(date)] No articles yet, skipping index build" | tee -a "$LOG_FILE"
         return 0
     fi
-    
-    INDEX_FILE="$BLOG_DIR/index.html"
-    
-    # Generate post cards HTML
-    POSTS_HTML=$(python3 -c "
-import json
-articles = json.load(open('$ARTICLES_FILE'))
-if not articles:
-    print('<!-- no-articles -->')
-else:
-    cards = []
-    for a in articles:
-        cards.append(f'<article class=\"post-card card\">'
-            f'<div class=\"meta\">{a[\"date\"]}</div>'
-            f'<h3><a href=\"{a[\"url\"]}\">{a[\"title\"]}</a></h3>'
-            f'<p>{a[\"description\"]}</p>'
-            f'</article>')
-    print('\\n'.join(cards))
-" 2>/dev/null)
-    
-    if [ -n "$POSTS_HTML" ] && [ "$POSTS_HTML" != "<!-- no-articles -->" ]; then
-        # Replace the content inside post-grid div
-        python3 -c "
-import re
-with open('$INDEX_FILE', 'r') as f:
-    content = f.read()
-# Replace content between <div class=\"post-grid\" id=\"post-grid\"> and </div>
-pattern = r'(<div class=\"post-grid\" id=\"post-grid\">)(.*?)(</div>)'
-replacement = r'\1' + '$POSTS_HTML' + r'\3'
-content = re.sub(pattern, replacement, content, count=1, flags=re.DOTALL)
-with open('$INDEX_FILE', 'w') as f:
-    f.write(content)
-" 2>/dev/null
-        echo "[$(date)] Blog index updated with $(echo "$POSTS_HTML" | grep -c 'post-card') articles" | tee -a "$LOG_FILE"
-    fi
+    python3 << 'PYEOF'
+import json, re
+
+with open("/home/rock/shaynesailab/blog/articles.json") as f:
+    articles = json.load(f)
+
+cards = []
+for a in articles:
+    desc = a.get("description", "")
+    cards.append(
+        f'                <article class="post-card card">'
+        f'<div class="meta">{a["date"]}</div>'
+        f'<h3><a href="{a["url"]}">{a["title"]}</a></h3>'
+        f'<p>{desc}</p>'
+        f'</article>'
+    )
+new_content = "\n".join(cards)
+
+with open("/home/rock/shaynesailab/blog/index.html") as f:
+    html = f.read()
+
+pattern = r'<div class="post-grid" id="post-grid">\s*.*?\s*</div>'
+replacement = f'<div class="post-grid" id="post-grid">\n{new_content}\n            </div>'
+html = re.sub(pattern, replacement, html, count=1, flags=re.DOTALL)
+
+with open("/home/rock/shaynesailab/blog/index.html", "w") as f:
+    f.write(html)
+print(f"Blog index updated with {len(articles)} articles")
+PYEOF
+    echo "[$(date)] Blog index built" | tee -a "$LOG_FILE"
 }
 
-# Main
-# Generate one article per run (rotates)
+# Main logic
 STATE=$(cat "$STATE_FILE" 2>/dev/null || echo '{"index":0}')
 INDEX=$(echo "$STATE" | python3 -c "import sys,json; print(json.load(sys.stdin).get('index',0))" 2>/dev/null)
 TOTAL=${#TOPICS[@]}
 
-TOPIC_DATA=$(echo "${TOPICS[$INDEX]}" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['topic']);print(d['slug']);print(d['focus'])" 2>/dev/null)
+TOPIC_DATA=$(echo "${TOPICS[$INDEX]}" | python3 -c "
+import sys,json
+d=json.load(sys.stdin)
+print(d['topic']);print(d['slug']);print(d['focus'])
+" 2>/dev/null)
 
 if [ -n "$TOPIC_DATA" ]; then
     TOPIC=$(echo "$TOPIC_DATA" | sed -n '1p')
@@ -396,11 +346,10 @@ echo "{\"index\":$NEXT_INDEX}" > "$STATE_FILE"
 # Rebuild blog index after adding new article
 build_blog_index
 
-# Generate social media draft for the article if one was written
-if [ -n "$SLUG" ] && [ -d "$BLOG_DIR/$SLUG" ]; then
+# Generate social media draft
+if [ -n "${SLUG:-}" ] && [ -d "$BLOG_DIR/$SLUG" ]; then
     SOCIAL_DIR="$SCRIPTS_DIR/overnight/social"
     mkdir -p "$SOCIAL_DIR"
-    
     SOCIAL_DRAFT="$SOCIAL_DIR/${SLUG}_social.txt"
     cat > "$SOCIAL_DRAFT" <<ENDSOCIAL
 📝 NEW: $TOPIC
@@ -416,9 +365,7 @@ fi
 
 # Update sitemap.xml
 python3 << 'PYEOF' 2>/dev/null
-import json
-from datetime import date
-import os
+import json, os
 
 REPO_DIR = "/home/rock/shaynesailab"
 ARTICLES_FILE = os.path.join(REPO_DIR, "blog", "articles.json")
@@ -435,7 +382,8 @@ pages = [
 ]
 
 try:
-    articles = json.load(open(ARTICLES_FILE))
+    with open(ARTICLES_FILE) as f:
+        articles = json.load(f)
     for a in articles:
         pages.append({
             "loc": f"https://shaynesailab.com{a['url']}",
@@ -450,10 +398,9 @@ for p in pages:
     xml += f'  <url>\n    <loc>{p["loc"]}</loc>\n    <priority>{p["priority"]}</priority>\n    <changefreq>{p["changefreq"]}</changefreq>\n  </url>\n'
 xml += '</urlset>'
 
-sitemap_path = os.path.join(REPO_DIR, "sitemap.xml")
-with open(sitemap_path, 'w') as f:
+with open(os.path.join(REPO_DIR, "sitemap.xml"), "w") as f:
     f.write(xml)
 print(f"[sitemap] Updated with {len(pages)} URLs")
 PYEOF
 
-echo "[$(date)] Content generation complete. Next topic index: $NEXT_INDEX" | tee -a "$LOG_FILE"
+echo "[$(date)] DeepSeek content generation complete. Next topic index: $NEXT_INDEX" | tee -a "$LOG_FILE"

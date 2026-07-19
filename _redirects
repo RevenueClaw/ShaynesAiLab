@@ -1,3 +1,4 @@
+https://www.shaynesailab.com/* https://shaynesailab.com/:splat 301
 /api/* /api/:splat 200
 /diagnostic/* /diagnostic/:splat 200
 /* /404.html 404
