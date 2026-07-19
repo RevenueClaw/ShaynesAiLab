@@ -27,6 +27,18 @@
         .article-body th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
         .article-body td { color: var(--text-secondary); font-size: 0.95rem; }
         .article-body .affiliate-disclosure { border-left: 2px solid var(--brand-amber); padding: 0.5rem 1rem; margin-bottom: var(--space-lg); background: var(--brand-amber-soft); border-radius: 4px; }
+        .prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; }
+        .prod-card { display: flex; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-glass); border: 1px solid var(--border); border-radius: var(--radius-sm); transition: border-color 0.2s; }
+        .prod-card:hover { border-color: var(--brand-teal-light); }
+        .prod-img { width: 120px; height: auto; object-fit: contain; flex-shrink: 0; border-radius: 4px; }
+        .prod-info { flex: 1; display: flex; flex-direction: column; gap: 0.25rem; }
+        .prod-name { margin: 0; font-size: 0.95rem; line-height: 1.3; }
+        .prod-name a { color: var(--text); text-decoration: none; }
+        .prod-name a:hover { color: var(--brand-teal-light); }
+        .prod-stars { color: #f59e0b; font-size: 0.8rem; letter-spacing: 1px; }
+        .prod-reviews { color: var(--text-dim); font-size: 0.75rem; }
+        .prod-desc { font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5; flex: 1; }
+        .prod-price { font-weight: 600; color: var(--text); font-size: 0.9rem; }
         .article-body a.affiliate-link { color: var(--brand-teal-light); text-decoration: underline; text-decoration-style: dotted; }
         .article-meta { font-size: 0.85rem; color: var(--text-dim); margin-bottom: var(--space-lg); text-align: center; }
     </style>
@@ -167,6 +179,66 @@
   <li><strong>HubSpot Free CRM:</strong> Small sales teams that need a simple, free CRM with email tracking and meeting scheduling. Good for outbound sales.</li>
   <li><strong>Freshsales Free:</strong> Teams that want AI-powered lead scoring without paying. Better for inbound lead management.</li>
 </ul>
+
+<h2>Recommended Hardware for Your Ops Workspace</h2>
+<p>These products pair well with the tools above. Building a comfortable, efficient workspace helps your ops team stay productive.</p>
+                <div class="prod-grid">
+                <div class="prod-card">
+                    <img src="https://m.media-amazon.com/images/I/41Mr-S3C6XL._SL160_.jpg" alt="HUANUO Dual Monitor Arm" class="prod-img" loading="lazy" width="160" height="152">
+                    <div class="prod-info">
+                        <h4 class="prod-name"><a href="https://www.amazon.com/dp/B07T5SY43L?tag=shaynesailab-20" class="affiliate-link">HUANUO Dual Monitor Arm</a></h4>
+                        <div class="prod-stars">★★★★★ <span class="prod-reviews">(top-rated)</span></div>
+                        <p class="prod-desc">Elevate your workspace with a dual monitor mount. Frees up desk space for ops teams working on multiple systems.</p>
+                        <span class="prod-price">$59.99</span>
+                    </div>
+                </div>
+                <div class="prod-card">
+                    <img src="https://m.media-amazon.com/images/I/41ci1d+OvpL._SL160_.jpg" alt="VIVO Standing Desk Converter" class="prod-img" loading="lazy" width="160" height="152">
+                    <div class="prod-info">
+                        <h4 class="prod-name"><a href="https://www.amazon.com/dp/B08B2L36HF?tag=shaynesailab-20" class="affiliate-link">VIVO Standing Desk Converter</a></h4>
+                        <div class="prod-stars">★★★★★ <span class="prod-reviews">(top-rated)</span></div>
+                        <p class="prod-desc">Convert any desk to a standing desk. Recommended for ops teams spending long hours monitoring systems.</p>
+                        <span class="prod-price">$109.99</span>
+                    </div>
+                </div>
+                <div class="prod-card">
+                    <img src="https://m.media-amazon.com/images/I/41jaFGKHJgL._SL160_.jpg" alt="Anker USB-C Hub 8-in-1" class="prod-img" loading="lazy" width="160" height="152">
+                    <div class="prod-info">
+                        <h4 class="prod-name"><a href="https://www.amazon.com/dp/B0874M3KW4?tag=shaynesailab-20" class="affiliate-link">Anker USB-C Hub 8-in-1</a></h4>
+                        <div class="prod-stars">★★★★★ <span class="prod-reviews">(top-rated)</span></div>
+                        <p class="prod-desc">Essential for laptop-only setups. Connect dual monitors, USB accessories, and ethernet from a single USB-C port.</p>
+                        <span class="prod-price">$40.68</span>
+                    </div>
+                </div>
+                <div class="prod-card">
+                    <img src="https://m.media-amazon.com/images/I/41O4m5cUOVL._SL160_.jpg" alt="Arteck Split Ergonomic Keyboard" class="prod-img" loading="lazy" width="160" height="152">
+                    <div class="prod-info">
+                        <h4 class="prod-name"><a href="https://www.amazon.com/dp/B0BKKYRQ31?tag=shaynesailab-20" class="affiliate-link">Arteck Split Ergonomic Keyboard</a></h4>
+                        <div class="prod-stars">★★★★★ <span class="prod-reviews">(top-rated)</span></div>
+                        <p class="prod-desc">Split design reduces wrist strain during long writing sessions. Perfect for ops teams who draft SOPs daily.</p>
+                        <span class="prod-price">$54.99</span>
+                    </div>
+                </div>
+                <div class="prod-card">
+                    <img src="https://m.media-amazon.com/images/I/413Vg4tz8SL._SL160_.jpg" alt="Nulaxy Laptop Stand" class="prod-img" loading="lazy" width="160" height="152">
+                    <div class="prod-info">
+                        <h4 class="prod-name"><a href="https://www.amazon.com/dp/B077B9W343?tag=shaynesailab-20" class="affiliate-link">Nulaxy Laptop Stand</a></h4>
+                        <div class="prod-stars">★★★★★ <span class="prod-reviews">(top-rated)</span></div>
+                        <p class="prod-desc">Raises laptop screen to eye level. Pairs perfectly with the Anker USB-C hub for a dual-monitor ergonomic setup.</p>
+                        <span class="prod-price">$15.99</span>
+                    </div>
+                </div>
+                <div class="prod-card">
+                    <img src="https://m.media-amazon.com/images/I/31z5JT0yL+L._SL160_.jpg" alt="Anker Vertical Ergonomic Mouse" class="prod-img" loading="lazy" width="160" height="152">
+                    <div class="prod-info">
+                        <h4 class="prod-name"><a href="https://www.amazon.com/dp/B00BIFNTMC?tag=shaynesailab-20" class="affiliate-link">Anker Vertical Ergonomic Mouse</a></h4>
+                        <div class="prod-stars">★★★★★ <span class="prod-reviews">(top-rated)</span></div>
+                        <p class="prod-desc">Vertical design reduces wrist strain. Affordable upgrade over standard mice for daily ops work.</p>
+                        <span class="prod-price">$20.48</span>
+                    </div>
+                </div>
+                </div>
+                <p style="font-size:0.82rem; color:var(--text-dim); margin-bottom:var(--space-lg);">Prices and availability checked at time of writing. As an Amazon Associate I earn from qualifying purchases.</p>
 
 <h2>Further Reading</h2>
 <ul>
