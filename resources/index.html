@@ -87,6 +87,18 @@
         @media (max-width: 640px) {
             .tool-grid { grid-template-columns: 1fr; }
         }
+        .hw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-md); margin: var(--space-xl) 0; }
+        .hw-card { display: flex; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-glass); border: 1px solid var(--border); border-radius: var(--radius-sm); transition: border-color 0.2s; }
+        .hw-card:hover { border-color: var(--brand-teal-light); }
+        .hw-img { width: 120px; height: auto; object-fit: contain; flex-shrink: 0; border-radius: 4px; }
+        .hw-info { flex: 1; display: flex; flex-direction: column; gap: 0.25rem; }
+        .hw-name { margin: 0; font-size: 0.95rem; line-height: 1.3; }
+        .hw-name a { color: var(--text); text-decoration: none; }
+        .hw-name a:hover { color: var(--brand-teal-light); }
+        .hw-stars { color: #f59e0b; font-size: 0.8rem; letter-spacing: 1px; }
+        .hw-reviews { color: var(--text-dim); font-size: 0.75rem; }
+        .hw-desc { font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5; flex: 1; }
+        .hw-price { font-weight: 600; color: var(--text); font-size: 0.9rem; }
     </style>
     <meta property="og:title" content="Tools That Are Actually Useful — Shayne's AI Lab">
     <meta property="og:description" content="Curated reference of operations tools worth evaluating. Honest comparisons, no sponsored placements.">
@@ -250,6 +262,67 @@
                     This is not a list of tools the site owner personally uses — always evaluate against your own needs.
                 </p>
             </div>
+
+            <h2 style="margin-top:var(--space-xl);">Workstation Hardware</h2>
+            <p style="color:var(--text-muted); margin-bottom:var(--space-sm);">A comfortable workspace makes using these tools better. Here's what I'd put on the shortlist for an ops desk setup.</p>
+
+            <div class="hw-grid">
+                <div class="hw-card">
+                    <img src="https://m.media-amazon.com/images/I/41Mr-S3C6XL._SL160_.jpg" alt="HUANUO Dual Monitor Arm" class="hw-img" loading="lazy" width="160" height="152">
+                    <div class="hw-info">
+                        <h4 class="hw-name"><a href="https://www.amazon.com/dp/B07T5SY43L?tag=shaynesailab-20" class="affiliate-link">HUANUO Dual Monitor Arm</a></h4>
+                        <div class="hw-stars">★★★★★ <span class="hw-reviews">(top-rated)</span></div>
+                        <p class="hw-desc">Dual monitor mount that frees up desk space. Supports 13-32" screens.</p>
+                        <span class="hw-price">$59.99</span>
+                    </div>
+                </div>
+                <div class="hw-card">
+                    <img src="https://m.media-amazon.com/images/I/41ci1d+OvpL._SL160_.jpg" alt="VIVO Standing Desk Converter" class="hw-img" loading="lazy" width="160" height="152">
+                    <div class="hw-info">
+                        <h4 class="hw-name"><a href="https://www.amazon.com/dp/B08B2L36HF?tag=shaynesailab-20" class="affiliate-link">VIVO Standing Desk Converter</a></h4>
+                        <div class="hw-stars">★★★★★ <span class="hw-reviews">(top-rated)</span></div>
+                        <p class="hw-desc">Convert any desk to a standing desk. Gas spring lift, 32" wide.</p>
+                        <span class="hw-price">$109.99</span>
+                    </div>
+                </div>
+                <div class="hw-card">
+                    <img src="https://m.media-amazon.com/images/I/41jaFGKHJgL._SL160_.jpg" alt="Anker USB-C Hub" class="hw-img" loading="lazy" width="160" height="152">
+                    <div class="hw-info">
+                        <h4 class="hw-name"><a href="https://www.amazon.com/dp/B0874M3KW4?tag=shaynesailab-20" class="affiliate-link">Anker USB-C Hub 8-in-1</a></h4>
+                        <div class="hw-stars">★★★★★ <span class="hw-reviews">(top-rated)</span></div>
+                        <p class="hw-desc">8-in-1 hub with dual HDMI, ethernet, USB-A. Essential for laptop setups.</p>
+                        <span class="hw-price">$40.68</span>
+                    </div>
+                </div>
+                <div class="hw-card">
+                    <img src="https://m.media-amazon.com/images/I/41O4m5cUOVL._SL160_.jpg" alt="Arteck Split Ergonomic Keyboard" class="hw-img" loading="lazy" width="160" height="152">
+                    <div class="hw-info">
+                        <h4 class="hw-name"><a href="https://www.amazon.com/dp/B0BKKYRQ31?tag=shaynesailab-20" class="affiliate-link">Arteck Split Ergonomic Keyboard</a></h4>
+                        <div class="hw-stars">★★★★★ <span class="hw-reviews">(top-rated)</span></div>
+                        <p class="hw-desc">Split design with cushioned wrist rest. Reduces strain during long typing sessions.</p>
+                        <span class="hw-price">$54.99</span>
+                    </div>
+                </div>
+                <div class="hw-card">
+                    <img src="https://m.media-amazon.com/images/I/31sB9eHtciL._SL160_.jpg" alt="Quntis Monitor Light Bar" class="hw-img" loading="lazy" width="160" height="152">
+                    <div class="hw-info">
+                        <h4 class="hw-name"><a href="https://www.amazon.com/dp/B08DKQ3JG1?tag=shaynesailab-20" class="affiliate-link">Quntis Monitor Light Bar</a></h4>
+                        <div class="hw-stars">★★★★★ <span class="hw-reviews">(top-rated)</span></div>
+                        <p class="hw-desc">Flicker-free LED lamp that clips to your monitor. Reduces eye fatigue.</p>
+                        <span class="hw-price">$39.95</span>
+                    </div>
+                </div>
+                <div class="hw-card">
+                    <img src="https://m.media-amazon.com/images/I/413Vg4tz8SL._SL160_.jpg" alt="Nulaxy Laptop Stand" class="hw-img" loading="lazy" width="160" height="152">
+                    <div class="hw-info">
+                        <h4 class="hw-name"><a href="https://www.amazon.com/dp/B077B9W343?tag=shaynesailab-20" class="affiliate-link">Nulaxy Laptop Stand</a></h4>
+                        <div class="hw-stars">★★★★★ <span class="hw-reviews">(top-rated)</span></div>
+                        <p class="hw-desc">Adjustable aluminum stand. Raises laptop to eye level for better posture.</p>
+                        <span class="hw-price">$15.99</span>
+                    </div>
+                </div>
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-dim); margin-bottom:var(--space-lg);">Prices checked at time of writing. As an Amazon Associate I earn from qualifying purchases.</p>
 
             <div style="text-align: center; margin: var(--space-xl) 0;">
                 <span class="section-label">Free Resource</span>
