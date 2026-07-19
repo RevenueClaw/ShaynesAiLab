@@ -30,7 +30,7 @@ if [ -z "${OPENROUTER_API_KEY:-}" ]; then
     exit 1
 fi
 
-REPO_DIR="/home/rock/shaynesailab"
+REPO_DIR="/home/rock/workspace/ShaynesAiLab"
 BLOG_DIR="$REPO_DIR/blog"
 SCRIPTS_DIR="$REPO_DIR/scripts"
 ARTICLES_FILE="$BLOG_DIR/articles.json"
@@ -292,7 +292,7 @@ build_blog_index() {
     python3 << 'PYEOF'
 import json, re
 
-with open("/home/rock/shaynesailab/blog/articles.json") as f:
+with open(os.path.join(REPO_DIR, "blog", "articles.json")) as f:
     articles = json.load(f)
 
 cards = []
@@ -307,14 +307,14 @@ for a in articles:
     )
 new_content = "\n".join(cards)
 
-with open("/home/rock/shaynesailab/blog/index.html") as f:
+with open(os.path.join(REPO_DIR, "blog", "index.html")) as f:
     html = f.read()
 
 pattern = r'<div class="post-grid" id="post-grid">\s*.*?\s*</div>'
 replacement = f'<div class="post-grid" id="post-grid">\n{new_content}\n            </div>'
 html = re.sub(pattern, replacement, html, count=1, flags=re.DOTALL)
 
-with open("/home/rock/shaynesailab/blog/index.html", "w") as f:
+with open(os.path.join(REPO_DIR, "blog", "index.html"), "w") as f:
     f.write(html)
 print(f"Blog index updated with {len(articles)} articles")
 PYEOF
@@ -367,7 +367,7 @@ fi
 python3 << 'PYEOF' 2>/dev/null
 import json, os
 
-REPO_DIR = "/home/rock/shaynesailab"
+REPO_DIR = "/home/rock/workspace/ShaynesAiLab"
 ARTICLES_FILE = os.path.join(REPO_DIR, "blog", "articles.json")
 
 pages = [
@@ -403,4 +403,12 @@ with open(os.path.join(REPO_DIR, "sitemap.xml"), "w") as f:
 print(f"[sitemap] Updated with {len(pages)} URLs")
 PYEOF
 
-echo "[$(date)] DeepSeek content generation complete. Next topic index: $NEXT_INDEX" | tee -a "$LOG_FILE"
+# Git commit and push
+cd "$REPO_DIR"
+git add -A
+if git diff --cached --quiet; then
+    echo "[$(date)] No changes to commit" | tee -a "$LOG_FILE"
+else
+    git commit -m "overnight: auto-generated content $(date +%Y-%m-%d)" || true
+    git push origin main 2>&1 && echo "[$(date)] Changes pushed to origin main" | tee -a "$LOG_FILE" || echo "[$(date)] WARNING: git push failed" | tee -a "$LOG_FILE"
+fi
