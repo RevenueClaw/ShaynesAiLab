@@ -165,16 +165,15 @@
             </div>
         </div>
     </section>
-
     <section class="section section-alt">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Latest Article</span>
-                <h2>Systeme.io vs ClickFunnels vs Kajabi: Which Platform Wins?</h2>
-                <p>We compared the three biggest all-in-one platforms for ops teams. Systeme.io wins on value — 60% lifetime commission for a reason.</p>
+                <h2 id="latest-title">Latest Article</h2>
+                <p id="latest-desc">Loading...</p>
             </div>
             <div style="text-align:center;">
-                <a href="/blog/systemeio-vs-clickfunnels" class="btn btn-primary">Read the Full Comparison</a>
+                <a href="/blog" id="latest-link" class="btn btn-primary">Read the Latest</a>
                 <a href="/blog" class="btn btn-secondary">Browse All Articles</a>
             </div>
         </div>
@@ -206,6 +205,20 @@
             <p>&copy; 2026 Shayne's AI Lab</p>
             <p style="font-size:0.78rem; color:var(--text-dim); margin-top:var(--space-xs);">Some links on this site are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
         </div>
+    <script>
+        // Auto-rotate Latest Article section from articles.json
+        fetch("/blog/articles.json")
+            .then(r => r.json())
+            .then(articles => {
+                if (articles && articles.length > 0) {
+                    const latest = articles[0];
+                    document.getElementById("latest-title").textContent = latest.title;
+                    document.getElementById("latest-desc").textContent = latest.description;
+                    document.getElementById("latest-link").href = latest.url;
+                }
+            })
+            .catch(() => {});
+    </script>
     </footer>
 
     <script>
