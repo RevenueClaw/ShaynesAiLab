@@ -29,6 +29,18 @@
         .article-body .affiliate-disclosure { border-left: 2px solid var(--brand-amber); padding: 0.5rem 1rem; margin-bottom: var(--space-lg); background: var(--brand-amber-soft); border-radius: 4px; }
         .article-body a.affiliate-link { color: var(--brand-teal-light); text-decoration: underline; text-decoration-style: dotted; }
         .article-meta { font-size: 0.85rem; color: var(--text-dim); margin-bottom: var(--space-lg); text-align: center; }
+        .prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; }
+        .prod-card { display: flex; gap: var(--space-sm); padding: var(--space-sm); background: var(--bg-glass); border: 1px solid var(--border); border-radius: var(--radius-sm); transition: border-color 0.2s; }
+        .prod-card:hover { border-color: var(--brand-teal-light); }
+        .prod-img { width: 120px; height: auto; object-fit: contain; flex-shrink: 0; border-radius: 4px; }
+        .prod-info { flex: 1; display: flex; flex-direction: column; gap: 0.25rem; }
+        .prod-name { margin: 0; font-size: 0.95rem; line-height: 1.3; }
+        .prod-name a { color: var(--text); text-decoration: none; }
+        .prod-name a:hover { color: var(--brand-teal-light); }
+        .prod-stars { color: #f59e0b; font-size: 0.8rem; letter-spacing: 1px; }
+        .prod-reviews { color: var(--text-dim); font-size: 0.75rem; }
+        .prod-desc { font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5; flex: 1; }
+        .prod-price { font-weight: 600; color: var(--text); font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -119,6 +131,39 @@
   <li><strong>Front:</strong> Best suited for Gmail or Outlook users looking for seamless integration with their existing workflow, without the need for extensive customization.</li>
   <li><strong>Mailstrom:</strong> Perfect for those who frequently handle large volumes of emails and prefer batch processing capabilities.</li>
 </ul>
+
+<h2>Essential Hardware for Email Productivity</h2>
+<p>Managing a heavy inbox is easier with the right setup. These tools make processing email faster and more comfortable.</p>
+                <div class="prod-grid">
+                <div class="prod-card">
+                    <img src="https://m.media-amazon.com/images/I/41e+IoMn2uL._SL160_.jpg" alt="Wireless Headset with Microphone" class="prod-img" loading="lazy" width="160" height="152">
+                    <div class="prod-info">
+                        <h4 class="prod-name"><a href="https://www.amazon.com/dp/B0GFDWXFJW?tag=shaynesailab-20" class="affiliate-link">Wireless Headset with Noise Cancelling</a></h4>
+                        <div class="prod-stars">★★★★★ <span class="prod-reviews">(top-rated)</span></div>
+                        <p class="prod-desc">Noise-cancelling headset for clear calls. Mute button works with Zoom and Teams. Ideal for email-heavy roles.</p>
+                        <span class="prod-price">$69.98</span>
+                    </div>
+                </div>
+                <div class="prod-card">
+                    <img src="https://m.media-amazon.com/images/I/31sB9eHtciL._SL160_.jpg" alt="Quntis Monitor Light Bar" class="prod-img" loading="lazy" width="160" height="152">
+                    <div class="prod-info">
+                        <h4 class="prod-name"><a href="https://www.amazon.com/dp/B08DKQ3JG1?tag=shaynesailab-20" class="affiliate-link">Quntis Computer Monitor Lamp</a></h4>
+                        <div class="prod-stars">★★★★★ <span class="prod-reviews">(top-rated)</span></div>
+                        <p class="prod-desc">Reduce eye fatigue during long inbox sessions. Clip-on LED bar illuminates your desk without screen glare.</p>
+                        <span class="prod-price">$39.95</span>
+                    </div>
+                </div>
+                <div class="prod-card">
+                    <img src="https://m.media-amazon.com/images/I/41O4m5cUOVL._SL160_.jpg" alt="Arteck Split Ergonomic Keyboard" class="prod-img" loading="lazy" width="160" height="152">
+                    <div class="prod-info">
+                        <h4 class="prod-name"><a href="https://www.amazon.com/dp/B0BKKYRQ31?tag=shaynesailab-20" class="affiliate-link">Arteck Split Ergonomic Keyboard</a></h4>
+                        <div class="prod-stars">★★★★★ <span class="prod-reviews">(top-rated)</span></div>
+                        <p class="prod-desc">Comfortable typing for processing hundreds of emails daily. Split design and cushioned wrist rest reduce strain.</p>
+                        <span class="prod-price">$54.99</span>
+                    </div>
+                </div>
+                </div>
+                <p style="font-size:0.82rem; color:var(--text-dim); margin-bottom:var(--space-lg);">As an Amazon Associate I earn from qualifying purchases.</p>
 
 <h2>Further Reading</h2>
 <p>For more information on these tools, consider exploring their official websites or user reviews. Additionally, you might find the following resources helpful:</p>
