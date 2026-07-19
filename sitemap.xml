@@ -41,6 +41,16 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
+    <loc>https://shaynesailab.com/blog/hubspot-vs-freshsales</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shaynesailab.com/blog/chatgpt-vs-claude-vs-gemini</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://shaynesailab.com/blog/ai-meeting-assistants</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
@@ -72,11 +82,6 @@
   </url>
   <url>
     <loc>https://shaynesailab.com/blog/best-ai-writing-tools</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://shaynesailab.com/blog/chatgpt-vs-claude-vs-gemini</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
