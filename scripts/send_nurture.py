@@ -207,12 +207,20 @@ def get_api_key():
     api_key = os.environ.get('AGENTMAIL_API_KEY')
     if api_key:
         return api_key
+    # Check workspace .env
     env_file = Path.home() / '.openclaw/workspace/.env'
     if env_file.exists():
         with open(env_file) as f:
             for line in f:
                 if line.startswith('AGENTMAIL_API_KEY='):
                     return line.strip().split('=', 1)[1].strip('\'"')
+    # Check credentials directory
+    cred_file = Path.home() / '.openclaw/credentials/agentmail.env'
+    if cred_file.exists():
+        with open(cred_file) as f:
+            for line in f:
+                if line.startswith('AGENTMAIL_API_KEY=') or line.startswith('export AGENTMAIL_API_KEY='):
+                    return line.strip().split('=', 1)[1].replace('export ', '').strip('\'"')
     return None
 
 

@@ -1,1 +1,27 @@
-[{"email": "test-cron@example.com", "firstName": "CronTest", "signup_date": "2026-07-13T08:00:00+00:00", "nurture_step": 1, "source": "test"}]
+[
+  {
+    "email": "test-cron@example.com",
+    "firstName": "CronTest",
+    "signup_date": "2026-07-13T08:00:00+00:00",
+    "nurture_step": 1,
+    "source": "test"
+  },
+  {
+    "email": "test@test.com",
+    "first_name": "",
+    "source": "starter-kit",
+    "signup_date": "2026-07-17T02:49:05.300680+00:00",
+    "last_activity": "2026-07-17T02:50:32.765107+00:00",
+    "nurture_step": 0,
+    "nurture_sent_at": null
+  },
+  {
+    "email": "alert-test@worthitgoods.com",
+    "first_name": "",
+    "source": "starter-kit",
+    "signup_date": "2026-07-17T02:51:23.834514+00:00",
+    "last_activity": "2026-07-17T02:51:23.834548+00:00",
+    "nurture_step": 0,
+    "nurture_sent_at": null
+  }
+]

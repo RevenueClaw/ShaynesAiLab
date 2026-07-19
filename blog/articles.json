@@ -1,5 +1,47 @@
 [
   {
+    "title": "Notion Templates for Operations Management",
+    "slug": "notion-ops-templates",
+    "date": "2026-07-17",
+    "description": "Notion setup guides for ops workflows",
+    "url": "/blog/notion-ops-templates"
+  },
+  {
+    "title": "Automating Email Triage: Tools and Techniques",
+    "slug": "automate-email-triage",
+    "date": "2026-07-16",
+    "description": "email management with AI and automation",
+    "url": "/blog/automate-email-triage"
+  },
+  {
+    "title": "HubSpot vs Free CRM Options for Small Teams",
+    "slug": "hubspot-vs-free-crm",
+    "date": "2026-07-15",
+    "description": "CRM for 1-50 person ops teams",
+    "url": "/blog/hubspot-vs-free-crm"
+  },
+  {
+    "title": "Best AI Writing Assistants for Ops Teams in 2026",
+    "slug": "best-ai-writing",
+    "date": "2026-07-14",
+    "description": "ChatGPT, Claude, Jasper compared for ops docs",
+    "url": "/blog/best-ai-writing"
+  },
+  {
+    "title": "Make.com vs Zapier: Which Automation Platform Wins?",
+    "slug": "make-vs-zapier",
+    "date": "2026-07-14",
+    "description": "automation workflows for small teams",
+    "url": "/blog/make-vs-zapier"
+  },
+  {
+    "title": "Notion vs ClickUp for Ops Teams",
+    "slug": "notion-vs-clickup",
+    "date": "2026-07-14",
+    "description": "task and project management for operations",
+    "url": "/blog/notion-vs-clickup"
+  },
+  {
     "title": "Email Triage Tools Compared: What Actually Works for Ops Teams",
     "slug": "email-triage-tools",
     "date": "2026-07-13",

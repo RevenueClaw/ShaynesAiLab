@@ -1,0 +1,7 @@
+📝 NEW: Automating Email Triage: Tools and Techniques
+
+A practical, no-hype comparison for ops teams.
+
+Read the full comparison → https://shaynesailab.com/blog/automate-email-triage
+
+#OpsTools #Automation

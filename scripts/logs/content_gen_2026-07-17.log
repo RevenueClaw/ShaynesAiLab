@@ -1,0 +1,16 @@
+[Fri Jul 17 01:00:01 EDT 2026] Starting ShayneAiLab content generation...
+[Fri Jul 17 01:00:02 EDT 2026] Generating: Notion Templates for Operations Management (notion-ops-templates)
+[Fri Jul 17 01:09:27 EDT 2026] Quality check passed for notion-ops-templates
+[Fri Jul 17 01:09:27 EDT 2026] Generated: notion-ops-templates
+[Fri Jul 17 01:09:29 EDT 2026] Building blog index page...
+[Fri Jul 17 01:09:30 EDT 2026] Blog index updated with 7 articles
+[Fri Jul 17 01:09:30 EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/notion-ops-templates_social.txt
+[sitemap] Updated with 15 URLs
+[Fri Jul 17 01:09:30 EDT 2026] Content generation complete. Next topic index: 0
+[Fri Jul 17 01:30:10 AM EDT 2026] Starting ShayneAiLab content generation...
+[Fri Jul 17 01:30:10 AM EDT 2026] Skipping notion-vs-clickup — generated 2 days ago
+[Fri Jul 17 01:30:10 AM EDT 2026] Building blog index page...
+[Fri Jul 17 01:30:10 AM EDT 2026] Blog index updated with 7 articles
+[Fri Jul 17 01:30:10 AM EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/notion-vs-clickup_social.txt
+[sitemap] Updated with 15 URLs
+[Fri Jul 17 01:30:10 AM EDT 2026] Content generation complete. Next topic index: 1

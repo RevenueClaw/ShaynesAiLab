@@ -1,0 +1,16 @@
+[Wed Jul 15 01:00:02 EDT 2026] Starting ShayneAiLab content generation...
+[Wed Jul 15 01:00:02 EDT 2026] Generating: Canva vs Alternatives: Best Design Tool for Ops (canva-alternatives)
+[Wed Jul 15 01:08:41 EDT 2026] QUALITY FAIL: canva-alternatives contains AI slop phrase: 'dive in'
+[Wed Jul 15 01:08:41 EDT 2026] Building blog index page...
+[Wed Jul 15 01:08:41 EDT 2026] Blog index updated with 4 articles
+[sitemap] Updated with 12 URLs
+[Wed Jul 15 01:08:41 EDT 2026] Content generation complete. Next topic index: 4
+[Wed Jul 15 01:30:08 AM EDT 2026] Starting ShayneAiLab content generation...
+[Wed Jul 15 01:30:08 AM EDT 2026] Generating: HubSpot vs Free CRM Options for Small Teams (hubspot-vs-free-crm)
+[Wed Jul 15 01:38:59 AM EDT 2026] Quality check passed for hubspot-vs-free-crm
+[Wed Jul 15 01:38:59 AM EDT 2026] Generated: hubspot-vs-free-crm
+[Wed Jul 15 01:39:01 AM EDT 2026] Building blog index page...
+[Wed Jul 15 01:39:01 AM EDT 2026] Blog index updated with 5 articles
+[Wed Jul 15 01:39:01 AM EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/hubspot-vs-free-crm_social.txt
+[sitemap] Updated with 13 URLs
+[Wed Jul 15 01:39:01 AM EDT 2026] Content generation complete. Next topic index: 5

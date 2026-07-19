@@ -4,8 +4,9 @@
 # Generates comparison articles and tool roundups with affiliate links.
 # Articles are saved as static HTML in blog/ directory.
 #
-# Schedule: nightly at 1:00 AM EDT
-# Model: ollama-omen-cpu/mistral-small (CPU, precise enough for structured output)
+# Schedule: nightly at 1:30 AM EDT
+# Model: ollama-omen/phi4:latest (14B, GPU instance :11434, VRAM+RAM spilling)
+# CPU instance (:11435) OOMs on repack buffer — GPU instance handles it fine (~3min/article)
 
 set -euo pipefail
 umask 002
@@ -46,7 +47,7 @@ generate_article() {
     local focus="$3"
     local date=$(date +%Y-%m-%d)
     local output_file="$BLOG_DIR/$slug.html"
-    
+
     # Only generate if output doesn't exist or is older than 30 days
     if [ -f "$output_file" ]; then
         local age=$(( ($(date +%s) - $(stat -c %Y "$output_file")) / 86400 ))
@@ -55,9 +56,9 @@ generate_article() {
             return 0
         fi
     fi
-    
+
     echo "[$(date)] Generating: $topic ($slug)" | tee -a "$LOG_FILE"
-    
+
     PROMPT=$(cat <<-END
 Write a 500-800 word blog article for shaynesailab.com on the topic: "$topic".
 
@@ -79,13 +80,26 @@ Requirements:
 - End with a "Further Reading" section linking to relevant tools
 END
 )
-    
-    # Generate via Ollama on Omen CPU
-    # Using curl to ollama-omen-cpu:11435 with mistral-small for quality
-    BODY=$(curl -s http://192.168.4.108:11435/api/generate \
-        -d "{\"model\":\"mistral-small\",\"prompt\":\"$PROMPT\",\"stream\":false,\"options\":{\"temperature\":0.3,\"max_tokens\":3000}}" | \
+
+    # Generate via Ollama on Omen GPU (:11434) with phi4-mini.
+    # Write prompt to temp file to avoid shell quoting issues, then call via Python.
+    local tmpfile=$(mktemp /tmp/ailab_prompt_XXXXXX.json)
+    python3 -c "
+import json
+prompt = '''$PROMPT'''
+with open('$tmpfile', 'w') as f:
+    json.dump({
+        'model': 'phi4:latest',
+        'prompt': prompt,
+        'stream': False,
+        'options': {'temperature': 0.3, 'max_tokens': 3000}
+    }, f)
+"
+    BODY=$(curl -s http://192.168.4.108:11434/api/generate \
+        -d @"$tmpfile" | \
         python3 -c "import sys,json; print(json.load(sys.stdin).get('response',''))" 2>/dev/null) || BODY=""
-    
+    rm -f "$tmpfile"
+
     if [ -z "$BODY" ]; then
         echo "[$(date)] ERROR: Failed to generate content for $slug" | tee -a "$LOG_FILE"
         return 1
@@ -93,7 +107,8 @@ END
 
     # Quality check: reject AI slop phrases
     BODY_LC=$(echo "$BODY" | tr '[:upper:]' '[:lower:]')
-    SLOP_PHRASES=("in today's digital" "in today's fast-paced" "in the ever-evolving" "game-changer" "game changer" "revolutionize" "unlock the full potential" "dive in" "let's dive" "the power of" "harness the power" "cutting-edge" "transformative" "solutions that" "best-in-class" "robust")
+    # Note: 'robust' and 'solutions that' are deliberately excluded — legitimate tech terms, not AI slop
+    SLOP_PHRASES=("in today's digital" "in today's fast-paced" "in the ever-evolving" "game-changer" "game changer" "revolutionize" "unlock the full potential" "dive in" "let's dive" "the power of" "harness the power" "cutting-edge" "transformative" "best-in-class")
     for phrase in "${SLOP_PHRASES[@]}"; do
         if echo "$BODY_LC" | grep -q "$phrase"; then
             echo "[$(date)] QUALITY FAIL: $slug contains AI slop phrase: '$phrase'" | tee -a "$LOG_FILE"
@@ -101,7 +116,7 @@ END
         fi
     done
     echo "[$(date)] Quality check passed for $slug" | tee -a "$LOG_FILE"
-    
+
     # Write the article HTML
     cat > "$output_file" <<EOF
 <!DOCTYPE html>
@@ -159,7 +174,7 @@ END
         <div class="container" style="max-width: 740px;">
             <span class="section-label">Blog</span>
             <h1>$topic</h1>
-            <p class="article-meta">$(date +%B %d, %Y)</p>
+            <p class="article-meta">$(date '+%B %d, %Y')</p>
         </div>
     </section>
 
@@ -212,12 +227,12 @@ END
 </body>
 </html>
 EOF
-    
+
     # Update articles index
     if [ ! -f "$ARTICLES_FILE" ]; then
         echo '[]' > "$ARTICLES_FILE"
     fi
-    
+
     python3 -c "
 import json
 articles = json.load(open('$ARTICLES_FILE'))
@@ -233,46 +248,17 @@ articles = [a for a in articles if a['slug'] != '$slug']
 articles.insert(0, article)
 json.dump(articles, open('$ARTICLES_FILE', 'w'), indent=2)
 " 2>/dev/null
-    
+
     echo "[$(date)] Generated: $slug" | tee -a "$LOG_FILE"
-    
+
     # Rate limit
     sleep 2
 }
 
 build_blog_index() {
     echo "[$(date)] Building blog index page..." | tee -a "$LOG_FILE"
-    
-    if [ ! -f "$ARTICLES_FILE" ]; then
-        echo "[$(date)] No articles yet, skipping index build" | tee -a "$LOG_FILE"
-        return 0
-    fi
-    
-    INDEX_FILE="$BLOG_DIR/index.html"
-    
-    # Generate post cards HTML
-    POSTS_HTML=$(python3 -c "
-import json
-articles = json.load(open('$ARTICLES_FILE'))
-if not articles:
-    print('')
-else:
-    cards = []
-    for a in articles:
-        cards.append(f'<article class=\"post-card card\">'
-            f'<div class=\"meta\">{a[\"date\"]}</div>'
-            f'<h3><a href=\"{a[\"url\"]}\">{a[\"title\"]}</a></h3>'
-            f'<p>{a[\"description\"]}</p>'
-            f'</article>')
-    print('\\n'.join(cards))
-" 2>/dev/null)
-    
-    if [ -n "$POSTS_HTML" ]; then
-        # Update the blog index - hide empty state, show posts
-        sed -i "s|<div class=\"empty-state\" id=\"empty-state\">.*|<div class=\"post-grid\" id=\"post-grid\">$POSTS_HTML</div>|" "$INDEX_FILE"
-        sed -i 's|style="display:none;"||g' "$INDEX_FILE"
-        echo "[$(date)] Blog index updated with $(echo "$POSTS_HTML" | grep -c 'post-card') articles" | tee -a "$LOG_FILE"
-    fi
+    RESULT=$(python3 "$SCRIPTS_DIR/overnight/build_blog_index.py" "$ARTICLES_FILE" "$BLOG_DIR/index.html" 2>&1)
+    echo "[$(date)] $RESULT" | tee -a "$LOG_FILE"
 }
 
 # Main
@@ -301,7 +287,7 @@ build_blog_index
 if [ -n "$SLUG" ] && [ -f "$BLOG_DIR/$SLUG.html" ]; then
     SOCIAL_DIR="$SCRIPTS_DIR/overnight/social"
     mkdir -p "$SOCIAL_DIR"
-    
+
     SOCIAL_DRAFT="$SOCIAL_DIR/${SLUG}_social.txt"
     cat > "$SOCIAL_DRAFT" <<ENDSOCIAL
 📝 NEW: $TOPIC
@@ -316,41 +302,6 @@ ENDSOCIAL
 fi
 
 # Update sitemap.xml
-python3 << 'PYEOF' 2>/dev/null
-import json
-from datetime import date
-
-pages = [
-    {"loc": "https://shaynesailab.com/", "priority": "1.0", "changefreq": "weekly"},
-    {"loc": "https://shaynesailab.com/blog", "priority": "0.9", "changefreq": "daily"},
-    {"loc": "https://shaynesailab.com/resources", "priority": "0.8", "changefreq": "weekly"},
-    {"loc": "https://shaynesailab.com/starter-kit", "priority": "0.8", "changefreq": "monthly"},
-    {"loc": "https://shaynesailab.com/diagnostic", "priority": "0.7", "changefreq": "monthly"},
-    {"loc": "https://shaynesailab.com/about", "priority": "0.7", "changefreq": "monthly"},
-    {"loc": "https://shaynesailab.com/contact", "priority": "0.5", "changefreq": "monthly"},
-    {"loc": "https://shaynesailab.com/privacy", "priority": "0.3", "changefreq": "yearly"},
-]
-
-ARTICLES_FILE = '$BLOG_DIR/articles.json'
-try:
-    articles = json.load(open(ARTICLES_FILE))
-    for a in articles:
-        pages.append({
-            "loc": f"https://shaynesailab.com{a['url']}",
-            "priority": "0.8",
-            "changefreq": "monthly"
-        })
-except:
-    pass
-
-xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-for p in pages:
-    xml += f'  <url>\n    <loc>{p["loc"]}</loc>\n    <priority>{p["priority"]}</priority>\n    <changefreq>{p["changefreq"]}</changefreq>\n  </url>\n'
-xml += '</urlset>'
-
-with open('$REPO_DIR/sitemap.xml', 'w') as f:
-    f.write(xml)
-print(f"[sitemap] Updated with {len(pages)} URLs")
-PYEOF
+python3 "$SCRIPTS_DIR/overnight/update_sitemap.py" "$ARTICLES_FILE" "$REPO_DIR/sitemap.xml" "$REPO_DIR" 2>&1 | tee -a "$LOG_FILE"
 
 echo "[$(date)] Content generation complete. Next topic index: $NEXT_INDEX" | tee -a "$LOG_FILE"
