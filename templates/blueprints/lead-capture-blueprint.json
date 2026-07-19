@@ -1,0 +1,193 @@
+{
+  "name": "Lead Capture Pipeline",
+  "flow": [
+    {
+      "id": 1,
+      "module": "webhook:custom",
+      "version": 1,
+      "metadata": {
+        "designer": {
+          "x": -200,
+          "y": 0
+        },
+        "expect": [],
+        "restore": {}
+      },
+      "mapper": {
+        "dataStructure": "[{\"name\": \"name\", \"type\": \"text\", \"required\": true, \"label\": \"Lead Name\"}, {\"name\": \"email\", \"type\": \"email\", \"required\": true, \"label\": \"Email Address\"}, {\"name\": \"source\", \"type\": \"text\", \"required\": false, \"label\": \"Source\"}, {\"name\": \"product\", \"type\": \"text\", \"required\": false, \"label\": \"Product Interest\"}, {\"name\": \"score\", \"type\": \"number\", \"required\": false, \"label\": \"Lead Score\"}]"
+      },
+      "parameters": {},
+      "onerror": [],
+      "moduleLabel": "Webhook: receive lead data"
+    },
+    {
+      "id": 2,
+      "module": "slack:sendMessage",
+      "version": 1,
+      "metadata": {
+        "designer": {
+          "x": 50,
+          "y": -180
+        },
+        "expect": [],
+        "restore": {}
+      },
+      "mapper": {
+        "channel": "#new-leads",
+        "text": "\ud83c\udd95 *New Lead*\nName: `{{1.name}}`\nEmail: {{1.email}}\nSource: {{1.source}}\nProduct: {{1.product}}"
+      },
+      "parameters": {},
+      "onerror": [],
+      "indesigner": 1,
+      "moduleLabel": "Notify Slack (#new-leads)"
+    },
+    {
+      "id": 3,
+      "module": "gmail:send",
+      "version": 1,
+      "metadata": {
+        "designer": {
+          "x": 50,
+          "y": 0
+        },
+        "expect": [],
+        "restore": {}
+      },
+      "mapper": {
+        "to": "{{1.email}}",
+        "subject": "Thanks {{1.name}} \u2014 Here's what's next",
+        "textBody": "Hi {{1.name}},\n\nThanks for your interest in {{1.product}}.\n\nWe'll follow up within 24 hours. In the meantime, check out our free AI Starter Kit:\nhttps://shaynesailab.com/starter-kit\n\nBest,\nThe Ops Team",
+        "htmlBody": "<p>Hi {{1.name}},</p><p>Thanks for your interest in <strong>{{1.product}}</strong>.</p><p>We'll follow up within 24 hours. In the meantime, check out our free AI Starter Kit.</p><p>Best,<br>The Ops Team</p>"
+      },
+      "parameters": {},
+      "onerror": [],
+      "indesigner": 1,
+      "moduleLabel": "Send welcome email"
+    },
+    {
+      "id": 4,
+      "module": "googlesheets:addRow",
+      "version": 1,
+      "metadata": {
+        "designer": {
+          "x": 50,
+          "y": 180
+        },
+        "expect": [],
+        "restore": {}
+      },
+      "mapper": {
+        "spreadsheetId": "REPLACE_WITH_YOUR_SHEET_ID",
+        "sheetName": "Leads",
+        "values": {
+          "A": "{{1.name}}",
+          "B": "{{1.email}}",
+          "C": "{{1.source}}",
+          "D": "{{1.product}}",
+          "E": "{{1.score}}",
+          "F": "{{now}}",
+          "G": "New"
+        }
+      },
+      "parameters": {},
+      "onerror": [],
+      "indesigner": 1,
+      "moduleLabel": "Log to Google Sheets"
+    },
+    {
+      "id": 5,
+      "module": "router:router",
+      "version": 1,
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        },
+        "expect": [],
+        "restore": {}
+      },
+      "mapper": {},
+      "parameters": {},
+      "onerror": [],
+      "indesigner": 4,
+      "moduleLabel": "Route by lead score",
+      "routes": [
+        {
+          "id": 6,
+          "module": "slack:sendMessage",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 500,
+              "y": -100
+            },
+            "expect": [],
+            "restore": {}
+          },
+          "mapper": {
+            "channel": "#hot-leads",
+            "text": "\ud83d\udd25 *HOT LEAD* (score: {{1.score}})\nName: {{1.name}}\nEmail: {{1.email}}"
+          },
+          "parameters": {},
+          "onerror": [],
+          "indesigner": 5,
+          "moduleLabel": "Hot lead alert",
+          "filters": {
+            "operator": "and",
+            "conditions": [
+              {
+                "field": "1.score",
+                "operator": "gte",
+                "value": 80
+              }
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "module": "googlesheets:updateRow",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 500,
+              "y": 100
+            },
+            "expect": [],
+            "restore": {}
+          },
+          "mapper": {
+            "spreadsheetId": "REPLACE_WITH_YOUR_SHEET_ID",
+            "sheetName": "Leads",
+            "rowNumber": "{{4.rowNumber}}",
+            "values": {
+              "G": "Hot Lead",
+              "H": "{{now}}"
+            }
+          },
+          "parameters": {},
+          "onerror": [],
+          "indesigner": 6,
+          "moduleLabel": "Update sheet: Hot Lead"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "instant": false
+  }
+}
