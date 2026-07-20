@@ -289,8 +289,10 @@ build_blog_index() {
         echo "[$(date)] No articles yet, skipping index build" | tee -a "$LOG_FILE"
         return 0
     fi
-    python3 << 'PYEOF'
-import json, re
+    python3 << PYEOF
+import json, re, os
+
+REPO_DIR = "$REPO_DIR"
 
 with open(os.path.join(REPO_DIR, "blog", "articles.json")) as f:
     articles = json.load(f)
