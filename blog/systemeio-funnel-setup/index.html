@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Set Up Your First Sales Funnel in Systeme.io — Shayne's AI Lab</title>
+    <meta name="description" content="Step-by-step tutorial on setting up a sales funnel in Systeme.io. Build a landing page, email sequence, and checkout — all on the free plan.">
+    <meta name="keywords" content="Systeme.io tutorial, sales funnel setup, Systeme.io free plan, ops automation, email marketing">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="How to Set Up Your First Sales Funnel in Systeme.io">
+    <meta property="og:description" content="Step-by-step tutorial for ops teams — build a landing page, email sequence, and checkout in Systeme.io. Free plan covers everything you need to start.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://shaynesailab.com/blog/systemeio-funnel-setup">
+    <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        .article-body { max-width: 740px; margin: 0 auto; }
+        .article-body h2 { margin-top: var(--space-xl); color: var(--text); }
+        .article-body h3 { margin-top: var(--space-lg); color: var(--text); }
+        .article-body p { margin-bottom: var(--space-sm); color: var(--text-secondary); line-height: 1.8; }
+        .article-body ul, .article-body ol { margin-bottom: var(--space-md); color: var(--text-secondary); padding-left: 1.5rem; }
+        .article-body li { margin-bottom: 0.3rem; }
+        .article-body ol li { margin-bottom: 0.8rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-md) 0; }
+        .article-body th, .article-body td { padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .article-body th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .article-body td { color: var(--text-secondary); font-size: 0.95rem; }
+        .article-body .affiliate-disclosure { border-left: 2px solid var(--brand-amber); padding: 0.5rem 1rem; margin-bottom: var(--space-lg); background: var(--brand-amber-soft); border-radius: 4px; }
+        .article-body a.affiliate-link { color: var(--brand-teal-light); text-decoration: underline; text-decoration-style: dotted; }
+        .article-body .tip-box { background: rgba(45,212,191,0.06); border-left: 3px solid var(--brand-teal); padding: 0.8rem 1.2rem; border-radius: 4px; margin: var(--space-md) 0; }
+        .article-body .tip-box strong { color: var(--brand-teal-light); }
+        .article-meta { font-size: 0.85rem; color: var(--text-dim); margin-bottom: var(--space-lg); text-align: center; }
+        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--brand-teal); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; margin-right: 0.5rem; flex-shrink: 0; }
+        .step-header { display: flex; align-items: center; gap: 0.3rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shayne's AI Lab home">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/><path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/blog" class="active" role="menuitem">Blog</a></li>
+                <li><a href="/resources" role="menuitem">Tools</a></li>
+                <li><a href="/starter-kit" role="menuitem">Free Starter Kit</a></li>
+                <li><a href="/contact" role="menuitem">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container" style="max-width: 740px;">
+            <span class="section-label">Blog</span>
+            <h1>How to Set Up Your First Sales Funnel in Systeme.io</h1>
+            <p class="article-meta">July 21, 2026</p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="article-body">
+                <p class="affiliate-disclosure">Some links below are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+
+<h2>What We're Building</h2>
+<p>A complete sales funnel in <a href="https://systeme.io/?sa=sa0276953399649997f67b394093749db6052a7a4b" class="affiliate-link">Systeme.io</a> on the free plan:</p>
+<ul>
+  <li>A professional landing page with opt-in form</li>
+  <li>An automated email sequence for new subscribers</li>
+  <li>A checkout page for your product or service</li>
+  <li>A thank-you page and follow-up funnel</li>
+</ul>
+<p>If you've used ClickFunnels or Kajabi before, you'll recognize the concepts — but Systeme.io is significantly cheaper (and has a real free plan). If you're new to funnels, this tutorial will walk you through every click.</p>
+
+<p>For a full pricing breakdown, see our <a href="/blog/systemeio-pricing">Systeme.io Pricing 2026 guide</a>.</p>
+
+<h2>Why Bother with a Funnel?</h2>
+<p>Most ops teams skip funnels because they sound like marketing fluff. But here's what a funnel actually does:</p>
+<ul>
+  <li><strong>Qualifies leads before they reach you</strong> — someone who fills out a form and reads your emails is more serious than someone who just filled out a contact form</li>
+  <li><strong>Automates follow-up</strong> — sends your intro, your pricing, your case studies without you touching anything</li>
+  <li><strong>Shows you what's working</strong> — Systeme.io tracks where leads drop off, so you know which page or email needs fixing</li>
+</ul>
+
+<h2>Step 1: Sign Up and Pick a Template</h2>
+
+<div class="step-header"><span class="step-number">1</span> <h3 style="margin:0;">Create your account</h3></div>
+<p>Go to <a href="https://systeme.io/?sa=sa0276953399649997f67b394093749db6052a7a4b" class="affiliate-link">Systeme.io</a> and sign up for the free plan. It gives you:</p>
+<ul>
+  <li>Up to 2,000 contacts</li>
+  <li>Unlimited emails</li>
+  <li>1 sales funnel</li>
+  <li>1 blog</li>
+  <li>1 course/product</li>
+</ul>
+<p>That's enough to test your offer before paying anything.</p>
+
+<div class="step-header"><span class="step-number">2</span> <h3 style="margin:0;">Choose a funnel type</h3></div>
+<p>From the dashboard, click <strong>Sales Funnels → Create a Funnel</strong>. Systeme.io has templates for:</p>
+<ul>
+  <li><strong>Lead Magnet Funnel</strong> — give away a free resource in exchange for an email (best for building a list)</li>
+  <li><strong>Webinar Funnel</strong> — register people for a live event with automated reminders</li>
+  <li><strong>Sales Funnel</strong> — direct product or service sales</li>
+  <li><strong>Bridge Funnel</strong> — move people from a low-cost offer to a high-ticket one</li>
+</ul>
+<p>For your first funnel, pick <strong>Lead Magnet Funnel</strong>. It's the simplest and most versatile for ops teams.</p>
+
+<h2>Step 2: Build Your Landing Page</h2>
+
+<div class="step-header"><span class="step-number">3</span> <h3 style="margin:0;">Customize the template</h3></div>
+<p>Systeme.io's drag-and-drop builder works like a simplified version of Kajabi or ClickFunnels. You can:</p>
+<ul>
+  <li>Change the headline and subheadline</li>
+  <li>Swap images (use their free stock photo library or upload your own)</li>
+  <li>Add bullet points explaining what the lead gets</li>
+  <li>Customize the opt-in button text</li>
+</ul>
+<p>Keep it simple for now. Your page needs: a clear headline, 3-5 benefit bullets, and one button. That's it.</p>
+
+<div class="step-header"><span class="step-number">4</span> <h3 style="margin:0;">Connect an email automation</h3></div>
+<p>On the same page, set up the <strong>opt-in automation</strong>. This is what happens when someone clicks the button. Configure it to:</p>
+<ul>
+  <li>Add them to a specific email list (create one called "Lead Magnet Downloads")</li>
+  <li>Send the lead magnet (a PDF download link email)</li>
+  <li>Send them to a thank-you page confirming they're in</li>
+</ul>
+
+<div class="tip-box">
+  <strong>Pro tip:</strong> Don't just send the lead magnet and stop. That's a wasted opportunity. Set up the email sequence (next step) before you publish.
+</div>
+
+<h2>Step 3: Set Up the Email Follow-Up Sequence</h2>
+
+<div class="step-header"><span class="step-number">5</span> <h3 style="margin:0;">Create a 3-email sequence</h3></div>
+<p>Go to <strong>Marketing → Email Campaigns</strong> and create a new campaign. Design it like this:</p>
+<p><strong>Email 1 (Day 0 — Instant):</strong> Deliver the lead magnet. Keep it simple: "Here's your download link. By the way, here's what we do."</p>
+<p><strong>Email 2 (Day 2):</strong> Share a case study or result. Show someone who used your approach and got results. This builds credibility without being salesy.</p>
+<p><strong>Email 3 (Day 5):</strong> Make the offer. Present your service or product clearly. Include pricing, what they get, and a link to book a call or buy.</p>
+<p>Systeme.io's email editor is basic but functional. You can add images, links, and buttons. Keep emails to 150-200 words max — long emails get ignored.</p>
+
+<div class="step-header"><span class="step-number">6</span> <h3 style="margin:0;">Add a tag on purchase</h3></div>
+<p>Create a tag called "Customer" and configure it to apply automatically when someone buys. This lets you:</p>
+<ul>
+  <li>Remove customers from the sales sequence (they already bought)</li>
+  <li>Add them to an onboarding or upsell sequence instead</li>
+  <li>Segment your list for future campaigns</li>
+</ul>
+
+<h2>Step 4: Add a Checkout Page</h2>
+
+<div class="step-header"><span class="step-number">7</span> <h3 style="margin:0;">Create your product</h3></div>
+<p>Go to <strong>Products → Add Product</strong>. Define your offer (service, digital product, or subscription). Set the price and add a description.</p>
+
+<div class="step-header"><span class="step-number">8</span> <h3 style="margin:0;">Add a checkout step to your funnel</h3></div>
+<p>Go back to your funnel editor and add a <strong>Checkout</strong> page after the landing page. Connect it to the product you created. Systeme.io handles payment processing through Stripe integration — you'll need to connect your Stripe account during setup.</p>
+<p>Test the checkout flow by (1) submitting your own form, (2) going through the purchase flow, and (3) confirming the email sequence triggers correctly. Systeme.io's sandbox mode lets you test payments without actually charging.</p>
+
+<h2>Cost Breakdown</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Tier</th>
+      <th>Price</th>
+      <th>Contacts</th>
+      <th>Funnels</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Free</td>
+      <td>$0</td>
+      <td>2,000</td>
+      <td>1</td>
+      <td>Testing your offer</td>
+    </tr>
+    <tr>
+      <td>Startup</td>
+      <td>$27/mo</td>
+      <td>5,000</td>
+      <td>10</td>
+      <td>Active lead generation</td>
+    </tr>
+    <tr>
+      <td>Webinar</td>
+      <td>$47/mo</td>
+      <td>15,000</td>
+      <td>Unlimited</td>
+      <td>Growing list + webinars</td>
+    </tr>
+    <tr>
+      <td>Enterprise</td>
+      <td>$97/mo</td>
+      <td>50,000</td>
+      <td>Unlimited</td>
+      <td>Scaling teams</td>
+    </tr>
+  </tbody>
+</table>
+<p>The free plan is genuinely usable — you can run a single funnel, build a list of 2,000 contacts, and send unlimited emails. You only need to pay when you want more funnels or a bigger list.</p>
+
+<h2>Testing Your Funnel</h2>
+<p>Before sending traffic, test the full flow:</p>
+<ol>
+  <li>Open your funnel's landing page URL</li>
+  <li>Submit the opt-in form with your email</li>
+  <li>Check that the lead magnet email arrives (check spam)</li>
+  <li>Confirm you're added to the right email list in Systeme.io</li>
+  <li>If you have a checkout page, test the full purchase flow in sandbox mode</li>
+</ol>
+
+<h2>Going Further</h2>
+<ul>
+  <li><strong>Split test your landing page:</strong> Systeme.io lets you create page variants. Test two headlines or two images against each other to see what converts better.</li>
+  <li><strong>Add a blog:</strong> Systeme.io has a built-in blog. Cross-post your content to drive organic traffic to your funnel.</li>
+  <li><strong>Integrate with Make.com:</strong> Systeme.io has Zapier and webhook integrations. Use <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> to send new leads to your CRM, Slack, or Google Sheets automatically.</li>
+</ul>
+
+<h2>Further Reading</h2>
+<ul>
+  <li><a href="https://systeme.io/?sa=sa0276953399649997f67b394093749db6052a7a4b" class="affiliate-link">Systeme.io</a> – Start building your free funnel</li>
+  <li><a href="/blog/systemeio-pricing">Systeme.io Pricing 2026: Full Breakdown</a></li>
+  <li><a href="/blog/systemeio-vs-clickfunnels">Systeme.io vs ClickFunnels vs Kajabi: Comparison</a></li>
+  <li><a href="/blog/lead-capture-jotform-make">How to Build a Lead Capture System with Jotform + Make.com</a></li>
+</ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Share This Article</span>
+            <p style="color:var(--text-muted);">If you found this useful, share it with someone else.</p>
+            <p style="margin-bottom:var(--space-md);">
+                <a href="https://twitter.com/intent/tweet?text=How to Set Up Your First Sales Funnel in Systeme.io&url=https://shaynesailab.com/blog/systemeio-funnel-setup" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://shaynesailab.com/blog/systemeio-funnel-setup" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on LinkedIn</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Keep Exploring</span>
+            <h2>More Tutorials & Guides</h2>
+            <a href="/blog" class="btn btn-secondary">Back to Blog</a>
+            <a href="/starter-kit" class="btn btn-primary">Get the Free Starter Kit</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/starter-kit">Free Starter Kit</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+            <p style="font-size:0.78rem; color:var(--text-dim); margin-top:var(--space-xs);">Some links on this site are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click',function(){const e=document.querySelector('.nav-links');const n=e.style.display==='flex';e.style.display=n?'none':'flex';e.style.flexDirection='column';e.style.position='absolute';e.style.top='100%';e.style.left='0';e.style.right='0';e.style.background='var(--bg-glass)';e.style.backdropFilter='blur(14px)';e.style.padding='1rem 1.5rem';e.style.borderBottom='1px solid var(--border)';e.style.gap='0.75rem';this.setAttribute('aria-expanded',String(!n));});
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>
