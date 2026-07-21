@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Build a Lead Capture System with Jotform + Make.com — Shayne's AI Lab</title>
+    <meta name="description" content="Step-by-step tutorial on building an automated lead capture system using Jotform and Make.com. Intake forms, Slack notifications, CRM updates, and more.">
+    <meta name="keywords" content="lead capture automation, Jotform automation, Make.com tutorial, automated intake system, ops automation">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="How to Build a Lead Capture System with Jotform + Make.com">
+    <meta property="og:description" content="Step-by-step tutorial for ops teams: build an automated lead capture system using Jotform forms and Make.com workflows.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://shaynesailab.com/blog/lead-capture-jotform-make">
+    <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        .article-body { max-width: 740px; margin: 0 auto; }
+        .article-body h2 { margin-top: var(--space-xl); color: var(--text); }
+        .article-body h3 { margin-top: var(--space-lg); color: var(--text); }
+        .article-body p { margin-bottom: var(--space-sm); color: var(--text-secondary); line-height: 1.8; }
+        .article-body ul, .article-body ol { margin-bottom: var(--space-md); color: var(--text-secondary); padding-left: 1.5rem; }
+        .article-body li { margin-bottom: 0.3rem; }
+        .article-body ol li { margin-bottom: 0.8rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-md) 0; }
+        .article-body th, .article-body td { padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .article-body th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .article-body td { color: var(--text-secondary); font-size: 0.95rem; }
+        .article-body .affiliate-disclosure { border-left: 2px solid var(--brand-amber); padding: 0.5rem 1rem; margin-bottom: var(--space-lg); background: var(--brand-amber-soft); border-radius: 4px; }
+        .article-body a.affiliate-link { color: var(--brand-teal-light); text-decoration: underline; text-decoration-style: dotted; }
+        .article-body .tip-box { background: rgba(45,212,191,0.06); border-left: 3px solid var(--brand-teal); padding: 0.8rem 1.2rem; border-radius: 4px; margin: var(--space-md) 0; }
+        .article-body .tip-box strong { color: var(--brand-teal-light); }
+        .article-meta { font-size: 0.85rem; color: var(--text-dim); margin-bottom: var(--space-lg); text-align: center; }
+        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--brand-teal); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; margin-right: 0.5rem; flex-shrink: 0; }
+        .step-header { display: flex; align-items: center; gap: 0.3rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shayne's AI Lab home">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/><path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/blog" class="active" role="menuitem">Blog</a></li>
+                <li><a href="/resources" role="menuitem">Tools</a></li>
+                <li><a href="/starter-kit" role="menuitem">Free Starter Kit</a></li>
+                <li><a href="/contact" role="menuitem">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container" style="max-width: 740px;">
+            <span class="section-label">Blog</span>
+            <h1>How to Build a Lead Capture System with Jotform + Make.com</h1>
+            <p class="article-meta">July 21, 2026</p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="article-body">
+                <p class="affiliate-disclosure">Some links below are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+
+<h2>What We're Building</h2>
+<p>By the end of this tutorial, you'll have a working lead capture system that:</p>
+<ul>
+  <li>Collects leads through a professional intake form</li>
+  <li>Automatically routes submissions to Google Sheets for record-keeping</li>
+  <li>Posts a Slack notification to your team channel</li>
+  <li>Sends a confirmation email to the lead</li>
+  <li>Adds the lead to your CRM (HubSpot Free or any CRM with an API)</li>
+</ul>
+<p>No coding required. Both <a href="https://www.jotform.com/?partner=revenueclaw" class="affiliate-link">Jotform</a> (free tier) and <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> (free tier) can handle this entire workflow.</p>
+
+<h2>Why This Stack</h2>
+<p>Most ops teams use one of three approaches to lead capture, and none of them are great:</p>
+<ul>
+  <li><strong>Manual entry:</strong> Someone checks the form submissions, copies data into a spreadsheet, forwards it to the right person. Error-prone and slow.</li>
+  <li><strong>All-in-one CRM forms:</strong> HubSpot forms are fine, but limited if you need complex logic, file uploads, or payment collection.</li>
+  <li><strong>Zapier + Typeform:</strong> Works, but Typeform's free tier is restrictive (10 forms max) and Zapier's is even worse (100 tasks/month).</li>
+</ul>
+<p>Jotform + Make.com solves all three problems. Jotform gives you professional forms with conditional logic, file uploads, and templates — all on the free tier. Make.com gives you 1,000 operations/month free to route, transform, and deliver that data anywhere.</p>
+
+<div class="tip-box">
+  <strong>Pro tip:</strong> Both tools have native integrations with each other. Jotform has a direct Make.com module, so you don't need middleware to connect them. This keeps your automation clean and easier to debug.
+</div>
+
+<h2>Step 1: Build Your Intake Form in Jotform</h2>
+
+<div class="step-header"><span class="step-number">1</span> <h3 style="margin:0;">Sign up for Jotform</h3></div>
+<p>Create a free account at <a href="https://www.jotform.com/?partner=revenueclaw" class="affiliate-link">Jotform</a>. The free tier gives you unlimited forms with 100 submissions per month — plenty for testing and small ops teams.</p>
+
+<div class="step-header"><span class="step-number">2</span> <h3 style="margin:0;">Choose a template (or start from scratch)</h3></div>
+<p>Jotform has over 10,000 templates. For lead capture, search for "lead intake" or "contact form." Pick one that matches the information you need. The AI form builder is also worth trying — just describe what you need and it builds the form for you in seconds.</p>
+<p>If you're building from scratch, include these fields:</p>
+<ul>
+  <li><strong>Name</strong> (full name field)</li>
+  <li><strong>Email</strong> (email field with validation)</li>
+  <li><strong>Company</strong> (text field)</li>
+  <li><strong>Interest / Service Needed</strong> (dropdown or checkbox)</li>
+  <li><strong>Budget Range</strong> (dropdown)</li>
+  <li><strong>How They Found You</strong> (dropdown — track marketing sources)</li>
+  <li><strong>Message</strong> (textarea)</li>
+</ul>
+
+<div class="step-header"><span class="step-number">3</span> <h3 style="margin:0;">Set up conditional logic</h3></div>
+<p>This is where Jotform beats Google Forms. Add conditions to show or hide fields based on previous answers. For example:</p>
+<ul>
+  <li>If they select "Partnership inquiry," show fields for company size and partnership type</li>
+  <li>If they select "I need support," show a priority dropdown and existing ticket number</li>
+  <li>If budget is "Under $1,000," skip the enterprise feature questions</li>
+</ul>
+<p>This keeps your form short for most people but detailed when it needs to be.</p>
+
+<div class="step-header"><span class="step-number">4</span> <h3 style="margin:0;">Enable the Make.com integration</h3></div>
+<p>In the Jotform form builder, go to <strong>Settings → Integrations</strong>. Search for Make.com and click <strong>Connect</strong>. Follow the OAuth flow to link your accounts. This creates a webhook that Make.com can listen to.</p>
+
+<h2>Step 2: Build the Automation Scenario in Make.com</h2>
+
+<div class="step-header"><span class="step-number">5</span> <h3 style="margin:0;">Create a new scenario</h3></div>
+<p>Sign up for <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> (free tier: 1,000 operations/month). Click <strong>Create a new scenario</strong> and add the Jotform module as your first module. Select <strong>Watch Responses</strong> as the trigger — this will fire every time someone submits your form.</p>
+
+<div class="step-header"><span class="step-number">6</span> <h3 style="margin:0;">Route to Google Sheets</h3></div>
+<p>Add a <strong>Google Sheets</strong> module. Select <strong>Add a Row</strong> and map the form fields to your spreadsheet columns. This creates your lead database — every submission gets logged automatically. (You can skip this if you're using a CRM, but a spreadsheet is useful for backups and quick reviews.)</p>
+
+<div class="step-header"><span class="step-number">7</span> <h3 style="margin:0;">Post to Slack</h3></div>
+<p>Add a <strong>Slack</strong> module. Select <strong>Create a Message</strong> and choose the channel where your team wants to see new leads. Build a message that includes the lead's name, company, interest, and a link back to the Jotform submission for the full details.</p>
+
+<div class="step-header"><span class="step-number">8</span> <h3 style="margin:0;">Send confirmation email</h3></div>
+<p>Add an <strong>Email</strong> module (Make.com has a built-in email sender, or you can use Gmail/SMTP). Configure a confirmation email to go to the lead's address. Keep it simple:</p>
+<p style="font-style: italic; color: var(--text-muted); padding: 0.5rem 1rem; border-left: 2px solid var(--border);">"Thanks for reaching out, {{name}}. We've received your inquiry and will get back to you within 1 business day."</p>
+
+<div class="step-header"><span class="step-number">9</span> <h3 style="margin:0;">Add CRM integration (optional)</h3></div>
+<p>If you use HubSpot Free CRM, add a <strong>HubSpot</strong> module to create or update a contact record. Map the form fields to HubSpot properties. This keeps your CRM in sync without manual data entry.</p>
+
+<h2>Cost Breakdown</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>Free Tier</th>
+      <th>What You Get</th>
+      <th>When to Upgrade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jotform</td>
+      <td>100 submissions/mo</td>
+      <td>Custom forms, templates, conditional logic, file uploads</td>
+      <td>When you exceed 100 leads/month ($34/mo Bronze)</td>
+    </tr>
+    <tr>
+      <td>Make.com</td>
+      <td>1,000 ops/mo</td>
+      <td>Multi-step automation, multiple apps, conditional routing</td>
+      <td>When running more than 1,000 automations/month ($9/mo Core)</td>
+    </tr>
+    <tr>
+      <td>Google Sheets</td>
+      <td>Free</td>
+      <td>Unlimited lead storage, collaboration</td>
+      <td>Never — it's built into Google Workspace</td>
+    </tr>
+    <tr>
+      <td>Slack</td>
+      <td>Free</td>
+      <td>Notifications to your team</td>
+      <td>Only if your team is already paying for Slack</td>
+    </tr>
+  </tbody>
+</table>
+<p>Total cost to run this system: <strong>$0/month</strong> for small ops teams.</p>
+
+<h2>Testing Your Pipeline</h2>
+<p>Before going live, submit a test entry through your Jotform form. Check that:</p>
+<ol>
+  <li>The data appears in Google Sheets within 30 seconds</li>
+  <li>Your Slack channel gets a notification with the right details</li>
+  <li>The confirmation email arrives in your test inbox (check spam)</li>
+  <li>CRM entry is created (if you set up that step)</li>
+</ol>
+<p>Make.com's scenario history panel shows you exactly what happened at each step, including any errors. If something breaks, you'll see exactly which module failed and why.</p>
+
+<h2>Going Further</h2>
+<p>Once the basic pipeline works, you can extend it:</p>
+<ul>
+  <li><strong>Score leads automatically:</strong> Use Make.com's router module to check the budget field — high-value leads get a faster response SLA, different Slack channel, or a direct phone call task.</li>
+  <li><strong>Attach files:</strong> Jotform supports file uploads. Make.com can save them to Google Drive or Dropbox automatically.</li>
+  <li><strong>Send to multiple destinations:</strong> Route different form submission types (support vs. sales vs. partnership) to different Slack channels and email templates.</li>
+  <li><strong>Add a calendar booking step:</strong> Integrate Calendly to send leads a link to book a discovery call automatically on submission.</li>
+</ul>
+
+<div class="tip-box">
+  <strong>Pro tip:</strong> Set up a weekly summary automation too — a Make.com scenario that runs every Monday, collects all leads from the past week, and posts a summary to your team channel. Your team gets a Monday morning snapshot without anyone compiling it.
+</div>
+
+<h2>Further Reading</h2>
+<ul>
+  <li><a href="https://www.jotform.com/?partner=revenueclaw" class="affiliate-link">Jotform</a> – Free form builder (start your intake form here)</li>
+  <li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> – Free automation platform (build your workflows here)</li>
+  <li><a href="/blog/free-form-builders-ops">Best Free Form Builders for Ops Teams</a></li>
+  <li><a href="/blog/free-ai-tools-ops">Best Free AI Tools for Small Business Operations</a></li>
+  <li><a href="/blog/automation-platforms">Make.com vs Zapier vs n8n: Full Comparison</a></li>
+</ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Share This Article</span>
+            <p style="color:var(--text-muted);">If you found this useful, share it with someone else.</p>
+            <p style="margin-bottom:var(--space-md);">
+                <a href="https://twitter.com/intent/tweet?text=How to Build a Lead Capture System with Jotform + Make.com&url=https://shaynesailab.com/blog/lead-capture-jotform-make" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://shaynesailab.com/blog/lead-capture-jotform-make" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on LinkedIn</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Keep Exploring</span>
+            <h2>More Tutorials & Guides</h2>
+            <a href="/blog" class="btn btn-secondary">Back to Blog</a>
+            <a href="/starter-kit" class="btn btn-primary">Get the Free Starter Kit</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/starter-kit">Free Starter Kit</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+            <p style="font-size:0.78rem; color:var(--text-dim); margin-top:var(--space-xs);">Some links on this site are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click',function(){const e=document.querySelector('.nav-links');const n=e.style.display==='flex';e.style.display=n?'none':'flex';e.style.flexDirection='column';e.style.position='absolute';e.style.top='100%';e.style.left='0';e.style.right='0';e.style.background='var(--bg-glass)';e.style.backdropFilter='blur(14px)';e.style.padding='1rem 1.5rem';e.style.borderBottom='1px solid var(--border)';e.style.gap='0.75rem';this.setAttribute('aria-expanded',String(!n));});
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>

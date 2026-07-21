@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Make.com Automations Every Ops Team Should Run — Shayne's AI Lab</title>
+    <meta name="description" content="Practical Make.com automation scenarios for operations teams. Email triage, lead routing, invoice follow-ups, Slack digests, and reporting — all free tier.">
+    <meta name="keywords" content="Make.com automations, ops automation, Make.com tutorials, no-code automation scenarios">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="5 Make.com Automations Every Ops Team Should Run">
+    <meta property="og:description" content="Practical Make.com automation scenarios for ops teams — email triage, lead routing, invoice follow-ups, Slack digests, and automated reporting.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://shaynesailab.com/blog/make-automations-ops">
+    <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        .article-body { max-width: 740px; margin: 0 auto; }
+        .article-body h2 { margin-top: var(--space-xl); color: var(--text); }
+        .article-body h3 { margin-top: var(--space-lg); color: var(--text); }
+        .article-body p { margin-bottom: var(--space-sm); color: var(--text-secondary); line-height: 1.8; }
+        .article-body ul, .article-body ol { margin-bottom: var(--space-md); color: var(--text-secondary); padding-left: 1.5rem; }
+        .article-body li { margin-bottom: 0.3rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-md) 0; }
+        .article-body th, .article-body td { padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .article-body th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .article-body td { color: var(--text-secondary); font-size: 0.95rem; }
+        .article-body .affiliate-disclosure { border-left: 2px solid var(--brand-amber); padding: 0.5rem 1rem; margin-bottom: var(--space-lg); background: var(--brand-amber-soft); border-radius: 4px; }
+        .article-body a.affiliate-link { color: var(--brand-teal-light); text-decoration: underline; text-decoration-style: dotted; }
+        .article-body .tip-box { background: rgba(45,212,191,0.06); border-left: 3px solid var(--brand-teal); padding: 0.8rem 1.2rem; border-radius: 4px; margin: var(--space-md) 0; }
+        .article-body .tip-box strong { color: var(--brand-teal-light); }
+        .article-meta { font-size: 0.85rem; color: var(--text-dim); margin-bottom: var(--space-lg); text-align: center; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shayne's AI Lab home">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/><path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/blog" class="active" role="menuitem">Blog</a></li>
+                <li><a href="/resources" role="menuitem">Tools</a></li>
+                <li><a href="/starter-kit" role="menuitem">Free Starter Kit</a></li>
+                <li><a href="/contact" role="menuitem">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container" style="max-width: 740px;">
+            <span class="section-label">Blog</span>
+            <h1>5 Make.com Automations Every Ops Team Should Run</h1>
+            <p class="article-meta">July 21, 2026</p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="article-body">
+                <p class="affiliate-disclosure">Some links below are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+
+<h2>Why Make.com for Ops</h2>
+<p>If you read our <a href="/blog/automation-platforms">Make.com vs Zapier vs n8n comparison</a>, you know Make.com is our top pick for ops teams. What that article doesn't cover is the <em>specific scenarios</em> that save ops teams the most time.</p>
+<p>Every scenario below runs on <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com's free tier</a> (1,000 operations/month). Each one saves 1-5 hours per week. Pick the ones that match your biggest pain points.</p>
+
+<h2>1. Email Triage Automation</h2>
+<p><strong>What it does:</strong> Watches your shared team inbox, categorizes incoming emails by type, and routes them to the right person or channel.</p>
+<p><strong>Scenario structure:</strong></p>
+<ul>
+  <li><strong>Trigger:</strong> Gmail or Outlook — new email arrives in your shared inbox</li>
+  <li><strong>Filter:</strong> Check subject line and sender for keywords (support@ → Support team, invoice@ → Accounting, meeting request → Calendly integration)</li>
+  <li><strong>Actions:</strong>
+    <ul>
+      <li>Assign a label/category in Gmail (Support, Billing, Partnership, etc.)</li>
+      <li>Post a Slack message to the right channel with the email subject and preview</li>
+      <li>If high-priority (urgent keywords or from VIP sender), add a red urgency flag</li>
+      <li>Create a task in your project management tool if the email requires follow-up</li>
+    </ul>
+  </li>
+</ul>
+<p><strong>Time saved:</strong> 3-5 hours/week for a shared inbox with 50+ emails/day.</p>
+<p><strong>Why Make.com wins here:</strong> Zapier's free tier limits you to 100 tasks/month — that's 2 days of email processing. Make.com's 1,000 ops/month covers 3+ weeks of the same workload.</p>
+
+<div class="tip-box">
+  <strong>Pro tip:</strong> Add a "Vacation responder detector" — if an email bounces back with "out of office" or "on vacation," archive it and add a reminder to follow up in 2 weeks.
+</div>
+
+<h2>2. Lead Routing & Qualification</h2>
+<p><strong>What it does:</strong> Takes form submissions from your website and routes them based on lead quality and interest type.</p>
+<p><strong>Scenario structure:</strong></p>
+<ul>
+  <li><strong>Trigger:</strong> <a href="https://www.jotform.com/?partner=revenueclaw" class="affiliate-link">Jotform</a> or HubSpot form — new submission</li>
+  <li><strong>Router:</strong> Check the budget field, company size, and interest type</li>
+  <li><strong>Branches:</strong>
+    <ul>
+      <li>High budget + relevant interest → Notify senior sales team immediately + add to priority CRM pipeline</li>
+      <li>Medium budget → Add to standard CRM pipeline + send standard intake confirmation</li>
+      <li>Low budget or vague inquiry → Add to nurture email list + send a "thanks for your interest" resource pack</li>
+    </ul>
+  </li>
+  <li><strong>Always runs:</strong> Log to Google Sheets, send confirmation email, post team notification</li>
+</ul>
+<p><strong>Time saved:</strong> 2-4 hours/week not manually reading and routing every form submission.</p>
+
+<h2>3. Invoice Follow-Up Reminder</h2>
+<p><strong>What it does:</strong> Checks for overdue or upcoming invoices and sends automated follow-ups — no one has to chase payments.</p>
+<p><strong>Scenario structure:</strong></p>
+<ul>
+  <li><strong>Schedule:</strong> Runs daily at 9 AM (scheduled trigger)</li>
+  <li><strong>Data source:</strong> Google Sheets or QuickBooks API — pull all invoices with status "sent" or "overdue"</li>
+  <li><strong>Filter and route:</strong>
+    <ul>
+      <li>Due in 7 days → Send friendly reminder email to client ("Just a heads up, invoice #123 is due next week")</li>
+      <li>Overdue by 1-7 days → Send polite reminder + attach invoice PDF</li>
+      <li>Overdue by 8-14 days → Send firmer reminder + CC internal team member</li>
+      <li>Overdue by 15+ days → Post urgent Slack message to your team + flag in spreadsheet</li>
+    </ul>
+  </li>
+  <li><strong>Log:</strong> Record each reminder sent in a separate "Reminder History" sheet</li>
+</ul>
+<p><strong>Time saved:</strong> 1-2 hours/week not manually checking and following up on invoices. Also gets you paid faster.</p>
+
+<h2>4. Automated Weekly Reporting Digest</h2>
+<p><strong>What it does:</strong> Collects data from all your ops tools every Monday morning and compiles a one-page summary for the team.</p>
+<p><strong>Scenario structure:</strong></p>
+<ul>
+  <li><strong>Schedule:</strong> Runs every Monday at 8 AM</li>
+  <li><strong>Gather data:</strong>
+    <ul>
+      <li><strong>Leads:</strong> How many new leads this week? (from CRM or Sheets)</li>
+      <li><strong>Support:</strong> How many tickets resolved? Average response time? (from support tool)</li>
+      <li><strong>Finances:</strong> How many invoices paid? Total revenue collected? (from accounting tool)</li>
+      <li><strong>Tasks:</strong> How many tasks completed vs. open? (from project management tool)</li>
+    </ul>
+  </li>
+  <li><strong>Format:</strong> Use Make.com's text aggregator to build a clean summary</li>
+  <li><strong>Deliver:</strong> Post to Slack channel + email to leadership team</li>
+</ul>
+<p><strong>Time saved:</strong> 1-2 hours/week not manually pulling reports from 4-5 different tools.</p>
+
+<div class="tip-box">
+  <strong>Pro tip:</strong> Add a "compared to last week" column. Make.com can store the previous week's data in a data store module and compare it. This turns a basic report into an actionable trend analysis.
+</div>
+
+<h2>5. Social Media Content Queue</h2>
+<p><strong>What it does:</strong> Monitors your content sources (blog RSS, bookmarks, notes) and posts to your social channels on a schedule.</p>
+<p><strong>Scenario structure:</strong></p>
+<ul>
+  <li><strong>Trigger:</strong> Google Sheets or Airtable — new row added to "Social Content Queue"</li>
+  <li><strong>Schedule:</strong> Posts at configured times (e.g., Mon/Wed/Fri at 10 AM, Tue/Thu at 2 PM)</li>
+  <li><strong>Actions:</strong>
+    <ul>
+      <li>Wait until the scheduled post time (use the Sleep module)</li>
+      <li>Post to LinkedIn, Twitter/X, or Facebook using Make.com's native modules</li>
+      <li>Mark the row as "Posted" in the queue spreadsheet</li>
+      <li>Log the post URL and engagement stats</li>
+    </ul>
+  </li>
+</ul>
+<p><strong>Time saved:</strong> 1-3 hours/week not manually posting or scheduling each piece of content.</p>
+<p><strong>Why Make.com wins here:</strong> Buffer's free tier limits you to 3 posts per platform. Make.com lets you post unlimited times — you're only limited by the 1,000 ops/month cap, which covers 30+ posts.</p>
+
+<h2>Which One Should You Build First?</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Automation</th>
+      <th>Setup Time</th>
+      <th>Weekly Time Saved</th>
+      <th>Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Email Triage</td>
+      <td>45 min</td>
+      <td>3-5 hrs</td>
+      <td>Teams with shared inbox chaos</td>
+    </tr>
+    <tr>
+      <td>Lead Routing</td>
+      <td>30 min</td>
+      <td>2-4 hrs</td>
+      <td>Teams with inbound lead flow</td>
+    </tr>
+    <tr>
+      <td>Invoice Follow-Up</td>
+      <td>20 min</td>
+      <td>1-2 hrs</td>
+      <td>Freelancers & agencies</td>
+    </tr>
+    <tr>
+      <td>Weekly Digest</td>
+      <td>40 min</td>
+      <td>1-2 hrs</td>
+      <td>Leadership reporting</td>
+    </tr>
+    <tr>
+      <td>Social Queue</td>
+      <td>25 min</td>
+      <td>1-3 hrs</td>
+      <td>Content marketers</td>
+    </tr>
+  </tbody>
+</table>
+<p>Start with email triage if you spend too much time in your inbox. Start with lead routing if you're missing follow-ups on form submissions. Either way, pick the one that hurts most — the others can wait until next sprint.</p>
+
+<h2>Further Reading</h2>
+<ul>
+  <li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> – Start building these automations on the free tier</li>
+  <li><a href="/blog/lead-capture-jotform-make">How to Build a Lead Capture System with Jotform + Make.com</a></li>
+  <li><a href="/blog/email-triage-tools">Email Triage Tools Compared</a></li>
+  <li><a href="/blog/automation-platforms">Make.com vs Zapier vs n8n: Full Comparison</a></li>
+</ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Share This Article</span>
+            <p style="color:var(--text-muted);">If you found this useful, share it with someone else.</p>
+            <p style="margin-bottom:var(--space-md);">
+                <a href="https://twitter.com/intent/tweet?text=5 Make.com Automations Every Ops Team Should Run&url=https://shaynesailab.com/blog/make-automations-ops" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://shaynesailab.com/blog/make-automations-ops" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on LinkedIn</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Keep Exploring</span>
+            <h2>More Tutorials & Guides</h2>
+            <a href="/blog" class="btn btn-secondary">Back to Blog</a>
+            <a href="/starter-kit" class="btn btn-primary">Get the Free Starter Kit</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/starter-kit">Free Starter Kit</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+            <p style="font-size:0.78rem; color:var(--text-dim); margin-top:var(--space-xs);">Some links on this site are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click',function(){const e=document.querySelector('.nav-links');const n=e.style.display==='flex';e.style.display=n?'none':'flex';e.style.flexDirection='column';e.style.position='absolute';e.style.top='100%';e.style.left='0';e.style.right='0';e.style.background='var(--bg-glass)';e.style.backdropFilter='blur(14px)';e.style.padding='1rem 1.5rem';e.style.borderBottom='1px solid var(--border)';e.style.gap='0.75rem';this.setAttribute('aria-expanded',String(!n));});
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>
