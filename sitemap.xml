@@ -105,29 +105,4 @@
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
-  <url>
-    <loc>https://shaynesailab.com/blog/free-form-builders-ops</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://shaynesailab.com/blog/make-automations-ops</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://shaynesailab.com/blog/lead-capture-jotform-make</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://shaynesailab.com/blog/systemeio-funnel-setup</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://shaynesailab.com/blog/ergonomic-ops-desk-setup</loc>
-    <priority>0.9</priority>
-    <changefreq>daily</changefreq>
-  </url>
 </urlset>

@@ -179,7 +179,7 @@ def save_leads(leads):
 
 def send_email(client, to_email, subject, text):
     return client.inboxes.messages.send(
-        inbox=FROM_INBOX,
+        'RevenueClaw',
         to=[to_email],
         subject=subject,
         text=text,
