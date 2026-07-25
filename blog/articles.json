@@ -1,17 +1,17 @@
 [
   {
-    "title": "Systeme.io Pricing 2026: Plans, Features, and What You Actually Get",
-    "slug": "systemeio-pricing",
-    "date": "2026-07-19",
-    "description": "Complete breakdown of Systeme.io pricing in 2026 \u2014 free plan vs paid tiers. Honest value assessment for ops teams.",
-    "url": "/blog/systemeio-pricing"
-  },
-  {
     "title": "Systeme.io vs ClickFunnels vs Kajabi: Best All-in-One Platform for Ops Teams",
     "slug": "systemeio-vs-clickfunnels",
     "date": "2026-07-19",
     "description": "Comparing Systeme.io, ClickFunnels, and Kajabi for operations teams \u2014 pricing, features, ease of use, and which one saves you the most money.",
     "url": "/blog/systemeio-vs-clickfunnels"
+  },
+  {
+    "title": "Systeme.io Pricing 2026: Plans, Features, and What You Actually Get",
+    "slug": "systemeio-pricing",
+    "date": "2026-07-19",
+    "description": "Complete breakdown of Systeme.io pricing in 2026 \u2014 free plan vs paid tiers. Honest value assessment for ops teams.",
+    "url": "/blog/systemeio-pricing"
   },
   {
     "title": "Notion vs ClickUp for Ops Teams: The Complete 2026 Comparison",
@@ -28,18 +28,18 @@
     "url": "/blog/hubspot-vs-freshsales"
   },
   {
+    "title": "Make.com vs Zapier vs n8n: Best Automation Platform for Ops",
+    "slug": "automation-platforms",
+    "date": "2026-07-15",
+    "description": "Comparing Make.com, Zapier, and n8n for operations automation \u2014 pricing, features, and use cases",
+    "url": "/blog/automation-platforms"
+  },
+  {
     "title": "ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams?",
     "slug": "chatgpt-vs-claude-vs-gemini",
     "date": "2026-07-15",
     "description": "Comparing the three major AI assistants for operations tasks \u2014 writing, analysis, and automation workflows",
     "url": "/blog/chatgpt-vs-claude-vs-gemini"
-  },
-  {
-    "title": "AI Meeting Assistants Compared: Otter vs Fireflies vs Fathom",
-    "slug": "ai-meeting-assistants",
-    "date": "2026-07-15",
-    "description": "Comparing AI meeting note-taking and transcription tools for teams that want to capture and action meeting content",
-    "url": "/blog/ai-meeting-assistants"
   },
   {
     "title": "Best Free AI Tools for Small Business Operations",
@@ -49,18 +49,11 @@
     "url": "/blog/free-ai-tools-ops"
   },
   {
-    "title": "Make.com vs Zapier vs n8n: Best Automation Platform for Ops",
-    "slug": "automation-platforms",
+    "title": "Best AI Writing Tools for Ops Teams in 2026",
+    "slug": "best-ai-writing-tools",
     "date": "2026-07-15",
-    "description": "Comparing Make.com, Zapier, and n8n for operations automation \u2014 pricing, features, and use cases",
-    "url": "/blog/automation-platforms"
-  },
-  {
-    "title": "AI Tool Pricing Compared: What Everything Actually Costs in 2026",
-    "slug": "ai-tool-pricing",
-    "date": "2026-07-15",
-    "description": "Monthly cost comparison of popular AI tools including ChatGPT, Claude, Midjourney, Jasper, and more",
-    "url": "/blog/ai-tool-pricing"
+    "description": "Comparing Jasper, Copy.ai, Writesonic, and other AI writing tools for operations documentation and communication",
+    "url": "/blog/best-ai-writing-tools"
   },
   {
     "title": "Best AI Image Generators for Business: Midjourney vs DALL-E vs Stable Diffusion",
@@ -70,6 +63,20 @@
     "url": "/blog/best-ai-image-generators"
   },
   {
+    "title": "AI Tool Pricing Compared: What Everything Actually Costs in 2026",
+    "slug": "ai-tool-pricing",
+    "date": "2026-07-15",
+    "description": "Monthly cost comparison of popular AI tools including ChatGPT, Claude, Midjourney, Jasper, and more",
+    "url": "/blog/ai-tool-pricing"
+  },
+  {
+    "title": "AI Meeting Assistants Compared: Otter vs Fireflies vs Fathom",
+    "slug": "ai-meeting-assistants",
+    "date": "2026-07-15",
+    "description": "Comparing AI meeting note-taking and transcription tools for teams that want to capture and action meeting content",
+    "url": "/blog/ai-meeting-assistants"
+  },
+  {
     "title": "AI Code Assistants Compared: GitHub Copilot vs Cursor vs Codeium",
     "slug": "ai-code-assistants",
     "date": "2026-07-15",
@@ -77,11 +84,25 @@
     "url": "/blog/ai-code-assistants"
   },
   {
-    "title": "Best AI Writing Tools for Ops Teams in 2026",
-    "slug": "best-ai-writing-tools",
-    "date": "2026-07-15",
-    "description": "Comparing Jasper, Copy.ai, Writesonic, and other AI writing tools for operations documentation and communication",
-    "url": "/blog/best-ai-writing-tools"
+    "title": "Systeme.io Funnel Setup: Step-by-Step Tutorial for Beginners",
+    "slug": "systemeio-funnel-setup",
+    "date": "2026-07-13",
+    "description": "Complete walkthrough of setting up sales funnels in Systeme.io \u2014 landing pages, email sequences, and upsells.",
+    "url": "/blog/systemeio-funnel-setup"
+  },
+  {
+    "title": "Lead Capture with Jotform and Make.com: Complete Automation Guide",
+    "slug": "lead-capture-jotform-make",
+    "date": "2026-07-13",
+    "description": "Step-by-step guide to building a lead capture automation using Jotform and Make.com.",
+    "url": "/blog/lead-capture-jotform-make"
+  },
+  {
+    "title": "Ergonomic Ops Desk Setup: What Actually Works",
+    "slug": "ergonomic-ops-desk-setup",
+    "date": "2026-07-13",
+    "description": "Practical guide to building an ergonomic desk setup for operations work \u2014 what to buy and what to skip.",
+    "url": "/blog/ergonomic-ops-desk-setup"
   },
   {
     "title": "Email Triage Tools Compared: What Actually Works for Ops Teams",
@@ -89,5 +110,19 @@
     "date": "2026-07-13",
     "description": "A practical comparison of email management tools for operations teams. From automation platforms to dedicated inbox tools.",
     "url": "/blog/email-triage-tools"
+  },
+  {
+    "title": "Best Free Form Builders for Ops Teams: Jotform vs Typeform vs Google Forms",
+    "slug": "free-form-builders-ops",
+    "date": "2026-07-13",
+    "description": "Comparing Jotform, Typeform, and Google Forms for operations teams \u2014 pricing, features, and use cases.",
+    "url": "/blog/free-form-builders-ops"
+  },
+  {
+    "title": "5 Make.com Automations Every Ops Team Should Set Up",
+    "slug": "make-automations-ops",
+    "date": "2026-07-13",
+    "description": "Five practical Make.com automations every operations team should set up for maximum efficiency.",
+    "url": "/blog/make-automations-ops"
   }
 ]

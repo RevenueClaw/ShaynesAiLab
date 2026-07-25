@@ -289,36 +289,43 @@ build_blog_index() {
         echo "[$(date)] No articles yet, skipping index build" | tee -a "$LOG_FILE"
         return 0
     fi
-    python3 << PYEOF
-import json, re, os
+    python3 << 'PYEOF'
+import json
+import os
+REPO_DIR = os.environ.get('REPO_DIR', '/home/rock/workspace/ShaynesAiLab')
 
-REPO_DIR = "$REPO_DIR"
-
-with open(os.path.join(REPO_DIR, "blog", "articles.json")) as f:
+with open(os.path.join(REPO_DIR, 'blog', 'articles.json')) as f:
     articles = json.load(f)
 
 cards = []
 for a in articles:
-    desc = a.get("description", "")
+    desc = a.get('description', '').replace('\u2014', '&mdash;').replace('\u2013', '&ndash;')
     cards.append(
-        f'                <article class="post-card card">'
-        f'<div class="meta">{a["date"]}</div>'
-        f'<h3><a href="{a["url"]}">{a["title"]}</a></h3>'
-        f'<p>{desc}</p>'
-        f'</article>'
+        '<article class="post-card card"><div class="meta">' + a['date'] + '</div>'
+        '<h3><a href="' + a['url'] + '">' + a['title'] + '</a></h3>'
+        '<p>' + desc + '</p></article>'
     )
-new_content = "\n".join(cards)
+card_html = '\n'.join(cards)
 
-with open(os.path.join(REPO_DIR, "blog", "index.html")) as f:
+with open(os.path.join(REPO_DIR, 'blog', 'index.html')) as f:
     html = f.read()
 
-pattern = r'<div class="post-grid" id="post-grid">\s*.*?\s*</div>'
-replacement = f'<div class="post-grid" id="post-grid">\n{new_content}\n            </div>'
-html = re.sub(pattern, replacement, html, count=1, flags=re.DOTALL)
+pg_start = '<div class="post-grid" id="post-grid">'
+pg_pos = html.index(pg_start)
 
-with open(os.path.join(REPO_DIR, "blog", "index.html"), "w") as f:
+# Find the end of the post-grid section by looking for the closing structure
+# after the post-grid: </div>\n        </div>\n    </section>
+search_start = pg_pos + len(pg_start)
+section_end_marker = '</div>\n        </div>\n    </section>'
+section_end = html.index(section_end_marker, search_start)
+
+# Replace everything from post-grid start to section end
+new_block = pg_start + '\n' + card_html + '\n            ' + section_end_marker
+html = html[:pg_pos] + new_block + html[section_end + len(section_end_marker):]
+
+with open(os.path.join(REPO_DIR, 'blog', 'index.html'), 'w') as f:
     f.write(html)
-print(f"Blog index updated with {len(articles)} articles")
+print(f'Blog index updated with {len(articles)} articles')
 PYEOF
     echo "[$(date)] Blog index built" | tee -a "$LOG_FILE"
 }
