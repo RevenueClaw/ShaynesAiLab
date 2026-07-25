@@ -41,12 +41,12 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://shaynesailab.com/blog/systemeio-pricing</loc>
+    <loc>https://shaynesailab.com/blog/systemeio-vs-clickfunnels</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://shaynesailab.com/blog/systemeio-vs-clickfunnels</loc>
+    <loc>https://shaynesailab.com/blog/systemeio-pricing</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -61,12 +61,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://shaynesailab.com/blog/chatgpt-vs-claude-vs-gemini</loc>
+    <loc>https://shaynesailab.com/blog/automation-platforms</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://shaynesailab.com/blog/ai-meeting-assistants</loc>
+    <loc>https://shaynesailab.com/blog/chatgpt-vs-claude-vs-gemini</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -76,12 +76,7 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://shaynesailab.com/blog/automation-platforms</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://shaynesailab.com/blog/ai-tool-pricing</loc>
+    <loc>https://shaynesailab.com/blog/best-ai-writing-tools</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -91,17 +86,47 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://shaynesailab.com/blog/ai-tool-pricing</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shaynesailab.com/blog/ai-meeting-assistants</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://shaynesailab.com/blog/ai-code-assistants</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://shaynesailab.com/blog/best-ai-writing-tools</loc>
+    <loc>https://shaynesailab.com/blog/systemeio-funnel-setup</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shaynesailab.com/blog/lead-capture-jotform-make</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shaynesailab.com/blog/ergonomic-ops-desk-setup</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://shaynesailab.com/blog/email-triage-tools</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shaynesailab.com/blog/free-form-builders-ops</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://shaynesailab.com/blog/make-automations-ops</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
