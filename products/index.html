@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — Shayne's AI Lab</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .product-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; }
+    .product-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .product-card .price { font-size: 2rem; font-weight: 700; color: var(--brand-teal); margin: 1rem 0; }
+    .product-card .price small { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
+    .product-card ul { list-style: none; padding: 0; margin: 1rem 0; }
+    .product-card li { padding: 0.3rem 0; font-size: 0.9rem; color: var(--text-secondary); }
+    .product-card li::before { content: "✓ "; color: var(--brand-green); font-weight: 700; }
+    .product-card.featured { border-color: var(--brand-teal); position: relative; }
+    .product-card.featured::before { content: "Best Value"; position: absolute; top: -0.7rem; left: 1.5rem; background: var(--brand-teal); color: #0f172a; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.7rem; border-radius: 99px; }
+    .card-actions { margin-top: 1.5rem; }
+    .btn-buy { display: inline-block; width: 100%; padding: 0.75rem; background: var(--brand-teal); color: #0f172a; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; text-align: center; transition: opacity 0.2s; }
+    .btn-buy:hover { opacity: 0.9; }
+    .btn-buy:disabled { opacity: 0.5; cursor: not-allowed; }
+    .section-header { text-align: center; margin-bottom: 2rem; }
+    .section-header p { max-width: 600px; margin: 0 auto; }
+    .purchase-status { display: none; margin-top: 1rem; padding: 0.75rem; border-radius: 8px; text-align: center; font-size: 0.9rem; }
+    .purchase-status.error { background: var(--brand-amber-soft); border: 1px solid var(--brand-amber); display: block; }
+    .purchase-status.loading { background: var(--bg-glass); border: 1px solid var(--border); display: block; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="logo">Shayne's AI Lab</a>
+      <div class="nav-links">
+        <a href="/blog">Blog</a>
+        <a href="/products" class="active">Products</a>
+        <a href="/starter-kit">Free Starter Kit</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Products</span>
+        <h1>Operations Automation That Works</h1>
+        <p>Buy once, download instantly. Each blueprint includes an importable Make.com scenario JSON, a step-by-step setup guide, and email support if you get stuck.</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Email Triage Blueprint -->
+        <div class="product-card">
+          <h3>Email Triage Blueprint</h3>
+          <p style="color:var(--text-secondary); font-size:0.9rem;">Read, classify, and route your inbox automatically.</p>
+          <div class="price">$19 <small>one-time</small></div>
+          <ul>
+            <li>Importable Make.com scenario (3-module flow)</li>
+            <li>Step-by-step setup guide</li>
+            <li>AI classification rules template</li>
+            <li>Slack notification integration</li>
+            <li>Daily digest setup</li>
+          </ul>
+          <div class="card-actions">
+            <button class="btn-buy" onclick="buy('email-triage-blueprint')">Buy Now — $19</button>
+            <div id="status-email-triage-blueprint" class="purchase-status"></div>
+          </div>
+        </div>
+
+        <!-- Lead Capture Blueprint -->
+        <div class="product-card">
+          <h3>Lead Capture Blueprint</h3>
+          <p style="color:var(--text-secondary); font-size:0.9rem;">Capture any form submission and route it to your CRM automatically.</p>
+          <div class="price">$19 <small>one-time</small></div>
+          <ul>
+            <li>Importable Make.com scenario (5-module flow)</li>
+            <li>Webhook + CRM integration</li>
+            <li>Follow-up sequence template</li>
+            <li>Slack notification setup</li>
+            <li>Step-by-step setup guide</li>
+          </ul>
+          <div class="card-actions">
+            <button class="btn-buy" onclick="buy('lead-capture-blueprint')">Buy Now — $19</button>
+            <div id="status-lead-capture-blueprint" class="purchase-status"></div>
+          </div>
+        </div>
+
+        <!-- Invoice Follow-Up Blueprint -->
+        <div class="product-card">
+          <h3>Invoice Follow-Up Blueprint</h3>
+          <p style="color:var(--text-secondary); font-size:0.9rem;">Automatic invoice reminders that escalate until payment is received.</p>
+          <div class="price">$19 <small>one-time</small></div>
+          <ul>
+            <li>Importable Make.com scenario (4-module flow)</li>
+            <li>3-stage escalation sequence</li>
+            <li>Google Sheets integration</li>
+            <li>Slack escalation for late payments</li>
+            <li>Step-by-step setup guide</li>
+          </ul>
+          <div class="card-actions">
+            <button class="btn-buy" onclick="buy('invoice-followup-blueprint')">Buy Now — $19</button>
+            <div id="status-invoice-followup-blueprint" class="purchase-status"></div>
+          </div>
+        </div>
+
+        <!-- The Automation Bundle (featured) -->
+        <div class="product-card featured">
+          <h3>The Automation Bundle</h3>
+          <p style="color:var(--text-secondary); font-size:0.9rem;">All 3 blueprints plus bonus SOP templates. Full ops automation stack.</p>
+          <div class="price">$39 <small>one-time</small></div>
+          <ul>
+            <li>Email Triage Blueprint ($19 value)</li>
+            <li>Lead Capture Blueprint ($19 value)</li>
+            <li>Invoice Follow-Up Blueprint ($19 value)</li>
+            <li>Bonus: Operations SOP templates</li>
+            <li>Email support if you get stuck</li>
+          </ul>
+          <div class="card-actions">
+            <button class="btn-buy" onclick="buy('automation-bundle')">Buy Now — $39</button>
+            <div id="status-automation-bundle" class="purchase-status"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  async function buy(productKey) {
+    const btn = event.target;
+    const statusEl = document.getElementById('status-' + productKey);
+    
+    btn.disabled = true;
+    btn.textContent = 'Processing...';
+    statusEl.className = 'purchase-status loading';
+    statusEl.textContent = 'Creating checkout session...';
+    
+    try {
+      const resp = await fetch('https://api.shaynesailab.com/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product: productKey }),
+      });
+      
+      if (!resp.ok) {
+        const err = await resp.json();
+        throw new Error(err.detail || 'Checkout failed');
+      }
+      
+      const data = await resp.json();
+      statusEl.textContent = 'Redirecting to payment...';
+      
+      // Redirect to Stripe checkout
+      window.location.href = data.url;
+    } catch (err) {
+      statusEl.className = 'purchase-status error';
+      statusEl.textContent = 'Error: ' + err.message + '. Please try again or email hello@shaynesailab.com';
+      btn.disabled = false;
+      btn.textContent = 'Buy Now — $' + (productKey === 'automation-bundle' ? '39' : '19');
+    }
+  }
+  </script>
+
+  <section class="section" style="border-top:1px solid var(--border);">
+    <div class="container" style="text-align:center;">
+      <h2>Need a Custom Workflow?</h2>
+      <p style="color:var(--text-secondary); max-width:500px; margin:1rem auto;">
+        If your team needs something these blueprints don't cover, I build custom automation workflows.
+        Single workflow from $2,000. Full ops suite from $5,000.
+      </p>
+      <a href="mailto:hello@shaynesailab.com?subject=Custom%20Workflow%20Inquiry" class="btn btn-primary">Book a Call</a>
+    </div>
+  </section>
+
+  <footer class="section" style="border-top:1px solid var(--border);">
+    <div class="container" style="text-align:center;">
+      <p style="color:var(--text-dim); font-size:0.85rem;">
+        <a href="/privacy">Privacy</a> &middot;
+        <a href="mailto:hello@shaynesailab.com">Contact</a>
+      </p>
+      <p style="color:var(--text-dim); font-size:0.8rem; margin-top:0.5rem;">
+        All sales final. Each blueprint includes one license for personal or commercial use.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

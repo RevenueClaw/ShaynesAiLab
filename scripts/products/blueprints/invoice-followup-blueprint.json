@@ -1,0 +1,309 @@
+{
+  "name": "Invoice Follow-Up Automation",
+  "flow": [
+    {
+      "id": 1,
+      "module": "scheduler:daily",
+      "version": 1,
+      "metadata": {
+        "designer": {
+          "x": -200,
+          "y": 0
+        },
+        "expect": [],
+        "restore": {}
+      },
+      "mapper": {
+        "time": "08:00",
+        "weekdays": [
+          "MON",
+          "TUE",
+          "WED",
+          "THU",
+          "FRI"
+        ],
+        "timezone": "America/New_York"
+      },
+      "parameters": {},
+      "onerror": [],
+      "moduleLabel": "Daily trigger at 8AM weekday"
+    },
+    {
+      "id": 2,
+      "module": "googlesheets:searchRows",
+      "version": 1,
+      "metadata": {
+        "designer": {
+          "x": 50,
+          "y": 0
+        },
+        "expect": [],
+        "restore": {}
+      },
+      "mapper": {
+        "spreadsheetId": "REPLACE_WITH_YOUR_SHEET_ID",
+        "sheetName": "Invoices",
+        "range": "A:J",
+        "query": "status = 'unpaid'",
+        "orderBy": "due_date ASC"
+      },
+      "parameters": {},
+      "onerror": [],
+      "indesigner": 1,
+      "moduleLabel": "Get unpaid invoices"
+    },
+    {
+      "id": 3,
+      "module": "router:router",
+      "version": 1,
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        },
+        "expect": [],
+        "restore": {}
+      },
+      "mapper": {},
+      "parameters": {},
+      "onerror": [],
+      "indesigner": 2,
+      "moduleLabel": "Branch by overdue status",
+      "routes": [
+        {
+          "id": 4,
+          "module": "gmail:send",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 500,
+              "y": -300
+            },
+            "expect": [],
+            "restore": {}
+          },
+          "mapper": {
+            "to": "{{2.client_email}}",
+            "subject": "Friendly reminder: Invoice #{{2.invoice_id}} due in 3 days",
+            "textBody": "Hi {{2.client_name}},\n\nJust a heads up that Invoice #{{2.invoice_id}} for ${{2.amount}} is due on {{2.due_date}}.\n\nPayment link: {{2.payment_link}}\n\nThanks!"
+          },
+          "parameters": {},
+          "onerror": [],
+          "indesigner": 3,
+          "moduleLabel": "Friendly reminder (-3 days)",
+          "filters": {
+            "operator": "and",
+            "conditions": [
+              {
+                "field": "2.status",
+                "operator": "eq",
+                "value": "unpaid"
+              },
+              {
+                "field": "2.days_until_due",
+                "operator": "eq",
+                "value": 3
+              }
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "module": "gmail:send",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 500,
+              "y": -140
+            },
+            "expect": [],
+            "restore": {}
+          },
+          "mapper": {
+            "to": "{{2.client_email}}",
+            "subject": "Invoice #{{2.invoice_id}} due TODAY \u2014 {{2.amount}}",
+            "textBody": "Hi {{2.client_name}},\n\nInvoice #{{2.invoice_id}} for ${{2.amount}} is due TODAY.\n\nPayment link: {{2.payment_link}}\n\nPlease pay at your earliest convenience."
+          },
+          "parameters": {},
+          "onerror": [],
+          "indesigner": 3,
+          "moduleLabel": "Due today reminder",
+          "filters": {
+            "operator": "and",
+            "conditions": [
+              {
+                "field": "2.status",
+                "operator": "eq",
+                "value": "unpaid"
+              },
+              {
+                "field": "2.days_until_due",
+                "operator": "eq",
+                "value": 0
+              }
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "module": "gmail:send",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 500,
+              "y": 20
+            },
+            "expect": [],
+            "restore": {}
+          },
+          "mapper": {
+            "to": "{{2.client_email}}",
+            "subject": "Follow-up: Invoice #{{2.invoice_id}} is 7 days overdue",
+            "textBody": "Hi {{2.client_name}},\n\nInvoice #{{2.invoice_id}} for ${{2.amount}} is now 7 days past due.\n\nPayment link: {{2.payment_link}}\n\nPlease remit at your earliest convenience."
+          },
+          "parameters": {},
+          "onerror": [],
+          "indesigner": 3,
+          "moduleLabel": "7-day overdue follow-up",
+          "filters": {
+            "operator": "and",
+            "conditions": [
+              {
+                "field": "2.status",
+                "operator": "eq",
+                "value": "unpaid"
+              },
+              {
+                "field": "2.overdue_days",
+                "operator": "gte",
+                "value": 7
+              },
+              {
+                "field": "2.overdue_days",
+                "operator": "lt",
+                "value": 14
+              }
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "module": "slack:sendMessage",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 500,
+              "y": 180
+            },
+            "expect": [],
+            "restore": {}
+          },
+          "mapper": {
+            "channel": "#billing-alerts",
+            "text": "\u26a0\ufe0f *ESCALATION: Invoice #{{2.invoice_id}} 14+ days overdue*\nClient: {{2.client_name}}\nAmount: ${{2.amount}}\nOverdue: {{2.overdue_days}} days"
+          },
+          "parameters": {},
+          "onerror": [],
+          "indesigner": 3,
+          "moduleLabel": "Escalation alert (14+ days)",
+          "filters": {
+            "operator": "and",
+            "conditions": [
+              {
+                "field": "2.status",
+                "operator": "eq",
+                "value": "unpaid"
+              },
+              {
+                "field": "2.overdue_days",
+                "operator": "gte",
+                "value": 14
+              }
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "module": "googlesheets:updateRow",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 500,
+              "y": 340
+            },
+            "expect": [],
+            "restore": {}
+          },
+          "mapper": {
+            "spreadsheetId": "REPLACE_WITH_YOUR_SHEET_ID",
+            "sheetName": "Invoices",
+            "rowNumber": "{{2.rowNumber}}",
+            "values": {
+              "I": "Escalated",
+              "J": "{{now}}"
+            }
+          },
+          "parameters": {},
+          "onerror": [],
+          "indesigner": 7,
+          "moduleLabel": "Mark as escalated",
+          "filters": {
+            "operator": "and",
+            "conditions": [
+              {
+                "field": "2.status",
+                "operator": "eq",
+                "value": "unpaid"
+              },
+              {
+                "field": "2.overdue_days",
+                "operator": "gte",
+                "value": 14
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "module": "gmail:send",
+      "version": 1,
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 240
+        },
+        "expect": [],
+        "restore": {}
+      },
+      "mapper": {
+        "to": "revenueclaw@gmail.com",
+        "subject": "Daily Invoice Summary \u2014 {{now format=\"MMM DD YYYY\"}}",
+        "textBody": "Here's today's invoice summary:\n\nTotal unpaid: {{2.collection.total}}\nTotal amount outstanding: ${{2.collection.sum}}\nEscalated: {{9.count}}\n\nView full details in your invoice sheet."
+      },
+      "parameters": {},
+      "onerror": [],
+      "indesigner": 8,
+      "moduleLabel": "Send daily summary email"
+    }
+  ],
+  "metadata": {
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "instant": false
+  }
+}

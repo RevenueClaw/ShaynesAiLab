@@ -1,0 +1,37 @@
+{
+  "email-triage-blueprint": {
+    "name": "Email Triage Blueprint",
+    "description": "Importable Make.com scenario + setup guide. Reads your inbox, classifies emails by urgency, routes them to the right place. 3-module flow, tested and documented.",
+    "price": 1900,
+    "stripe_id": "prod_UyDKHZjh9SswFA",
+    "stripe_price_id": "price_1TyGtcJoNxztSsSoJDhIuRHS"
+  },
+  "lead-capture-blueprint": {
+    "name": "Lead Capture Blueprint",
+    "description": "Webhook-to-CRM pipeline blueprint. Capture leads from any form, add them to your CRM, send follow-up sequences. 5-module flow.",
+    "price": 1900,
+    "stripe_id": "prod_UyDKZ1NLfmsqdg",
+    "stripe_price_id": "price_1TyGtdJoNxztSsSorDM73BJF"
+  },
+  "invoice-followup-blueprint": {
+    "name": "Invoice Follow-Up Blueprint",
+    "description": "Automated invoice tracking and reminder sequence. Track outstanding invoices, send escalating reminders, stop when paid. 4-module flow.",
+    "price": 1900,
+    "stripe_id": "prod_UyDKM3abfhOhWr",
+    "stripe_price_id": "price_1TyGteJoNxztSsSoPz91s2BW"
+  },
+  "automation-bundle": {
+    "name": "The Automation Bundle",
+    "description": "All 3 blueprints \u2014 Email Triage, Lead Capture, and Invoice Follow-Up. Full ops automation stack for one price.",
+    "price": 3900,
+    "stripe_id": "prod_UyDKMeh3U7JS4g",
+    "stripe_price_id": "price_1TyGteJoNxztSsSoL4pUfa8E"
+  },
+  "inbox-workshop": {
+    "name": "Build Your Inbox Workshop",
+    "description": "Pre-recorded workshop that walks you through setting up email triage, lead capture, and invoice follow-up. 90 minutes of video, includes all 3 blueprints.",
+    "price": 4700,
+    "stripe_id": "prod_UyDKoeB0WVCAYE",
+    "stripe_price_id": "price_1TyGtfJoNxztSsSomamaKmLO"
+  }
+}

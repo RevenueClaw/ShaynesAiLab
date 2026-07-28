@@ -1,0 +1,268 @@
+{
+  "name": "Email Triage Automation",
+  "flow": [
+    {
+      "id": 1,
+      "module": "scheduler:daily",
+      "version": 1,
+      "metadata": {
+        "designer": {
+          "x": -200,
+          "y": 0
+        },
+        "expect": [],
+        "restore": {}
+      },
+      "mapper": {
+        "time": "09:00",
+        "weekdays": [
+          "MON",
+          "TUE",
+          "WED",
+          "THU",
+          "FRI"
+        ],
+        "timezone": "America/New_York"
+      },
+      "parameters": {},
+      "onerror": [],
+      "moduleLabel": "Daily trigger at 9AM"
+    },
+    {
+      "id": 2,
+      "module": "gmail:search",
+      "version": 1,
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        },
+        "expect": [],
+        "restore": {}
+      },
+      "mapper": {
+        "query": "in:inbox is:unread",
+        "maxResults": 50
+      },
+      "parameters": {},
+      "onerror": [],
+      "indesigner": 1,
+      "moduleLabel": "Fetch unread inbox messages"
+    },
+    {
+      "id": 3,
+      "module": "router:router",
+      "version": 1,
+      "metadata": {
+        "designer": {
+          "x": 200,
+          "y": 0
+        },
+        "expect": [],
+        "restore": {}
+      },
+      "mapper": {},
+      "parameters": {},
+      "onerror": [],
+      "indesigner": 2,
+      "moduleLabel": "Route by email category",
+      "routes": [
+        {
+          "id": 4,
+          "module": "gmail:modify",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 400,
+              "y": -300
+            },
+            "expect": [],
+            "restore": {}
+          },
+          "mapper": {
+            "addLabels": [
+              "URGENT"
+            ],
+            "removeLabels": [
+              "INBOX"
+            ]
+          },
+          "parameters": {},
+          "onerror": [],
+          "indesigner": 3,
+          "moduleLabel": "Label: URGENT",
+          "filters": {
+            "operator": "and",
+            "conditions": [
+              {
+                "field": "subject",
+                "operator": "contains",
+                "value": "urgent"
+              }
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "module": "slack:sendMessage",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 600,
+              "y": -300
+            },
+            "expect": [],
+            "restore": {}
+          },
+          "mapper": {
+            "channel": "#urgent-emails",
+            "text": "\ud83d\udd34 *URGENT*\n*From:* `{{2.sender}}`\n*Subject:* {{2.subject}}\n*Link:* {{2.link}}"
+          },
+          "parameters": {},
+          "onerror": [],
+          "indesigner": 4,
+          "moduleLabel": "Send alert to Slack"
+        },
+        {
+          "id": 6,
+          "module": "gmail:modify",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 400,
+              "y": -100
+            },
+            "expect": [],
+            "restore": {}
+          },
+          "mapper": {
+            "addLabels": [
+              "INVOICES"
+            ],
+            "removeLabels": [
+              "INBOX"
+            ]
+          },
+          "parameters": {},
+          "onerror": [],
+          "indesigner": 3,
+          "moduleLabel": "Label: INVOICES",
+          "filters": {
+            "operator": "or",
+            "conditions": [
+              {
+                "field": "subject",
+                "operator": "contains",
+                "value": "invoice"
+              },
+              {
+                "field": "subject",
+                "operator": "contains",
+                "value": "payment"
+              },
+              {
+                "field": "from",
+                "operator": "contains",
+                "value": "stripe"
+              },
+              {
+                "field": "from",
+                "operator": "contains",
+                "value": "paypal"
+              }
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "module": "gmail:modify",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 400,
+              "y": 100
+            },
+            "expect": [],
+            "restore": {}
+          },
+          "mapper": {
+            "addLabels": [
+              "ACTIONS"
+            ],
+            "removeLabels": [
+              "INBOX"
+            ]
+          },
+          "parameters": {},
+          "onerror": [],
+          "indesigner": 3,
+          "moduleLabel": "Label: ACTIONS",
+          "filters": {
+            "operator": "or",
+            "conditions": [
+              {
+                "field": "subject",
+                "operator": "contains",
+                "value": "action required"
+              },
+              {
+                "field": "subject",
+                "operator": "contains",
+                "value": "follow up"
+              },
+              {
+                "field": "subject",
+                "operator": "contains",
+                "value": "todo"
+              }
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "module": "gmail:modify",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 400,
+              "y": 300
+            },
+            "expect": [],
+            "restore": {}
+          },
+          "mapper": {
+            "removeLabels": [
+              "INBOX"
+            ],
+            "addLabels": [
+              "DONE"
+            ]
+          },
+          "parameters": {},
+          "onerror": [],
+          "indesigner": 3,
+          "moduleLabel": "Archive/cleanup",
+          "filters": {}
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "instant": false
+  }
+}
