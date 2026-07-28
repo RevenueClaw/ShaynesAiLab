@@ -212,6 +212,31 @@ async function sendStarterKit(data, env) {
   return (await response.json()).message_id;
 }
 
+async function recordLead(data, env) {
+  // Record the lead in leads.json via the local lead tracker API
+  // This powers the nurture sequence (send_nurture.py)
+  // Uses cloudflared tunnel to reach local lead_tracker.py:
+  // api.shaynesailab.com/subscribe → tunnel → localhost:8092
+  const leadTrackerUrl = env.LEAD_TRACKER_URL || 'https://api.shaynesailab.com/subscribe';
+  
+  try {
+    await fetch(leadTrackerUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: data.email,
+        firstName: data.firstName || '',
+        source: data.source || 'starter-kit',
+        page: '/starter-kit',
+      }),
+      signal: AbortSignal.timeout(5000),
+    });
+  } catch (err) {
+    // Non-fatal — don't block the kit delivery
+    console.error('Lead tracker log failed:', err.message);
+  }
+}
+
 function allowOrigin(origin) {
   if (!origin) return 'https://shaynesailab.com';
   if (origin.includes('shaynesailab.pages.dev') || origin.includes('shaynesailab.com')) {
@@ -242,6 +267,9 @@ export async function onRequestPost(context) {
     }
 
     const messageId = await sendStarterKit(data, env);
+
+    // Also record the lead for the nurture sequence
+    await recordLead(data, env);
 
     return new Response(JSON.stringify({
       success: true,

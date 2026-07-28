@@ -162,7 +162,24 @@
         </div>
     </section>
 
-    <section class="section" style="text-align:center;">
+</div></div></section>
+
+<section class="section" style="text-align:center;background:var(--bg-glass);border:1px solid var(--border);border-radius:12px;margin:2rem auto;max-width:600px;padding:2rem 1.5rem;">
+<h3 style="margin-bottom:0.5rem;">Get Weekly Ops Tips</h3>
+<p style="color:var(--text-muted);margin-bottom:1rem;font-size:0.9rem;">Free automation workflows, tool comparisons, and ops templates — once a week, no spam.</p>
+<form id="blog-subscribe-form" style="display:flex;gap:0.5rem;max-width:400px;margin:0 auto;">
+<input type="email" name="email" placeholder="you@example.com" required style="flex:1;padding:0.6rem 1rem;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text);font-size:0.9rem;">
+<button type="submit" class="btn btn-primary" style="white-space:nowrap;flex-shrink:0;">Subscribe</button>
+</form>
+<p style="margin-top:0.5rem;font-size:0.78rem;color:var(--text-dim);">No spam, ever. <a href="/privacy">Privacy policy</a>.</p>
+<div id="blog-subscribe-success" style="display:none;"><p style="color:var(--brand-green);">✓ Check your email!</p></div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){var f=document.getElementById('blog-subscribe-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var em=this.querySelector('input[type=email]').value;var b=this.querySelector('button');b.disabled=true;b.textContent='Sending...';try{var r=await fetch('/api/starter-kit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,source:'blog-cta'})});if(r.ok){f.style.display='none';document.getElementById('blog-subscribe-success').style.display='block'}}catch(e){}b.disabled=false;b.textContent='Subscribe'})});
+</script>
+
+<section class="section" style="text-align:center;">
         <div class="container">
             <span class="section-label">Keep Exploring</span>
             <h2>More Tools & Comparisons</h2>

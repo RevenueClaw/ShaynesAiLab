@@ -146,6 +146,53 @@
 
 <div class="tip-box">
   <strong>Pro tip:</strong> Add a "compared to last week" column. <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> can store the previous week's data in a data store module and compare it. This turns a basic report into an actionable trend analysis.
+
+</div>
+    </div>
+</section>
+
+<section class="section" style="text-align:center; background:var(--bg-glass); border:1px solid var(--border); border-radius:12px; margin:2rem auto; max-width:600px; padding:2rem 1.5rem;">
+    <h3 style="margin-bottom:0.5rem;">Get Weekly Ops Tips</h3>
+    <p style="color:var(--text-muted); margin-bottom:1rem; font-size:0.9rem;">Free automation workflows, tool comparisons, and ops templates — once a week, no spam.</p>
+    <form id="blog-subscribe-form" style="display:flex; gap:0.5rem; max-width:400px; margin:0 auto;">
+        <input type="email" name="email" placeholder="you@example.com" required style="flex:1; padding:0.6rem 1rem; border:1px solid var(--border); border-radius:8px; background:var(--bg-card); color:var(--text); font-size:0.9rem;">
+        <button type="submit" class="btn btn-primary" style="white-space:nowrap; flex-shrink:0;">Subscribe</button>
+    </form>
+    <p class="form-note" style="margin-top:0.5rem; font-size:0.78rem; color:var(--text-dim);">No spam, ever. <a href="/privacy">Privacy policy</a>.</p>
+    <div id="blog-subscribe-success" style="display:none;"><p style="color:var(--brand-green);">✓ Check your email for the confirmation!</p></div>
+</section>
+
+<section class="section" style="text-align:center;">
+    <div class="container">
+        <div class="article-body">
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('blog-subscribe-form');
+    if (!form) return;
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var email = this.querySelector('input[type=email]').value;
+        var btn = this.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        try {
+            var resp = await fetch('/api/starter-kit', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({email: email, source: 'blog-cta'})
+            });
+            if (resp.ok) {
+                form.style.display = 'none';
+                document.getElementById('blog-subscribe-success').style.display = 'block';
+            }
+        } catch(e) {}
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+    });
+});
+</script>
+
 </div>
 
 <h2>5. Social Media Content Queue</h2>
