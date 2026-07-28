@@ -35,10 +35,16 @@ TOPICS=(
 
 # Affiliate links
 MAKE_AFF="https://www.make.com/en/register?pc=shaynesailab"
-JASPER_AFF="TODO:JASPER_AFFILIATE_LINK"
-COPYAI_AFF="TODO:COPYAI_AFFILIATE_LINK"
-CANVA_AFF="TODO:CANVA_AFFILIATE_LINK"
-NOTION_AFF="TODO:NOTION_AFFILIATE_LINK"
+# Affiliate links — active programs we're approved for
+# TODO: Replace with real affiliate links once accepted into programs
+# Jasper: 30% recurring @ saasaffiliate.com (need to apply)
+# Copy.ai: 45% commission @ getlasso.co (need to apply)
+# Canva: $36-150/Pro sub @ canvassador program (need to apply)
+# Notion: application-pending via PartnerStack (no link yet)
+JASPER_AFF="https://www.jasper.ai"
+COPYAI_AFF="https://www.copy.ai"
+CANVA_AFF="https://www.canva.com"
+NOTION_AFF="https://www.notion.so"
 
 # Model selection — prefer Omen GPU, fallback to local
 # Omen :11434 (GPU/Vulkan) works. :11435 (CPU) has memory issues.
