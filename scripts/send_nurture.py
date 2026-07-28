@@ -33,136 +33,119 @@ TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = '8645083973'
 
 NURTURE_EMAILS = [
+    # Step 1 Quick win - day 2
     {
         'step': 1,
-        'day_delay': 3,
+        'day_delay': 2,
+        'subject': 'One ops problem you can fix in 30 minutes',
+        'text': (
+            'Hi {first_name},\n\n'
+            'The hardest part of ops automation isnt the tools '
+            'it is knowing where to start.\n\n'
+            'Here is a 30-minute quick win you can set up right now:\n\n'
+            'Automate: Form submission to Slack notification\n\n'
+            'Free tools: Make.com, Jotform, Slack\n\n'
+            'Walkthrough: https://www.make.com/en/register?pc=shaynesailab\n\n'
+            'The point isnt this specific flow. '
+            'It is proving to yourself that automation takes 30 min.\n\n'
+            'Once you have one win, the rest gets easier.\n\n'
+            '- Shayne\n'
+            'https://shaynesailab.com\n'
+        ),
+    },
+    # Step 2 Email triage case study - day 5
+    {
+        'step': 2,
+        'day_delay': 5,
         'subject': 'Real example: Email triage done well',
         'text': (
             'Hi {first_name},\n\n'
-            'A few days ago you grabbed the AI Starter Kit \u2014 hope you found it useful.\n\n'
-            'Here\u2019s a concrete example of how email triage automation works in practice:\n\n'
+            'Here is a concrete example of how email triage automation works:\n\n'
             'The setup:\n'
-            '1. A cron job checks the inbox every 15 minutes\n'
-            '2. Each email gets classified by AI: urgent, important, newsletter, spam\n'
-            '3. Urgent ones trigger an instant notification\n'
-            '4. Everything else lands in a daily digest for review\n\n'
-            'The result: 40+ inbox checks a day becomes once-a-day review. '
-            'That\u2019s 5-8 hours per week saved for most teams.\n\n'
-            'Want to build this yourself? This is exactly the kind of workflow '
-            'Make.com handles well: https://www.make.com/en/register?pc=shaynesailab\n\n'
-            'Questions? Just reply to this email.\n\n'
-            '\u2014 Shayne\n'
-            'Shayne\u2019s AI Lab\n'
-            'https://shaynesailab.com\n'
+            '1. Cron checks inbox every 15 minutes\n'
+            '2. AI classifies each email (urgent, important, newsletter, spam)\n'
+            '3. Urgent ones trigger Slack notification\n'
+            '4. Everything else lands in a daily digest\n\n'
+            'Result: 40+ inbox checks/day becomes once-a-day review. '
+            'That is 5-8 hours/week saved.\n\n'
+            'Build it with Make.com: https://www.make.com/en/register?pc=shaynesailab\n\n'
+            'Full comparison: https://shaynesailab.com/blog/email-triage-tools\n\n'
+            '- Shayne\n'
         ),
     },
-    {
-        'step': 2,
-        'day_delay': 7,
-        'subject': '8 tools worth knowing about',
-        'text': (
-            'Hi {first_name},\n\n'
-            'Following up on the AI Starter Kit \u2014 here\u2019s a quick overview of 8 tools '
-            'that have strong reputations in their categories:\n\n'
-            '1. ChatGPT \u2014 Free tier. Drafting, brainstorming, getting past writer\u2019s block.\n'
-            '2. Claude \u2014 Free. Long documents, contract review.\n'
-            '3. Canva \u2014 Free. Graphics in minutes instead of hours.\n'
-            '4. Perplexity \u2014 Free. Research with real sources you can verify.\n'
-            '5. Notion \u2014 Free. Notes, docs, wikis, project management in one place.\n'
-            '6. Fireflies.ai \u2014 Free tier. Meeting transcription and search.\n'
-            '7. Calendly \u2014 Free. Kills the "when works?" email ping-pong.\n'
-            '8. Cloudflare \u2014 Free tier. DNS, CDN, hosting.\n\n'
-            'Full details with cost breakdowns and use cases:\n'
-            'https://shaynesailab.com/resources\n\n'
-            'Note: Every business is different. These are worth evaluating for your own needs, '
-            'not endorsements. Do your own research and pick what fits your workflow.\n\n'
-            '\u2014 Shayne\n'
-            'Shayne\u2019s AI Lab\n'
-            'https://shaynesailab.com\n'
-        ),
-    },
+    # Step 3 Make.com affiliate spotlight - day 9 (was day 14)
     {
         'step': 3,
-        'day_delay': 14,
-        'subject': 'Tool spotlight: Make.com for automation',
+        'day_delay': 9,
+        'subject': 'Your first 3 Make.com automations',
         'text': (
             'Hi {first_name},\n\n'
-            'If you\u2019re still figuring out which automation tools to invest time in, '
-            'here\u2019s one worth evaluating: Make.com.\n\n'
-            'Why it stands out for ops teams:\n'
-            '- Pricing is usage-based, not per-seat (much cheaper for teams)\n'
-            '- Visual builder means you can see the logic flow\n'
-            '- Integrates with 1,000+ apps without needing to code\n'
-            '- Handles complex logic: conditions, routers, iterators, webhooks\n\n'
-            'Common ops automations people build with it:\n'
-            '  \u2022 Email triage and routing\n'
-            '  \u2022 Lead capture from forms \u2192 CRM\n'
-            '  \u2022 Slack notifications for specific triggers\n'
-            '  \u2022 Weekly report generation\n'
-            '  \u2022 Invoice follow-up reminders\n\n'
-            'We\u2019ve compared it side-by-side with alternatives here:\n'
-            'https://shaynesailab.com/blog/email-triage-tools\n\n'
-            'If you want to try it:\n'
-            'https://www.make.com/en/register?pc=shaynesailab\n\n'
-            '(We may earn a commission if you sign up through that link. '
-            'It\u2019s how we keep the site running.)\n\n'
-            '\u2014 Shayne\n'
+            'Here are 3 automations that take under 30 minutes each '
+            'on Make.com (we may earn a commission if you sign up through our link):\n\n'
+            '1. Lead capture -> Google Sheets -> Slack\n'
+            '2. Weekly report generator (auto-generated, emailed to team)\n'
+            '3. Invoice follow-up sequence (wait -> remind -> escalate)\n\n'
+            'Start building: https://www.make.com/en/register?pc=shaynesailab\n\n'
+            'Free plan covers 1,000 operations/month.\n\n'
+            '- Shayne\n'
         ),
     },
+    # Step 4 Workflow blueprint - day 15 (new)
     {
         'step': 4,
-        'day_delay': 21,
-        'subject': 'New: Email triage tools comparison',
+        'day_delay': 15,
+        'subject': 'Workflow blueprint: Lead -> CRM -> Follow-up',
         'text': (
             'Hi {first_name},\n\n'
-            'We just published a detailed comparison of email triage tools '
-            'for operations teams. Thought you might find it useful:\n\n'
-            'https://shaynesailab.com/blog/email-triage-tools\n\n'
-            'It covers:\n'
-            '- Dedicated email clients (Superhuman, Missive, Spike)\n'
-            '- Automation platforms (Make.com)\n'
-            '- AI-powered assistants (SaneBox, Shortwave)\n'
-            '- Pricing comparisons and which approach fits which team size\n\n'
-            'No sponsored content, no hype \u2014 just what we found.\n\n'
-            '\u2014 Shayne\n'
+            'Most ops teams lose leads between form submission and first follow-up.\n\n'
+            'The fix (fully automated):\n'
+            '1. Lead submits form -> Make.com webhook\n'
+            '2. Lead enters CRM (HubSpot, Freshsales, or Sheets)\n'
+            '3. Slack notification sent\n'
+            '4. Follow-up sequence starts (1h, 24h, 72h)\n\n'
+            'Guide: https://shaynesailab.com/blog/lead-capture-jotform-make\n'
+            'CRM comparison: https://shaynesailab.com/blog/hubspot-vs-freshsales\n\n'
+            '- Shayne\n'
         ),
     },
+    # Step 5 Case study / social proof - day 22 (new)
     {
         'step': 5,
-        'day_delay': 30,
-        'subject': 'Still evaluating tools? Here\u2019s a recap',
+        'day_delay': 22,
+        'subject': 'How a 5-person team saved 20 hours/week on ops',
         'text': (
             'Hi {first_name},\n\n'
-            'It\u2019s been about a month since you grabbed the AI Starter Kit. '
-            'Wanted to leave you with a quick recap of the key resources:\n\n'
-            '1. Free AI Starter Kit \u2014 8 tools with cost breakdowns\n'
-            '   https://shaynesailab.com/starter-kit\n\n'
-            '2. Free Ops Diagnostic \u2014 6 questions, personalized report\n'
-            '   https://shaynesailab.com/diagnostic\n\n'
-            '3. Tool Comparisons \u2014 Honest head-to-heads\n'
-            '   https://shaynesailab.com/blog\n\n'
-            '4. Tools Reference \u2014 Curated list of ops tools\n'
-            '   https://shaynesailab.com/resources\n\n'
-            'No pressure. The resources are here whenever you need them.\n\n'
-            'If you have questions about any of the tools, just reply to this email.\n\n'
-            '\u2014 Shayne\n'
+            'A small ops team of 5 automated 4 workflows with Make.com:\n'
+            '1. Inbox triage -> AI routing\n'
+            '2. Forms -> instant CRM + Slack\n'
+            '3. Reports -> auto-generated weekly\n'
+            '4. Invoice reminders -> automated sequence\n\n'
+            'Result: 20+ hours/week saved. Lead response: 4 hours -> 42 seconds.\n'
+            'Late payments dropped 60%.\n\n'
+            'Start here: https://www.make.com/en/register?pc=shaynesailab\n'
+            'Platform comparison: https://shaynesailab.com/blog/automation-platforms\n\n'
+            '- Shayne\n'
         ),
     },
+    # Step 6 Final resource + CTA - day 30
     {
         'step': 6,
-        'day_delay': 45,
-        'subject': 'Quick question about your ops setup',
+        'day_delay': 30,
+        'subject': 'One last thing: the free ops diagnostic',
         'text': (
             'Hi {first_name},\n\n'
-            'Quick question: what\u2019s the one ops task you wish would just run itself?\n\n'
-            'Reply to this email if you feel like sharing \u2014 I read every response.\n\n'
-            'In the meantime, the tools and resources are still here:\n'
-            'https://shaynesailab.com\n\n'
-            '\u2014 Shayne\n'
+            'This is the last email in this sequence.\n\n'
+            'Take the Ops Diagnostic (6 questions, personalized report):\n'
+            'https://shaynesailab.com/diagnostic\n\n'
+            'Key resources:\n'
+            '- Starter Kit: https://shaynesailab.com/starter-kit\n'
+            '- Blog: https://shaynesailab.com/blog\n'
+            '- Diagnostic: https://shaynesailab.com/diagnostic\n\n'
+            'Start with Make.com (free tier): https://www.make.com/en/register?pc=shaynesailab\n\n'
+            '- Shayne\n'
         ),
     },
 ]
-
 
 def load_leads():
     if not DATA_FILE.exists():
