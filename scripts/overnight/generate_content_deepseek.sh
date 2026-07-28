@@ -178,7 +178,20 @@ PYEOF
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://shaynesailab.com/blog/$slug">
     <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
-    <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "$topic -- Shayne's AI Lab",
+        "description": "$(echo "$focus" | head -c 160)",
+        "url": "https://shaynesailab.com/blog/$slug/",
+        "datePublished": "$(date +%Y-%m-%d)",
+        "author": {"@type": "Person", "name": "Shayne"},
+        "publisher": {"@type": "Organization", "name": "Shayne's AI Lab", "url": "https://shaynesailab.com"}
+    }
+    </script>
     <style>
         .article-body { max-width: 740px; margin: 0 auto; }
         .article-body h2 { margin-top: var(--space-xl); color: var(--text); }
