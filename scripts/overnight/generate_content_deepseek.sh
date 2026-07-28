@@ -41,7 +41,7 @@ LOG_FILE="$LOG_DIR/content_gen_deepseek_$(date +%Y-%m-%d).log"
 
 echo "[$(date)] Starting ShayneAiLab DeepSeek content generation..." | tee -a "$LOG_FILE"
 
-# Article topics — AI tools focus for the pivot
+# Article topics — expanded for daily generation
 TOPICS=(
     '{"topic":"ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams?","slug":"chatgpt-vs-claude-vs-gemini","focus":"Comparing the three major AI assistants for operations tasks — writing, analysis, and automation workflows"}'
     '{"topic":"Best AI Writing Tools for Ops Teams in 2026","slug":"best-ai-writing-tools","focus":"Comparing Jasper, Copy.ai, Writesonic, and other AI writing tools for operations documentation and communication"}'
@@ -51,6 +51,18 @@ TOPICS=(
     '{"topic":"Make.com vs Zapier vs n8n: Best Automation Platform for Ops","slug":"automation-platforms","focus":"Comparing Make.com, Zapier, and n8n for operations automation — pricing, features, and use cases"}'
     '{"topic":"Best Free AI Tools for Small Business Operations","slug":"free-ai-tools-ops","focus":"Free and low-cost AI tools that operations teams at 1-50 person companies can use immediately"}'
     '{"topic":"AI Meeting Assistants Compared: Otter vs Fireflies vs Fathom","slug":"ai-meeting-assistants","focus":"Comparing AI meeting note-taking and transcription tools for teams that want to capture and action meeting content"}'
+    '{"topic":"Make.com for Beginners: Your First 5 Automations","slug":"make-beginners-5-automations","focus":"Step-by-step guide to setting up your first five Make.com automations — email triage, lead capture, invoice alerts, Slack notifications, and data sync"}'
+    '{"topic":"Remote Ops Essentials: Tools Every Remote Team Needs","slug":"remote-ops-essentials","focus":"Essential tools for remote operations teams including communication, project management, automation, and documentation platforms"}'
+    '{"topic":"Small Team CRM Showdown: HubSpot vs Freshsales vs Pipedrive","slug":"small-team-crm-showdown","focus":"Comparing CRMs for 1-50 person teams — HubSpot free tier, Freshsales, and Pipedrive for pipeline management"}'
+    '{"topic":"How to Automate Invoice Processing with Jotform and Make","slug":"automate-invoice-processing","focus":"Building an automated invoice processing workflow using Jotform for intake and Make.com for routing and notifications"}'
+    '{"topic":"AI Content Workflow: From Research to Publication in One Pipeline","slug":"ai-content-workflow","focus":"Building an end-to-end AI content pipeline using automation tools for research, drafting, editing, and publishing"}'
+    '{"topic":"Zapier vs Make vs n8n: When to Use Each Automation Tool","slug":"zapier-vs-make-vs-n8n","focus":"Deep comparison of three leading automation platforms for teams deciding which tool fits their specific use case"}'
+    '{"topic":"Free CRM Options for Small Business in 2026","slug":"free-crm-options-2026","focus":"Comparing free and low-cost CRM options for teams that need pipeline management without enterprise pricing"}'
+    '{"topic":"Best Productivity Monitors for Ops Teams","slug":"productivity-monitors-ops","focus":"Comparing time tracking and productivity tools for remote and hybrid ops teams including Toggl, Clockify, and RescueTime"}'
+    '{"topic":"Systeme.io vs ClickFunnels: Which Funnel Builder for AI Ops?","slug":"systemeio-vs-clickfunnels","focus":"Comparing Systeme.io and ClickFunnels for operations teams building sales funnels and lead capture pages"}'
+    '{"topic":"How Ops Teams Use Notion for SOPs and Onboarding","slug":"notion-sop-onboarding-ops","focus":"Building standard operating procedures and onboarding workflows in Notion for operations teams at growing companies"}'
+    '{"topic":"Systeme.io Pricing: Is It Worth It for Ops Teams?","slug":"systemeio-pricing-guide","focus":"Detailed breakdown of Systeme.io pricing tiers, features, and value for operations teams building automated funnels"}'
+    '{"topic":"Automate Email Triage with Make.com and AI","slug":"automate-email-triage","focus":"Building an email triage system using Make.com automation and AI to classify, route, and prioritize incoming messages"}'
 )
 
 API_URL="https://openrouter.ai/api/v1/chat/completions"
@@ -63,11 +75,11 @@ generate_article() {
     local output_dir="$BLOG_DIR/$slug"
     local output_file="$output_dir/index.html"
     
-    # Only generate if output doesn't exist or is older than 30 days
+    # Only generate if output doesn't exist or is older than 14 days
     if [ -f "$output_file" ]; then
         local age=$(( ($(date +%s) - $(stat -c %Y "$output_file")) / 86400 ))
-        if [ $age -lt 30 ]; then
-            echo "[$(date)] Skipping $slug — generated $age days ago" | tee -a "$LOG_FILE"
+        if [ $age -lt 14 ]; then
+            echo "[$(date)] Skipping $slug — generated $age days ago (min 14 days between refresh)" | tee -a "$LOG_FILE"
             return 0
         fi
     fi

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make.com for Beginners: Your First 5 Automations — Shayne's AI Lab</title>
+    <meta name="description" content="Step-by-step guide to setting up your first five Make.com automations — email triage, lead capture, invoice alerts, Slack notifications, and data sync">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="Make.com for Beginners: Your First 5 Automations — Shayne's AI Lab">
+    <meta property="og:description" content="Step-by-step guide to setting up your first five Make.com automations — email triage, lead capture, invoice alerts, Slack notifications, and data sync">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://shaynesailab.com/blog/make-beginners-5-automations">
+    <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        .article-body { max-width: 740px; margin: 0 auto; }
+        .article-body h2 { margin-top: var(--space-xl); color: var(--text); }
+        .article-body h3 { margin-top: var(--space-lg); color: var(--text); }
+        .article-body p { margin-bottom: var(--space-sm); color: var(--text-secondary); line-height: 1.8; }
+        .article-body ul, .article-body ol { margin-bottom: var(--space-md); color: var(--text-secondary); padding-left: 1.5rem; }
+        .article-body li { margin-bottom: 0.3rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-md) 0; }
+        .article-body th, .article-body td { padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .article-body th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .article-body td { color: var(--text-secondary); font-size: 0.95rem; }
+        .article-body .affiliate-disclosure { border-left: 2px solid var(--brand-amber); padding: 0.5rem 1rem; margin-bottom: var(--space-lg); background: var(--brand-amber-soft); border-radius: 4px; }
+        .article-body a.affiliate-link { color: var(--brand-teal-light); text-decoration: underline; text-decoration-style: dotted; }
+        .article-meta { font-size: 0.85rem; color: var(--text-dim); margin-bottom: var(--space-lg); text-align: center; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shayne's AI Lab home">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/><path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/blog" class="active" role="menuitem">Blog</a></li>
+                <li><a href="/resources" role="menuitem">Tools</a></li>
+                <li><a href="/starter-kit" role="menuitem">Free Starter Kit</a></li>
+                <li><a href="/contact" role="menuitem">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container" style="max-width: 740px;">
+            <span class="section-label">Blog</span>
+            <h1>Make.com for Beginners: Your First 5 Automations</h1>
+            <p class="article-meta">July 28, 2026</p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="article-body">
+                ```html
+<div class="affiliate-disclosure">
+  <em>Disclosure: Some links in this article are affiliate links. If you make a purchase through them, I may earn a commission at no extra cost to you.</em>
+</div>
+
+<section id="quick-verdict">
+  <h2>Quick Verdict</h2>
+  <p>Make.com is the best value no‑code automation platform for ops teams at 1–50 person companies — more flexible than Zapier for the same price, but expect a steeper learning curve. For the five automations below, it saves roughly 8–12 hours per week once set up.</p>
+</section>
+
+<section id="overview">
+  <h2>Overview</h2>
+  <p>If you’re running operations for a small team, you’re probably drowning in repetitive tasks: triaging email, capturing leads, sending invoices, updating Slack, and syncing data between tools. <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> (formerly Integromat) lets you automate these workflows without writing code. It’s not as beginner‑friendly as Zapier at first, but it offers more conditional logic, built‑in data transformation, and cheaper pricing for high‑volume scenarios.</p>
+  <p>This guide walks you through your first five automations step‑by‑step. Each one takes 15–30 minutes to build and will pay for itself in a week.</p>
+</section>
+
+<section id="head-to-head">
+  <h2>Head‑to‑Head: Make.com vs. Zapier vs. n8n</h2>
+  <p>For small ops teams, the main alternatives are <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a>, Zapier, and self‑hosted n8n.</p>
+  <ul>
+    <li><strong>Make.com</strong> – Best price‑to‑power ratio. Offers routers, iterators, and aggregators out of the box. The visual builder is intuitive once you learn its quirks. Weakness: documentation can feel scattered, and error handling is less polished than Zapier’s.</li>
+    <li><strong>Zapier</strong> – Most beginner‑friendly. Multi‑step Zaps are limited on free plans, and pricing jumps quickly at 2,000+ tasks/month. Good if you need to set up a simple automation in minutes and never touch it again.</li>
+    <li><strong>n8n</strong> – Free and open‑source, but requires server hosting or paying for their cloud. You get infinite customisation, but ops teams without a dev resource usually find the setup overhead too high.</li>
+  </ul>
+  <p><strong>Verdict:</strong> For the five automations below, Make.com hits the sweet spot — affordable for 5,000–10,000 operations/month and flexible enough to handle conditional branching (e.g., “if email contains ‘urgent’ then alert Slack, else file in folder”).</p>
+</section>
+
+<section id="price-comparison">
+  <h2>Price Comparison</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Free Tier</th>
+        <th>Paid Starter (per month)</th>
+        <th>Best for</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a></td>
+        <td>1,000 ops/month, 2 active scenarios</td>
+        <td>$9.16 (10,000 ops)</td>
+        <td>Teams that need moderate‑complex logic</td>
+      </tr>
+      <tr>
+        <td>Zapier</td>
+        <td>100 tasks/month, 5 Zaps</td>
+        <td>$19.99 (750 tasks)</td>
+        <td>Quick, simple workflows</td>
+      </tr>
+      <tr>
+        <td>n8n (cloud)</td>
+        <td>No free tier</td>
+        <td>$20 (5,000 workflow executions)</td>
+        <td>Teams with dev skills or privacy needs</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><em>Note: “Ops” on Make.com refers to one successful run of a scenario step; a 5‑step automation uses 5 ops per run. Roughly 1,000 task runs = 5,000 ops. Make.com’s pricing is often 2‑3x cheaper than Zapier for equivalent volume.</em></p>
+</section>
+
+<section id="who-each-is-for">
+  <h2>Who Each Is For</h2>
+  <ul>
+    <li><strong>Make.com</strong> – Ops leaders who have time to learn the platform and want to automate complex multi‑branch workflows without paying enterprise rates. Good if you already use Google Sheets, Gmail, Slack, and <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> or <a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> for meeting notes.</li>
+    <li><strong>Zapier</strong> – Teams that value speed of setup above all else and have predictable, linear workflows (e.g., form submission → email notification). Avoid if you need conditional logic beyond “if/then.”</li>
+    <li><strong>n8n</strong> – Tech‑savvy ops teams that want full control and zero per‑operation costs. Best for companies with a part‑time developer who can host and maintain it.</li>
+  </ul>
+</section>
+
+<section id="quick-verdict-final">
+  <h2>Quick Verdict</h2>
+  <p>Start with <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a>. Its free tier lets you build all five automations below for zero cost, and upgrading to $9/mo gives you enough capacity for a 10‑person ops team. If you get stuck, the community forums are active and the built‑in error
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Share This Article</span>
+            <p style="color:var(--text-muted);">If you found this useful, share it with someone else.</p>
+            <p style="margin-bottom:var(--space-md);">
+                <a href="https://twitter.com/intent/tweet?text=Make.com for Beginners: Your First 5 Automations%20—%20a%20practical%20comparison%20for%20ops%20teams&url=https://shaynesailab.com/blog/make-beginners-5-automations" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://shaynesailab.com/blog/make-beginners-5-automations" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on LinkedIn</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Keep Exploring</span>
+            <h2>More Tools & Comparisons</h2>
+            <a href="/blog" class="btn btn-secondary">Back to Blog</a>
+            <a href="/starter-kit" class="btn btn-primary">Get the Free Starter Kit</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/starter-kit">Free Starter Kit</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+            <p style="font-size:0.78rem; color:var(--text-dim); margin-top:var(--space-xs);">Some links on this site are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click',function(){const e=document.querySelector('.nav-links');const n=e.style.display==='flex';e.style.display=n?'none':'flex';e.style.flexDirection='column';e.style.position='absolute';e.style.top='100%';e.style.left='0';e.style.right='0';e.style.background='var(--bg-glass)';e.style.backdropFilter='blur(14px)';e.style.padding='1rem 1.5rem';e.style.borderBottom='1px solid var(--border)';e.style.gap='0.75rem';this.setAttribute('aria-expanded',String(!n));});
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>
