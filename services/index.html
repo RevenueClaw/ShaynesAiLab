@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automation Services — Shayne's AI Lab</title>
+    <meta name="description" content="Custom AI agents, automation workflows, and business process optimization. From a single AI operator ($500/mo) to full swarm deployment.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="AI Automation Services — Shayne's AI Lab">
+    <meta property="og:description" content="Custom AI agents and automation workflows. From $500/mo AI operators to enterprise swarm deployments.">
+    <meta property="og:url" content="https://shaynesailab.com/services">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 3rem 0; }
+        @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+        .pricing-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: relative; display: flex; flex-direction: column; transition: border-color .2s; }
+        .pricing-card:hover { border-color: var(--brand-teal-light); }
+        .pricing-card.featured { border-color: var(--brand-teal); box-shadow: 0 0 30px rgba(45,212,191,0.08); }
+        .pricing-card.featured::before { content: 'Most Popular'; position: absolute; top: -0.75rem; left: 50%; transform: translateX(-50%); background: var(--brand-teal); color: #000; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 1rem; border-radius: 99px; }
+        .pricing-card h3 { margin: 0 0 0.25rem; font-size: 1.3rem; }
+        .pricing-card .price { font-size: 2.5rem; font-weight: 800; margin: 0.5rem 0; }
+        .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-muted); }
+        .pricing-card .desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .pricing-card ul { list-style: none; padding: 0; margin: 0 0 1.5rem; flex-grow: 1; }
+        .pricing-card li { padding: 0.4rem 0; font-size: 0.88rem; color: var(--text); }
+        .pricing-card li::before { content: '✓'; color: var(--brand-teal); margin-right: 0.5rem; }
+        .pricing-card .btn { margin-top: auto; }
+        .consult-row { display: flex; align-items: center; gap: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; margin: 2rem 0; }
+        @media (max-width: 768px) { .consult-row { flex-direction: column; text-align: center; } }
+        .consult-row .price-tag { font-size: 2rem; font-weight: 800; color: var(--brand-teal-light); white-space: nowrap; }
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+        @media (max-width: 768px) { .use-case-grid { grid-template-columns: 1fr; } }
+        .use-case { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+        .use-case h4 { margin: 0 0 0.5rem; font-size: 1rem; }
+        .use-case p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+        .how-it-works { counter-reset: step; }
+        .how-it-works li { list-style: none; padding: 1rem 0 1rem 3rem; position: relative; border-bottom: 1px solid var(--border); }
+        .how-it-works li:last-child { border: none; }
+        .how-it-works li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 1rem; width: 2rem; height: 2rem; background: var(--brand-teal); color: #000; font-weight: 700; font-size: 0.85rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shayne's AI Lab home">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/>
+                    <path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/>
+                    <defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+                </svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/services">Services</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero" style="padding:5rem 0 3rem;">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container" style="text-align:center;">
+            <h1>
+                Custom AI Agents &amp; Automation <span class="text-gradient">Built for Your Business</span>
+            </h1>
+            <p style="max-width:600px; margin:1rem auto; color:var(--text-muted);">
+                Stop paying for expensive agencies and under-trained virtual assistants. 
+                Get a custom AI operator that handles your support, content, and operations — 
+                built by people who actually understand the tech.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Services</span>
+                <h2>Pick Your Tier</h2>
+                <p>Start small, scale as you grow. Every tier includes a free 30-minute strategy call.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Managed</h3>
+                    <div class="price">$500 <span>/mo</span></div>
+                    <p class="desc">One custom AI operator for your business</p>
+                    <ul>
+                        <li>Dedicated AI agent trained on your business</li>
+                        <li>Customer support or content generation or ops</li>
+                        <li>Monthly optimization and retraining</li>
+                        <li>Weekly performance report</li>
+                        <li>Email support (2 business day response)</li>
+                    </ul>
+                    <a href="/contact" class="btn btn-secondary">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Growth</h3>
+                    <div class="price">$1,500 <span>/mo</span></div>
+                    <p class="desc">Multi-agent system with workflow integration</p>
+                    <ul>
+                        <li>3 AI agents working together</li>
+                        <li>Custom workflow automations (Make, n8n)</li>
+                        <li>CRM, email, and calendar integration</li>
+                        <li>Monthly optimization + retraining</li>
+                        <li>Slack-based support (same-day response)</li>
+                    </ul>
+                    <a href="/contact" class="btn btn-primary">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">$3,500 <span>/mo</span></div>
+                    <p class="desc">Full AI swarm deployment on your infrastructure</p>
+                    <ul>
+                        <li>Full agent swarm (5+ specialized agents)</li>
+                        <li>Custom integrations with your stack</li>
+                        <li>On-premise or cloud deployment</li>
+                        <li>Weekly strategy sessions</li>
+                        <li>Priority support (4-hour response)</li>
+                        <li>Dedicated automation engineer</li>
+                    </ul>
+                    <a href="/contact" class="btn btn-secondary">Get Started</a>
+                </div>
+            </div>
+
+            <div class="consult-row">
+                <div>
+                    <h3 style="margin:0 0 0.25rem;">AI Strategy Session</h3>
+                    <p style="margin:0; color:var(--text-muted); font-size:0.9rem;">
+                        One-hour deep dive. We audit your current operations, identify automation opportunities, 
+                        and deliver a written roadmap. No commitment to continue.
+                    </p>
+                </div>
+                <div class="price-tag">$250</div>
+                <a href="/contact" class="btn btn-secondary" style="white-space:nowrap;">Book a Session</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Use Cases</span>
+                <h2>What an AI Operator Handles</h2>
+                <p>Based on real deployments — not theory.</p>
+            </div>
+            <div class="use-case-grid">
+                <div class="use-case">
+                    <h4>🎧 Customer Support Agent</h4>
+                    <p>Trains on your knowledge base, answers tickets 24/7, escalates complex issues. One operator replaced a $3,500/mo agency.</p>
+                </div>
+                <div class="use-case">
+                    <h4>📝 Content &amp; SEO Engine</h4>
+                    <p>Researches keywords, writes optimized posts, generates meta data. Handles 20+ articles/month autonomously.</p>
+                </div>
+                <div class="use-case">
+                    <h4>📬 Email Triage System</h4>
+                    <p>Reads incoming email, categorizes, drafts replies. You approve before send. Saves 10+ hours/week.</p>
+                </div>
+                <div class="use-case">
+                    <h4>📊 Ops Dashboard</h4>
+                    <p>AI pulls data from your tools, generates reports, and alerts you to anomalies. Custom per your business.</p>
+                </div>
+                <div class="use-case">
+                    <h4>🤝 Lead Qualification</h4>
+                    <p>Chatbot on your site that asks qualifying questions, captures leads, and routes hot ones to your team.</p>
+                </div>
+                <div class="use-case">
+                    <h4>📅 Meeting Intelligence</h4>
+                    <p>Joins calls, transcribes, extracts action items, and pushes to your task manager. Never miss a follow-up.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">How It Works</span>
+                <h2>From Audit to Active in One Week</h2>
+            </div>
+            <ol class="how-it-works" style="max-width:600px; margin:2rem auto;">
+                <li>
+                    <strong>Strategy Call</strong> — 30 minutes. We identify your biggest time drains and automation opportunities.
+                </li>
+                <li>
+                    <strong>Agent Build</strong> — We train your AI agent on your business, data, and voice. 2-3 days.
+                </li>
+                <li>
+                    <strong>Deployment</strong> — We connect it to your tools (email, CRM, support desk, calendar). 1 day.
+                </li>
+                <li>
+                    <strong>Review &amp; Optimize</strong> — We review performance, tweak prompts, and retrain. Weekly iteration.
+                </li>
+            </ol>
+            <div style="text-align:center;">
+                <a href="/contact" class="btn btn-primary">Book a Free Strategy Call</a>
+                <a href="/ai-starter-kit" class="btn btn-secondary" style="margin-left:0.5rem;">Get the Free Guide First</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/services">Services</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/ai-starter-kit">Free Guide</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileBtn && navLinks) {
+            mobileBtn.addEventListener('click', () => {
+                const isOpen = navLinks.style.display === 'flex';
+                navLinks.style.display = isOpen ? 'none' : 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'var(--bg-glass)';
+                navLinks.style.backdropFilter = 'blur(14px)';
+                navLinks.style.padding = '1rem 1.5rem';
+                navLinks.style.borderBottom = '1px solid var(--border)';
+                navLinks.style.gap = '0.75rem';
+                mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+            });
+        }
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>27 Ways to Use AI in Your Business — Free Guide | Shayne's AI Lab</title>
+    <meta name="description" content="Free guide: 27 practical ways to use AI in your business today. From customer support to SEO to content generation — no tech degree required.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="27 Ways to Use AI in Your Business — Free Guide">
+    <meta property="og:description" content="Free guide: 27 practical ways to use AI in your business today.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shaynesailab.com/ai-starter-kit">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        .kit-hero {
+            background: linear-gradient(135deg, var(--bg-card) 0%, #0a1f1e 50%, var(--bg-card) 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .kit-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(45,212,191,0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .kit-hero h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 1rem; }
+        .kit-subtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 640px; margin: 0 auto 2rem; }
+        .kit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 3rem 0; }
+        @media (max-width: 768px) { .kit-grid { grid-template-columns: 1fr; } }
+        .kit-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; transition: border-color .2s; }
+        .kit-card:hover { border-color: var(--brand-teal-light); }
+        .kit-card .num { font-size: 2rem; font-weight: 800; color: var(--brand-teal-light); opacity: 0.4; line-height: 1; margin-bottom: 0.5rem; }
+        .kit-card h3 { margin: 0 0 0.5rem; font-size: 1.05rem; }
+        .kit-card p { margin: 0; font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+        .kit-cat { display: inline-block; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.15rem 0.6rem; border-radius: 99px; margin-bottom: 0.5rem; border: 1px solid var(--border); color: var(--text-muted); }
+        .kit-cat.support { border-color: #2dd4bf33; color: #2dd4bf; }
+        .kit-cat.content { border-color: #f59e0b33; color: #f59e0b; }
+        .kit-cat.ops { border-color: #818cf833; color: #818cf8; }
+        .kit-cat.sales { border-color: #34d39933; color: #34d399; }
+        .signup-box { max-width: 480px; margin: 3rem auto; padding: 2rem; background: var(--bg-card); border: 1px solid var(--brand-teal); border-radius: var(--radius-lg); text-align: center; }
+        .signup-box h3 { margin-top: 0; }
+        .signup-box input[type=email] { width: 100%; padding: 0.8rem 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 1rem; margin-bottom: 0.8rem; box-sizing: border-box; }
+        .signup-box input[type=email]:focus { outline: none; border-color: var(--brand-teal-light); }
+        .signup-box .btn { width: 100%; }
+        .signup-box .fine { font-size: 0.75rem; color: var(--text-muted); margin: 0.75rem 0 0; }
+        .price-badge { display: inline-block; background: var(--brand-teal); color: #000; font-weight: 700; font-size: 0.85rem; padding: 0.25rem 0.75rem; border-radius: 99px; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shayne's AI Lab home">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/>
+                    <path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/>
+                    <defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+                </svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/services">Services</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <section class="kit-hero">
+        <div class="container" style="text-align:center;">
+            <span class="price-badge">Free Download</span>
+            <h1>
+                <span class="text-gradient">27 Ways to Use AI</span><br>
+                in Your Business
+            </h1>
+            <p class="kit-subtitle">
+                Practical, proven ways to use AI tools today — from customer support to SEO to content generation. 
+                No tech degree required. No fluff.
+            </p>
+            <div class="signup-box">
+                <h3>Send me the free guide</h3>
+                <form id="kit-form" action="https://api.agentmail.to/v1/inboxes/revenueclaw@agentmail.to/messages" method="POST">
+                    <input type="hidden" name="subject" value="AI Starter Kit Request — Shayne's AI Lab">
+                    <input type="hidden" name="text" value="New AI Starter Kit download request">
+                    <input type="email" name="from" placeholder="you@company.com" required>
+                    <button type="submit" class="btn btn-primary">Send Me the Guide →</button>
+                </form>
+                <p class="fine">No spam. Unsubscribe anytime. Your email is only used to send the guide.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What's Inside</span>
+                <h2>27 Practical AI Use Cases</h2>
+                <p>Organized by business function. Pick what applies to you.</p>
+            </div>
+
+            <div class="kit-grid">
+                <div class="kit-card">
+                    <span class="kit-cat support">Customer Support</span>
+                    <div class="num">01</div>
+                    <h3>24/7 Support Agent</h3>
+                    <p>Deploy a custom GPT that answers customer questions from your knowledge base. One setup, always on.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat support">Customer Support</span>
+                    <div class="num">02</div>
+                    <h3>Ticket Triage &amp; Routing</h3>
+                    <p>AI reads incoming tickets, categorizes by urgency, and routes to the right person or auto-reply queue.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat support">Customer Support</span>
+                    <div class="num">03</div>
+                    <h3>Sentiment Detection</h3>
+                    <p>Flag angry customers in real-time. AI monitors support chats and escalates before issues blow up.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat support">Customer Support</span>
+                    <div class="num">04</div>
+                    <h3>Multi-Language Replies</h3>
+                    <p>Translate and localize customer responses into 50+ languages. Maintain tone and context.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat support">Customer Support</span>
+                    <div class="num">05</div>
+                    <h3>FAQ Auto-Generator</h3>
+                    <p>AI scans your support tickets and generates FAQ articles. Keeps your help desk from getting repetitive questions.</p>
+                </div>
+
+                <div class="kit-card">
+                    <span class="kit-cat content">Content &amp; SEO</span>
+                    <div class="num">06</div>
+                    <h3>SEO Blog Posts</h3>
+                    <p>AI writes optimized blog posts from a keyword brief. Includes meta titles, headings, and internal links.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat content">Content &amp; SEO</span>
+                    <div class="num">07</div>
+                    <h3>Site Audit &amp; Fix Suggestions</h3>
+                    <p>AI crawls your site, finds broken links, missing meta tags, and SEO issues — then suggests fixes.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat content">Content &amp; SEO</span>
+                    <div class="num">08</div>
+                    <h3>Social Media Posts</h3>
+                    <p>Generate 30 days of social media content from a single blog post. Tailored per platform.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat content">Content &amp; SEO</span>
+                    <div class="num">09</div>
+                    <h3>Email Newsletter Writing</h3>
+                    <p>AI drafts your newsletter from a few bullet points. Maintains your voice and style.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat content">Content &amp; SEO</span>
+                    <div class="num">10</div>
+                    <h3>Product Descriptions</h3>
+                    <p>Generate compelling product descriptions at scale. Bullet points, benefits, SEO keywords included.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat content">Content &amp; SEO</span>
+                    <div class="num">11</div>
+                    <h3>Competitor Content Analysis</h3>
+                    <p>AI monitors competitor blogs and summarizes their content strategy. Find gaps they're missing.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat content">Content &amp; SEO</span>
+                    <div class="num">12</div>
+                    <h3>Video Script Outlines</h3>
+                    <p>Generate structured YouTube or TikTok scripts from a topic. Hooks, sections, CTAs included.</p>
+                </div>
+
+                <div class="kit-card">
+                    <span class="kit-cat ops">Operations &amp; Automation</span>
+                    <div class="num">13</div>
+                    <h3>Email Triage Automation</h3>
+                    <p>AI reads incoming email, categorizes it, drafts replies, and queues them for your review.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat ops">Operations &amp; Automation</span>
+                    <div class="num">14</div>
+                    <h3>Meeting Transcription &amp; Action Items</h3>
+                    <p>AI joins your calls, transcribes, extracts action items, and pushes them to your task manager.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat ops">Operations &amp; Automation</span>
+                    <div class="num">15</div>
+                    <h3>Invoice Data Extraction</h3>
+                    <p>Forward invoices to an AI that extracts due dates, amounts, and vendor info into your spreadsheet.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat ops">Operations &amp; Automation</span>
+                    <div class="num">16</div>
+                    <h3>Contract Review</h3>
+                    <p>Upload contracts and get plain-English summaries. AI highlights unusual clauses and risky language.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat ops">Operations &amp; Automation</span>
+                    <div class="num">17</div>
+                    <h3>Onboarding Checklists</h3>
+                    <p>AI generates personalized onboarding checklists for new hires based on role and department.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat ops">Operations &amp; Automation</span>
+                    <div class="num">18</div>
+                    <h3>Report Generation</h3>
+                    <p>AI pulls data from your tools and generates weekly/monthly business reports in plain English.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat ops">Operations &amp; Automation</span>
+                    <div class="num">19</div>
+                    <h3>Workflow Documentation</h3>
+                    <p>AI watches your process and generates step-by-step documentation. Great for SOPs.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat ops">Operations &amp; Automation</span>
+                    <div class="num">20</div>
+                    <h3>Calendar Optimization</h3>
+                    <p>AI analyzes your calendar and suggests time-blocking improvements. Finds patterns in your lost time.</p>
+                </div>
+
+                <div class="kit-card">
+                    <span class="kit-cat sales">Sales &amp; Marketing</span>
+                    <div class="num">21</div>
+                    <h3>Lead Qualification Chatbot</h3>
+                    <p>AI chatbot on your site asks qualifying questions and routes hot leads to your sales team.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat sales">Sales &amp; Marketing</span>
+                    <div class="num">22</div>
+                    <h3>Personalized Follow-Up Emails</h3>
+                    <p>AI drafts follow-up emails based on prospect behavior — site visits, document views, etc.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat sales">Sales &amp; Marketing</span>
+                    <div class="num">23</div>
+                    <h3>Ad Copy A/B Testing</h3>
+                    <p>Generate 10 variations of ad copy for testing. AI optimizes for your brand voice and target audience.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat sales">Sales &amp; Marketing</span>
+                    <div class="num">24</div>
+                    <h3>Customer Testimonial Mining</h3>
+                    <p>AI scans support tickets and reviews for quotable testimonials. Pulls the best ones for your site.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat sales">Sales &amp; Marketing</span>
+                    <div class="num">25</div>
+                    <h3>Lead Scoring</h3>
+                    <p>AI assigns lead scores based on behavior, engagement, and demographic fit. Prioritize your outreach.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat sales">Sales &amp; Marketing</span>
+                    <div class="num">26</div>
+                    <h3>Landing Page Copy Generator</h3>
+                    <p>Generate complete landing page copy from a product description. Hero, benefits, features, CTA.</p>
+                </div>
+                <div class="kit-card">
+                    <span class="kit-cat sales">Sales &amp; Marketing</span>
+                    <div class="num">27</div>
+                    <h3>Review Response Automation</h3>
+                    <p>AI reads customer reviews and drafts appropriate responses. Handles positive and negative feedback.</p>
+                </div>
+            </div>
+
+            <div class="signup-box">
+                <h3>Get the full guide</h3>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1.2rem;">
+                    Plus setup tips, tool recommendations, and cost breakdowns for each use case.
+                </p>
+                <form id="kit-form-2" action="https://api.agentmail.to/v1/inboxes/revenueclaw@agentmail.to/messages" method="POST">
+                    <input type="hidden" name="subject" value="AI Starter Kit Request — Shayne's AI Lab">
+                    <input type="hidden" name="text" value="New AI Starter Kit download request (bottom of page)">
+                    <input type="email" name="from" placeholder="you@company.com" required>
+                    <button type="submit" class="btn btn-primary">Send Me the Guide →</button>
+                </form>
+                <p class="fine">No spam. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/services">Services</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/ai-starter-kit">Free Guide</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileBtn && navLinks) {
+            mobileBtn.addEventListener('click', () => {
+                const isOpen = navLinks.style.display === 'flex';
+                navLinks.style.display = isOpen ? 'none' : 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'var(--bg-glass)';
+                navLinks.style.backdropFilter = 'blur(14px)';
+                navLinks.style.padding = '1rem 1.5rem';
+                navLinks.style.borderBottom = '1px solid var(--border)';
+                navLinks.style.gap = '0.75rem';
+                mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+            });
+        }
+    </script>
+
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>
