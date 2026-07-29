@@ -58,3 +58,14 @@
 [Tue Jul 28 01:00:01 EDT 2026] Starting ShayneAiLab content generation...
 [Tue Jul 28 01:00:02 EDT 2026] Skipping ai-meeting-assistants — generated 6 days ago
 [Tue Jul 28 01:00:02 EDT 2026] Building blog index page...
+[Wed Jul 29 01:00:01 EDT 2026] Starting ShayneAiLab DeepSeek content generation...
+[Wed Jul 29 01:00:01 EDT 2026] Generating: Remote Ops Essentials: Tools Every Remote Team Needs (remote-ops-essentials)
+Focus: Essential tools for remote operations teams including communication, project management, automation, and documentation platforms
+Model: deepseek/deepseek-v4-flash via OpenRouter
+[Wed Jul 29 01:00:45 EDT 2026] Content generated successfully (874 words)
+[Wed Jul 29 01:00:45 EDT 2026] Generated: remote-ops-essentials → /home/rock/workspace/ShaynesAiLab/blog/remote-ops-essentials/index.html
+[Wed Jul 29 01:00:46 EDT 2026] Building blog index page...
+Blog index updated with 20 articles
+[Wed Jul 29 01:00:46 EDT 2026] Blog index built
+[Wed Jul 29 01:00:46 EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/remote-ops-essentials_social.txt
+[sitemap] Updated with 28 URLs
