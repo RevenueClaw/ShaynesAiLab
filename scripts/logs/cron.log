@@ -69,3 +69,10 @@ Blog index updated with 20 articles
 [Wed Jul 29 01:00:46 EDT 2026] Blog index built
 [Wed Jul 29 01:00:46 EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/remote-ops-essentials_social.txt
 [sitemap] Updated with 28 URLs
+[main a2af7a8] overnight: auto-generated content 2026-07-29
+ 7 files changed, 333 insertions(+), 46 deletions(-)
+ create mode 100644 blog/remote-ops-essentials/index.html
+ create mode 100644 scripts/overnight/social/remote-ops-essentials_social.txt
+To https://github.com/RevenueClaw/ShaynesAiLab.git
+   50ebeeb..a2af7a8  main -> main
+[Wed Jul 29 01:00:47 EDT 2026] Changes pushed to origin main
