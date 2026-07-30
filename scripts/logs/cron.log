@@ -76,3 +76,14 @@ Blog index updated with 20 articles
 To https://github.com/RevenueClaw/ShaynesAiLab.git
    50ebeeb..a2af7a8  main -> main
 [Wed Jul 29 01:00:47 EDT 2026] Changes pushed to origin main
+[Thu Jul 30 01:00:01 EDT 2026] Starting ShayneAiLab DeepSeek content generation...
+[Thu Jul 30 01:00:02 EDT 2026] Generating: Small Team CRM Showdown: HubSpot vs Freshsales vs Pipedrive (small-team-crm-showdown)
+Focus: Comparing CRMs for 1-50 person teams — HubSpot free tier, Freshsales, and Pipedrive for pipeline management
+Model: deepseek/deepseek-v4-flash via OpenRouter
+[Thu Jul 30 01:00:37 EDT 2026] Content generated successfully (803 words)
+[Thu Jul 30 01:00:37 EDT 2026] Generated: small-team-crm-showdown → /home/rock/workspace/ShaynesAiLab/blog/small-team-crm-showdown/index.html
+[Thu Jul 30 01:00:38 EDT 2026] Building blog index page...
+Blog index updated with 21 articles
+[Thu Jul 30 01:00:38 EDT 2026] Blog index built
+[Thu Jul 30 01:00:38 EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/small-team-crm-showdown_social.txt
+[sitemap] Updated with 29 URLs

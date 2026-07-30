@@ -3,9 +3,9 @@
     "email": "test-cron@example.com",
     "firstName": "CronTest",
     "signup_date": "2026-07-13T08:00:00+00:00",
-    "nurture_step": 3,
+    "nurture_step": 4,
     "source": "test",
-    "nurture_sent_at": "2026-07-27T13:30:02.286376+00:00"
+    "nurture_sent_at": "2026-07-29T13:30:02.094124+00:00"
   },
   {
     "email": "alert-test@worthitgoods.com",
@@ -13,7 +13,7 @@
     "source": "starter-kit",
     "signup_date": "2026-07-17T02:51:23.834514+00:00",
     "last_activity": "2026-07-17T02:51:23.834548+00:00",
-    "nurture_step": 2,
-    "nurture_sent_at": "2026-07-27T13:30:02.286376+00:00"
+    "nurture_step": 3,
+    "nurture_sent_at": "2026-07-29T13:30:02.094124+00:00"
   }
 ]
