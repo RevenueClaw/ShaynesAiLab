@@ -87,3 +87,10 @@ Blog index updated with 21 articles
 [Thu Jul 30 01:00:38 EDT 2026] Blog index built
 [Thu Jul 30 01:00:38 EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/small-team-crm-showdown_social.txt
 [sitemap] Updated with 29 URLs
+[main eaf2410] overnight: auto-generated content 2026-07-30
+ 8 files changed, 259 insertions(+), 5 deletions(-)
+ create mode 100644 blog/small-team-crm-showdown/index.html
+ create mode 100644 scripts/overnight/social/small-team-crm-showdown_social.txt
+To https://github.com/RevenueClaw/ShaynesAiLab.git
+   6a542a6..eaf2410  main -> main
+[Thu Jul 30 01:00:40 EDT 2026] Changes pushed to origin main
