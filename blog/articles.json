@@ -1,5 +1,12 @@
 [
   {
+    "title": "How to Automate Invoice Processing with Jotform and Make",
+    "slug": "automate-invoice-processing",
+    "date": "2026-07-31",
+    "description": "Building an automated invoice processing workflow using Jotform for intake and Make.com for routing and notifications",
+    "url": "/blog/automate-invoice-processing"
+  },
+  {
     "title": "Small Team CRM Showdown: HubSpot vs Freshsales vs Pipedrive",
     "slug": "small-team-crm-showdown",
     "date": "2026-07-30",

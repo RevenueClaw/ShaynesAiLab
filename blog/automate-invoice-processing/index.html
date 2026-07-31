@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Automate Invoice Processing with Jotform and Make — Shayne's AI Lab</title>
+    <meta name="description" content="Building an automated invoice processing workflow using Jotform for intake and Make.com for routing and notifications">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="How to Automate Invoice Processing with Jotform and Make — Shayne's AI Lab">
+    <meta property="og:description" content="Building an automated invoice processing workflow using Jotform for intake and Make.com for routing and notifications">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://shaynesailab.com/blog/automate-invoice-processing">
+    <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Automate Invoice Processing with Jotform and Make -- Shayne's AI Lab",
+        "description": "Building an automated invoice processing workflow using Jotform for intake and Make.com for routing and notifications",
+        "url": "https://shaynesailab.com/blog/automate-invoice-processing/",
+        "datePublished": "2026-07-31",
+        "author": {"@type": "Person", "name": "Shayne"},
+        "publisher": {"@type": "Organization", "name": "Shayne's AI Lab", "url": "https://shaynesailab.com"}
+    }
+    </script>
+    <style>
+        .article-body { max-width: 740px; margin: 0 auto; }
+        .article-body h2 { margin-top: var(--space-xl); color: var(--text); }
+        .article-body h3 { margin-top: var(--space-lg); color: var(--text); }
+        .article-body p { margin-bottom: var(--space-sm); color: var(--text-secondary); line-height: 1.8; }
+        .article-body ul, .article-body ol { margin-bottom: var(--space-md); color: var(--text-secondary); padding-left: 1.5rem; }
+        .article-body li { margin-bottom: 0.3rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-md) 0; }
+        .article-body th, .article-body td { padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .article-body th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .article-body td { color: var(--text-secondary); font-size: 0.95rem; }
+        .article-body .affiliate-disclosure { border-left: 2px solid var(--brand-amber); padding: 0.5rem 1rem; margin-bottom: var(--space-lg); background: var(--brand-amber-soft); border-radius: 4px; }
+        .article-body a.affiliate-link { color: var(--brand-teal-light); text-decoration: underline; text-decoration-style: dotted; }
+        .article-meta { font-size: 0.85rem; color: var(--text-dim); margin-bottom: var(--space-lg); text-align: center; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shayne's AI Lab home">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/><path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/blog" class="active" role="menuitem">Blog</a></li>
+                <li><a href="/resources" role="menuitem">Tools</a></li>
+                <li><a href="/starter-kit" role="menuitem">Free Starter Kit</a></li>
+                <li><a href="/contact" role="menuitem">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container" style="max-width: 740px;">
+            <span class="section-label">Blog</span>
+            <h1>How to Automate Invoice Processing with Jotform and Make</h1>
+            <p class="article-meta">July 31, 2026</p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="article-body">
+                <aside class="affiliate-disclosure">
+  <p><em>Some links in this article are affiliate links. If you purchase through them, we may earn a small commission at no extra cost to you. We only recommend tools we have tested and believe are genuinely useful for ops teams.</em></p>
+</aside>
+
+<section class="quick-verdict">
+  <h2>Quick Verdict</h2>
+  <p>Jotform + Make.com is a solid, low-cost way to automate invoice intake and routing for small teams. It’s not a full accounting system, but it eliminates manual email-to-pdf forwarding and spreadsheet tracking. Expect to spend 2-4 hours setting it up, and you’ll save roughly 5-10 hours per month on invoice processing.</p>
+</section>
+
+<section class="overview">
+  <h2>Overview</h2>
+  <p>If you’re running operations for a 1-50 person company, invoice processing probably looks like this: vendors email PDFs, someone downloads them, renames them, saves them to a folder, and manually enters data into accounting software or a spreadsheet. It’s repetitive, error-prone, and scales poorly.</p>
+  <p>You can fix most of this with two tools: <strong>Jotform</strong> for intake and <strong>Make.com</strong> for routing and notifications. Neither is a full ERP. But together, they handle the grunt work so your team only touches invoices when something needs a decision.</p>
+  <p>Here’s the workflow we’ll build:</p>
+  <ol>
+    <li>Vendor submits invoice via a Jotform form (with file upload).</li>
+    <li>Make.com picks up the submission, extracts the PDF, and renames it.</li>
+    <li>Make routes the file to a shared folder (Google Drive, Dropbox) and sends a notification to your ops channel (Slack, email).</li>
+    <li>Optionally, Make logs the invoice data to a Google Sheet or ClickUp task for approval tracking.</li>
+  </ol>
+  <p>No coding required. You’ll need a Jotform account (free or paid) and a Make.com account (free tier works for low volume).</p>
+</section>
+
+<section class="head-to-head">
+  <h2>Head-to-Head: Jotform vs. Alternatives for Invoice Intake</h2>
+  <p>Jotform isn’t the only form builder. Here’s how it compares to the main alternatives for this specific use case.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Jotform</th>
+        <th>Google Forms</th>
+        <th>Typeform</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>File upload (PDF)</td>
+        <td>Yes, up to 1GB per file (paid plans)</td>
+        <td>Yes, but limited to 10GB total per form</td>
+        <td>Yes, but only on paid plans</td>
+      </tr>
+      <tr>
+        <td>Conditional logic</td>
+        <td>Advanced (field visibility, calculations)</td>
+        <td>Basic (section routing only)</td>
+        <td>Good (branching logic)</td>
+      </tr>
+      <tr>
+        <td>Integration with Make.com</td>
+        <td>Native, reliable</td>
+        <td>Via Google Sheets trigger (indirect)</td>
+        <td>Native, but fewer triggers</td>
+      </tr>
+      <tr>
+        <td>Custom branding</td>
+        <td>Yes, on paid plans</td>
+        <td>Limited (must use Google theme)</td>
+        <td>Yes, on paid plans</td>
+      </tr>
+      <tr>
+        <td>Price for small teams</td>
+        <td>Free (100 submissions/month) or $39/month (Bronze)</td>
+        <td>Free</td>
+        <td>Free (10 responses/month) or $25/month (Essentials)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Why Jotform wins here:</strong> It has the best balance of file upload limits, conditional logic, and Make.com integration. Google Forms is free but clunky for file-heavy workflows. Typeform looks nicer but limits file uploads on free tier and has fewer Make triggers.</p>
+  <p><strong>Weakness:</strong> Jotform’s free plan caps submissions at 100/month and only stores 10MB of uploaded files. For a growing team, you’ll likely need the Bronze plan ($39/month) or higher.</p>
+</section>
+
+<section class="price-comparison">
+  <h2>Price Comparison</h2>
+  <p>Here’s what you’ll actually pay for a working setup, assuming 50-200 invoices per month.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Plan Needed</th>
+        <th>Monthly Cost</th>
+        <th>What You Get</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jotform</td>
+        <td>Bronze (or higher)</td>
+        <td>$39/month</td>
+        <td>1,000 submissions, 10GB storage, 1GB file uploads</td>
+      </tr>
+      <tr>
+        <td>Make.com</td>
+        <td>Free (or Core at $9/month)</td>
+        <td>$0 – $9/month</td>
+        <td>1,000 – 10,000 operations/month</td>
+      </tr>
+      <tr>
+        <td>Google Drive (storage)</td>
+        <td>Free (15GB) or Business Starter</td>
+        <td>$0 – $6/user/month</td>
+        <td>Shared folder for invoice archives</td>
+      </tr>
+      <tr>
+        <td>Slack (notifications)</td>
+        <td>Free</td>
+        <td>$0</td>
+        <td>Channel for invoice alerts</td>
+      </tr>
+      <tr>
+        <td><strong>Total</strong></td>
+        <td></td>
+        <td><strong>$39 – $54/month</strong></td>
+        <td>Full automated intake and routing</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>If you’re processing fewer than 100 invoices/month, you can use Jotform’s free plan and Make’s free tier — total cost: $0/month. Just watch the file storage limit.</p>
+</section>
+
+<section class="who-each-is-for">
+  <h2>Who Each Tool Is For</h2>
+  <h3>Jotform</h3>
+  <p><strong>Best for:</strong> Teams that need a customizable, branded intake form for vendors. If you want to collect specific fields (PO number, department, amount) alongside the PDF upload, Jotform’s conditional logic makes it easy to show/hide fields based on vendor type or invoice amount.</p>
+  <p><strong>Not for:</strong> Teams that need OCR or automatic data extraction from PDFs. Jotform doesn’t read invoice data from uploaded files. You’ll need to ask vendors to fill in fields manually, or pair Jotform with a tool like DocParser or Rossum (which adds cost).</p>
+
+  <h3>Make.com</h3>
+  <p><strong>Best for:</strong> Ops teams that want to connect Jotform to multiple destinations without writing code. Make’s visual builder is intuitive for non-technical users, and its error handling (retries, fallbacks) is better than most low-code alternatives.</p>
+  <p><strong>Not for:</strong> Teams that need real-time sync or high-volume processing (thousands of invoices per month). Make’s free tier has a 1,000 operation/month limit, and paid plans can get expensive if you’re running complex multi-step scenarios. Also, Make’s debugging can be frustrating — you’ll want to test each step carefully.</p>
+</section>
+
+<section class="further-reading">
+  <h2>Further Reading</h2>
+  <ul>
+    <li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> – Sign up and start building scenarios.</li>
+    <li><a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> – If you want to route invoices into task management for approval workflows.</li>
+    <li><a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> – Not directly related, but useful if you’re transcribing vendor calls about invoices.</li>
+    <li><em>Jotform’s official Make.com integration guide</em> – Search their help center for step-by-step setup.</li>
+  </ul>
+</section>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inline email capture CTA -->
+    <section class="section" style="text-align:center;background:var(--bg-glass);border:1px solid var(--border);border-radius:12px;margin:2rem auto;max-width:600px;padding:2rem 1.5rem;">
+        <h3 style="margin-bottom:0.5rem;">Get Weekly Ops Tips</h3>
+        <p style="color:var(--text-muted);margin-bottom:1rem;font-size:0.9rem;">Free automation workflows, tool comparisons, and ops templates — once a week, no spam.</p>
+        <form id="blog-subscribe-form" style="display:flex;gap:0.5rem;max-width:400px;margin:0 auto;">
+            <input type="email" name="email" placeholder="you@example.com" required style="flex:1;padding:0.6rem 1rem;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text);font-size:0.9rem;">
+            <button type="submit" class="btn btn-primary" style="white-space:nowrap;flex-shrink:0;">Subscribe</button>
+        </form>
+        <p style="margin-top:0.5rem;font-size:0.78rem;color:var(--text-dim);">No spam, ever. <a href="/privacy">Privacy policy</a>.</p>
+        <div id="blog-subscribe-success" style="display:none;"><p style="color:var(--brand-green);">✓ Check your email!</p></div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded',function(){var f=document.getElementById('blog-subscribe-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var em=this.querySelector('input[type=email]').value;var b=this.querySelector('button');b.disabled=true;b.textContent='Sending...';try{var r=await fetch('/api/starter-kit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,source:'blog-cta'})});if(r.ok){f.style.display='none';document.getElementById('blog-subscribe-success').style.display='block'}}catch(e){}b.disabled=false;b.textContent='Subscribe'})});
+    </script>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Share This Article</span>
+            <p style="color:var(--text-muted);">If you found this useful, share it with someone else.</p>
+            <p style="margin-bottom:var(--space-md);">
+                <a href="https://twitter.com/intent/tweet?text=How to Automate Invoice Processing with Jotform and Make%20—%20a%20practical%20comparison%20for%20ops%20teams&url=https://shaynesailab.com/blog/automate-invoice-processing" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://shaynesailab.com/blog/automate-invoice-processing" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on LinkedIn</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Keep Exploring</span>
+            <h2>More Tools & Comparisons</h2>
+            <a href="/blog" class="btn btn-secondary">Back to Blog</a>
+            <a href="/starter-kit" class="btn btn-primary">Get the Free Starter Kit</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/starter-kit">Free Starter Kit</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+            <p style="font-size:0.78rem; color:var(--text-dim); margin-top:var(--space-xs);">Some links on this site are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click',function(){const e=document.querySelector('.nav-links');const n=e.style.display==='flex';e.style.display=n?'none':'flex';e.style.flexDirection='column';e.style.position='absolute';e.style.top='100%';e.style.left='0';e.style.right='0';e.style.background='var(--bg-glass)';e.style.backdropFilter='blur(14px)';e.style.padding='1rem 1.5rem';e.style.borderBottom='1px solid var(--border)';e.style.gap='0.75rem';this.setAttribute('aria-expanded',String(!n));});
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>
