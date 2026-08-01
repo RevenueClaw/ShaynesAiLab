@@ -105,3 +105,12 @@ Blog index updated with 22 articles
 [Fri Jul 31 01:00:51 EDT 2026] Blog index built
 [Fri Jul 31 01:00:51 EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/automate-invoice-processing_social.txt
 [sitemap] Updated with 30 URLs
+[main a9df23a] overnight: auto-generated content 2026-07-31
+ 2 files changed, 168 insertions(+), 133 deletions(-)
+To https://github.com/RevenueClaw/ShaynesAiLab.git
+   c40201f..a9df23a  main -> main
+[Fri Jul 31 01:00:53 EDT 2026] Changes pushed to origin main
+[Sat Aug  1 01:00:01 EDT 2026] Starting ShayneAiLab DeepSeek content generation...
+[Sat Aug  1 01:00:01 EDT 2026] Generating: AI Content Workflow: From Research to Publication in One Pipeline (ai-content-workflow)
+Focus: Building an end-to-end AI content pipeline using automation tools for research, drafting, editing, and publishing
+Model: deepseek/deepseek-v4-flash via OpenRouter
