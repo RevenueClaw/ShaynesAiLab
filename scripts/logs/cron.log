@@ -121,3 +121,12 @@ Blog index updated with 23 articles
 [Sat Aug  1 01:00:59 EDT 2026] Blog index built
 [Sat Aug  1 01:00:59 EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/ai-content-workflow_social.txt
 [sitemap] Updated with 31 URLs
+[main 2312e29] overnight: auto-generated content 2026-08-01
+ 2 files changed, 54 insertions(+), 42 deletions(-)
+To https://github.com/RevenueClaw/ShaynesAiLab.git
+   61aba3a..2312e29  main -> main
+[Sat Aug  1 01:01:00 EDT 2026] Changes pushed to origin main
+[Sun Aug  2 01:00:01 EDT 2026] Starting ShayneAiLab DeepSeek content generation...
+[Sun Aug  2 01:00:01 EDT 2026] Generating: Zapier vs Make vs n8n: When to Use Each Automation Tool (zapier-vs-make-vs-n8n)
+Focus: Deep comparison of three leading automation platforms for teams deciding which tool fits their specific use case
+Model: deepseek/deepseek-v4-flash via OpenRouter
