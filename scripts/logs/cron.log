@@ -130,3 +130,10 @@ To https://github.com/RevenueClaw/ShaynesAiLab.git
 [Sun Aug  2 01:00:01 EDT 2026] Generating: Zapier vs Make vs n8n: When to Use Each Automation Tool (zapier-vs-make-vs-n8n)
 Focus: Deep comparison of three leading automation platforms for teams deciding which tool fits their specific use case
 Model: deepseek/deepseek-v4-flash via OpenRouter
+[Sun Aug  2 01:00:57 EDT 2026] Content generated successfully (847 words)
+[Sun Aug  2 01:00:57 EDT 2026] Generated: zapier-vs-make-vs-n8n → /home/rock/workspace/ShaynesAiLab/blog/zapier-vs-make-vs-n8n/index.html
+[Sun Aug  2 01:00:58 EDT 2026] Building blog index page...
+Blog index updated with 24 articles
+[Sun Aug  2 01:00:58 EDT 2026] Blog index built
+[Sun Aug  2 01:00:58 EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/zapier-vs-make-vs-n8n_social.txt
+[sitemap] Updated with 32 URLs
