@@ -153,3 +153,10 @@ Blog index updated with 25 articles
 [Mon Aug  3 01:00:28 EDT 2026] Blog index built
 [Mon Aug  3 01:00:28 EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/free-crm-options-2026_social.txt
 [sitemap] Updated with 33 URLs
+[main e82ba54] overnight: auto-generated content 2026-08-03
+ 7 files changed, 311 insertions(+), 1 deletion(-)
+ create mode 100644 blog/free-crm-options-2026/index.html
+ create mode 100644 scripts/overnight/social/free-crm-options-2026_social.txt
+To https://github.com/RevenueClaw/ShaynesAiLab.git
+   2dd358e..e82ba54  main -> main
+[Mon Aug  3 01:00:30 EDT 2026] Changes pushed to origin main
