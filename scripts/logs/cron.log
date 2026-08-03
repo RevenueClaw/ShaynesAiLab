@@ -137,3 +137,19 @@ Blog index updated with 24 articles
 [Sun Aug  2 01:00:58 EDT 2026] Blog index built
 [Sun Aug  2 01:00:58 EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/zapier-vs-make-vs-n8n_social.txt
 [sitemap] Updated with 32 URLs
+[main 2dd358e] overnight: auto-generated content 2026-08-02
+ 2 files changed, 99 insertions(+), 66 deletions(-)
+To https://github.com/RevenueClaw/ShaynesAiLab.git
+   8f6bc52..2dd358e  main -> main
+[Sun Aug  2 01:00:59 EDT 2026] Changes pushed to origin main
+[Mon Aug  3 01:00:01 EDT 2026] Starting ShayneAiLab DeepSeek content generation...
+[Mon Aug  3 01:00:02 EDT 2026] Generating: Free CRM Options for Small Business in 2026 (free-crm-options-2026)
+Focus: Comparing free and low-cost CRM options for teams that need pipeline management without enterprise pricing
+Model: deepseek/deepseek-v4-flash via OpenRouter
+[Mon Aug  3 01:00:27 EDT 2026] Content generated successfully (620 words)
+[Mon Aug  3 01:00:27 EDT 2026] Generated: free-crm-options-2026 → /home/rock/workspace/ShaynesAiLab/blog/free-crm-options-2026/index.html
+[Mon Aug  3 01:00:28 EDT 2026] Building blog index page...
+Blog index updated with 25 articles
+[Mon Aug  3 01:00:28 EDT 2026] Blog index built
+[Mon Aug  3 01:00:28 EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/free-crm-options-2026_social.txt
+[sitemap] Updated with 33 URLs
