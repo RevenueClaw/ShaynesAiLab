@@ -41,6 +41,11 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
+    <loc>https://shaynesailab.com/blog/productivity-monitors-ops</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://shaynesailab.com/blog/free-crm-options-2026</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
