@@ -171,3 +171,10 @@ Blog index updated with 26 articles
 [Tue Aug  4 01:00:48 EDT 2026] Blog index built
 [Tue Aug  4 01:00:48 EDT 2026] Social draft saved: /home/rock/workspace/ShaynesAiLab/scripts/overnight/social/productivity-monitors-ops_social.txt
 [sitemap] Updated with 34 URLs
+[main 4aaf7dc] overnight: auto-generated content 2026-08-04
+ 7 files changed, 300 insertions(+), 1 deletion(-)
+ create mode 100644 blog/productivity-monitors-ops/index.html
+ create mode 100644 scripts/overnight/social/productivity-monitors-ops_social.txt
+To https://github.com/RevenueClaw/ShaynesAiLab.git
+   cec8f94..4aaf7dc  main -> main
+[Tue Aug  4 01:00:50 EDT 2026] Changes pushed to origin main
