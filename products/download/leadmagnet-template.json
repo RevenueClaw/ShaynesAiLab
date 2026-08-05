@@ -1,0 +1,52 @@
+{
+  "name": "LeadMagnet — AI Lead Qualification & Follow-Up System",
+  "version": "1.0",
+  "category": "lead-generation",
+  "compatible_with": ["ChatGPT", "Claude", "Make.com", "n8n"],
+  "setup_time": "60 minutes",
+  "prompts": [
+    {
+      "id": "qualifying-questions",
+      "name": "Lead Qualifying Question Builder",
+      "prompt": "You are a lead qualification specialist for {{company_name}} ({{industry}}).\n\nCreate a 7-question lead qualification flow:\n\n## Questions should determine:\n1. Budget — can they afford our {{price_range}} range?\n2. Authority — do they make purchasing decisions?\n3. Need — do they have the problem we solve?\n4. Timeline — when do they need a solution?\n5. Fit — are they our ideal customer profile?\n\n## For each question provide:\n- The question text (conversational, not salesy)\n- 3-4 multiple choice answers\n- A score value for each answer (1-10)\n- Which answers trigger qualification (score >= 7)\n\n## Scoring Logic\n- Total possible score: 70\n- Qualified lead: 45+\n- Warm lead: 30-44\n- Nurture: 15-29\n- Not a fit: below 15\n\nOutput as a JSON structure I can import into my CRM.",
+      "variables": ["company_name", "industry", "price_range"]
+    },
+    {
+      "id": "follow-up-email",
+      "name": "Follow-Up Email Sequence",
+      "prompt": "Create a 4-email follow-up sequence for a lead who {{lead_action}} (e.g., downloaded a guide, requested a demo, visited pricing page).\n\nLead details:\n- Name: {{lead_name}}\n- Company: {{lead_company}}\n- Source: {{lead_source}}\n- Interest: {{lead_interest}}\n\n## Email 1 (Same day): Thank you + value\n## Email 2 (Day 3): Case study / social proof\n## Email 3 (Day 7): Direct offer / call to action\n## Email 4 (Day 14): Breakup / keep in touch\n\nEach email: subject line, body (150-200 words), and CTA.\nTone: helpful consultant, not salesperson.",
+      "variables": ["lead_action", "lead_name", "lead_company", "lead_source", "lead_interest"]
+    },
+    {
+      "id": "conversation-script",
+      "name": "AI Chat Conversation Script",
+      "prompt": "You are a lead qualification chatbot for {{company_name}}.\n\nWrite a complete conversation flow:\n\n## Opening\nWhen a visitor arrives on {{landing_page_url}}, start with:\n\"Hi! Thanks for stopping by. Quick question — {{qualifying_opening_question}}\"\n\n## Branching Logic\nBased on their answer:\n\nPath A (Budget/Ready):\n→ \"Great, sounds like we can help. What's the biggest challenge you're facing with {{their_problem}}?\"\n→ Offer: book a call / see pricing / start free trial\n\nPath B (Exploring/Nurture):\n→ \"Totally understandable. Here's something that might help — {{resource_link}}\"\n→ Follow up: \"Mind if I send you more resources like this?\"\n→ Capture email\n\nPath C (Not a Fit):\n→ \"Thanks for your time! If anything changes, here's {{helpful_resource}} that might be useful regardless.\"\n→ End gracefully\n\n## Objection Handling\nFor each objection below, provide a 2-sentence response:\n- \"Not now\"\n- \"Too expensive\"\n- \"Need to think about it\"\n- \"Using a competitor\"\n- \"I'm not the decision maker\"",
+      "variables": ["company_name", "landing_page_url", "qualifying_opening_question", "their_problem", "resource_link", "helpful_resource"]
+    }
+  ],
+  "crm_templates": {
+    "hubspot": {
+      "instructions": "Import the provided CSV template. Create custom properties for lead score (0-70) and qualification tier. Set up automated email sequences based on score.",
+      "fields": ["lead_name", "company", "email", "phone", "lead_score", "qualification_tier", "source", "interest_category", "follow_up_date"]
+    },
+    "airtable": {
+      "instructions": "Import the provided Airtable base template. Set up the automations for email sequencing. Use the scoring formula field to auto-calculate lead scores.",
+      "fields": ["Name", "Company", "Email", "Score", "Tier", "Source", "Status", "Last Contacted", "Notes"]
+    },
+    "notion": {
+      "instructions": "Duplicate the provided Notion template. Set up the database views for each qualification tier. Use Notion formulas for score calculation.",
+      "fields": ["Lead", "Company", "Contact", "Score (formula)", "Tier (rollup)", "Source", "Status", "Next Action"]
+    }
+  },
+  "setup_checklist": [
+    "✅ Define your ideal customer profile (ICP)",
+    "✅ Set up your lead qualification questions",
+    "✅ Configure your chatbot or landing page form",
+    "✅ Create your lead score thresholds",
+    "✅ Set up your CRM with scoring properties",
+    "✅ Build your 4-email follow-up sequence",
+    "✅ Configure objection handling responses",
+    "✅ Test with 5 simulated leads",
+    "🚀 Launch and monitor lead quality for first week"
+  ]
+}

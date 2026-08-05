@@ -1,0 +1,74 @@
+{
+  "name": "ContentCrew — AI Content Generation System",
+  "version": "1.0",
+  "category": "content-generation",
+  "compatible_with": ["ChatGPT", "Claude", "Custom GPT"],
+  "setup_time": "45 minutes",
+  "components": {
+    "seo_blog": {
+      "name": "SEO Blog Post Generator",
+      "description": "Generates fully optimized blog posts with keyword research, outlines, and meta data.",
+      "prompts": [
+        {
+          "id": "blog-research",
+          "name": "Blog Topic Research Prompt",
+          "prompt": "You are a content strategist. I need blog post ideas for {{company_name}} in the {{industry}} industry.\n\nAnalyze the following:\n1. Primary keyword: {{primary_keyword}}\n2. Target audience: {{target_audience}}\n3. Their pain points: {{pain_points}}\n\nGenerate 10 blog post titles that:\n- Target long-tail keywords related to {{primary_keyword}}\n- Address specific pain points\n- Have search potential (informational intent)\n- Can be expanded to 1500+ words\n\nFor each title, provide:\n- Working title\n- Target keyword (2-4 words)\n- Search intent (informational/commercial)\n- Suggested word count\n- 3 key points to cover",
+          "variables": ["company_name", "industry", "primary_keyword", "target_audience", "pain_points"]
+        },
+        {
+          "id": "blog-outline",
+          "name": "SEO Blog Outline Builder",
+          "prompt": "Create a detailed outline for a blog post titled \"{{blog_title}}\" targeting the keyword \"{{target_keyword}}\".\n\n## Requirements\n- Target length: {{word_count}} words\n- Include an H1, 4-6 H2 sections, and relevant H3 subsections\n- Naturally include {{target_keyword}} in the H1, first paragraph, and at least 3 H2 sections\n- Include 2-3 LSI keywords: {{lsi_keywords}}\n- Include one \"Quick Tip\" callout box\n- End with a clear CTA\n\n## Outline Structure\n1. H1: [SEO-optimized title]\n2. Introduction (2-3 paragraphs hooking the reader)\n3. H2 sections with H3 subsections as needed\n4. Comparison table if applicable\n5. FAQ section (3-5 questions)\n6. Conclusion with CTA\n\nProvide the outline only — do NOT write the full article.",
+          "variables": ["blog_title", "target_keyword", "word_count", "lsi_keywords"]
+        },
+        {
+          "id": "blog-writer",
+          "name": "Full Blog Post Writer",
+          "prompt": "Write a complete blog post following this outline:\n{{outline}}\n\n## Style Guidelines\n- Tone: {{tone}} (professional, conversational, technical, etc.)\n- Reading level: {{reading_level}} (e.g., 8th grade for general audience)\n- Use short paragraphs (2-3 sentences max)\n- Include transitional phrases between sections\n- Bold key terms for emphasis\n- Include one {{callout_type}} callout box\n- Naturally include {{target_keyword}} 4-6 times total\n- Include internal links to {{internal_links}}\n\n## SEO Requirements\n- Meta title (under 60 chars): \n- Meta description (under 160 chars): \n- URL slug: \n- Featured image alt text: \n\nWrite the full article now.",
+          "variables": ["outline", "tone", "reading_level", "callout_type", "target_keyword", "internal_links"]
+        }
+      ]
+    },
+    "social_media": {
+      "name": "Social Media Content Engine",
+      "description": "Generates platform-specific social media content from any input.",
+      "prompts": [
+        {
+          "id": "sm-content-pillar",
+          "name": "Content Pillar Generator",
+          "prompt": "I need to create a social media content pillar for {{topic}}.\n\nGenerate:\n\n1. **One long-form post** (LinkedIn/Twitter thread):\n   - Hook (1 sentence)\n   - 5-7 key points with examples\n   - Strong closing statement\n   - 3-5 relevant hashtags\n\n2. **Three short-form posts** (Instagram/TikTok captions):\n   - Each under 150 characters\n   - Each highlights a different angle\n   - Include emoji and CTAs\n\n3. **One discussion starter** (for community engagement):\n   - Open-ended question\n   - Poll option if applicable\n\n4. **Visual description** for each post:\n   - Image/video concept\n   - Text overlay suggestion\n   - Color scheme recommendation",
+          "variables": ["topic"]
+        },
+        {
+          "id": "sm-repurposing",
+          "name": "Content Repurposing Engine",
+          "prompt": "Repurpose this blog post into social media content:\n\nBLOG POST:\n{{blog_content}}\n\nGenerate:\n\n1. **LinkedIn post** (1300-1500 chars): Professional angle, key insight, mild controversy\n2. **Twitter/X thread** (5-7 tweets): Tease the main points, end with link\n3. **Instagram carousel** (5 slides): Title slide + 3 content slides + CTA slide\n4. **Newsletter blurb** (2-3 paragraphs): Friendly, casual, with value prop\n5. **Reddit post** (r/{{relevant_subreddit}}): Value-focused, no selling\n\nFor each: Write the full copy, suggest visuals, and add hashtags.",
+          "variables": ["blog_content", "relevant_subreddit"]
+        }
+      ]
+    },
+    "email": {
+      "name": "Email Newsletter Template",
+      "description": "Generates email newsletters from curated content.",
+      "prompts": [
+        {
+          "id": "newsletter-writer",
+          "name": "Newsletter Content Writer",
+          "prompt": "Write a newsletter email for {{company_name}} with the following:\n\n## Content Items\n{{content_items}}\n\n## Structure\n1. **Subject line** (5 options, under 50 chars)\n2. **Preview text** (under 100 chars)\n3. **Greeting**: Warm but professional\n4. **Main feature**: 2-3 paragraphs on the primary content\n5. **Roundup**: Bullet-point summaries of other items\n6. **Personal note**: 1 paragraph from {{author_name}}\n7. **CTA**: Single clear action\n8. **Footer**: Unsubscribe link, social links\n\n## Guidelines\n- Write for {{audience_description}}\n- Send frequency: {{frequency}}\n- Brand voice: {{brand_voice}}\n- Include {{affiliate_links_count}} affiliate links naturally within content",
+          "variables": ["company_name", "content_items", "author_name", "audience_description", "frequency", "brand_voice", "affiliate_links_count"]
+        }
+      ]
+    }
+  },
+  "setup_checklist": [
+    "✅ Define your brand voice guide (tone, vocabulary, no-go terms)",
+    "✅ Set up your content calendar (topics + dates for 30 days)",
+    "✅ Create your Custom GPT with all ContentCrew prompts",
+    "✅ Configure your keyword research process",
+    "✅ Set up your social media posting schedule",
+    "✅ Create your email newsletter template",
+    "✅ Test: generate 1 blog post, 3 social posts, 1 newsletter",
+    "✅ Review and adjust tone/style settings",
+    "🚀 Go live — publish 2 posts/week minimum"
+  ]
+}
