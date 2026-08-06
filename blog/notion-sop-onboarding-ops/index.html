@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Ops Teams Use Notion for SOPs and Onboarding — Shayne's AI Lab</title>
+    <meta name="description" content="Building standard operating procedures and onboarding workflows in Notion for operations teams at growing companies">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="How Ops Teams Use Notion for SOPs and Onboarding — Shayne's AI Lab">
+    <meta property="og:description" content="Building standard operating procedures and onboarding workflows in Notion for operations teams at growing companies">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://shaynesailab.com/blog/notion-sop-onboarding-ops">
+    <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How Ops Teams Use Notion for SOPs and Onboarding -- Shayne's AI Lab",
+        "description": "Building standard operating procedures and onboarding workflows in Notion for operations teams at growing companies",
+        "url": "https://shaynesailab.com/blog/notion-sop-onboarding-ops/",
+        "datePublished": "2026-08-06",
+        "author": {"@type": "Person", "name": "Shayne"},
+        "publisher": {"@type": "Organization", "name": "Shayne's AI Lab", "url": "https://shaynesailab.com"}
+    }
+    </script>
+    <style>
+        .article-body { max-width: 740px; margin: 0 auto; }
+        .article-body h2 { margin-top: var(--space-xl); color: var(--text); }
+        .article-body h3 { margin-top: var(--space-lg); color: var(--text); }
+        .article-body p { margin-bottom: var(--space-sm); color: var(--text-secondary); line-height: 1.8; }
+        .article-body ul, .article-body ol { margin-bottom: var(--space-md); color: var(--text-secondary); padding-left: 1.5rem; }
+        .article-body li { margin-bottom: 0.3rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-md) 0; }
+        .article-body th, .article-body td { padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .article-body th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .article-body td { color: var(--text-secondary); font-size: 0.95rem; }
+        .article-body .affiliate-disclosure { border-left: 2px solid var(--brand-amber); padding: 0.5rem 1rem; margin-bottom: var(--space-lg); background: var(--brand-amber-soft); border-radius: 4px; }
+        .article-body a.affiliate-link { color: var(--brand-teal-light); text-decoration: underline; text-decoration-style: dotted; }
+        .article-meta { font-size: 0.85rem; color: var(--text-dim); margin-bottom: var(--space-lg); text-align: center; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shayne's AI Lab home">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/><path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/blog" class="active" role="menuitem">Blog</a></li>
+                <li><a href="/resources" role="menuitem">Tools</a></li>
+                <li><a href="/starter-kit" role="menuitem">Free Starter Kit</a></li>
+                <li><a href="/contact" role="menuitem">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container" style="max-width: 740px;">
+            <span class="section-label">Blog</span>
+            <h1>How Ops Teams Use Notion for SOPs and Onboarding</h1>
+            <p class="article-meta">August 06, 2026</p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="article-body">
+                <p><em>Disclosure: Some links in this article are affiliate links. If you purchase through them, I may earn a small commission at no extra cost to you.</em></p>
+
+<h2>Quick Verdict</h2>
+<p>Notion is a solid choice for ops teams at 1-50 person companies that need flexible, collaborative SOP and onboarding documentation. It beats dedicated knowledge base tools on price and customization, but lacks the structured workflow automation of purpose-built onboarding platforms. Use it if you want a single source of truth that your team will actually update.</p>
+
+<h2>Overview</h2>
+<p>Standard operating procedures and onboarding are the backbone of any ops team. When you're at 10 people, you can get away with verbal handoffs. At 50, you need documented processes that new hires can follow without interrupting your senior staff every 15 minutes. Notion has become a popular middle ground between a simple Google Doc and a full-blown knowledge base like Guru or Confluence. It gives you databases, templates, and collaboration features in one tool that most small teams already have open in a browser tab.</p>
+
+<p>The core challenge for ops teams is keeping SOPs current. A document written during onboarding is useless if it references outdated tools or workflows. Notion's linked databases and rollups help here—you can create a single source of truth for processes and reference it across multiple pages. When something changes, you update it once and every instance updates automatically.</p>
+
+<h2>Head-to-Head: Notion vs. Dedicated SOP Tools</h2>
+
+<h3>Notion</h3>
+<ul>
+  <li><strong>Strengths:</strong> Flexible database structure, easy to create templates, real-time collaboration, affordable for small teams. You can build a full onboarding hub with checklists, process docs, and training materials in one workspace. The ability to embed videos, PDFs, and Google Docs directly is useful for training content.</li>
+  <li><strong>Weaknesses:</strong> No native workflow automation for approvals or task dependencies. Version history is basic. Search can be slow if you have hundreds of pages. No built-in analytics to track which SOPs are actually being read or completed. Mobile app is clunky for editing.</li>
+</ul>
+
+<h3>Dedicated alternatives (Guru, Confluence, Process Street)</h3>
+<ul>
+  <li><strong>Guru:</strong> Better for knowledge verification (cards with expiration dates) and browser extension for instant access. More expensive at $15/user/month. Less flexible for building complex onboarding workflows.</li>
+  <li><strong>Confluence:</strong> Stronger for technical documentation with page hierarchies and macros. Requires more setup and is overkill for teams under 20 people. Starts at $6/user/month but gets expensive with add-ons.</li>
+  <li><strong>Process Street:</strong> Built specifically for SOPs with checklists, conditional logic, and task assignments. $12.50/user/month. More rigid structure but better for process compliance. Not great for general documentation or knowledge base use.</li>
+</ul>
+
+<p>For most ops teams at 1-50 people, Notion wins on versatility and cost. You can run your entire operations playbook from one tool. The trade-off is that you'll need to build your own structure and discipline to keep it organized.</p>
+
+<h2>Price Comparison</h2>
+<table>
+  <tr>
+    <th>Tool</th>
+    <th>Free Tier</th>
+    <th>Paid Plans (per user/month)</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td>Notion</td>
+    <td>Yes (limited blocks, 7-day page history)</td>
+    <td>$10 (Plus), $18 (Business)</td>
+    <td>Business plan includes unlimited automations and 90-day version history</td>
+  </tr>
+  <tr>
+    <td>Guru</td>
+    <td>No (14-day trial)</td>
+    <td>$15 (Starter), $25 (Builder)</td>
+    <td>Includes AI-powered search and verification workflows</td>
+  </tr>
+  <tr>
+    <td>Confluence</td>
+    <td>Yes (10 users, 2GB storage)</td>
+    <td>$6 (Standard), $11 (Premium)</td>
+    <td>Premium adds AI features and advanced analytics</td>
+  </tr>
+  <tr>
+    <td>Process Street</td>
+    <td>No (14-day trial)</td>
+    <td>$12.50 (Pro), $25 (Enterprise)</td>
+    <td>Pro includes conditional logic and API access</td>
+  </tr>
+</table>
+
+<p>Notion's free tier is generous enough for most small teams to test their SOP setup before committing. The Business plan at $18/user/month is competitive when you consider you're replacing a knowledge base, a wiki, and a project tracker.</p>
+
+<h2>Who Each Is For</h2>
+<p><strong>Notion is for:</strong> Ops teams that want one tool for documentation, project management, and onboarding. Best if you have someone willing to set up templates and databases. Works well for teams that are already using Notion for other purposes.</p>
+<p><strong>Guru is for:</strong> Teams that need verified, up-to-date knowledge at the point of need. Good for customer support and sales teams that need quick access to SOPs without leaving their main tools.</p>
+<p><strong>Confluence is for:</strong> Engineering-heavy teams that need deep integration with Jira and technical documentation features. Overkill for most small ops teams.</p>
+<p><strong>Process Street is for:</strong> Teams that need strict process compliance and audit trails. Good for regulated industries or teams with complex approval workflows.</p>
+
+<h2>Building SOPs and Onboarding in Notion: Practical Tips</h2>
+<ul>
+  <li><strong>Use databases, not pages.</strong> Create a "Processes" database with properties for owner, frequency, last reviewed date, and status. This makes it easy to filter and audit your SOPs.</li>
+  <li><strong>Create an onboarding template.</strong> Build a page template with sections for week 1, month 1, and month 3 tasks. Include checkboxes, linked process docs, and a progress tracker. Duplicate this for each new hire.</li>
+  <li><strong>Link everything.</strong> Use relational databases to connect onboarding tasks to specific SOPs. When a new hire checks off "Complete security setup," link to the security SOP. This creates a natural learning path.</li>
+  <li><strong>Set review reminders.</strong> Use Notion's reminders (available on Business plan) or integrate with <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> to automate quarterly SOP review notifications. Stale documentation is worse than no documentation.</li>
+  <li><strong>Keep it simple.</strong> Don't over-engineer your database schema. Start with 3-5 properties and add more as you need them. The biggest failure mode is building a system that's too complex to maintain.</li>
+</ul>
+
+<h2>When Notion Falls Short</h2>
+<p>If you need automated onboarding sequences (send a Slack message when a task is completed, trigger a task in your project management tool), Notion's native automation is limited. You can bridge this with <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> to create workflows that connect Notion to Slack, email, or your CRM. For example, when a new hire completes their first-week checklist in Notion, automatically send a welcome message in Slack and create a task in <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> for their manager to schedule a 1:1.</p>
+
+<p>Also consider using <a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> to record and transcribe onboarding sessions. You can link those transcripts directly in Notion so new hires can review training calls without interrupting your team.</p>
+
+<h2>Further Reading</h2>
+<ul>
+  <li><a href="https://www.notion.so/help/guides/using-notion-as-a-knowledge-base" target="_blank">Notion's official guide to building a knowledge base</a></li>
+  <li><a href="https://www.process.st/sop-template/" target="_blank">Process Street's free SOP templates (adaptable for Notion)</a></li>
+  <li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com automation templates for Notion</a></li>
+</ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inline email capture CTA -->
+    <section class="section" style="text-align:center;background:var(--bg-glass);border:1px solid var(--border);border-radius:12px;margin:2rem auto;max-width:600px;padding:2rem 1.5rem;">
+        <h3 style="margin-bottom:0.5rem;">Get Weekly Ops Tips</h3>
+        <p style="color:var(--text-muted);margin-bottom:1rem;font-size:0.9rem;">Free automation workflows, tool comparisons, and ops templates — once a week, no spam.</p>
+        <form id="blog-subscribe-form" style="display:flex;gap:0.5rem;max-width:400px;margin:0 auto;">
+            <input type="email" name="email" placeholder="you@example.com" required style="flex:1;padding:0.6rem 1rem;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text);font-size:0.9rem;">
+            <button type="submit" class="btn btn-primary" style="white-space:nowrap;flex-shrink:0;">Subscribe</button>
+        </form>
+        <p style="margin-top:0.5rem;font-size:0.78rem;color:var(--text-dim);">No spam, ever. <a href="/privacy">Privacy policy</a>.</p>
+        <div id="blog-subscribe-success" style="display:none;"><p style="color:var(--brand-green);">✓ Check your email!</p></div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded',function(){var f=document.getElementById('blog-subscribe-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var em=this.querySelector('input[type=email]').value;var b=this.querySelector('button');b.disabled=true;b.textContent='Sending...';try{var r=await fetch('/api/starter-kit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,source:'blog-cta'})});if(r.ok){f.style.display='none';document.getElementById('blog-subscribe-success').style.display='block'}}catch(e){}b.disabled=false;b.textContent='Subscribe'})});
+    </script>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Share This Article</span>
+            <p style="color:var(--text-muted);">If you found this useful, share it with someone else.</p>
+            <p style="margin-bottom:var(--space-md);">
+                <a href="https://twitter.com/intent/tweet?text=How Ops Teams Use Notion for SOPs and Onboarding%20—%20a%20practical%20comparison%20for%20ops%20teams&url=https://shaynesailab.com/blog/notion-sop-onboarding-ops" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://shaynesailab.com/blog/notion-sop-onboarding-ops" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on LinkedIn</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Keep Exploring</span>
+            <h2>More Tools & Comparisons</h2>
+            <a href="/blog" class="btn btn-secondary">Back to Blog</a>
+            <a href="/starter-kit" class="btn btn-primary">Get the Free Starter Kit</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/starter-kit">Free Starter Kit</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+            <p style="font-size:0.78rem; color:var(--text-dim); margin-top:var(--space-xs);">Some links on this site are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click',function(){const e=document.querySelector('.nav-links');const n=e.style.display==='flex';e.style.display=n?'none':'flex';e.style.flexDirection='column';e.style.position='absolute';e.style.top='100%';e.style.left='0';e.style.right='0';e.style.background='var(--bg-glass)';e.style.backdropFilter='blur(14px)';e.style.padding='1rem 1.5rem';e.style.borderBottom='1px solid var(--border)';e.style.gap='0.75rem';this.setAttribute('aria-expanded',String(!n));});
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>
