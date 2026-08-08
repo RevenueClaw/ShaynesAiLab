@@ -1,7 +1,7 @@
-📝 NEW: Automating Email Triage: Tools and Techniques
+📝 NEW: Automate Email Triage with Make.com and AI
 
 A practical, no-hype comparison for ops teams.
 
 Read the full comparison → https://shaynesailab.com/blog/automate-email-triage
 
-#OpsTools #Automation
+#AITools #OpsTools #Automation

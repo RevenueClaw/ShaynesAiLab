@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automate Email Triage with Make.com and AI — Shayne's AI Lab</title>
+    <meta name="description" content="Building an email triage system using Make.com automation and AI to classify, route, and prioritize incoming messages">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="Automate Email Triage with Make.com and AI — Shayne's AI Lab">
+    <meta property="og:description" content="Building an email triage system using Make.com automation and AI to classify, route, and prioritize incoming messages">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://shaynesailab.com/blog/automate-email-triage">
+    <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Automate Email Triage with Make.com and AI -- Shayne's AI Lab",
+        "description": "Building an email triage system using Make.com automation and AI to classify, route, and prioritize incoming messages",
+        "url": "https://shaynesailab.com/blog/automate-email-triage/",
+        "datePublished": "2026-08-08",
+        "author": {"@type": "Person", "name": "Shayne"},
+        "publisher": {"@type": "Organization", "name": "Shayne's AI Lab", "url": "https://shaynesailab.com"}
+    }
+    </script>
+    <style>
+        .article-body { max-width: 740px; margin: 0 auto; }
+        .article-body h2 { margin-top: var(--space-xl); color: var(--text); }
+        .article-body h3 { margin-top: var(--space-lg); color: var(--text); }
+        .article-body p { margin-bottom: var(--space-sm); color: var(--text-secondary); line-height: 1.8; }
+        .article-body ul, .article-body ol { margin-bottom: var(--space-md); color: var(--text-secondary); padding-left: 1.5rem; }
+        .article-body li { margin-bottom: 0.3rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-md) 0; }
+        .article-body th, .article-body td { padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .article-body th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .article-body td { color: var(--text-secondary); font-size: 0.95rem; }
+        .article-body .affiliate-disclosure { border-left: 2px solid var(--brand-amber); padding: 0.5rem 1rem; margin-bottom: var(--space-lg); background: var(--brand-amber-soft); border-radius: 4px; }
+        .article-body a.affiliate-link { color: var(--brand-teal-light); text-decoration: underline; text-decoration-style: dotted; }
+        .article-meta { font-size: 0.85rem; color: var(--text-dim); margin-bottom: var(--space-lg); text-align: center; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shayne's AI Lab home">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/><path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/blog" class="active" role="menuitem">Blog</a></li>
+                <li><a href="/resources" role="menuitem">Tools</a></li>
+                <li><a href="/starter-kit" role="menuitem">Free Starter Kit</a></li>
+                <li><a href="/contact" role="menuitem">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container" style="max-width: 740px;">
+            <span class="section-label">Blog</span>
+            <h1>Automate Email Triage with Make.com and AI</h1>
+            <p class="article-meta">August 08, 2026</p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="article-body">
+                <p><em>Some links in this article are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</em></p>
+
+<h2>Quick Verdict</h2>
+<p>For most 1–50 person ops teams, using Make.com with OpenAI’s GPT-4o gives the best balance of accuracy and ease of setup for email triage. Claude 3.5 Sonnet is a cheaper alternative if you can tolerate slightly less nuanced classification.</p>
+
+<h2>Overview</h2>
+<p>Email triage is a time sink for small operations teams. Incoming messages need to be classified (support, billing, sales inquiry, internal), prioritized (urgent, normal, low), and routed to the right person or tool. Doing this manually scales poorly.</p>
+<p>Make.com (formerly Integromat) lets you build automated workflows without code. Combined with an AI model, you can create a system that reads each email’s subject and body, categorizes it, and sends it to Slack, ClickUp, or a ticketing system. The core flow:</p>
+<ul>
+  <li>Trigger: New email via Gmail, Outlook, or IMAP module.</li>
+  <li>AI step: Send email text to an LLM API (OpenAI, Claude, etc.) with a prompt to return JSON with category, priority, and summary.</li>
+  <li>Routing: Use Make.com’s router to send to different apps based on the AI output.</li>
+</ul>
+<p>Below I compare two popular AI providers for the classification step. Both work well with Make.com’s HTTP module.</p>
+
+<h2>Head-to-Head: OpenAI GPT-4o vs. Claude 3.5 Sonnet</h2>
+<h3>Strengths &amp; Weaknesses</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Criteria</th>
+      <th>OpenAI GPT-4o</th>
+      <th>Claude 3.5 Sonnet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Classification accuracy</td>
+      <td>Excellent with nuanced categories (e.g., “billing vs. sales” when context overlaps)</td>
+      <td>Very good, slightly less reliable on ambiguous phrasing</td>
+    </tr>
+    <tr>
+      <td>Structured output (JSON)</td>
+      <td>Good with system prompts; occasional formatting errors</td>
+      <td>Excellent – rarely deviates from requested JSON schema</td>
+    </tr>
+    <tr>
+      <td>Latency per email</td>
+      <td>~1–2 seconds</td>
+      <td>~2–3 seconds</td>
+    </tr>
+    <tr>
+      <td>Cost per 1,000 emails (avg 200 tokens)</td>
+      <td>$0.30 (input) + $1.20 (output) ≈ $1.50</td>
+      <td>$0.15 (input) + $0.60 (output) ≈ $0.75</td>
+    </tr>
+    <tr>
+      <td>Ease of integration in Make.com</td>
+      <td>Native OpenAI module available (easier), or HTTP module</td>
+      <td>HTTP module only (requires API key and correct endpoint)</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>Verdict on the comparison:</strong> GPT-4o is the default for teams that need high accuracy and can afford the premium. Claude is a strong cost-saver if your email categories are clear-cut and you want to avoid occasional JSON fixes.</p>
+
+<h2>Price Comparison</h2>
+<p>Beyond AI API costs, you need a Make.com plan. Here’s the full picture for a team processing ~500 emails/month:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Cost/month</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Make.com Core plan (10k ops)</td>
+      <td>$9</td>
+      <td>Sufficient for 500 emails + routing actions</td>
+    </tr>
+    <tr>
+      <td>OpenAI GPT-4o (500 emails)</td>
+      <td>~$0.75</td>
+      <td>Based on ~200 tokens per email</td>
+    </tr>
+    <tr>
+      <td>Claude 3.5 Sonnet (500 emails)</td>
+      <td>~$0.38</td>
+      <td>Half the cost of GPT-4o</td>
+    </tr>
+    <tr>
+      <td>Total with GPT-4o</td>
+      <td>~$9.75</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Total with Claude</td>
+      <td>~$9.38</td>
+      <td>Negligible difference at low volume</td>
+    </tr>
+  </tbody>
+</table>
+<p>At higher volumes (5,000 emails/month), the AI cost gap widens: ~$7.50 for GPT-4o vs. ~$3.75 for Claude. Make.com’s plan may need an upgrade to the Pro plan ($16/month) if you exceed 10k operations.</p>
+
+<h2>Who Each Is For</h2>
+<h3>OpenAI GPT-4o</h3>
+<ul>
+  <li>Teams handling complex, multi-department email (e.g., support + sales + legal).</li>
+  <li>You want the native Make.com OpenAI module for simpler setup.</li>
+  <li>Budget is not a primary concern – you prioritize accuracy over cost.</li>
+</ul>
+<h3>Claude 3.5 Sonnet</h3>
+<ul>
+  <li>Teams with well-defined, distinct categories (e.g., “support” vs. “spam”).</li>
+  <li>You’re comfortable setting up an HTTP module and parsing JSON.</li>
+  <li>You want to minimize AI spend without sacrificing too much quality.</li>
+</ul>
+<p>Both approaches let you route emails to Slack, ClickUp, or a shared inbox. If you already use <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> for task management, you can create tasks directly from triaged emails. For teams that also need to transcribe voicemails or meeting notes from email attachments, <a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> can be integrated as a downstream action.</p>
+
+<h2>Further Reading</h2>
+<ul>
+  <li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> – Start building your email triage workflow (free plan available).</li>
+  <li><a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> – Task management to receive routed emails as tasks.</li>
+  <li><a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> – Meeting transcription and note-taking, useful if email triage includes meeting requests.</li>
+  <li>OpenAI API documentation – For crafting your classification prompt.</li>
+  <li>Anthropic Claude API docs – For structured output best practices.</li>
+</ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inline email capture CTA -->
+    <section class="section" style="text-align:center;background:var(--bg-glass);border:1px solid var(--border);border-radius:12px;margin:2rem auto;max-width:600px;padding:2rem 1.5rem;">
+        <h3 style="margin-bottom:0.5rem;">Get Weekly Ops Tips</h3>
+        <p style="color:var(--text-muted);margin-bottom:1rem;font-size:0.9rem;">Free automation workflows, tool comparisons, and ops templates — once a week, no spam.</p>
+        <form id="blog-subscribe-form" style="display:flex;gap:0.5rem;max-width:400px;margin:0 auto;">
+            <input type="email" name="email" placeholder="you@example.com" required style="flex:1;padding:0.6rem 1rem;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text);font-size:0.9rem;">
+            <button type="submit" class="btn btn-primary" style="white-space:nowrap;flex-shrink:0;">Subscribe</button>
+        </form>
+        <p style="margin-top:0.5rem;font-size:0.78rem;color:var(--text-dim);">No spam, ever. <a href="/privacy">Privacy policy</a>.</p>
+        <div id="blog-subscribe-success" style="display:none;"><p style="color:var(--brand-green);">✓ Check your email!</p></div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded',function(){var f=document.getElementById('blog-subscribe-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var em=this.querySelector('input[type=email]').value;var b=this.querySelector('button');b.disabled=true;b.textContent='Sending...';try{var r=await fetch('/api/starter-kit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,source:'blog-cta'})});if(r.ok){f.style.display='none';document.getElementById('blog-subscribe-success').style.display='block'}}catch(e){}b.disabled=false;b.textContent='Subscribe'})});
+    </script>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Share This Article</span>
+            <p style="color:var(--text-muted);">If you found this useful, share it with someone else.</p>
+            <p style="margin-bottom:var(--space-md);">
+                <a href="https://twitter.com/intent/tweet?text=Automate Email Triage with Make.com and AI%20—%20a%20practical%20comparison%20for%20ops%20teams&url=https://shaynesailab.com/blog/automate-email-triage" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://shaynesailab.com/blog/automate-email-triage" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on LinkedIn</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Keep Exploring</span>
+            <h2>More Tools & Comparisons</h2>
+            <a href="/blog" class="btn btn-secondary">Back to Blog</a>
+            <a href="/starter-kit" class="btn btn-primary">Get the Free Starter Kit</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/starter-kit">Free Starter Kit</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+            <p style="font-size:0.78rem; color:var(--text-dim); margin-top:var(--space-xs);">Some links on this site are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click',function(){const e=document.querySelector('.nav-links');const n=e.style.display==='flex';e.style.display=n?'none':'flex';e.style.flexDirection='column';e.style.position='absolute';e.style.top='100%';e.style.left='0';e.style.right='0';e.style.background='var(--bg-glass)';e.style.backdropFilter='blur(14px)';e.style.padding='1rem 1.5rem';e.style.borderBottom='1px solid var(--border)';e.style.gap='0.75rem';this.setAttribute('aria-expanded',String(!n));});
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+</body>
+</html>
