@@ -41,6 +41,11 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
+    <loc>https://shaynesailab.com/blog/best-ai-image-generators</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://shaynesailab.com/blog/automate-email-triage</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
@@ -132,11 +137,6 @@
   </url>
   <url>
     <loc>https://shaynesailab.com/blog/best-ai-writing-tools</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://shaynesailab.com/blog/best-ai-image-generators</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
