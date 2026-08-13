@@ -3,9 +3,9 @@
     "email": "test-cron@example.com",
     "firstName": "CronTest",
     "signup_date": "2026-07-13T08:00:00+00:00",
-    "nurture_step": 5,
+    "nurture_step": 6,
     "source": "test",
-    "nurture_sent_at": "2026-08-04T13:30:02.320941+00:00"
+    "nurture_sent_at": "2026-08-12T13:30:02.153654+00:00"
   },
   {
     "email": "alert-test@worthitgoods.com",

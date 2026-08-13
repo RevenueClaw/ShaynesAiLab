@@ -1,5 +1,12 @@
 [
   {
+    "title": "AI Tool Pricing Compared: What Everything Actually Costs in 2026",
+    "slug": "ai-tool-pricing",
+    "date": "2026-08-13",
+    "description": "Monthly cost comparison of popular AI tools including ChatGPT, Claude, Midjourney, Jasper, and more",
+    "url": "/blog/ai-tool-pricing"
+  },
+  {
     "title": "Best AI Image Generators for Business: Midjourney vs DALL-E vs Stable Diffusion",
     "slug": "best-ai-image-generators",
     "date": "2026-08-12",
@@ -138,13 +145,6 @@
     "date": "2026-07-15",
     "description": "Comparing Jasper, Copy.ai, Writesonic, and other AI writing tools for operations documentation and communication",
     "url": "/blog/best-ai-writing-tools"
-  },
-  {
-    "title": "AI Tool Pricing Compared: What Everything Actually Costs in 2026",
-    "slug": "ai-tool-pricing",
-    "date": "2026-07-15",
-    "description": "Monthly cost comparison of popular AI tools including ChatGPT, Claude, Midjourney, Jasper, and more",
-    "url": "/blog/ai-tool-pricing"
   },
   {
     "title": "AI Meeting Assistants Compared: Otter vs Fireflies vs Fathom",
