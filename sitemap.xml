@@ -41,6 +41,11 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
+    <loc>https://shaynesailab.com/blog/free-ai-tools-ops</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://shaynesailab.com/blog/automation-platforms</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
@@ -132,11 +137,6 @@
   </url>
   <url>
     <loc>https://shaynesailab.com/blog/chatgpt-vs-claude-vs-gemini</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://shaynesailab.com/blog/free-ai-tools-ops</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>

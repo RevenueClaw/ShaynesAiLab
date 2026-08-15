@@ -1,5 +1,12 @@
 [
   {
+    "title": "Best Free AI Tools for Small Business Operations",
+    "slug": "free-ai-tools-ops",
+    "date": "2026-08-15",
+    "description": "Free and low-cost AI tools that operations teams at 1-50 person companies can use immediately",
+    "url": "/blog/free-ai-tools-ops"
+  },
+  {
     "title": "Make.com vs Zapier vs n8n: Best Automation Platform for Ops",
     "slug": "automation-platforms",
     "date": "2026-08-14",
@@ -131,13 +138,6 @@
     "date": "2026-07-15",
     "description": "Comparing the three major AI assistants for operations tasks \u2014 writing, analysis, and automation workflows",
     "url": "/blog/chatgpt-vs-claude-vs-gemini"
-  },
-  {
-    "title": "Best Free AI Tools for Small Business Operations",
-    "slug": "free-ai-tools-ops",
-    "date": "2026-07-15",
-    "description": "Free and low-cost AI tools that operations teams at 1-50 person companies can use immediately",
-    "url": "/blog/free-ai-tools-ops"
   },
   {
     "title": "Best AI Writing Tools for Ops Teams in 2026",
