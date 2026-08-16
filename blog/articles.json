@@ -1,5 +1,12 @@
 [
   {
+    "title": "AI Meeting Assistants Compared: Otter vs Fireflies vs Fathom",
+    "slug": "ai-meeting-assistants",
+    "date": "2026-08-16",
+    "description": "Comparing AI meeting note-taking and transcription tools for teams that want to capture and action meeting content",
+    "url": "/blog/ai-meeting-assistants"
+  },
+  {
     "title": "Best Free AI Tools for Small Business Operations",
     "slug": "free-ai-tools-ops",
     "date": "2026-08-15",
@@ -145,13 +152,6 @@
     "date": "2026-07-15",
     "description": "Comparing Jasper, Copy.ai, Writesonic, and other AI writing tools for operations documentation and communication",
     "url": "/blog/best-ai-writing-tools"
-  },
-  {
-    "title": "AI Meeting Assistants Compared: Otter vs Fireflies vs Fathom",
-    "slug": "ai-meeting-assistants",
-    "date": "2026-07-15",
-    "description": "Comparing AI meeting note-taking and transcription tools for teams that want to capture and action meeting content",
-    "url": "/blog/ai-meeting-assistants"
   },
   {
     "title": "AI Code Assistants Compared: GitHub Copilot vs Cursor vs Codeium",
