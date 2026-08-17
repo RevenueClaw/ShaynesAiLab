@@ -14,7 +14,20 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://shaynesailab.com/blog/make-beginners-5-automations">
     <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
-    <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Make.com for Beginners: Your First 5 Automations -- Shayne's AI Lab",
+        "description": "Step-by-step guide to setting up your first five Make.com automations — email triage, lead capture, invoice alerts, Slack notifications, and data sync",
+        "url": "https://shaynesailab.com/blog/make-beginners-5-automations/",
+        "datePublished": "2026-08-17",
+        "author": {"@type": "Person", "name": "Shayne"},
+        "publisher": {"@type": "Organization", "name": "Shayne's AI Lab", "url": "https://shaynesailab.com"}
+    }
+    </script>
     <style>
         .article-body { max-width: 740px; margin: 0 auto; }
         .article-body h2 { margin-top: var(--space-xl); color: var(--text); }
@@ -30,31 +43,6 @@
         .article-body a.affiliate-link { color: var(--brand-teal-light); text-decoration: underline; text-decoration-style: dotted; }
         .article-meta { font-size: 0.85rem; color: var(--text-dim); margin-bottom: var(--space-lg); text-align: center; }
     </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Make.com for Beginners: Your First 5 Automations",
-  "description": "Step-by-step guide to setting up your first five Make.com automations \u2014 email triage, lead capture, invoice alerts, Slack notifications, and data sync",
-  "url": "https://shaynesailab.com/blog/make-beginners-5-automations/",
-  "datePublished": "2026-07-28",
-  "dateModified": "2026-07-28",
-  "author": {
-    "@type": "Person",
-    "name": "Shayne"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Shayne's AI Lab",
-    "url": "https://shaynesailab.com"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://shaynesailab.com/blog/make-beginners-5-automations/"
-  }
-}
-</script>
 </head>
 <body>
     <nav>
@@ -78,156 +66,166 @@
         <div class="container" style="max-width: 740px;">
             <span class="section-label">Blog</span>
             <h1>Make.com for Beginners: Your First 5 Automations</h1>
-            <p class="article-meta">July 28, 2026</p>
+            <p class="article-meta">August 17, 2026</p>
         </div>
     </section>
 
     <section class="section section-alt">
         <div class="container">
             <div class="article-body">
-                ```html
-<div class="affiliate-disclosure">
-  <em>Disclosure: Some links in this article are affiliate links. If you make a purchase through them, I may earn a commission at no extra cost to you.</em>
+                <p><em>Disclosure: Some links in this article are affiliate links. We may earn a small commission if you sign up through them, at no extra cost to you. We only recommend tools we actually use and find valuable for ops teams.</em></p>
 
-</div>
-    </div>
-</section>
+<h2>Quick Verdict</h2>
+<p>Make.com is the most cost-effective automation platform for small ops teams who need to connect apps without writing code. It’s not as polished as Zapier, but it beats it on pricing and flexibility for most internal workflows.</p>
 
-<section class="section" style="text-align:center; background:var(--bg-glass); border:1px solid var(--border); border-radius:12px; margin:2rem auto; max-width:600px; padding:2rem 1.5rem;">
-    <h3 style="margin-bottom:0.5rem;">Get Weekly Ops Tips</h3>
-    <p style="color:var(--text-muted); margin-bottom:1rem; font-size:0.9rem;">Free automation workflows, tool comparisons, and ops templates — once a week, no spam.</p>
-    <form id="blog-subscribe-form" style="display:flex; gap:0.5rem; max-width:400px; margin:0 auto;">
-        <input type="email" name="email" placeholder="you@example.com" required style="flex:1; padding:0.6rem 1rem; border:1px solid var(--border); border-radius:8px; background:var(--bg-card); color:var(--text); font-size:0.9rem;">
-        <button type="submit" class="btn btn-primary" style="white-space:nowrap; flex-shrink:0;">Subscribe</button>
-    </form>
-    <p class="form-note" style="margin-top:0.5rem; font-size:0.78rem; color:var(--text-dim);">No spam, ever. <a href="/privacy">Privacy policy</a>.</p>
-    <div id="blog-subscribe-success" style="display:none;"><p style="color:var(--brand-green);">✓ Check your email for the confirmation!</p></div>
-</section>
+<h2>Overview</h2>
+<p>If you run operations for a 1-50 person company, you probably spend too much time on repetitive tasks. Make.com (formerly Integromat) lets you build visual automation "scenarios" that move data between tools like Gmail, Slack, Google Sheets, and your CRM. For teams on a budget, it’s a clear winner over Zapier on price, though the learning curve is slightly steeper.</p>
 
-<section class="section" style="text-align:center;">
-    <div class="container">
-        <div class="article-body">
+<p>Below are five automations you can build in under 30 minutes each. They’re practical, specific, and require zero coding.</p>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('blog-subscribe-form');
-    if (!form) return;
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        var email = this.querySelector('input[type=email]').value;
-        var btn = this.querySelector('button');
-        btn.disabled = true;
-        btn.textContent = 'Sending...';
-        try {
-            var resp = await fetch('/api/starter-kit', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({email: email, source: 'blog-cta'})
-            });
-            if (resp.ok) {
-                form.style.display = 'none';
-                document.getElementById('blog-subscribe-success').style.display = 'block';
-            }
-        } catch(e) {}
-        btn.disabled = false;
-        btn.textContent = 'Subscribe';
-    });
-});
-</script>
+<h2>Automation 1: Email Triage (Gmail + Slack)</h2>
+<p><strong>The problem:</strong> Your shared inbox gets flooded with support requests, vendor emails, and internal noise. Someone has to manually forward or tag emails.</p>
+<p><strong>The fix:</strong> Watch a Gmail label (e.g., "Support") and send a clean Slack message with the sender, subject, and a preview. Tag a specific channel.</p>
 
-</div>
+<h3>How to set it up</h3>
+<ol>
+<li>In Make, create a new scenario with Gmail as the trigger module: "Watch Emails."</li>
+<li>Set it to poll a specific label (create it in Gmail first).</li>
+<li>Add a Slack module: "Create a Message." Channel = #support, message text = <code>New ticket from {{sender}} - {{subject}} - {{body preview}}</code>.</li>
+<li>Run once to test, then schedule every 5 minutes.</li>
+</ol>
+<p><strong>Cost:</strong> Free tier (1,000 ops/month) handles this. Zero ongoing cost.</p>
+<p><strong>Honest take:</strong> Works great for low-volume teams. If you get 50+ support emails/hour, you’ll hit Make’s free tier limit fast. Consider a dedicated help desk at that point.</p>
 
-<section id="quick-verdict">
-  <h2>Quick Verdict</h2>
-  <p>Make.com is the best value no‑code automation platform for ops teams at 1–50 person companies — more flexible than Zapier for the same price, but expect a steeper learning curve. For the five automations below, it saves roughly 8–12 hours per week once set up.</p>
-</section>
+<h2>Automation 2: Lead Capture (Web Forms + Google Sheets + Slack)</h2>
+<p><strong>The problem:</strong> Leads come through multiple channels (website form, Typeform, Calendly) and end up scattered.</p>
+<p><strong>The fix:</strong> Centralize all form submissions into one Google Sheet, then post a Slack notification to your sales channel.</p>
 
-<section id="overview">
-  <h2>Overview</h2>
-  <p>If you’re running operations for a small team, you’re probably drowning in repetitive tasks: triaging email, capturing leads, sending invoices, updating Slack, and syncing data between tools. <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> (formerly Integromat) lets you automate these workflows without writing code. It’s not as beginner‑friendly as Zapier at first, but it offers more conditional logic, built‑in data transformation, and cheaper pricing for high‑volume scenarios.</p>
-  <p>This guide walks you through your first five automations step‑by‑step. Each one takes 15–30 minutes to build and will pay for itself in a week.</p>
-</section>
+<h3>How to set it up</h3>
+<ol>
+<li>Use Make’s webhook module as the trigger. Copy the webhook URL and paste it into your form tool (e.g., Typeform "Send webhook" action).</li>
+<li>Add a Google Sheets module: "Add Row." Map fields like Name, Email, Company.</li>
+<li>Add Slack: "Create a Message" in #leads with the same data.</li>
+</ol>
+<p><strong>Cost:</strong> Free tier. Webhooks count as 1 operation per trigger.</p>
+<p><strong>Honest take:</strong> This replaces HubSpot’s form integrations for free. The downside? You won’t get lead scoring or activity tracking. Pair it with a lightweight CRM (e.g., <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> connects with Pipedrive and HubSpot directly) if you need that.</p>
 
-<section id="head-to-head">
-  <h2>Head‑to‑Head: Make.com vs. Zapier vs. n8n</h2>
-  <p>For small ops teams, the main alternatives are <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a>, Zapier, and self‑hosted n8n.</p>
-  <ul>
-    <li><strong>Make.com</strong> – Best price‑to‑power ratio. Offers routers, iterators, and aggregators out of the box. The visual builder is intuitive once you learn its quirks. Weakness: documentation can feel scattered, and error handling is less polished than Zapier’s.</li>
-    <li><strong>Zapier</strong> – Most beginner‑friendly. Multi‑step Zaps are limited on free plans, and pricing jumps quickly at 2,000+ tasks/month. Good if you need to set up a simple automation in minutes and never touch it again.</li>
-    <li><strong>n8n</strong> – Free and open‑source, but requires server hosting or paying for their cloud. You get infinite customisation, but ops teams without a dev resource usually find the setup overhead too high.</li>
-  </ul>
-  <p><strong>Verdict:</strong> For the five automations below, Make.com hits the sweet spot — affordable for 5,000–10,000 operations/month and flexible enough to handle conditional branching (e.g., “if email contains ‘urgent’ then alert Slack, else file in folder”).</p>
-</section>
+<h2>Automation 3: Invoice Alerts (Gmail + Google Sheets + Email)</h2>
+<p><strong>The problem:</strong> You miss invoice due dates because they’re buried in email.</p>
+<p><strong>The fix:</strong> When an invoice email arrives (search by subject "invoice"), extract the amount, due date, and vendor, log it to a Sheet, and send yourself a reminder email 3 days before due.</p>
 
-<section id="price-comparison">
-  <h2>Price Comparison</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Tool</th>
-        <th>Free Tier</th>
-        <th>Paid Starter (per month)</th>
-        <th>Best for</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a></td>
-        <td>1,000 ops/month, 2 active scenarios</td>
-        <td>$9.16 (10,000 ops)</td>
-        <td>Teams that need moderate‑complex logic</td>
-      </tr>
-      <tr>
-        <td>Zapier</td>
-        <td>100 tasks/month, 5 Zaps</td>
-        <td>$19.99 (750 tasks)</td>
-        <td>Quick, simple workflows</td>
-      </tr>
-      <tr>
-        <td>n8n (cloud)</td>
-        <td>No free tier</td>
-        <td>$20 (5,000 workflow executions)</td>
-        <td>Teams with dev skills or privacy needs</td>
-      </tr>
-    </tbody>
-  </table>
-  <p><em>Note: “Ops” on Make.com refers to one successful run of a scenario step; a 5‑step automation uses 5 ops per run. Roughly 1,000 task runs = 5,000 ops. Make.com’s pricing is often 2‑3x cheaper than Zapier for equivalent volume.</em></p>
-</section>
+<h3>How to set it up</h3>
+<ol>
+<li>Trigger: Gmail "Watch Emails" filtered by subject contains "invoice" AND from your vendors’ domains.</li>
+<li>Use Make’s text parser module to extract $ amount and date using regex (Make has a visual regex builder).</li>
+<li>Google Sheets: add row with vendor, amount, due date.</li>
+<li>Next module: Email module with condition "if due date is within 3 days" → send reminder.</li>
+</ol>
+<p><strong>Cost:</strong> Free tier covers this. Regex parsing uses 1 operation.</p>
+<p><strong>Honest take:</strong> You’ll need to tweak the regex for different invoice formats. It’s not plug-and-play. But once it’s working, it saves you late fees. For a simpler alternative, use a dedicated AP tool like Bill.com.</p>
 
-<section id="who-each-is-for">
-  <h2>Who Each Is For</h2>
-  <ul>
-    <li><strong>Make.com</strong> – Ops leaders who have time to learn the platform and want to automate complex multi‑branch workflows without paying enterprise rates. Good if you already use Google Sheets, Gmail, Slack, and <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> or <a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> for meeting notes.</li>
-    <li><strong>Zapier</strong> – Teams that value speed of setup above all else and have predictable, linear workflows (e.g., form submission → email notification). Avoid if you need conditional logic beyond “if/then.”</li>
-    <li><strong>n8n</strong> – Tech‑savvy ops teams that want full control and zero per‑operation costs. Best for companies with a part‑time developer who can host and maintain it.</li>
-  </ul>
-</section>
+<h2>Automation 4: Slack Notifications for Key Events</h2>
+<p><strong>The problem:</strong> Your team misses important app events—new customer sign-ups, failed payments, or deployment alerts.</p>
+<p><strong>The fix:</strong> Connect your payment processor (Stripe), CRM (HubSpot), or monitoring tool (Datadog) to Slack via webhooks.</p>
 
-<section id="quick-verdict-final">
-  <h2>Quick Verdict</h2>
-  <p>Start with <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a>. Its free tier lets you build all five automations below for zero cost, and upgrading to $9/mo gives you enough capacity for a 10‑person ops team. If you get stuck, the community forums are active and the built‑in error
-            
-    </div>
+<h3>How to set it up</h3>
+<ol>
+<li>Trigger: Choose your app (Stripe "New Payment," HubSpot "New Deal," or Datadog "Alert").</li>
+<li>Slack module: "Create a Message." Customize the message with dynamic data (e.g., customer name, amount).</li>
+<li>For webhook-based tools: use Make’s webhook trigger, then forward to Slack.</li>
+</ol>
+<p><strong>Cost:</strong> Free tier. Each event = 1 operation.</p>
+<p><strong>Honest take:</strong> This is Make’s sweet spot. Slack’s native integrations are limited; Make gives you full control over message formatting and conditional logic. Only downside: you need to maintain the scenario if APIs change (rare, but happens).</p>
+
+<h2>Automation 5: Data Sync (Google Sheets ↔ Fireflies.ai)</h2>
+<p><strong>The problem:</strong> Meeting notes from <a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> stay in its own interface—your team doesn’t see action items in your shared docs.</p>
+<p><strong>The fix:</strong> When Fireflies generates a new transcript, push key fields (meeting title, date, action items) to a Google Sheet for tracking.</p>
+
+<h3>How to set it up</h3>
+<ol>
+<li>Trigger: Fireflies webhook (configure in Fireflies "Integrations" → "Webhooks") sends new transcript data.</li>
+<li>Make receives the webhook, parses JSON to extract title, date, and action items.</li>
+<li>Google Sheets: "Add Row" or "Update Cell" for each action item.</li>
+<li>Optionally: send a Slack message with a link to the full transcript.</li>
+</ol>
+<p><strong>Cost:</strong> Free tier. Webhook + Sheets update = 2 ops per meeting.</p>
+<p><strong>Honest take:</strong> This is powerful but requires some comfort with JSON. If you’re not technical, ask your ops-savvy teammate to set it up. Fireflies’ native integrations are limited; Make fills the gap nicely.</p>
+
+<h2>Price Comparison: Make.com vs Zapier</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Make.com (Free)</th>
+<th>Zapier (Free)</th>
+<th>Make.com (Pro $9/mo)</th>
+<th>Zapier (Starter $19.99/mo)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monthly ops/tasks</td>
+<td>1,000</td>
+<td>100</td>
+<td>10,000</td>
+<td>750</td>
+</tr>
+<tr>
+<td>Multi-step workflows</td>
+<td>Unlimited</td>
+<td>Single-step only</td>
+<td>Unlimited</td>
+<td>Unlimited</td>
+</tr>
+<tr>
+<td>Premium apps</td>
+<td>No</td>
+<td>No</td>
+<td>Some</td>
+<td>Some</td>
+</tr>
+<tr>
+<td>Conditional logic</td>
+<td>Built-in</td>
+<td>No</td>
+<td>Built-in</td>
+<td>Available</td>
+</tr>
+</tbody>
+</table>
+<p>For most small ops teams, Make’s free or $9 plan offers 10-100x more capacity than Zapier at a lower price. Zapier wins on ease of use and pre-built templates, but if you’re willing to spend 30 minutes learning the interface, Make delivers more.</p>
+
+<h2>Who Each Is For</h2>
+<p><strong>Make.com is for:</strong> Ops teams that need power and volume on a budget. You’re comfortable with a slightly steeper learning curve, and you want unlimited multi-step workflows. Ideal if you have 10-50 employees and need 5-10 active automations.</p>
+<p><strong>Zapier is for:</strong> Non-technical users who want instant setup and don’t mind paying 2x for fewer tasks. Better if you only need simple one-step connections.</p>
+<p><strong>Alternative: n8n</strong> — Open-source, free self-hosted option. More powerful but requires technical setup. Overkill for most <50-person teams unless you have dev capacity.</p>
+
+<h2>Further Reading</h2>
+<ul>
+<li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com official site</a> (sign up for free)</li>
+<li><a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp automations</a> — alternative if you already use ClickUp for project management (built-in no-code automations)</li>
+<li>Make.com Community — excellent forums for troubleshooting scenarios</li>
+<li><a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> — AI meeting notes tool that pairs well with these automations</li>
+</ul>
+            </div>
         </div>
     </section>
 
-    <section class="section" style="text-align:center;">
-        <div class="container">
-            <span class="section-label">Keep Exploring</span>
-            <h2>Further Reading</h2>
-            <ul style="list-style:none; text-align:left; max-width:600px; margin:0 auto;">
-  <li><a href="https://shaynesailab.com/blog/automation-platforms/"><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> vs Zapier vs n8n: Best Automation Platform for Ops</a></li>
-  <li><a href="https://shaynesailab.com/blog/make-automations-ops/">5 <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> Automations Every Ops Team Should Run</a></li>
-  <li><a href="https://shaynesailab.com/blog/lead-capture-jotform-make/">How to Build a Lead Capture System with <a href="https://www.jotform.com/?partner=revenueclaw" class="affiliate-link">Jotform</a> + <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a></a></li>
-            </ul>
-        </div>
+    <!-- Inline email capture CTA -->
+    <section class="section" style="text-align:center;background:var(--bg-glass);border:1px solid var(--border);border-radius:12px;margin:2rem auto;max-width:600px;padding:2rem 1.5rem;">
+        <h3 style="margin-bottom:0.5rem;">Get Weekly Ops Tips</h3>
+        <p style="color:var(--text-muted);margin-bottom:1rem;font-size:0.9rem;">Free automation workflows, tool comparisons, and ops templates — once a week, no spam.</p>
+        <form id="blog-subscribe-form" style="display:flex;gap:0.5rem;max-width:400px;margin:0 auto;">
+            <input type="email" name="email" placeholder="you@example.com" required style="flex:1;padding:0.6rem 1rem;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text);font-size:0.9rem;">
+            <button type="submit" class="btn btn-primary" style="white-space:nowrap;flex-shrink:0;">Subscribe</button>
+        </form>
+        <p style="margin-top:0.5rem;font-size:0.78rem;color:var(--text-dim);">No spam, ever. <a href="/privacy">Privacy policy</a>.</p>
+        <div id="blog-subscribe-success" style="display:none;"><p style="color:var(--brand-green);">✓ Check your email!</p></div>
     </section>
 
-    <section class="section" style="text-align:center;">
-        <div class="container">
-</div>
-        </div>
-    </section>
+    <script>
+    document.addEventListener('DOMContentLoaded',function(){var f=document.getElementById('blog-subscribe-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var em=this.querySelector('input[type=email]').value;var b=this.querySelector('button');b.disabled=true;b.textContent='Sending...';try{var r=await fetch('/api/starter-kit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,source:'blog-cta'})});if(r.ok){f.style.display='none';document.getElementById('blog-subscribe-success').style.display='block'}}catch(e){}b.disabled=false;b.textContent='Subscribe'})});
+    </script>
 
     <section class="section" style="text-align:center;">
         <div class="container">
