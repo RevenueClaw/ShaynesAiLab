@@ -1,5 +1,12 @@
 [
   {
+    "title": "Small Team CRM Showdown: HubSpot vs Freshsales vs Pipedrive",
+    "slug": "small-team-crm-showdown",
+    "date": "2026-08-18",
+    "description": "Comparing CRMs for 1-50 person teams \u2014 HubSpot free tier, Freshsales, and Pipedrive for pipeline management",
+    "url": "/blog/small-team-crm-showdown"
+  },
+  {
     "title": "Remote Ops Essentials: Tools Every Remote Team Needs",
     "slug": "remote-ops-essentials",
     "date": "2026-08-17",
@@ -103,13 +110,6 @@
     "date": "2026-07-31",
     "description": "Building an automated invoice processing workflow using Jotform for intake and Make.com for routing and notifications",
     "url": "/blog/automate-invoice-processing"
-  },
-  {
-    "title": "Small Team CRM Showdown: HubSpot vs Freshsales vs Pipedrive",
-    "slug": "small-team-crm-showdown",
-    "date": "2026-07-30",
-    "description": "Comparing CRMs for 1-50 person teams \u2014 HubSpot free tier, Freshsales, and Pipedrive for pipeline management",
-    "url": "/blog/small-team-crm-showdown"
   },
   {
     "title": "Systeme.io vs ClickFunnels vs Kajabi: Best All-in-One Platform for Ops Teams",
