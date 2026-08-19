@@ -23,7 +23,7 @@
         "headline": "How to Automate Invoice Processing with Jotform and Make -- Shayne's AI Lab",
         "description": "Building an automated invoice processing workflow using Jotform for intake and Make.com for routing and notifications",
         "url": "https://shaynesailab.com/blog/automate-invoice-processing/",
-        "datePublished": "2026-07-31",
+        "datePublished": "2026-08-19",
         "author": {"@type": "Person", "name": "Shayne"},
         "publisher": {"@type": "Organization", "name": "Shayne's AI Lab", "url": "https://shaynesailab.com"}
     }
@@ -66,181 +66,115 @@
         <div class="container" style="max-width: 740px;">
             <span class="section-label">Blog</span>
             <h1>How to Automate Invoice Processing with Jotform and Make</h1>
-            <p class="article-meta">July 31, 2026</p>
+            <p class="article-meta">August 19, 2026</p>
         </div>
     </section>
 
     <section class="section section-alt">
         <div class="container">
             <div class="article-body">
-                <em>Disclosure: Some links in this article are affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.</em>
+                <aside class="affiliate-disclosure">
+  <p><em>Disclosure: Some links in this article are affiliate links. We may earn a commission at no extra cost to you.</em></p>
+</aside>
 
-<h2>Quick Verdict</h2>
-<p>Jotform + Make.com is a solid, low-cost way to automate invoice intake and routing for small teams. It won't replace an ERP, but it eliminates manual email forwarding and spreadsheet hunting for most service businesses under 50 people.</p>
+<section>
+  <h2>Quick Verdict</h2>
+  <p>Jotform + Make provides a reliable, low-cost invoice processing pipeline for small ops teams. Jotform handles intake and basic data capture. Make routes the invoice data to your accounting tool, Slack, or email. This combo works best for teams processing fewer than 100 invoices monthly. Beyond that, look at dedicated AP automation tools.</p>
+</section>
 
-<h2>Overview</h2>
-<p>Invoice processing is a pain point for ops teams at small companies. You get PDFs in email, Slack attachments, maybe a shared Dropbox folder. Someone has to open each one, check the amount, confirm the vendor, and decide who needs to approve it. Then you track payment status manually.</p>
-<p>Jotform handles the intake side — a simple form where vendors or internal staff upload invoices. Make.com (formerly Integromat) handles the routing and notifications. Together, they replace the manual triage step. The workflow looks like this:</p>
-<ul>
-  <li>Vendor submits invoice via Jotform (upload PDF, enter amount, vendor name, PO number if applicable)</li>
-  <li>Jotform stores the submission and triggers a Make scenario</li>
-  <li>Make checks the amount against a threshold (e.g., under $500 goes to team lead, over $500 goes to finance manager)</li>
-  <li>Make sends a notification to the right person via email or Slack with a link to the submission</li>
-  <li>Approver clicks a link to view the invoice and mark it approved or rejected (via a simple Jotform approval form or a status update)</li>
-  <li>Make updates a Google Sheet or your accounting tool with the final status</li>
-</ul>
-<p>This isn't a full AP automation solution — it won't extract line items or match POs automatically. But for teams processing 20-50 invoices a month, it cuts the manual routing time by about 70%.</p>
+<section>
+  <h2>Overview</h2>
+  <p>Invoice processing is a manual time sink for most small teams. Someone receives a PDF, enters data into accounting software, checks approvals, and files it. At 1-50 person companies, this often falls on ops leads who have enough on their plate. Jotform and Make together strip out most of the manual steps without heavy upfront costs or weeks of setup.</p>
 
-<h2>Head-to-Head: Jotform vs. Alternatives for Intake</h2>
-<p>Jotform isn't the only form builder, but it's the best fit here. Let's compare it to the obvious alternatives:</p>
+  <p>The workflow is straightforward: vendor submits an invoice through a Jotform form attached with the PDF. Jotform extracts key fields (invoice number, amount, date, vendor name, line items) and sends that structured data to Make. Make then routes the invoice for internal approval, posts a notification to Slack or email, and optionally pushes the record to your accounting tool like QuickBooks or Xero.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Feature</th>
-      <th>Jotform</th>
-      <th>Google Forms</th>
-      <th>Typeform</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>File upload (PDF)</td>
-      <td>Yes, up to 1GB per form</td>
-      <td>Yes, but limited to 10GB total Drive storage</td>
-      <td>Yes, but only on paid plans</td>
-    </tr>
-    <tr>
-      <td>Conditional logic</td>
-      <td>Robust, easy to set up</td>
-      <td>Basic (sections only)</td>
-      <td>Good, but more complex</td>
-    </tr>
-    <tr>
-      <td>Direct Make.com integration</td>
-      <td>Native module, no middleware</td>
-      <td>Works via Google Sheets trigger</td>
-      <td>Works via webhook, but less reliable</td>
-    </tr>
-    <tr>
-      <td>Approval workflow built-in</td>
-      <td>Yes (Jotform Approvals add-on)</td>
-      <td>No</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Free tier viability</td>
-      <td>5 forms, 100 submissions/month</td>
-      <td>Unlimited forms, but limited storage</td>
-      <td>10 responses/month only</td>
-    </tr>
-  </tbody>
-</table>
+  <p>Neither tool is revolutionary. Jotform is a mature form builder with decent OCR for PDFs. Make is a solid automation platform. Together they solve a concrete problem: invoices stop being lost in email threads, and you don't manually copy-paste numbers into spreadsheets.</p>
+</section>
 
-<p><strong>Winner for this use case: Jotform.</strong> Google Forms is free but lacks the approval workflow and conditional logic depth. Typeform looks nicer but is overkill for invoice intake and has weaker Make integration. Jotform hits the sweet spot of cost, features, and reliability.</p>
+<section>
+  <h2>How the Workflow Works</h2>
 
-<h2>Price Comparison</h2>
-<p>Here's what you'll actually pay for a working setup:</p>
+  <h3>Step 1: Invoice Intake via Jotform</h3>
+  <p>Create a Jotform form with fields for vendor email, invoice number, total amount, invoice date, and a file upload for the PDF. Use Jotform's "PDF Extractor" widget (paid plan required) to automatically pull data from the uploaded PDF. Set up "Conditional Logic" to flag incomplete or out-of-range invoices (e.g., amounts over $5,000) for manual review before automation kicks in.</p>
+  <p><strong>Strengths:</strong> Jotform's UI is drag-and-drop simple. Non-technical team members can build the form in under an hour. The PDF extraction works reliably for standard invoice templates. <strong>Weakness:</strong> OCR accuracy drops with handwritten entries, scanned documents, or multi-page invoices with non-standard layouts. You'll need fallback validation steps.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Tool</th>
-      <th>Plan Needed</th>
-      <th>Monthly Cost</th>
-      <th>What You Get</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Jotform</td>
-      <td>Bronze ($34/mo) or Silver ($39/mo)</td>
-      <td>$34-$39</td>
-      <td>25-100 forms, 1,000-10,000 submissions, 10-100 GB storage</td>
-    </tr>
-    <tr>
-      <td><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a></td>
-      <td>Free or Pro ($9/mo)</td>
-      <td>$0-$9</td>
-      <td>1,000-10,000 operations/month, enough for 50-100 invoices</td>
-    </tr>
-    <tr>
-      <td>Google Sheets (optional)</td>
-      <td>Free</td>
-      <td>$0</td>
-      <td>Store invoice log and status</td>
-    </tr>
-    <tr>
-      <td><strong>Total</strong></td>
-      <td></td>
-      <td><strong>$34-$48/mo</strong></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+  <h3>Step 2: Data Routing via Make</h3>
+  <p>Connect Jotform to Make using the built-in Jotform module. Set a trigger: "New Submission" from your form. Build a scenario that receives the structured JSON from Jotform. Use Make's router module to split the flow:</p>
+  <ul>
+    <li><strong>Path A (Standard invoices under $5,000):</strong> Auto approve, send to accounting software (via QuickBooks or Xero module), log to Google Sheets, and notify the ops lead via Slack with a summary.</li>
+    <li><strong>Path B (Invoices over $5,000 or missing fields):</strong> Route to a Slack approval channel with buttons. Wait for "approve" or "reject" response using Slack webhooks. On approval, proceed as Path A. On rejection, notify the vendor via email template.</li>
+  </ul>
+  <p>Make also handles error states: if Jotform's extraction fails, route the invoice to a "manual review" folder and alert the team.</p>
 
-<p>If you're processing fewer than 100 invoices per month, Jotform's Bronze plan plus Make's free tier works fine. For higher volume, bump to Jotform Silver and Make Pro. No hidden fees.</p>
+  <h3>Step 3: Approval and Archiving</h3>
+  <p>Use Make to store approved invoices in a Google Drive folder named by vendor/date, update a master spreadsheet with status, and send payment instructions to your accounting tool. You can also add a final step to email the vendor a confirmation.</p>
+</section>
 
-<h2>Who Each Is For</h2>
+<section>
+  <h2>Price Comparison</h2>
+  <p>Here's the annual cost for a team processing ~50 invoices per month:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Plan Needed</th>
+        <th>Annual Cost</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jotform</td>
+        <td>Bronze ($34/mo) or Silver ($49/mo)</td>
+        <td>$408 - $588</td>
+        <td>Bronze supports 100 forms and 1,000 submissions. PDF Extractor available on Silver and up.</td>
+      </tr>
+      <tr>
+        <td>Make</td>
+        <td>Free (10k ops/mo) or Core ($9/mo, 10k ops)</td>
+        <td>$0 - $108</td>
+        <td>Free tier is fine for low volume. Core plan needed for webhooks and multiple active scenarios.</td>
+      </tr>
+      <tr>
+        <td>QuickBooks Online</td>
+        <td>Simple Start ($15/mo) or Essentials ($35/mo)</td>
+        <td>$180 - $420</td>
+        <td>Already paid by most teams. Make's QuickBooks module works with both plans.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Total annual additional cost:</strong> $408 to $696. Compare that to dedicated AP tools like Bill.com ($399/mo baseline) or Stampli, which start around $200/mo for small teams. Jotform + Make is significantly cheaper for low-volume processing.</p>
+</section>
 
-<h3>Jotform is for:</h3>
-<ul>
-  <li>Teams that want a simple, customizable intake form without coding</li>
-  <li>Operations leaders who need built-in approval workflows (Jotform Approvals)</li>
-  <li>Companies with non-technical staff who need to submit invoices (vendors, contractors)</li>
-  <li>Anyone who wants a visual form builder with conditional logic that actually works</li>
-</ul>
+<section>
+  <h2>Who Each Is For</h2>
 
-<h3>Jotform is NOT for:</h3>
-<ul>
-  <li>Teams processing 500+ invoices per month (you need a proper AP tool like Bill.com or QuickBooks Online)</li>
-  <li>Companies that need OCR to extract line-item data from PDFs automatically</li>
-  <li>Teams that want a single platform for full AP lifecycle (Jotform is intake + routing only)</li>
-</ul>
+  <h3>Jotform is best for:</h3>
+  <ul>
+    <li>Teams that already use Jotform for other intake processes (support tickets, lead gen, etc.).</li>
+    <li>Non-technical ops leads who need a visual form builder with no code.</li>
+    <li>Teams with mostly standard, single-page PDF invoices from known vendors.</li>
+  </ul>
+  <p><strong>Not for:</strong> Teams processing complex scanned documents or invoices with varying formats. Consider a dedicated OCR platform like Rossum or Hypatos with Make instead.</p>
 
-<h3>Make.com is for:</h3>
-<ul>
-  <li>Teams that need to connect Jotform to other tools (Slack, email, Google Sheets, accounting software)</li>
-  <li>Operations leaders comfortable with visual workflow builders (drag-and-drop, no code)</li>
-  <li>Companies that want conditional routing based on invoice amount, vendor, or department</li>
-</ul>
+  <h3>Make is best for:</h3>
+  <ul>
+    <li>Teams comfortable with visual workflow builders and basic conditional logic.</li>
+    <li>Ops leads who need to connect 5+ tools (Jotform, Slack, Google Drive, QuickBooks, Sheets).</li>
+    <li>Low-to-medium invoice volume (under 100/month). Make's free tier caps operations; at 100 invoices with multiple steps, you'll hit limits.</li>
+  </ul>
+  <p><strong>Not for:</strong> High-volume processing (500+ invoices/month). Make's operation limits and lack of built-in AP-specific features (like duplicate detection or 2-way matching) become liabilities.</p>
+</section>
 
-<h3>Make.com is NOT for:</h3>
-<ul>
-  <li>Teams that want a pre-built invoice processing template (you'll build it yourself)</li>
-  <li>Users who want a single tool for everything (Make is middleware, not an end solution)</li>
-  <li>Teams that need real-time sync with QuickBooks or Xero (it works, but can be finicky)</li>
-</ul>
-
-<h2>Building the Workflow (Step-by-Step)</h2>
-<p>Here's the practical setup, assuming you have a Jotform account and a Make.com account:</p>
-
-<ol>
-  <li><strong>Create your Jotform invoice intake form.</strong> Add fields: Vendor Name, Invoice Number, Amount, Invoice Date, Upload PDF (file upload widget). Add a dropdown for "Department" if you route by team. Set up conditional logic: if Amount > $500, show an additional "Requires CFO Approval" checkbox.</li>
-  <li><strong>Enable Jotform Approvals.</strong> Go to Settings > Approvals. Create a simple approval flow: one approver for invoices under $500, a different approver for over $500. Jotform will email the approver a link to approve/reject.</li>
-  <li><strong>Create a Make scenario.</strong> Add a Jotform module (trigger: "New Submission"). Map the fields from the form into Make variables.</li>
-  <li><strong>Add routing logic.</strong> Use a Router module in Make. Create two routes: one for invoices under $500 (send Slack message to team lead), one for over $500 (send email to finance manager with approval link).</li>
-  <li><strong>Add a Google Sheets module.</strong> After routing, add a row to a spreadsheet with: timestamp, vendor, amount, status (Pending), approval link. This becomes your invoice log.</li>
-  <li><strong>Add a webhook for approval updates.</strong> When the approver marks the invoice as approved in Jotform, trigger a second Make scenario that updates the Google Sheet row status to "Approved" and sends a confirmation email to the vendor.</li>
-</ol>
-
-<p>Total setup time: 2-3 hours for someone familiar with both tools. The most time-consuming part is testing the approval callback.</p>
-
-<h2>Limitations to Know</h2>
-<ul>
-  <li>Jotform's approval workflow is basic. You can't have multi-step approvals (e.g., manager then CFO) without building custom logic in Make.</li>
-  <li>File uploads from Jotform are stored on Jotform's servers. If you need them in your own cloud storage, add a Make module to copy the file to Google Drive or Dropbox.</li>
-  <li>Make.com's free tier has a 1,000 operations/month limit. Each invoice submission might use 3-5 operations (trigger, router, sheet update, notification). At 50 invoices/month, that's 150-250 operations — fine. At 200 invoices, you'll need the Pro plan.</li>
-  <li>No native integration with accounting software like QuickBooks or Xero. You'd need to add a third step (e.g., Zapier or a custom API call) to push approved invoices into your accounting tool.</li>
-</ul>
-
-<h2>Further Reading</h2>
-<ul>
-  <li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> — Sign up and access their template library (search "invoice processing")</li>
-  <li>Jotform Approvals documentation — Read their setup guide for approval flows</li>
-  <li><a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> — If you need a project management layer on top of invoice tracking, ClickUp's invoice template works well with this workflow</li>
-  <li><a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> — For teams that also want to automate meeting notes related to vendor calls, Fireflies transcribes and logs action items</li>
-</ul>
+<section>
+  <h2>Further Reading</h2>
+  <ul>
+    <li><a href="https://www.jotform.com/" target="_blank" rel="noopener">Jotform: Form Builder with PDF Extraction</a></li>
+    <li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link" target="_blank" rel="noopener">Make.com: Automation Platform</a></li>
+    <li>Looking for a more comprehensive ops hub? Consider <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link" target="_blank" rel="noopener">ClickUp</a> for combining task management with document processing.</li>
+    <li>For automated meeting note capture: <a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link" target="_blank" rel="noopener">Fireflies.ai</a> integrates with Make for transcribing invoice-related phone calls.</li>
+  </ul>
+</section>
             </div>
         </div>
     </section>

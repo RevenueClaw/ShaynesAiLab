@@ -1,5 +1,12 @@
 [
   {
+    "title": "How to Automate Invoice Processing with Jotform and Make",
+    "slug": "automate-invoice-processing",
+    "date": "2026-08-19",
+    "description": "Building an automated invoice processing workflow using Jotform for intake and Make.com for routing and notifications",
+    "url": "/blog/automate-invoice-processing"
+  },
+  {
     "title": "Small Team CRM Showdown: HubSpot vs Freshsales vs Pipedrive",
     "slug": "small-team-crm-showdown",
     "date": "2026-08-18",
@@ -103,13 +110,6 @@
     "date": "2026-08-01",
     "description": "Building an end-to-end AI content pipeline using automation tools for research, drafting, editing, and publishing",
     "url": "/blog/ai-content-workflow"
-  },
-  {
-    "title": "How to Automate Invoice Processing with Jotform and Make",
-    "slug": "automate-invoice-processing",
-    "date": "2026-07-31",
-    "description": "Building an automated invoice processing workflow using Jotform for intake and Make.com for routing and notifications",
-    "url": "/blog/automate-invoice-processing"
   },
   {
     "title": "Systeme.io vs ClickFunnels vs Kajabi: Best All-in-One Platform for Ops Teams",
