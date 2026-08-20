@@ -1,5 +1,12 @@
 [
   {
+    "title": "AI Content Workflow: From Research to Publication in One Pipeline",
+    "slug": "ai-content-workflow",
+    "date": "2026-08-20",
+    "description": "Building an end-to-end AI content pipeline using automation tools for research, drafting, editing, and publishing",
+    "url": "/blog/ai-content-workflow"
+  },
+  {
     "title": "How to Automate Invoice Processing with Jotform and Make",
     "slug": "automate-invoice-processing",
     "date": "2026-08-19",
@@ -103,13 +110,6 @@
     "date": "2026-08-02",
     "description": "Deep comparison of three leading automation platforms for teams deciding which tool fits their specific use case",
     "url": "/blog/zapier-vs-make-vs-n8n"
-  },
-  {
-    "title": "AI Content Workflow: From Research to Publication in One Pipeline",
-    "slug": "ai-content-workflow",
-    "date": "2026-08-01",
-    "description": "Building an end-to-end AI content pipeline using automation tools for research, drafting, editing, and publishing",
-    "url": "/blog/ai-content-workflow"
   },
   {
     "title": "Systeme.io vs ClickFunnels vs Kajabi: Best All-in-One Platform for Ops Teams",
