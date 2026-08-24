@@ -41,6 +41,11 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
+    <loc>https://shaynesailab.com/blog/notion-sop-onboarding-ops</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://shaynesailab.com/blog/systemeio-vs-clickfunnels</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
@@ -117,11 +122,6 @@
   </url>
   <url>
     <loc>https://shaynesailab.com/blog/systemeio-pricing-guide</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://shaynesailab.com/blog/notion-sop-onboarding-ops</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
