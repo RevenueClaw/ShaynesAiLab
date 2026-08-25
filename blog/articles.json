@@ -1,5 +1,12 @@
 [
   {
+    "title": "ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams?",
+    "slug": "chatgpt-vs-claude-vs-gemini",
+    "date": "2026-08-25",
+    "description": "Comparing the three major AI assistants for operations tasks \u2014 writing, analysis, and automation workflows",
+    "url": "/blog/chatgpt-vs-claude-vs-gemini"
+  },
+  {
     "title": "Automate Email Triage with Make.com and AI",
     "slug": "automate-email-triage",
     "date": "2026-08-25",
@@ -138,13 +145,6 @@
     "date": "2026-07-19",
     "description": "Comparing the two best free CRM options for operations teams at 1-50 person companies, including AI features, integrations, and limitations",
     "url": "/blog/hubspot-vs-freshsales"
-  },
-  {
-    "title": "ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams?",
-    "slug": "chatgpt-vs-claude-vs-gemini",
-    "date": "2026-07-15",
-    "description": "Comparing the three major AI assistants for operations tasks \u2014 writing, analysis, and automation workflows",
-    "url": "/blog/chatgpt-vs-claude-vs-gemini"
   },
   {
     "title": "Best AI Writing Tools for Ops Teams in 2026",
