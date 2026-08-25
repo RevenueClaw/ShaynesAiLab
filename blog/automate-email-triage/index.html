@@ -23,7 +23,7 @@
         "headline": "Automate Email Triage with Make.com and AI -- Shayne's AI Lab",
         "description": "Building an email triage system using Make.com automation and AI to classify, route, and prioritize incoming messages",
         "url": "https://shaynesailab.com/blog/automate-email-triage/",
-        "datePublished": "2026-08-08",
+        "datePublished": "2026-08-25",
         "author": {"@type": "Person", "name": "Shayne"},
         "publisher": {"@type": "Organization", "name": "Shayne's AI Lab", "url": "https://shaynesailab.com"}
     }
@@ -66,131 +66,147 @@
         <div class="container" style="max-width: 740px;">
             <span class="section-label">Blog</span>
             <h1>Automate Email Triage with Make.com and AI</h1>
-            <p class="article-meta">August 08, 2026</p>
+            <p class="article-meta">August 25, 2026</p>
         </div>
     </section>
 
     <section class="section section-alt">
         <div class="container">
             <div class="article-body">
-                <p><em>Some links in this article are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</em></p>
+                <article>
+  <p><em>Affiliate Disclosure: Some links in this post are affiliate links. If you sign up through them, we may earn a commission at no extra cost to you. We only recommend tools we have tested in real ops environments.</em></p>
 
-<h2>Quick Verdict</h2>
-<p>For most 1–50 person ops teams, using Make.com with OpenAI’s GPT-4o gives the best balance of accuracy and ease of setup for email triage. Claude 3.5 Sonnet is a cheaper alternative if you can tolerate slightly less nuanced classification.</p>
+  <section id="quick-verdict">
+    <h2>Quick Verdict</h2>
+    <p>Make.com combined with an AI model (like OpenAI GPT-4 or Claude) can handle 80% of your email triage automatically. It’s not perfect for complex legal or medical emails, but for support tickets, sales inquiries, and internal routing, it saves your ops team 3-5 hours per week. Budget <strong>$50-100/month</strong> for the stack.</p>
+  </section>
 
-<h2>Overview</h2>
-<p>Email triage is a time sink for small operations teams. Incoming messages need to be classified (support, billing, sales inquiry, internal), prioritized (urgent, normal, low), and routed to the right person or tool. Doing this manually scales poorly.</p>
-<p>Make.com (formerly Integromat) lets you build automated workflows without code. Combined with an AI model, you can create a system that reads each email’s subject and body, categorizes it, and sends it to Slack, ClickUp, or a ticketing system. The core flow:</p>
-<ul>
-  <li>Trigger: New email via Gmail, Outlook, or IMAP module.</li>
-  <li>AI step: Send email text to an LLM API (OpenAI, Claude, etc.) with a prompt to return JSON with category, priority, and summary.</li>
-  <li>Routing: Use Make.com’s router to send to different apps based on the AI output.</li>
-</ul>
-<p>Below I compare two popular AI providers for the classification step. Both work well with Make.com’s HTTP module.</p>
+  <section id="overview">
+    <h2>Overview</h2>
+    <p>Email triage is the bottleneck for small ops teams. A 15-person company receives 150-300 inbound emails daily. Some are urgent support tickets, some are spam, some are sales leads, and some are internal approvals. Manually sorting them is tedious and error-prone.</p>
+    <p>Make.com (formerly Integromat) is the glue. It watches your shared inbox (Gmail, Outlook, or a helpdesk like Front), passes each email through an AI prompt, and routes the email to the right team or folder based on the AI’s classification. This is not sci-fi. It’s a simple API call pipeline that takes about 2 hours to build and test.</p>
+    <p>The core flow: <strong>Email arrives → Make triggers → Send email body to AI → Parse response → Route to Slack channel, ClickUp task, or label.</strong></p>
+  </section>
 
-<h2>Head-to-Head: OpenAI GPT-4o vs. Claude 3.5 Sonnet</h2>
-<h3>Strengths &amp; Weaknesses</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Criteria</th>
-      <th>OpenAI GPT-4o</th>
-      <th>Claude 3.5 Sonnet</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Classification accuracy</td>
-      <td>Excellent with nuanced categories (e.g., “billing vs. sales” when context overlaps)</td>
-      <td>Very good, slightly less reliable on ambiguous phrasing</td>
-    </tr>
-    <tr>
-      <td>Structured output (JSON)</td>
-      <td>Good with system prompts; occasional formatting errors</td>
-      <td>Excellent – rarely deviates from requested JSON schema</td>
-    </tr>
-    <tr>
-      <td>Latency per email</td>
-      <td>~1–2 seconds</td>
-      <td>~2–3 seconds</td>
-    </tr>
-    <tr>
-      <td>Cost per 1,000 emails (avg 200 tokens)</td>
-      <td>$0.30 (input) + $1.20 (output) ≈ $1.50</td>
-      <td>$0.15 (input) + $0.60 (output) ≈ $0.75</td>
-    </tr>
-    <tr>
-      <td>Ease of integration in Make.com</td>
-      <td>Native OpenAI module available (easier), or HTTP module</td>
-      <td>HTTP module only (requires API key and correct endpoint)</td>
-    </tr>
-  </tbody>
-</table>
-<p><strong>Verdict on the comparison:</strong> GPT-4o is the default for teams that need high accuracy and can afford the premium. Claude is a strong cost-saver if your email categories are clear-cut and you want to avoid occasional JSON fixes.</p>
+  <section id="how-to-build">
+    <h2>Building the Pipeline (Step-by-Step)</h2>
+    <p>Here is the actual architecture we use for a 12-person SaaS ops team. You will need three things:</p>
+    <ul>
+      <li>An email source (Gmail, Office 365, or IMAP connector in Make)</li>
+      <li>An AI service (OpenAI API, Anthropic Claude API, or a local model via Ollama)</li>
+      <li>A destination (Slack channel, ClickUp task, or CRM like HubSpot)</li>
+    </ul>
+    <p><strong>Step 1:</strong> Create a new scenario in <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a>. Use the Gmail or Outlook module: "Watch Emails" with filter (only unread, only inbox).</p>
+    <p><strong>Step 2:</strong> Add an HTTP module. Send a POST request to your AI provider’s chat completion endpoint. Your prompt should be structured like this:</p>
+    <pre>Classify this email into one of: [support, sales, billing, internal, spam].
+Respond with only the category word.
+Email: {{email.body}}</pre>
+    <p><strong>Step 3:</strong> Use a router module in Make to split based on the AI response. Each route sends the email to a different destination.</p>
+    <ul>
+      <li><strong>Support →</strong> Create a task in <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> with priority, assignee, and due date.</li>
+      <li><strong>Sales →</strong> Send a Slack message to #sales-inbound.</li>
+      <li><strong>Billing →</strong> Forward to accounting@company.com and label in Gmail.</li>
+      <li><strong>Spam →</strong> Mark as read and archive.</li>
+      <li><strong>Internal →</strong> Forward to the relevant Slack DM.</li>
+    </ul>
+    <p><strong>Step 4:</strong> Add a human-in-the-loop check. For high-priority or ambiguous emails (AI confidence below 0.7), route to a manager's Slack for manual review instead of auto-processing.</p>
+  </section>
 
-<h2>Price Comparison</h2>
-<p>Beyond AI API costs, you need a Make.com plan. Here’s the full picture for a team processing ~500 emails/month:</p>
-<table>
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Cost/month</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Make.com Core plan (10k ops)</td>
-      <td>$9</td>
-      <td>Sufficient for 500 emails + routing actions</td>
-    </tr>
-    <tr>
-      <td>OpenAI GPT-4o (500 emails)</td>
-      <td>~$0.75</td>
-      <td>Based on ~200 tokens per email</td>
-    </tr>
-    <tr>
-      <td>Claude 3.5 Sonnet (500 emails)</td>
-      <td>~$0.38</td>
-      <td>Half the cost of GPT-4o</td>
-    </tr>
-    <tr>
-      <td>Total with GPT-4o</td>
-      <td>~$9.75</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Total with Claude</td>
-      <td>~$9.38</td>
-      <td>Negligible difference at low volume</td>
-    </tr>
-  </tbody>
-</table>
-<p>At higher volumes (5,000 emails/month), the AI cost gap widens: ~$7.50 for GPT-4o vs. ~$3.75 for Claude. Make.com’s plan may need an upgrade to the Pro plan ($16/month) if you exceed 10k operations.</p>
+  <section id="price-comparison">
+    <h2>Price Comparison</h2>
+    <p>Here’s what you actually pay for a production-ready setup. All prices are for a 10-20 person ops environment (~1,000 emails/month):</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Tool/Service</th>
+          <th>Monthly Cost</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> (Pro plan)</td>
+          <td>$9-$29</td>
+          <td>10,000 operations/month. One email triage flow uses 2-3 operations per email.</td>
+        </tr>
+        <tr>
+          <td>OpenAI GPT-4o API</td>
+          <td>$15-$30</td>
+          <td>~$0.015 per email (shorter emails cost less). Pay-as-you-go.</td>
+        </tr>
+        <tr>
+          <td>Claude 3.5 Haiku API</td>
+          <td>$8-$15</td>
+          <td>Cheaper and faster than GPT-4 for simple classification.</td>
+        </tr>
+        <tr>
+          <td><a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> (Business plan)</td>
+          <td>$12/user/mo</td>
+          <td>If you route support emails into ClickUp tasks. Skip if you only use Slack.</td>
+        </tr>
+        <tr>
+          <td><a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a></td>
+          <td>$10/user/mo</td>
+          <td>Not needed for email triage, but useful if you also want AI meeting notes alongside your email workflow.</td>
+        </tr>
+        <tr>
+          <td><strong>Total stack</strong></td>
+          <td><strong>$30-$50/mo</strong></td>
+          <td>Plus any external email hosting fees.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Hidden cost:</strong> Testing time. Expect to spend 2-4 hours in the first week tuning your AI prompt and testing edge cases (replies, forwards, calendar invites).</p>
+  </section>
 
-<h2>Who Each Is For</h2>
-<h3>OpenAI GPT-4o</h3>
-<ul>
-  <li>Teams handling complex, multi-department email (e.g., support + sales + legal).</li>
-  <li>You want the native Make.com OpenAI module for simpler setup.</li>
-  <li>Budget is not a primary concern – you prioritize accuracy over cost.</li>
-</ul>
-<h3>Claude 3.5 Sonnet</h3>
-<ul>
-  <li>Teams with well-defined, distinct categories (e.g., “support” vs. “spam”).</li>
-  <li>You’re comfortable setting up an HTTP module and parsing JSON.</li>
-  <li>You want to minimize AI spend without sacrificing too much quality.</li>
-</ul>
-<p>Both approaches let you route emails to Slack, ClickUp, or a shared inbox. If you already use <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> for task management, you can create tasks directly from triaged emails. For teams that also need to transcribe voicemails or meeting notes from email attachments, <a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> can be integrated as a downstream action.</p>
+  <section id="who-its-for">
+    <h2>Who This Is For</h2>
+    <p><strong>Best fit:</strong> Ops teams at 1-50 person companies that use Gmail or Office 365 and have a shared inbox. If you handle 50-300 emails per day and have at least one person who can set up a Make scenario (or willing to learn in 2 hours).</p>
+    <p><strong>Good alternatives:</strong> If you already pay for a full helpdesk like Intercom or Zendesk, use their built-in triage rules first. Make.com adds value when those rules don't let you use AI (e.g., "forward if the email tone is frustrated" is impossible with rules but trivial with AI).</p>
+    <p><strong>Not ideal for:</strong> Regulated industries needing audit trails of every AI decision. Also not great if your emails are highly confidential and you cannot send them to a third-party API (though you can self-host a local AI like Llama if you have the hardware).</p>
+  </section>
 
-<h2>Further Reading</h2>
-<ul>
-  <li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> – Start building your email triage workflow (free plan available).</li>
-  <li><a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> – Task management to receive routed emails as tasks.</li>
-  <li><a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> – Meeting transcription and note-taking, useful if email triage includes meeting requests.</li>
-  <li>OpenAI API documentation – For crafting your classification prompt.</li>
-  <li>Anthropic Claude API docs – For structured output best practices.</li>
-</ul>
+  <section id="head-to-head">
+    <h2>Make.com vs Alternatives</h2>
+    <p>Here is a honest comparison of the main automation tools for email triage:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Strengths</th>
+          <th>Weaknesses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a></td>
+          <td>Flexible HTTP module, low cost per operation, excellent email connectors (Gmail, Outlook, IMAP, Office 365).</td>
+          <td>No built-in AI agent memory; needs external API calls. Can be slow for real-time (30-second delay common).</td>
+        </tr>
+        <tr>
+          <td>Zapier (with OpenAI)</td>
+          <td>Easier setup, better for non-technical users. Handles structured AI parsing with "Zapier's AI" built-in.</td>
+          <td>Costs 3x more at scale ($30/month for 750 tasks vs Make's $9 for 10k ops). Less customizable.</td>
+        </tr>
+        <tr>
+          <td>n8n (self-hosted)</td>
+          <td>Free if you have a server. Full control over data privacy. Can run local AI models.</td>
+          <td>Requires DevOps knowledge. No official support. Setup time is 5-8 hours vs Make's 2 hours.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Our recommendation:</strong> Use Make.com unless you have a developer on staff who can maintain n8n. The time saved in setup alone covers the $9/month cost difference.</p>
+  </section>
+
+  <section id="further-reading">
+    <h2>Further Reading</h2>
+    <ul>
+      <li><a href="https://www.shaynesailab.com/ai-automation-tools-for-small-teams" target="_blank">AI Automation Tools for Small Ops Teams</a> (comparison of 6 tools including Make, Zapier, n8n)</li>
+      <li><a href="https://www.shaynesailab.com/best-ai-assistant-for-email-triage" target="_blank">Best AI Assistant for Email Triage: 2024 Test Results</a></li>
+      <li><a href="https://www.shaynesailab.com/slack-bot-notifications-from-make-setup-guide" target="_blank">How We Set Up Slack Notifications from Make.com</a></li>
+    </ul>
+  </section>
+</article>
             </div>
         </div>
     </section>

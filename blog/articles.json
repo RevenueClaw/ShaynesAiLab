@@ -1,5 +1,12 @@
 [
   {
+    "title": "Automate Email Triage with Make.com and AI",
+    "slug": "automate-email-triage",
+    "date": "2026-08-25",
+    "description": "Building an email triage system using Make.com automation and AI to classify, route, and prioritize incoming messages",
+    "url": "/blog/automate-email-triage"
+  },
+  {
     "title": "Systeme.io Pricing: Is It Worth It for Ops Teams?",
     "slug": "systemeio-pricing-guide",
     "date": "2026-08-25",
@@ -110,13 +117,6 @@
     "date": "2026-08-12",
     "description": "Comparing AI image generation tools for marketing assets, presentations, and social media content",
     "url": "/blog/best-ai-image-generators"
-  },
-  {
-    "title": "Automate Email Triage with Make.com and AI",
-    "slug": "automate-email-triage",
-    "date": "2026-08-08",
-    "description": "Building an email triage system using Make.com automation and AI to classify, route, and prioritize incoming messages",
-    "url": "/blog/automate-email-triage"
   },
   {
     "title": "Systeme.io Pricing 2026: Plans, Features, and What You Actually Get",
