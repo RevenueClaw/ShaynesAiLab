@@ -1,5 +1,12 @@
 [
   {
+    "title": "AI Code Assistants Compared: GitHub Copilot vs Cursor vs Codeium",
+    "slug": "ai-code-assistants",
+    "date": "2026-08-26",
+    "description": "Comparing three AI coding tools for teams that need automation scripts and integrations",
+    "url": "/blog/ai-code-assistants"
+  },
+  {
     "title": "Best AI Writing Tools for Ops Teams in 2026",
     "slug": "best-ai-writing-tools",
     "date": "2026-08-26",
@@ -152,13 +159,6 @@
     "date": "2026-07-19",
     "description": "Comparing the two best free CRM options for operations teams at 1-50 person companies, including AI features, integrations, and limitations",
     "url": "/blog/hubspot-vs-freshsales"
-  },
-  {
-    "title": "AI Code Assistants Compared: GitHub Copilot vs Cursor vs Codeium",
-    "slug": "ai-code-assistants",
-    "date": "2026-07-15",
-    "description": "Comparing three AI coding tools for teams that need automation scripts and integrations",
-    "url": "/blog/ai-code-assistants"
   },
   {
     "title": "Systeme.io Funnel Setup: Step-by-Step Tutorial for Beginners",
