@@ -41,6 +41,11 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
+    <loc>https://shaynesailab.com/blog/best-ai-image-generators</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://shaynesailab.com/blog/ai-code-assistants</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
@@ -132,11 +137,6 @@
   </url>
   <url>
     <loc>https://shaynesailab.com/blog/ai-tool-pricing</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://shaynesailab.com/blog/best-ai-image-generators</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
