@@ -23,7 +23,7 @@
         "headline": "Automate Email Triage with Make.com and AI -- Shayne's AI Lab",
         "description": "Building an email triage system using Make.com automation and AI to classify, route, and prioritize incoming messages",
         "url": "https://shaynesailab.com/blog/automate-email-triage/",
-        "datePublished": "2026-08-25",
+        "datePublished": "2026-09-09",
         "author": {"@type": "Person", "name": "Shayne"},
         "publisher": {"@type": "Organization", "name": "Shayne's AI Lab", "url": "https://shaynesailab.com"}
     }
@@ -66,147 +66,111 @@
         <div class="container" style="max-width: 740px;">
             <span class="section-label">Blog</span>
             <h1>Automate Email Triage with Make.com and AI</h1>
-            <p class="article-meta">August 25, 2026</p>
+            <p class="article-meta">September 09, 2026</p>
         </div>
     </section>
 
     <section class="section section-alt">
         <div class="container">
             <div class="article-body">
-                <article>
-  <p><em>Affiliate Disclosure: Some links in this post are affiliate links. If you sign up through them, we may earn a commission at no extra cost to you. We only recommend tools we have tested in real ops environments.</em></p>
+                <p><em>Affiliate disclosure: Some links on this page are affiliate links. If you purchase through them, we may earn a commission at no extra cost to you.</em></p>
 
-  <section id="quick-verdict">
-    <h2>Quick Verdict</h2>
-    <p>Make.com combined with an AI model (like OpenAI GPT-4 or Claude) can handle 80% of your email triage automatically. It’s not perfect for complex legal or medical emails, but for support tickets, sales inquiries, and internal routing, it saves your ops team 3-5 hours per week. Budget <strong>$50-100/month</strong> for the stack.</p>
-  </section>
+<h2>Quick Verdict</h2>
+<p>Make.com paired with an AI classifier (OpenAI or Claude) can automate 60-80% of email triage for small ops teams. It’s cheaper and more flexible than Zapier for custom workflows, but requires more setup time.</p>
 
-  <section id="overview">
-    <h2>Overview</h2>
-    <p>Email triage is the bottleneck for small ops teams. A 15-person company receives 150-300 inbound emails daily. Some are urgent support tickets, some are spam, some are sales leads, and some are internal approvals. Manually sorting them is tedious and error-prone.</p>
-    <p>Make.com (formerly Integromat) is the glue. It watches your shared inbox (Gmail, Outlook, or a helpdesk like Front), passes each email through an AI prompt, and routes the email to the right team or folder based on the AI’s classification. This is not sci-fi. It’s a simple API call pipeline that takes about 2 hours to build and test.</p>
-    <p>The core flow: <strong>Email arrives → Make triggers → Send email body to AI → Parse response → Route to Slack channel, ClickUp task, or label.</strong></p>
-  </section>
+<h2>Overview</h2>
+<p>Email triage is the process of sorting incoming messages by priority, department, or action type. For operations teams at 1-50 person companies, manual triage eats hours each week. You can automate this with Make.com (formerly Integromat) and a simple AI layer.</p>
+<p>The core idea: Use Make.com to watch a shared inbox (Gmail, Outlook, or IMAP), send each email’s subject and body to an AI model (like OpenAI’s GPT-4 or Claude), parse the AI’s classification, and then route the email to the right folder, Slack channel, or ticket system. No code required, just modular building blocks.</p>
+<p>Below I compare Make.com with the most common alternative, Zapier, for this specific use case. Both can work, but they differ in cost, flexibility, and AI integration depth.</p>
 
-  <section id="how-to-build">
-    <h2>Building the Pipeline (Step-by-Step)</h2>
-    <p>Here is the actual architecture we use for a 12-person SaaS ops team. You will need three things:</p>
-    <ul>
-      <li>An email source (Gmail, Office 365, or IMAP connector in Make)</li>
-      <li>An AI service (OpenAI API, Anthropic Claude API, or a local model via Ollama)</li>
-      <li>A destination (Slack channel, ClickUp task, or CRM like HubSpot)</li>
-    </ul>
-    <p><strong>Step 1:</strong> Create a new scenario in <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a>. Use the Gmail or Outlook module: "Watch Emails" with filter (only unread, only inbox).</p>
-    <p><strong>Step 2:</strong> Add an HTTP module. Send a POST request to your AI provider’s chat completion endpoint. Your prompt should be structured like this:</p>
-    <pre>Classify this email into one of: [support, sales, billing, internal, spam].
-Respond with only the category word.
-Email: {{email.body}}</pre>
-    <p><strong>Step 3:</strong> Use a router module in Make to split based on the AI response. Each route sends the email to a different destination.</p>
-    <ul>
-      <li><strong>Support →</strong> Create a task in <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> with priority, assignee, and due date.</li>
-      <li><strong>Sales →</strong> Send a Slack message to #sales-inbound.</li>
-      <li><strong>Billing →</strong> Forward to accounting@company.com and label in Gmail.</li>
-      <li><strong>Spam →</strong> Mark as read and archive.</li>
-      <li><strong>Internal →</strong> Forward to the relevant Slack DM.</li>
-    </ul>
-    <p><strong>Step 4:</strong> Add a human-in-the-loop check. For high-priority or ambiguous emails (AI confidence below 0.7), route to a manager's Slack for manual review instead of auto-processing.</p>
-  </section>
+<h2>Head-to-Head: Make.com vs Zapier for Email Triage</h2>
 
-  <section id="price-comparison">
-    <h2>Price Comparison</h2>
-    <p>Here’s what you actually pay for a production-ready setup. All prices are for a 10-20 person ops environment (~1,000 emails/month):</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Tool/Service</th>
-          <th>Monthly Cost</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> (Pro plan)</td>
-          <td>$9-$29</td>
-          <td>10,000 operations/month. One email triage flow uses 2-3 operations per email.</td>
-        </tr>
-        <tr>
-          <td>OpenAI GPT-4o API</td>
-          <td>$15-$30</td>
-          <td>~$0.015 per email (shorter emails cost less). Pay-as-you-go.</td>
-        </tr>
-        <tr>
-          <td>Claude 3.5 Haiku API</td>
-          <td>$8-$15</td>
-          <td>Cheaper and faster than GPT-4 for simple classification.</td>
-        </tr>
-        <tr>
-          <td><a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> (Business plan)</td>
-          <td>$12/user/mo</td>
-          <td>If you route support emails into ClickUp tasks. Skip if you only use Slack.</td>
-        </tr>
-        <tr>
-          <td><a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a></td>
-          <td>$10/user/mo</td>
-          <td>Not needed for email triage, but useful if you also want AI meeting notes alongside your email workflow.</td>
-        </tr>
-        <tr>
-          <td><strong>Total stack</strong></td>
-          <td><strong>$30-$50/mo</strong></td>
-          <td>Plus any external email hosting fees.</td>
-        </tr>
-      </tbody>
-    </table>
-    <p><strong>Hidden cost:</strong> Testing time. Expect to spend 2-4 hours in the first week tuning your AI prompt and testing edge cases (replies, forwards, calendar invites).</p>
-  </section>
+<h3>Make.com</h3>
+<p><strong>Strengths:</strong></p>
+<ul>
+  <li>Visual scenario builder with branching logic (filters, routers, iterators) – ideal for complex triage rules.</li>
+  <li>Native HTTP module lets you call any AI API directly (OpenAI, Anthropic, local models via self-hosted endpoints).</li>
+  <li>Pricing is based on operations, not tasks – you can run many steps per email without extra cost.</li>
+  <li>Built-in data store and webhook support for custom integrations.</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+  <li>Steeper learning curve than Zapier for simple workflows.</li>
+  <li>No native “AI classifier” module – you must build the prompt and parse the response yourself.</li>
+  <li>Email triggers (Gmail, Outlook) can be slower than Zapier’s near-real-time polling.</li>
+</ul>
 
-  <section id="who-its-for">
-    <h2>Who This Is For</h2>
-    <p><strong>Best fit:</strong> Ops teams at 1-50 person companies that use Gmail or Office 365 and have a shared inbox. If you handle 50-300 emails per day and have at least one person who can set up a Make scenario (or willing to learn in 2 hours).</p>
-    <p><strong>Good alternatives:</strong> If you already pay for a full helpdesk like Intercom or Zendesk, use their built-in triage rules first. Make.com adds value when those rules don't let you use AI (e.g., "forward if the email tone is frustrated" is impossible with rules but trivial with AI).</p>
-    <p><strong>Not ideal for:</strong> Regulated industries needing audit trails of every AI decision. Also not great if your emails are highly confidential and you cannot send them to a third-party API (though you can self-host a local AI like Llama if you have the hardware).</p>
-  </section>
+<h3>Zapier</h3>
+<p><strong>Strengths:</strong></p>
+<ul>
+  <li>Easier to set up basic email-to-action flows with pre-built templates.</li>
+  <li>Native AI features (OpenAI integration, “Classify” action) reduce manual prompt engineering.</li>
+  <li>Faster email triggers via Gmail/Outlook dedicated integrations.</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+  <li>Pricing per task (each API call counts) – AI classification can burn through tasks quickly.</li>
+  <li>Limited branching logic – complex triage rules require multiple Zaps or filters.</li>
+  <li>HTTP module is less flexible than Make.com’s for custom API calls.</li>
+</ul>
 
-  <section id="head-to-head">
-    <h2>Make.com vs Alternatives</h2>
-    <p>Here is a honest comparison of the main automation tools for email triage:</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Tool</th>
-          <th>Strengths</th>
-          <th>Weaknesses</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a></td>
-          <td>Flexible HTTP module, low cost per operation, excellent email connectors (Gmail, Outlook, IMAP, Office 365).</td>
-          <td>No built-in AI agent memory; needs external API calls. Can be slow for real-time (30-second delay common).</td>
-        </tr>
-        <tr>
-          <td>Zapier (with OpenAI)</td>
-          <td>Easier setup, better for non-technical users. Handles structured AI parsing with "Zapier's AI" built-in.</td>
-          <td>Costs 3x more at scale ($30/month for 750 tasks vs Make's $9 for 10k ops). Less customizable.</td>
-        </tr>
-        <tr>
-          <td>n8n (self-hosted)</td>
-          <td>Free if you have a server. Full control over data privacy. Can run local AI models.</td>
-          <td>Requires DevOps knowledge. No official support. Setup time is 5-8 hours vs Make's 2 hours.</td>
-        </tr>
-      </tbody>
-    </table>
-    <p><strong>Our recommendation:</strong> Use Make.com unless you have a developer on staff who can maintain n8n. The time saved in setup alone covers the $9/month cost difference.</p>
-  </section>
+<h2>Price Comparison</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>Free Tier</th>
+      <th>Paid Plans (monthly)</th>
+      <th>Notes for Email Triage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a></td>
+      <td>1,000 ops/month</td>
+      <td>$9 (10k ops), $16 (15k ops), $29 (30k ops)</td>
+      <td>Each AI call is ~1-2 ops. 10k ops = ~5k-10k emails classified.</td>
+    </tr>
+    <tr>
+      <td>Zapier</td>
+      <td>100 tasks/month</td>
+      <td>$19.99 (750 tasks), $49 (1.5k tasks), $69 (2k tasks)</td>
+      <td>Each email + AI call = 2 tasks. 750 tasks = ~375 emails.</td>
+    </tr>
+    <tr>
+      <td>n8n (self-hosted)</td>
+      <td>Free (self-hosted)</td>
+      <td>$20 (cloud, 5k executions)</td>
+      <td>Most flexible but requires server setup. AI calls cost only API usage.</td>
+    </tr>
+  </tbody>
+</table>
+<p>For a team processing 500-1000 emails per month, Make.com is significantly cheaper than Zapier. n8n is cheapest if you can self-host, but adds maintenance overhead.</p>
 
-  <section id="further-reading">
-    <h2>Further Reading</h2>
-    <ul>
-      <li><a href="https://www.shaynesailab.com/ai-automation-tools-for-small-teams" target="_blank">AI Automation Tools for Small Ops Teams</a> (comparison of 6 tools including Make, Zapier, n8n)</li>
-      <li><a href="https://www.shaynesailab.com/best-ai-assistant-for-email-triage" target="_blank">Best AI Assistant for Email Triage: 2024 Test Results</a></li>
-      <li><a href="https://www.shaynesailab.com/slack-bot-notifications-from-make-setup-guide" target="_blank">How We Set Up Slack Notifications from Make.com</a></li>
-    </ul>
-  </section>
-</article>
+<h2>Who Each Is For</h2>
+<p><strong>Make.com</strong> is for ops teams that need custom triage logic – multiple categories, conditional routing, and integration with internal tools (Slack, ClickUp, Notion). It’s ideal if you have someone comfortable with visual automation and basic API calls.</p>
+<p><strong>Zapier</strong> is for teams that want a faster setup and don’t need complex branching. If your triage rules are simple (e.g., “if contains ‘invoice’ → forward to accounting”), Zapier works fine and requires less initial effort.</p>
+<p><strong>n8n</strong> is for teams with technical ops leads who prefer full control and zero per-task costs. Good if you already run a server or use Docker.</p>
+
+<h2>Building the System in Make.com</h2>
+<p>Here’s a practical outline for a Make.com scenario:</p>
+<ol>
+  <li><strong>Trigger:</strong> Watch Gmail inbox (new email).</li>
+  <li><strong>Extract:</strong> Get subject, body, sender, attachments.</li>
+  <li><strong>AI call:</strong> Use HTTP module to POST to OpenAI’s chat completions endpoint. Prompt: “Classify this email into one of: support, billing, sales, spam. Return only the category.”</li>
+  <li><strong>Parse:</strong> Use a JSON module to extract the category from the AI response.</li>
+  <li><strong>Route:</strong> Use a Router module to send to different paths based on category (e.g., support → create <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> task, billing → forward to accounting@, sales → notify <a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> for meeting scheduling).</li>
+  <li><strong>Log:</strong> Store the classification in a data store for auditing.</li>
+</ol>
+<p>Total setup time: 2-4 hours for a basic triage system. Testing with 20-30 emails is recommended to tune the AI prompt.</p>
+
+<h2>Further Reading</h2>
+<ul>
+  <li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> – official site with templates and documentation.</li>
+  <li><a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> – task management for triage routing.</li>
+  <li><a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> – meeting scheduling from triaged emails.</li>
+  <li>OpenAI API documentation – for building custom classification prompts.</li>
+</ul>
             </div>
         </div>
     </section>

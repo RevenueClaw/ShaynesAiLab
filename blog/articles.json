@@ -1,5 +1,12 @@
 [
   {
+    "title": "Automate Email Triage with Make.com and AI",
+    "slug": "automate-email-triage",
+    "date": "2026-09-09",
+    "description": "Building an email triage system using Make.com automation and AI to classify, route, and prioritize incoming messages",
+    "url": "/blog/automate-email-triage"
+  },
+  {
     "title": "How Ops Teams Use Notion for SOPs and Onboarding",
     "slug": "notion-sop-onboarding-ops",
     "date": "2026-09-07",
@@ -61,13 +68,6 @@
     "date": "2026-08-25",
     "description": "Comparing the three major AI assistants for operations tasks \u2014 writing, analysis, and automation workflows",
     "url": "/blog/chatgpt-vs-claude-vs-gemini"
-  },
-  {
-    "title": "Automate Email Triage with Make.com and AI",
-    "slug": "automate-email-triage",
-    "date": "2026-08-25",
-    "description": "Building an email triage system using Make.com automation and AI to classify, route, and prioritize incoming messages",
-    "url": "/blog/automate-email-triage"
   },
   {
     "title": "Systeme.io Pricing: Is It Worth It for Ops Teams?",
