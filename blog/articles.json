@@ -1,5 +1,12 @@
 [
   {
+    "title": "ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams?",
+    "slug": "chatgpt-vs-claude-vs-gemini",
+    "date": "2026-09-10",
+    "description": "Comparing the three major AI assistants for operations tasks \u2014 writing, analysis, and automation workflows",
+    "url": "/blog/chatgpt-vs-claude-vs-gemini"
+  },
+  {
     "title": "Automate Email Triage with Make.com and AI",
     "slug": "automate-email-triage",
     "date": "2026-09-09",
@@ -61,13 +68,6 @@
     "date": "2026-08-26",
     "description": "Comparing Jasper, Copy.ai, Writesonic, and other AI writing tools for operations documentation and communication",
     "url": "/blog/best-ai-writing-tools"
-  },
-  {
-    "title": "ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams?",
-    "slug": "chatgpt-vs-claude-vs-gemini",
-    "date": "2026-08-25",
-    "description": "Comparing the three major AI assistants for operations tasks \u2014 writing, analysis, and automation workflows",
-    "url": "/blog/chatgpt-vs-claude-vs-gemini"
   },
   {
     "title": "Systeme.io Pricing: Is It Worth It for Ops Teams?",
