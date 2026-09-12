@@ -1,5 +1,12 @@
 [
   {
+    "title": "AI Code Assistants Compared: GitHub Copilot vs Cursor vs Codeium",
+    "slug": "ai-code-assistants",
+    "date": "2026-09-12",
+    "description": "Comparing three AI coding tools for teams that need automation scripts and integrations",
+    "url": "/blog/ai-code-assistants"
+  },
+  {
     "title": "Best AI Writing Tools for Ops Teams in 2026",
     "slug": "best-ai-writing-tools",
     "date": "2026-09-11",
@@ -61,13 +68,6 @@
     "date": "2026-08-26",
     "description": "Comparing AI image generation tools for marketing assets, presentations, and social media content",
     "url": "/blog/best-ai-image-generators"
-  },
-  {
-    "title": "AI Code Assistants Compared: GitHub Copilot vs Cursor vs Codeium",
-    "slug": "ai-code-assistants",
-    "date": "2026-08-26",
-    "description": "Comparing three AI coding tools for teams that need automation scripts and integrations",
-    "url": "/blog/ai-code-assistants"
   },
   {
     "title": "Systeme.io Pricing: Is It Worth It for Ops Teams?",
