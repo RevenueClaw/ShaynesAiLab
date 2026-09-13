@@ -1,5 +1,12 @@
 [
   {
+    "title": "Best AI Image Generators for Business: Midjourney vs DALL-E vs Stable Diffusion",
+    "slug": "best-ai-image-generators",
+    "date": "2026-09-13",
+    "description": "Comparing AI image generation tools for marketing assets, presentations, and social media content",
+    "url": "/blog/best-ai-image-generators"
+  },
+  {
     "title": "AI Code Assistants Compared: GitHub Copilot vs Cursor vs Codeium",
     "slug": "ai-code-assistants",
     "date": "2026-09-12",
@@ -61,13 +68,6 @@
     "date": "2026-09-04",
     "description": "Deep comparison of three leading automation platforms for teams deciding which tool fits their specific use case",
     "url": "/blog/zapier-vs-make-vs-n8n"
-  },
-  {
-    "title": "Best AI Image Generators for Business: Midjourney vs DALL-E vs Stable Diffusion",
-    "slug": "best-ai-image-generators",
-    "date": "2026-08-26",
-    "description": "Comparing AI image generation tools for marketing assets, presentations, and social media content",
-    "url": "/blog/best-ai-image-generators"
   },
   {
     "title": "Systeme.io Pricing: Is It Worth It for Ops Teams?",
