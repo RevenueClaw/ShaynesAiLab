@@ -1,5 +1,12 @@
 [
   {
+    "title": "Zapier vs Make vs n8n: When to Use Each Automation Tool",
+    "slug": "zapier-vs-make-vs-n8n",
+    "date": "2026-09-20",
+    "description": "Deep comparison of three leading automation platforms for teams deciding which tool fits their specific use case",
+    "url": "/blog/zapier-vs-make-vs-n8n"
+  },
+  {
     "title": "AI Content Workflow: From Research to Publication in One Pipeline",
     "slug": "ai-content-workflow",
     "date": "2026-09-19",
@@ -124,13 +131,6 @@
     "date": "2026-09-05",
     "description": "Comparing free and low-cost CRM options for teams that need pipeline management without enterprise pricing",
     "url": "/blog/free-crm-options-2026"
-  },
-  {
-    "title": "Zapier vs Make vs n8n: When to Use Each Automation Tool",
-    "slug": "zapier-vs-make-vs-n8n",
-    "date": "2026-09-04",
-    "description": "Deep comparison of three leading automation platforms for teams deciding which tool fits their specific use case",
-    "url": "/blog/zapier-vs-make-vs-n8n"
   },
   {
     "title": "Systeme.io Pricing: Is It Worth It for Ops Teams?",
