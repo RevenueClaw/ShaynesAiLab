@@ -1,5 +1,12 @@
 [
   {
+    "title": "How Ops Teams Use Notion for SOPs and Onboarding",
+    "slug": "notion-sop-onboarding-ops",
+    "date": "2026-09-22",
+    "description": "Building standard operating procedures and onboarding workflows in Notion for operations teams at growing companies",
+    "url": "/blog/notion-sop-onboarding-ops"
+  },
+  {
     "title": "Systeme.io vs ClickFunnels: Which Funnel Builder for AI Ops?",
     "slug": "systemeio-vs-clickfunnels",
     "date": "2026-09-22",
@@ -124,13 +131,6 @@
     "date": "2026-09-09",
     "description": "Building an email triage system using Make.com automation and AI to classify, route, and prioritize incoming messages",
     "url": "/blog/automate-email-triage"
-  },
-  {
-    "title": "How Ops Teams Use Notion for SOPs and Onboarding",
-    "slug": "notion-sop-onboarding-ops",
-    "date": "2026-09-07",
-    "description": "Building standard operating procedures and onboarding workflows in Notion for operations teams at growing companies",
-    "url": "/blog/notion-sop-onboarding-ops"
   },
   {
     "title": "Systeme.io Pricing: Is It Worth It for Ops Teams?",
