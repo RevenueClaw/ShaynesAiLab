@@ -1,5 +1,12 @@
 [
   {
+    "title": "Make.com for Beginners: Your First 5 Automations",
+    "slug": "make-beginners-5-automations",
+    "date": "2026-10-01",
+    "description": "Step-by-step guide to setting up your first five Make.com automations \u2014 email triage, lead capture, invoice alerts, Slack notifications, and data sync",
+    "url": "/blog/make-beginners-5-automations"
+  },
+  {
     "title": "Systeme.io Pricing: Is It Worth It for Ops Teams?",
     "slug": "systemeio-pricing-guide",
     "date": "2026-09-23",
@@ -68,13 +75,6 @@
     "date": "2026-09-16",
     "description": "Essential tools for remote operations teams including communication, project management, automation, and documentation platforms",
     "url": "/blog/remote-ops-essentials"
-  },
-  {
-    "title": "Make.com for Beginners: Your First 5 Automations",
-    "slug": "make-beginners-5-automations",
-    "date": "2026-09-16",
-    "description": "Step-by-step guide to setting up your first five Make.com automations \u2014 email triage, lead capture, invoice alerts, Slack notifications, and data sync",
-    "url": "/blog/make-beginners-5-automations"
   },
   {
     "title": "AI Meeting Assistants Compared: Otter vs Fireflies vs Fathom",

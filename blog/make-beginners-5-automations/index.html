@@ -23,7 +23,7 @@
         "headline": "Make.com for Beginners: Your First 5 Automations -- Shayne's AI Lab",
         "description": "Step-by-step guide to setting up your first five Make.com automations — email triage, lead capture, invoice alerts, Slack notifications, and data sync",
         "url": "https://shaynesailab.com/blog/make-beginners-5-automations/",
-        "datePublished": "2026-09-16",
+        "datePublished": "2026-10-01",
         "author": {"@type": "Person", "name": "Shayne"},
         "publisher": {"@type": "Organization", "name": "Shayne's AI Lab", "url": "https://shaynesailab.com"}
     }
@@ -66,107 +66,14 @@
         <div class="container" style="max-width: 740px;">
             <span class="section-label">Blog</span>
             <h1>Make.com for Beginners: Your First 5 Automations</h1>
-            <p class="article-meta">September 16, 2026</p>
+            <p class="article-meta">October 01, 2026</p>
         </div>
     </section>
 
     <section class="section section-alt">
         <div class="container">
             <div class="article-body">
-                 <p><em>Disclosure: Some links below are affiliate links. If you purchase through them, I may earn a commission at no extra cost to you. I only recommend tools I have tested or used in production environments.</em></p>
-
-<h2>Quick Verdict</h2>
-<p>Make.com is the most cost-effective automation platform for ops teams that have outgrown Zapier's pricing but don't want to learn n8n's self-hosting. It handles complex data transformations well, but the learning curve is steeper than the marketing suggests. Start with these five automations to get real value in your first week.</p>
-
-<h2>Overview</h2>
-<p>Make.com (formerly Integromat) sits between Zapier's simplicity and n8n's flexibility. For a 1-50 person company, it hits a sweet spot: visual scenario builder, robust error handling, and a free tier that actually lets you test real workflows. The interface is intimidating at first—it's a node-based canvas rather than a linear trigger-action flow—but once you understand the "scenario" model, it's more powerful than anything Zapier offers at the same price point.</p>
-
-<p>Here are five automations that solve real problems for ops leaders. Set these up, and you'll have a foundation to build on.</p>
-
-<h2>Automation 1: Email Triage with Gmail + Google Sheets</h2>
-<p><strong>The Problem:</strong> Your shared inbox is a dumping ground. Priority emails get buried under newsletters and vendor spam.</p>
-<p><strong>The Setup:</strong></p>
-<ol>
-<li>Trigger: New email in Gmail (use a label like "Inbox" or "Priority")</li>
-<li>Action: Create a row in Google Sheets with subject, sender, snippet, and date</li>
-<li>Add a filter: Only pass emails from senders not in your contacts list (use a "contains" filter for your domain)</li>
-<li>Add a second action: Move the email to a "Triaged" label</li>
-</ol>
-<p><strong>Why it works:</strong> You get a searchable log of every important email without touching your inbox. Add a "Priority" column and manually sort once a day. This won't replace your inbox, but it gives you a data trail for reporting.</p>
-
-<h2>Automation 2: Lead Capture from Forms to CRM</h2>
-<p><strong>The Problem:</strong> Leads from your website forms sit in Typeform or Google Forms until someone manually exports them. That's a 24-hour delay that costs deals.</p>
-<p><strong>The Setup:</strong></p>
-<ol>
-<li>Trigger: New submission in Typeform or Google Forms</li>
-<li>Action: Create contact in your CRM (HubSpot, Pipedrive, or even <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> if you use their CRM features)</li>
-<li>Action: Add to a "New Lead" list in your email marketing tool (Mailchimp, Brevo)</li>
-<li>Action: Send a Slack message to #sales-alerts with the lead's details</li>
-</ol>
-<p><strong>Why it works:</strong> The lead gets a response in under a minute, and your sales team gets notified instantly. Make.com handles the data mapping better than Zapier for custom fields—you'll spend less time debugging field mismatches.</p>
-
-<h2>Automation 3: Invoice Alerts for Overdue Payments</h2>
-<p><strong>The Problem:</strong> You're chasing invoices manually. That's a waste of your finance person's time.</p>
-<p><strong>The Setup:</strong></p>
-<ol>
-<li>Trigger: Daily schedule (e.g., 9 AM every weekday)</li>
-<li>Search: Find invoices in QuickBooks or Xero where due date is in the past and status is not "paid"</li>
-<li>Action: Send a Slack message to #finance with the list of overdue invoices</li>
-<li>Action: Send a reminder email to the client (use a template, not a generic message)</li>
-</ol>
-<p><strong>Why it works:</strong> You stop relying on memory. The daily check runs even when you're on vacation. Make.com's built-in HTTP module can handle most accounting APIs, though you may need to use webhooks for some niche tools.</p>
-
-<h2>Automation 4: Slack Notifications for High-Value Events</h2>
-<p><strong>The Problem:</strong> Your team misses critical events—new enterprise sign-ups, failed payments, or support escalations.</p>
-<p><strong>The Setup:</strong></p>
-<ol>
-<li>Trigger: New event in your source system (Stripe, Intercom, or your database)</li>
-<li>Filter: Only pass events where the amount is above $500 or the priority is "high"</li>
-<li>Action: Send a formatted Slack message to a specific channel with the relevant details</li>
-</ol>
-<p><strong>Why it works:</strong> The key is the filter step. Without it, you'll get Slack spam and your team will mute the channel. Make.com's filter module is more intuitive than Zapier's—you can visually build complex conditions without writing code.</p>
-
-<h2>Automation 5: Data Sync Between Tools</h2>
-<p><strong>The Problem:</strong> Your team uses different tools, and data lives in silos. Someone is manually copying data between them.</p>
-<p><strong>The Setup:</strong></p>
-<ol>
-<li>Trigger: New or updated row in your source (e.g., Airtable, Notion, or Google Sheets)</li>
-<li>Action: Update the corresponding record in your target (e.g., a database, another spreadsheet, or a project management tool)</li>
-<li>Add a "Watch" module for the target to handle updates, not just creates</li>
-</ol>
-<p><strong>Why it works:</strong> This is where Make.com shines. The data transformation tools (mapping, arrays, aggregators) let you handle complex syncs that would require a custom script in Zapier. For example, you can aggregate all line items from an order and create a single summary record in your accounting tool.</p>
-
-<h2>Price Comparison: Make.com vs. Alternatives</h2>
-<table>
-<thead>
-<tr><th>Tool</th><th>Free Tier</th><th>Starter Paid Plan</th><th>Best For</th></tr>
-</thead>
-<tbody>
-<tr><td>Make.com</td><td>1,000 ops/month</td><td>$9/month (10,000 ops)</td><td>Complex data transformations, custom logic</td></tr>
-<tr><td>Zapier</td><td>100 tasks/month</td><td>$19.99/month (750 tasks)</td><td>Quick, simple automations with 5,000+ app integrations</td></tr>
-<tr><td>n8n</td><td>Self-hosted free</td><td>$20/month (cloud)</td><td>Developers who want full control, no-code for complex workflows</td></tr>
-<tr><td>Pipedream</td><td>10,000 invocations/month</td><td>$19/month</td><td>Developers who want to write code in their workflows</td></tr>
-</tbody>
-</table>
-
-<h2>Who Each Is For</h2>
-<ul>
-<li><strong>Make.com:</strong> Ops teams that need visual data manipulation, have some technical aptitude, and want to avoid per-task pricing that punishes high-volume workflows.</li>
-<li><strong>Zapier:</strong> Non-technical teams that need something that works out of the box with minimal configuration. You'll pay more per task, but you'll spend less time learning.</li>
-<li><strong>n8n:</strong> Teams with a developer on staff who can handle self-hosting or wants to pay for cloud hosting. More control, more maintenance.</li>
-<li><strong>Pipedream:</strong> Developers who prefer writing code in their automation platform and want deep observability.</li>
-</ul>
-
-<h2>Final Thoughts</h2>
-<p>Start with the email triage and lead capture automations—they're the highest ROI for the least effort. The invoice and Slack ones require a bit more setup but pay off quickly. The data sync is the most complex, so save it for when you're comfortable with the platform.</p>
-<p>One tip: Make.com's "Scenario" model means you can reuse modules across automations. Build a library of your most-used actions (e.g., "Send Slack Message" or "Create Google Sheets Row") and you'll speed up future builds significantly.</p>
-
-<h2>Further Reading</h2>
-<ul>
-<li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> — Start with the free plan to test your first scenario.</li>
-<li><a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> — If you're also looking to automate meeting notes, this pairs well with your Make.com workflows.</li>
-<li><a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> — A solid project management tool that integrates natively with Make.com if you need a place to send task data.</li>
-</ul>
+                 
             </div>
         </div>
     </section>
