@@ -1,5 +1,12 @@
 [
   {
+    "title": "How Ops Teams Use Notion for SOPs and Onboarding",
+    "slug": "notion-sop-onboarding-ops",
+    "date": "2026-10-07",
+    "description": "Building standard operating procedures and onboarding workflows in Notion for operations teams at growing companies",
+    "url": "/blog/notion-sop-onboarding-ops"
+  },
+  {
     "title": "Small Team CRM Showdown: HubSpot vs Freshsales vs Pipedrive",
     "slug": "small-team-crm-showdown",
     "date": "2026-10-01",
@@ -26,13 +33,6 @@
     "date": "2026-09-23",
     "description": "Detailed breakdown of Systeme.io pricing tiers, features, and value for operations teams building automated funnels",
     "url": "/blog/systemeio-pricing-guide"
-  },
-  {
-    "title": "How Ops Teams Use Notion for SOPs and Onboarding",
-    "slug": "notion-sop-onboarding-ops",
-    "date": "2026-09-22",
-    "description": "Building standard operating procedures and onboarding workflows in Notion for operations teams at growing companies",
-    "url": "/blog/notion-sop-onboarding-ops"
   },
   {
     "title": "Systeme.io vs ClickFunnels: Which Funnel Builder for AI Ops?",
