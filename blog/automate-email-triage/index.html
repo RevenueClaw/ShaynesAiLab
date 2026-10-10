@@ -23,7 +23,7 @@
         "headline": "Automate Email Triage with Make.com and AI -- Shayne's AI Lab",
         "description": "Building an email triage system using Make.com automation and AI to classify, route, and prioritize incoming messages",
         "url": "https://shaynesailab.com/blog/automate-email-triage/",
-        "datePublished": "2026-09-09",
+        "datePublished": "2026-10-10",
         "author": {"@type": "Person", "name": "Shayne"},
         "publisher": {"@type": "Organization", "name": "Shayne's AI Lab", "url": "https://shaynesailab.com"}
     }
@@ -66,109 +66,14 @@
         <div class="container" style="max-width: 740px;">
             <span class="section-label">Blog</span>
             <h1>Automate Email Triage with Make.com and AI</h1>
-            <p class="article-meta">September 09, 2026</p>
+            <p class="article-meta">October 10, 2026</p>
         </div>
     </section>
 
     <section class="section section-alt">
         <div class="container">
             <div class="article-body">
-                <em>Disclosure: Some links on this page are affiliate links. If you choose to purchase through them, I may earn a small commission at no extra cost to you.</em>
-
-<h2>Quick Verdict</h2>
-<p>You can build a functional email triage system today using Make.com and a low-cost AI model. This setup reliably classifies, routes, and prioritizes incoming messages without a dedicated support tool — expect to save 2-5 hours per week per team member using it.</p>
-
-<h2>Overview</h2>
-<p>Every ops team at a 1-50 person company deals with an overflowing inbox. The goal isn't to read every email — it's to ensure the right person sees the right message at the right time. An automated triage system does three things: classifies the email's intent, routes it to the appropriate person or team, and assigns a priority level (urgent, normal, low).</p>
-<p>Make.com (formerly Integromat) is the glue. It watches your inbox, passes email content to an AI model (like OpenAI’s GPT-4 or Anthropic’s Claude), receives a structured response, and then performs actions based on that response. You don’t need to know how to code — just how to connect blocks.</p>
-<p>This approach works best for generic inboxes like <code>support@</code>, <code>info@</code>, <code>billing@</code>, or <code>hello@</code>. It is not a replacement for a proper help desk tool like Zendesk or Freshdesk for teams over 15 people, but it is a solid bridge for smaller teams.</p>
-
-<h2>How the System Works (Step by Step)</h2>
-<ol>
-  <li><strong>Trigger:</strong> Make.com watches a shared inbox (Gmail, Outlook, or IMAP). New email arrives.</li>
-  <li><strong>Extract:</strong> The automation pulls the subject line, sender email, and body text.</li>
-  <li><strong>Classify:</strong> The email content is sent to an AI model with a system prompt like: <em>"Classify this email into one of these categories: sales inquiry, support ticket, billing issue, partnership request, or spam. Return only the category name and priority (urgent, normal, low)."</em></li>
-  <li><strong>Route:</strong> Based on the classification, the email is forwarded to specific team members, labels are applied, or a task is created in ClickUp.</li>
-  <li><strong>Log:</strong> A summary of the classification and routing is stored in Google Sheets or Airtable for review.</li>
-</ol>
-<p>This entire flow runs in under 30 seconds per email. You can batch process old emails as well.</p>
-
-<h2>What You Need</h2>
-<ul>
-  <li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> account (free tier available, but the Pro plan at $9/month is likely needed for multiple scenarios)</li>
-  <li>An AI API key (OpenAI API costs $0.01–$0.03 per classification call; Claude is similar)</li>
-  <li>A shared email inbox (Gmail or Google Workspace works best)</li>
-  <li>(Optional) <a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> or another task management tool for routing</li>
-</ul>
-
-<h2>Pricing Breakdown</h2>
-<table>
-  <tr>
-    <th>Tool</th>
-    <th>Monthly Cost</th>
-    <th>Notes</th>
-  </tr>
-  <tr>
-    <td>Make.com (Pro)</td>
-    <td>$9</td>
-    <td>1,000 operations per month; sufficient for ~2,000–3,000 email triages</td>
-  </tr>
-  <tr>
-    <td>OpenAI API (GPT-4o-mini)</td>
-    <td>~$0.15 per 1,000 classifications</td>
-    <td>Best for speed and cost; very fast responses</td>
-  </tr>
-  <tr>
-    <td>Claude API (Haiku)</td>
-    <td>~$0.10 per 1,000 classifications</td>
-    <td>Slightly cheaper; very reliable for classification tasks</td>
-  </tr>
-  <tr>
-    <td>ClickUp (Unlimited)</td>
-    <td>$7–$10/user</td>
-    <td>Optional — only needed if you want tasks created</td>
-  </tr>
-</table>
-<p>For a team processing 100 emails per day, expect to spend about $20–$30 per month total.</p>
-
-<h2>Head-to-Head: AI Models for Classification</h2>
-<p>You have two solid options for the AI layer:</p>
-<h3>Option A: OpenAI GPT-4o-mini</h3>
-<ul>
-  <li><strong>Strength:</strong> Fast (sub-second responses), handles long email threads well, good at distinguishing spam from legitimate email</li>
-  <li><strong>Weakness:</strong> Can hallucinate categories if the system prompt is not precise; slightly more expensive per call than Claude Haiku</li>
-  <li><strong>Best for:</strong> Teams that handle a high volume of varied email types and need speed</li>
-</ul>
-<h3>Option B: Anthropic Claude Haiku</h3>
-<ul>
-  <li><strong>Strength:</strong> Cheaper per call, better at following strict output formats (JSON), excellent at avoiding "spam" false positives</li>
-  <li><strong>Weakness:</strong> Slower than GPT-4o-mini (1-2 seconds per call), less reliable on very long email threads</li>
-  <li><strong>Best for:</strong> Teams with a well-defined set of categories and predictable email types</li>
-</ul>
-<p>Both work fine. If you are cost-sensitive, start with Claude Haiku. If you need raw speed, go with GPT-4o-mini.</p>
-
-<h2>Who Each Setup Is For</h2>
-<ul>
-  <li><strong>Make.com + GPT-4o-mini:</strong> For ops teams that get 50–200 emails per day from customers, partners, and random inquiries. You need speed and adaptability. Best for general triage.</li>
-  <li><strong>Make.com + Claude Haiku:</strong> For teams that handle structured inquiries (e.g., only support tickets and billing). If your email volume is predictable, Claude is the cheaper, more consistent choice.</li>
-  <li><strong>Make.com only (no AI):</strong> For teams under 5 people with very low volume (less than 20 emails/day). Use filters based on keywords or sender domains. Not recommended for scale.</li>
-</ul>
-
-<h2>Potential Pitfalls</h2>
-<ul>
-  <li><strong>Email parsing:</strong> HTML emails with heavy formatting sometimes cause the AI to misinterpret content. Use plain-text extraction if possible.</li>
-  <li><strong>False positives:</strong> AI classification is not 100% accurate. Always include a "human review" step for anything classified as urgent. In Make, you can add a delay or a manual approval step.</li>
-  <li><strong>Privacy:</strong> Emails containing PII or sensitive data going through an external API. Review your company's data policy before sending email content to OpenAI or Anthropic.</li>
-  <li><strong>Spam handling:</strong> Basic spam filters (like Gmail's) should run before the Make scenario. Otherwise your AI will waste operations on spam</li>
-</ul>
-
-<h2>Further Reading</h2>
-<ul>
-  <li><a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> documentation on email modules</li>
-  <li>OpenAI API guide for structured outputs</li>
-  <li><a href="https://try.web.clickup.com/0vmcctxnm95e" class="affiliate-link">ClickUp</a> automations for task creation from email</li>
-  <li><a href="https://fireflies.ai/?fpr=shayne10" class="affiliate-link">Fireflies.ai</a> for meeting transcription (bonus integration if you triage meeting requests)</li>
-</ul>
+                None
             </div>
         </div>
     </section>
