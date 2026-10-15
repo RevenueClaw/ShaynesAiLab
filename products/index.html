@@ -36,6 +36,14 @@
         .feature-compare td { color: var(--text-muted); }
         .feature-compare .yes { color: var(--brand-teal); font-weight: 600; }
         .feature-compare .no { color: var(--text-dim); }
+        .exit-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; padding: 1rem; }
+        .exit-overlay.active { display: flex; }
+        .exit-modal { background: var(--bg-card); border: 1px solid var(--brand-teal); border-radius: var(--radius-lg); padding: 2rem; max-width: 480px; width: 100%; text-align: center; position: relative; }
+        .exit-modal .close { position: absolute; top: 0.75rem; right: 1rem; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
+        .exit-modal input[type=email] { width: 100%; padding: 0.8rem 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 1rem; margin-bottom: 0.8rem; box-sizing: border-box; }
+        .exit-modal input[type=email]:focus { outline: none; border-color: var(--brand-teal-light); }
+        .exit-modal .btn { width: 100%; }
+        .exit-modal .fine { font-size: 0.75rem; color: var(--text-muted); margin: 0.75rem 0 0; }
     </style>
 </head>
 <body>
@@ -87,7 +95,7 @@
             <div class="product-grid">
                 <div class="product-card">
                     <div class="icon-lg">🎧</div>
-                    <h3>SupportBot</h3>
+                    <h3><a href="/products/supportbot" style="color:inherit; text-decoration:none;">SupportBot</a></h3>
                     <div class="price">$47</div>
                     <p class="desc">AI customer support agent trained on your knowledge base.</p>
                     <ul>
@@ -97,12 +105,12 @@
                         <li>Escalation workflow template</li>
                         <li>Setup checklist (30 min)</li>
                     </ul>
-                    <a href="https://buy.stripe.com/28E14o6A3fDq0TVbL71RC00" class="btn btn-primary" target="_blank">Buy Now — $47 →</a>
+                    <a href="/products/supportbot" class="btn btn-primary">View Details →</a>
                 </div>
 
                 <div class="product-card">
                     <div class="icon-lg">✍️</div>
-                    <h3>ContentCrew</h3>
+                    <h3><a href="/products/contentcrew" style="color:inherit; text-decoration:none;">ContentCrew</a></h3>
                     <div class="price">$97</div>
                     <p class="desc">AI content generation system for blogs, social media, and email.</p>
                     <ul>
@@ -113,12 +121,12 @@
                         <li>Keyword research integration</li>
                         <li>Style guide configuration</li>
                     </ul>
-                    <a href="https://buy.stripe.com/28E8wQ8Ib62QdGH16tRC01" class="btn btn-primary" target="_blank">Buy Now — $97 →</a>
+                    <a href="/products/contentcrew" class="btn btn-primary">View Details →</a>
                 </div>
 
                 <div class="product-card">
                     <div class="icon-lg">🎯</div>
-                    <h3>LeadMagnet</h3>
+                    <h3><a href="/products/leadmagnet" style="color:inherit; text-decoration:none;">LeadMagnet</a></h3>
                     <div class="price">$147</div>
                     <p class="desc">AI lead qualification and follow-up automation system.</p>
                     <ul>
@@ -129,7 +137,7 @@
                         <li>Conversation scripts</li>
                         <li>Analytics tracking setup</li>
                     </ul>
-                    <a href="https://buy.stripe.com/4gMcN66A34YMdGHg1n1RC02" class="btn btn-primary" target="_blank">Buy Now — $147 →</a>
+                    <a href="/products/leadmagnet" class="btn btn-primary">View Details →</a>
                 </div>
             </div>
 
@@ -243,5 +251,35 @@
         }
     </script>
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+    <div class="exit-overlay" id="exitModal" aria-hidden="true">
+        <div class="exit-modal" role="dialog" aria-modal="true" aria-labelledby="exitTitle">
+            <button class="close" id="exitClose" aria-label="Close">&times;</button>
+            <div style="font-size:2.5rem; margin-bottom:0.5rem;">🚀</div>
+            <h3 id="exitTitle">Wait — Get the Free AI Starter Kit First</h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1rem;">Not ready to buy? Get "27 Ways to Use AI in Your Business" plus our best automation ideas. No pitch, just useful stuff.</p>
+            <form action="https://api.shaynesailab.com/api/lead-magnet-signup" method="POST">
+                <input type="hidden" name="source" value="products-exit-intent">
+                <input type="email" name="email" placeholder="you@company.com" required>
+                <button type="submit" class="btn btn-primary">Send Me the Free Guide →</button>
+            </form>
+            <p class="fine">No spam. Unsubscribe anytime.</p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const modal = document.getElementById('exitModal');
+            const close = document.getElementById('exitClose');
+            let shown = false;
+            function show() { if (shown) return; shown = true; modal.classList.add('active'); modal.setAttribute('aria-hidden', 'false'); }
+            function hide() { modal.classList.remove('active'); modal.setAttribute('aria-hidden', 'true'); }
+            document.addEventListener('mouseout', function(e) {
+                if (e.clientY < 10 && !shown) show();
+            });
+            close.addEventListener('click', hide);
+            modal.addEventListener('click', function(e) { if (e.target === modal) hide(); });
+            document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('active')) hide(); });
+        })();
+    </script>
 </body>
 </html>
