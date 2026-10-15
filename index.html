@@ -59,8 +59,15 @@
                     </p>
                     <div class="hero-cta">
                         <a href="/services" class="btn btn-primary">View Services →</a>
-                        <a href="/ai-starter-kit" class="btn btn-secondary">Get the Free Guide</a>
+                        <a href="/products" class="btn btn-secondary">Browse Templates</a>
                     </div>
+                    <form action="https://api.shaynesailab.com/api/lead-magnet-signup" method="POST" style="max-width:420px; margin-top:1.5rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+                        <input type="hidden" name="source" value="homepage-hero">
+                        <input type="email" name="email" placeholder="you@company.com" required
+                            style="flex:1; min-width:200px; padding:0.8rem 1rem; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); color:var(--text); font-size:1rem; box-sizing:border-box;">
+                        <button type="submit" class="btn btn-primary" style="white-space:nowrap;">Get Free Guide →</button>
+                    </form>
+                    <p style="font-size:0.78rem; color:var(--text-muted); margin-top:0.6rem;">Free: 27 Ways to Use AI in Your Business. No spam, unsubscribe anytime.</p>
                 </div>
                 <div class="hero-visual">
                     <img src="/assets/shaynesailab-hero.png" alt="Tool comparisons for operations teams" style="width:100%; height:auto; border-radius:var(--radius-lg); box-shadow:var(--shadow-card);" loading="lazy" width="1536" height="1024">
