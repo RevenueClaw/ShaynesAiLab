@@ -328,7 +328,7 @@
                 data.tools = formData.getAll('tools');
 
                 console.log('Submitting diagnostic to https://shaynesailab.com/api/diagnostic', data);
-                const response = await fetch('https://shaynesailab.com/api/diagnostic', {
+                const response = await fetch('https://api.shaynesailab.com/api/diagnostic', {
                     method: 'POST',
                     mode: 'cors',
                     headers: { 'Content-Type': 'application/json' },

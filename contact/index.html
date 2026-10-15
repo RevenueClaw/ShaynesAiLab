@@ -67,8 +67,7 @@
     <section class="section section-alt">
         <div class="container" style="max-width: 760px;">
             <div class="contact-card">
-                <!-- Form submits via mailto as fallback until backend is wired -->
-                <form action="mailto:hello@shaynesailab.com" method="post" enctype="text/plain" onsubmit="return confirm('This will open your email client. Alternatively, send directly to hello@shaynesailab.com');">
+                <form id="contact-form">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -78,23 +77,69 @@
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
                         <label for="topic">What is this about?</label>
                         <select id="topic" name="topic" required>
                             <option value="">Select one</option>
-                            <option value="tool-suggestion">Suggest a tool to compare</option>
-                            <option value="blog-feedback">Blog or content feedback</option>
-                            <option value="question">General question</option>
+                            <option value="custom-project">Custom workflow project</option>
+                            <option value="retainer">Managed AI operator / retainer</option>
+                            <option value="kit-support">Self-install kit support</option>
+                            <option value="diagnostic-question">Question about my diagnostic report</option>
                             <option value="other">Something else</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="What tool would you like us to compare or what's on your mind?" required></textarea>
+                        <textarea id="message" name="message" placeholder="Tell me what you're trying to automate or the problem you're seeing." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-wide">Send Message</button>
-
+                    <p id="form-status" style="display:none; margin-top:1rem; font-weight:500;"></p>
                 </form>
             </div>
+
+            <script>
+            document.getElementById('contact-form').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const form = e.target;
+                const statusEl = document.getElementById('form-status');
+                const btn = form.querySelector('button[type="submit"]');
+                btn.disabled = true;
+                statusEl.style.display = 'none';
+
+                const data = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    company: form.company.value,
+                    topic: form.topic.value,
+                    message: form.message.value
+                };
+
+                try {
+                    const res = await fetch('https://api.shaynesailab.com/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                    const result = await res.json();
+                    if (res.ok && result.status === 'ok') {
+                        statusEl.textContent = '✅ ' + result.message;
+                        statusEl.style.color = '#22c55e';
+                        form.reset();
+                    } else {
+                        statusEl.textContent = '❌ ' + (result.message || 'Something went wrong. Please email hello@shaynesailab.com directly.');
+                        statusEl.style.color = '#ef4444';
+                    }
+                } catch (err) {
+                    statusEl.textContent = '❌ Could not send. Please email hello@shaynesailab.com directly.';
+                    statusEl.style.color = '#ef4444';
+                }
+                statusEl.style.display = 'block';
+                btn.disabled = false;
+            });
+            </script>
 
             <div class="contact-options">
                 <div class="contact-option">
