@@ -76,6 +76,11 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
+    <loc>https://shaynesailab.com/blog/ai-agents-small-business</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://shaynesailab.com/blog/ai-code-assistants</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
