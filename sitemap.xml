@@ -46,6 +46,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://shaynesailab.com/diagnostic-chat</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://shaynesailab.com/ai-starter-kit</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>

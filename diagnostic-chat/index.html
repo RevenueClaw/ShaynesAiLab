@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free AI Ops Diagnostic Chat — Shayne's AI Lab</title>
+    <meta name="description" content="Get a personalized AI automation recommendation in 2 minutes. No sales call required.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="Free AI Ops Diagnostic Chat — Shayne's AI Lab">
+    <meta property="og:description" content="Get a personalized AI automation recommendation in 2 minutes. No sales call required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shaynesailab.com/diagnostic-chat">
+    <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        :root {
+            --chat-bg: var(--bg-card, #1e293b);
+            --user-bubble: var(--brand-teal-light, #2dd4bf);
+            --bot-bubble: var(--bg-glass, #334155);
+        }
+        .chat-container {
+            max-width: 720px;
+            margin: 0 auto;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--chat-bg);
+            border: 1px solid var(--border, #334155);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .chat-messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            max-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .chat-bubble {
+            max-width: 80%;
+            padding: 0.9rem 1.1rem;
+            border-radius: 14px;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            animation: fadeIn 0.25s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .chat-bubble.bot {
+            align-self: flex-start;
+            background: var(--bot-bubble);
+            color: var(--text, #f8fafc);
+            border-bottom-left-radius: 4px;
+        }
+        .chat-bubble.user {
+            align-self: flex-end;
+            background: var(--user-bubble);
+            color: #0f172a;
+            font-weight: 500;
+            border-bottom-right-radius: 4px;
+        }
+        .chat-input-area {
+            padding: 1rem 1.5rem 1.5rem;
+            border-top: 1px solid var(--border, #334155);
+            background: rgba(15, 23, 42, 0.5);
+        }
+        .chat-choices {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .chat-choice-btn {
+            padding: 0.55rem 1rem;
+            border: 1px solid var(--border, #334155);
+            border-radius: 999px;
+            background: var(--bg-glass, #334155);
+            color: var(--text, #f8fafc);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.15s;
+        }
+        .chat-choice-btn:hover {
+            border-color: var(--user-bubble, #2dd4bf);
+            color: var(--user-bubble, #2dd4bf);
+        }
+        .chat-choice-btn.selected {
+            background: var(--user-bubble, #2dd4bf);
+            color: #0f172a;
+            border-color: var(--user-bubble, #2dd4bf);
+        }
+        .chat-text-row {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .chat-text-row input {
+            flex: 1;
+            padding: 0.7rem 1rem;
+            border: 1px solid var(--border, #334155);
+            border-radius: 10px;
+            background: var(--bg-card, #1e293b);
+            color: var(--text, #f8fafc);
+            font-size: 0.95rem;
+        }
+        .chat-text-row button {
+            padding: 0.7rem 1.2rem;
+            border: none;
+            border-radius: 10px;
+            background: var(--user-bubble, #2dd4bf);
+            color: #0f172a;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .chat-text-row button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .multi-submit {
+            margin-top: 0.75rem;
+            width: 100%;
+        }
+        .recommendation-card {
+            background: var(--bg-glass, #334155);
+            border: 1px solid var(--border, #334155);
+            border-radius: 14px;
+            padding: 1.25rem;
+            margin-top: 0.75rem;
+        }
+        .recommendation-card h3 {
+            margin: 0 0 0.5rem;
+            color: var(--user-bubble, #2dd4bf);
+        }
+        .recommendation-card .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        .recommendation-card .stats {
+            color: var(--text-secondary, #94a3b8);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .typing {
+            display: flex;
+            gap: 0.35rem;
+            padding: 0.75rem 1rem;
+        }
+        .typing span {
+            width: 8px;
+            height: 8px;
+            background: var(--text-muted, #94a3b8);
+            border-radius: 50%;
+            animation: bounce 1s infinite;
+        }
+        .typing span:nth-child(2) { animation-delay: 0.15s; }
+        .typing span:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-6px); }
+        }
+        @media (max-width: 600px) {
+            .chat-container { border-radius: 0; border-left: 0; border-right: 0; }
+            .chat-messages { padding: 1rem; }
+            .chat-bubble { max-width: 90%; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shayne's AI Lab home">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/><path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/products" role="menuitem">Products</a></li>
+                <li><a href="/services" role="menuitem">Services</a></li>
+                <li><a href="/blog" role="menuitem">Blog</a></li>
+                <li><a href="/ai-starter-kit" role="menuitem">Free Starter Kit</a></li>
+                <li><a href="/contact" role="menuitem">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+    </nav>
+
+    <section class="hero" style="padding-bottom: 1.5rem;">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container" style="max-width: 740px;">
+            <span class="section-label">Free Diagnostic</span>
+            <h1>Find Your Highest-Impact AI Automation</h1>
+            <p class="hero-subtitle">2-minute chat. Personalized recommendation. No sales call required.</p>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages"></div>
+                <div class="chat-input-area" id="chat-input-area">
+                    <div id="input-container"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/products">Products</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/ai-starter-kit">Free Starter Kit</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            const API_URL = 'https://api.shaynesailab.com/api/diagnostic-chat';
+            const messagesEl = document.getElementById('chat-messages');
+            const inputContainer = document.getElementById('input-container');
+            let sessionId = localStorage.getItem('sailab_diag_session') || '';
+            let isComplete = false;
+
+            function track(event, data) {
+                if (typeof window.track === 'function') {
+                    window.track(event, data);
+                }
+            }
+
+            function scrollToBottom() {
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+            }
+
+            function addBubble(text, fromUser, isHtml) {
+                const div = document.createElement('div');
+                div.className = 'chat-bubble ' + (fromUser ? 'user' : 'bot');
+                if (isHtml) {
+                    div.innerHTML = text;
+                } else {
+                    div.textContent = text;
+                }
+                messagesEl.appendChild(div);
+                scrollToBottom();
+                return div;
+            }
+
+            function showTyping() {
+                const div = document.createElement('div');
+                div.className = 'chat-bubble bot typing';
+                div.id = 'typing-indicator';
+                div.innerHTML = '<span></span><span></span><span></span>';
+                messagesEl.appendChild(div);
+                scrollToBottom();
+            }
+
+            function hideTyping() {
+                const el = document.getElementById('typing-indicator');
+                if (el) el.remove();
+            }
+
+            function clearInput() {
+                inputContainer.innerHTML = '';
+            }
+
+            function renderRecommendation(rec) {
+                return `
+                    <div class="recommendation-card">
+                        <h3>${rec.name}</h3>
+                        <p>${rec.description}</p>
+                        <div class="price">${rec.price}</div>
+                        <div class="stats">Typical savings: ${rec.typical_hours} hrs/week · Estimated value: ${rec.monthly_value}/mo · Payback: ${rec.payback_weeks} weeks</div>
+                        <a href="${rec.url}" class="btn btn-primary" target="_blank" rel="noopener" data-track="buy_click" data-target="${rec.name}">View Details →</a>
+                    </div>
+                `;
+            }
+
+            function renderQuestion(question) {
+                clearInput();
+                if (!question) return;
+
+                if (question.type === 'choice') {
+                    const wrap = document.createElement('div');
+                    wrap.className = 'chat-choices';
+                    question.options.forEach(opt => {
+                        const btn = document.createElement('button');
+                        btn.className = 'chat-choice-btn';
+                        btn.textContent = opt.label;
+                        btn.onclick = () => sendMessage(opt.value, opt.label);
+                        wrap.appendChild(btn);
+                    });
+                    inputContainer.appendChild(wrap);
+                } else if (question.type === 'multi') {
+                    const wrap = document.createElement('div');
+                    wrap.className = 'chat-choices';
+                    const selected = new Set();
+                    question.options.forEach(opt => {
+                        const btn = document.createElement('button');
+                        btn.className = 'chat-choice-btn';
+                        btn.textContent = opt.label;
+                        btn.onclick = () => {
+                            if (selected.has(opt.value)) {
+                                selected.delete(opt.value);
+                                btn.classList.remove('selected');
+                            } else {
+                                selected.add(opt.value);
+                                btn.classList.add('selected');
+                            }
+                        };
+                        wrap.appendChild(btn);
+                    });
+                    const submit = document.createElement('button');
+                    submit.className = 'btn btn-primary multi-submit';
+                    submit.textContent = 'Continue';
+                    submit.onclick = () => {
+                        if (selected.size === 0) return;
+                        const values = Array.from(selected);
+                        const labels = question.options.filter(o => selected.has(o.value)).map(o => o.label).join(', ');
+                        sendMessage(values.join(','), labels);
+                    };
+                    inputContainer.appendChild(wrap);
+                    inputContainer.appendChild(submit);
+                } else if (question.type === 'email') {
+                    const row = document.createElement('div');
+                    row.className = 'chat-text-row';
+                    const input = document.createElement('input');
+                    input.type = 'email';
+                    input.placeholder = question.placeholder || 'you@example.com';
+                    input.addEventListener('keypress', e => { if (e.key === 'Enter') submit.click(); });
+                    const submit = document.createElement('button');
+                    submit.textContent = 'Send My Report';
+                    submit.onclick = () => {
+                        const val = input.value.trim();
+                        if (!val || !val.includes('@')) return;
+                        sendMessage(val, val);
+                    };
+                    row.appendChild(input);
+                    row.appendChild(submit);
+                    inputContainer.appendChild(row);
+                    input.focus();
+                }
+            }
+
+            function renderFollowupInput() {
+                clearInput();
+                const row = document.createElement('div');
+                row.className = 'chat-text-row';
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.placeholder = 'Ask a question...';
+                input.addEventListener('keypress', e => { if (e.key === 'Enter') submit.click(); });
+                const submit = document.createElement('button');
+                submit.textContent = 'Send';
+                submit.onclick = () => {
+                    const val = input.value.trim();
+                    if (!val) return;
+                    sendMessage(val, val);
+                };
+                row.appendChild(input);
+                row.appendChild(submit);
+                inputContainer.appendChild(row);
+                input.focus();
+            }
+
+            async function sendMessage(value, displayValue) {
+                addBubble(displayValue || value, true);
+                clearInput();
+                showTyping();
+
+                try {
+                    const res = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({session_id: sessionId, message: value})
+                    });
+                    const data = await res.json();
+                    hideTyping();
+
+                    if (data.session_id) {
+                        sessionId = data.session_id;
+                        localStorage.setItem('sailab_diag_session', sessionId);
+                    }
+
+                    if (data.type === 'question') {
+                        addBubble(data.message, false);
+                        renderQuestion(data.question);
+                        track('form_start', {page: '/diagnostic-chat', source: 'diagnostic-chat', target: 'q' + data.step});
+                    } else if (data.type === 'recommendation') {
+                        isComplete = true;
+                        addBubble(data.message + '<br><br>' + renderRecommendation(data.recommendation), false, true);
+                        if (data.follow_up_prompt) addBubble(data.follow_up_prompt, false);
+                        renderFollowupInput();
+                        track('email_capture', {page: '/diagnostic-chat', source: 'diagnostic-chat', target: data.recommendation.name});
+                        track('cta_click', {page: '/diagnostic-chat', source: 'diagnostic-chat', target: data.recommendation.url});
+                    } else if (data.type === 'followup') {
+                        addBubble(data.message, false);
+                        renderFollowupInput();
+                    }
+                } catch (err) {
+                    hideTyping();
+                    addBubble('Something went wrong. Please refresh the page or email hello@shaynesailab.com.', false);
+                }
+            }
+
+            async function startChat() {
+                showTyping();
+                try {
+                    const res = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({session_id: sessionId, start: true})
+                    });
+                    const data = await res.json();
+                    hideTyping();
+                    if (data.session_id) {
+                        sessionId = data.session_id;
+                        localStorage.setItem('sailab_diag_session', sessionId);
+                    }
+                    if (data.type === 'question') {
+                        addBubble(data.message, false);
+                        renderQuestion(data.question);
+                    }
+                } catch (err) {
+                    hideTyping();
+                    addBubble('Unable to start the diagnostic chat. Please try again or email hello@shaynesailab.com.', false);
+                }
+            }
+
+            track('pageview', {page: '/diagnostic-chat', source: 'diagnostic-chat'});
+            startChat();
+        })();
+    </script>
+    <script src="/scripts/conversion.js" defer></script>
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click',function(){const e=document.querySelector('.nav-links');const n=e.style.display==='flex';e.style.display=n?'none':'flex';e.style.flexDirection='column';e.style.position='absolute';e.style.top='100%';e.style.left='0';e.style.right='0';e.style.background='var(--bg-glass)';e.style.backdropFilter='blur(14px)';e.style.padding='1rem 1.5rem';e.style.borderBottom='1px solid var(--border)';e.style.gap='0.75rem';this.setAttribute('aria-expanded',String(!n));});
+    </script>
+</body>
+</html>
