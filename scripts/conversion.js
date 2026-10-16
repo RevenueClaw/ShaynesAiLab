@@ -3,6 +3,7 @@
  * - Site-wide announcement bar
  * - Floating CTA button
  * - Blog post end-of-article email capture
+ * - Lightweight conversion analytics (self-hosted, no cookies)
  */
 (function() {
     'use strict';
@@ -13,12 +14,35 @@
 
     const GUIDE_URL = '/ai-starter-kit';
     const FORM_ACTION = 'https://api.shaynesailab.com/api/lead-magnet-signup';
+    const TRACK_ENDPOINT = 'https://api.shaynesailab.com/api/track';
 
     function createEl(tag, attrs, styles) {
         const el = document.createElement(tag);
         if (attrs) Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
         if (styles) Object.entries(styles).forEach(([k, v]) => el.style[k] = v);
         return el;
+    }
+
+    // ── Analytics ────────────────────────────────────────────────────────────
+    function track(event, data) {
+        try {
+            const payload = Object.assign({
+                event: event,
+                page: location.pathname,
+                source: 'conversion-js'
+            }, data || {});
+            navigator.sendBeacon(TRACK_ENDPOINT, JSON.stringify(payload));
+        } catch (e) {
+            // Silent fail — never block the user interaction
+        }
+    }
+
+    function trackCTA(target, source) {
+        track('cta_click', { target: target, source: source });
+    }
+
+    function trackEmailCapture(source) {
+        track('email_capture', { source: source });
     }
 
     // ── Announcement bar ─────────────────────────────────────────────────────
@@ -47,6 +71,9 @@
             <span style="font-weight:600;">Free Guide:</span> 27 Ways to Use AI in Your Business — 
             <a href="${GUIDE_URL}" style="color:#2dd4bf; text-decoration:underline; font-weight:600;">Get it now →</a>
         `;
+        bar.querySelector('a').addEventListener('click', function() {
+            trackCTA(GUIDE_URL, 'announcement-bar');
+        });
         document.body.appendChild(bar);
         document.body.style.paddingTop = (bar.offsetHeight + 8) + 'px';
     }
@@ -78,6 +105,9 @@
             transition: 'transform 0.15s, box-shadow 0.15s'
         });
         fab.innerHTML = '🎁 <span>Free Guide</span>';
+        fab.addEventListener('click', function() {
+            trackCTA(GUIDE_URL, 'floating-fab');
+        });
         fab.addEventListener('mouseenter', () => {
             fab.style.transform = 'translateY(-2px)';
             fab.style.boxShadow = '0 8px 24px rgba(45,212,191,0.35)';
@@ -119,7 +149,7 @@
             <p style="margin:0 0 1.25rem; color:var(--text-muted,#94a3b8); font-size:0.95rem; line-height:1.5;">
                 27 practical ways to use AI in your business — plus the exact tools and setup steps for each.
             </p>
-            <form action="${FORM_ACTION}" method="POST" style="max-width:380px; margin:0 auto;">
+            <form action="${FORM_ACTION}" method="POST" data-track-source="blog-end-cta" style="max-width:380px; margin:0 auto;">
                 <input type="hidden" name="source" value="blog-end-cta">
                 <input type="email" name="email" placeholder="you@company.com" required
                     style="width:100%; padding:0.8rem 1rem; background:var(--bg,#0f172a); border:1px solid var(--border,#334155);
@@ -133,11 +163,49 @@
         article.appendChild(cta);
     }
 
+    // ── Email form tracking ──────────────────────────────────────────────────
+    function attachEmailFormTracking() {
+        document.querySelectorAll('form').forEach(function(form) {
+            if (form.dataset.sailabTracked) return;
+            form.dataset.sailabTracked = 'true';
+
+            const hasEmail = form.querySelector('input[type="email"]');
+            if (!hasEmail) return;
+
+            const source = form.dataset.trackSource ||
+                           (form.querySelector('input[name="source"]') && form.querySelector('input[name="source"]').value) ||
+                           'inline-form';
+
+            form.addEventListener('submit', function() {
+                trackEmailCapture(source);
+            });
+        });
+    }
+
+    // ── Product page tracking ────────────────────────────────────────────────
+    function attachProductTracking() {
+        const path = location.pathname;
+        if (!path.startsWith('/products/')) return;
+
+        track('product_view', { target: path });
+
+        document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(function(btn) {
+            if (btn.dataset.sailabBuyTracked) return;
+            btn.dataset.sailabBuyTracked = 'true';
+            btn.addEventListener('click', function() {
+                track('buy_click', { target: btn.getAttribute('href'), source: path });
+            });
+        });
+    }
+
     // ── Initialize ───────────────────────────────────────────────────────────
     function init() {
         injectAnnouncementBar();
         injectFloatingCTA();
         injectBlogEndCTA();
+        attachEmailFormTracking();
+        attachProductTracking();
+        track('pageview', { source: document.referrer || 'direct' });
     }
 
     if (document.readyState === 'loading') {
