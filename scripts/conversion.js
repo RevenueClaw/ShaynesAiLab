@@ -31,7 +31,17 @@
                 page: location.pathname,
                 source: 'conversion-js'
             }, data || {});
-            navigator.sendBeacon(TRACK_ENDPOINT, JSON.stringify(payload));
+            const body = JSON.stringify(payload);
+            if (navigator.sendBeacon) {
+                navigator.sendBeacon(TRACK_ENDPOINT, body);
+            } else {
+                fetch(TRACK_ENDPOINT, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: body,
+                    keepalive: true
+                }).catch(function(){});
+            }
         } catch (e) {
             // Silent fail — never block the user interaction
         }
