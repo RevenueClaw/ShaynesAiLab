@@ -66,6 +66,27 @@ https://shaynesailab.com/diagnostic-chat/
 
 ---
 
+## New Article 3: AI Customer Service Automation
+
+**LinkedIn post**
+
+Most customer service automation fails because teams try to automate too much, too fast.
+
+The better approach: automate the repetitive 80% (order status, FAQs, routing) and keep humans for the 20% that needs judgment.
+
+I wrote a step-by-step setup guide covering:
+→ What to automate vs. keep human
+→ The 4-part stack: intake, triage, response, escalation
+→ A 7-step implementation plan
+→ Tool recommendations by budget
+
+If you're trying to reduce support hours without annoying customers, this is worth 10 minutes:
+https://shaynesailab.com/blog/ai-customer-service-automation/
+
+#customerservice #automation #ai #operations #smallbusiness
+
+---
+
 ## Bundle / General Product Post
 
 **LinkedIn post**
