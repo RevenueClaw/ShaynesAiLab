@@ -81,6 +81,11 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
+    <loc>https://shaynesailab.com/blog/ai-customer-service-automation</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://shaynesailab.com/blog/choose-ai-agent-platform</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>

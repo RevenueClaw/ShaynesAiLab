@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Customer Service Automation: Setup Guide + Tools — Shayne's AI Lab</title>
+    <meta name="description" content="Step-by-step guide to automating customer service with AI. What to automate, what to keep human, and the tools to build it without code.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="AI Customer Service Automation: Setup Guide + Tools — Shayne's AI Lab">
+    <meta property="og:description" content="Step-by-step guide to automating customer service with AI. What to automate, what to keep human, and the tools to build it without code.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://shaynesailab.com/blog/ai-customer-service-automation">
+    <meta property="og:image" content="https://shaynesailab.com/assets/shaynesailab-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AI Customer Service Automation: Setup Guide + Tools",
+        "description": "Step-by-step guide to automating customer service with AI. What to automate, what to keep human, and the tools to build it without code.",
+        "url": "https://shaynesailab.com/blog/ai-customer-service-automation/",
+        "datePublished": "2026-10-16",
+        "author": {"@type": "Person", "name": "Shayne"},
+        "publisher": {"@type": "Organization", "name": "Shayne's AI Lab", "url": "https://shaynesailab.com"}
+    }
+    </script>
+    <style>
+        .article-body { max-width: 740px; margin: 0 auto; }
+        .article-body h2 { margin-top: var(--space-xl); color: var(--text); }
+        .article-body h3 { margin-top: var(--space-lg); color: var(--text); }
+        .article-body p { margin-bottom: var(--space-sm); color: var(--text-secondary); line-height: 1.8; }
+        .article-body ul, .article-body ol { margin-bottom: var(--space-md); color: var(--text-secondary); padding-left: 1.5rem; }
+        .article-body li { margin-bottom: 0.3rem; }
+        .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-md) 0; }
+        .article-body th, .article-body td { padding: 0.7rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .article-body th { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .article-body td { color: var(--text-secondary); font-size: 0.95rem; }
+        .article-body .affiliate-disclosure { border-left: 2px solid var(--brand-amber); padding: 0.5rem 1rem; margin-bottom: var(--space-lg); background: var(--brand-amber-soft); border-radius: 4px; }
+        .article-body a.affiliate-link { color: var(--brand-teal-light); text-decoration: underline; text-decoration-style: dotted; }
+        .article-meta { font-size: 0.85rem; color: var(--text-dim); margin-bottom: var(--space-lg); text-align: center; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shayne's AI Lab home">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/><path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/blog" class="active" role="menuitem">Blog</a></li>
+                <li><a href="/resources" role="menuitem">Tools</a></li>
+                <li><a href="/products" role="menuitem">Products</a></li>
+                <li><a href="/starter-kit" role="menuitem">Free Starter Kit</a></li>
+                <li><a href="/contact" role="menuitem">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container" style="max-width: 740px;">
+            <span class="section-label">Blog</span>
+            <h1>AI Customer Service Automation: Setup Guide + Tools</h1>
+            <p class="article-meta">October 16, 2026</p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="article-body">
+                <p class="affiliate-disclosure" style="font-size:0.85rem;"><strong>Disclosure:</strong> Some links below are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+
+                <p>AI customer service automation isn't about replacing humans. It's about handling the repetitive 80% so your team can focus on the 20% that actually requires judgment, empathy, or negotiation.</p>
+
+                <p>Done right, it cuts response times from hours to seconds and reduces support hours by 10–15 per week. Done wrong, it frustrates customers and creates more cleanup work than it saves.</p>
+
+                <h2>What to Automate vs. What to Keep Human</h2>
+                <p><strong>Automate first:</strong></p>
+                <ul>
+                    <li>Password resets and account lookups</li>
+                    <li>Order status and tracking questions</li>
+                    <li>Refund policy and return instructions</li>
+                    <li>Routing tickets to the right department</li>
+                    <li>Drafting responses for human review</li>
+                </ul>
+
+                <p><strong>Keep human:</strong></p>
+                <ul>
+                    <li>Angry or escalated customers</li>
+                    <li>Complex billing disputes</li>
+                    <li>Product defects or safety issues</li>
+                    <li>VIP or high-value accounts</li>
+                </ul>
+
+                <h2>The 4-Part Stack</h2>
+                <ol>
+                    <li><strong>Intake:</strong> Where the question comes in — email, chat widget, form, or social.</li>
+                    <li><strong>Triage:</strong> Classify the issue, detect urgency, and route it.</li>
+                    <li><strong>Response:</strong> Answer from knowledge base or draft a reply.</li>
+                    <li><strong>Escalation:</strong> Hand off to a human when confidence is low or issue is sensitive.</li>
+                </ol>
+
+                <h2>7-Step Setup</h2>
+                <ol>
+                    <li><strong>Audit your last 100 tickets.</strong> Group them by type and frequency. The top 5 types are your automation targets.</li>
+                    <li><strong>Build a knowledge base.</strong> Compile FAQs, policies, manuals, and past resolved tickets. Accuracy here determines AI accuracy.</li>
+                    <li><strong>Choose your intake channel.</strong> Start with email if most tickets arrive there. Chat widgets work well for high-volume sites.</li>
+                    <li><strong>Set up triage rules.</strong> Use keywords, sentiment, and customer data to classify urgency and route tickets.</li>
+                    <li><strong>Deploy the AI response layer.</strong> Connect an LLM to your knowledge base with a system prompt that defines tone, boundaries, and escalation triggers.</li>
+                    <li><strong>Configure escalation.</strong> Any ticket with negative sentiment, unknown topic, or high customer value goes to a human.</li>
+                    <li><strong>Measure and tune.</strong> Track first-response time, resolution rate, and customer satisfaction. Review failed escalations weekly.</li>
+                </ol>
+
+                <h2>Tool Recommendations by Budget</h2>
+                <table>
+                    <thead>
+                        <tr><th>Budget</th><th>Stack</th><th>Best For</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>$0–$100</td><td>Gmail + <a class="affiliate-link" href="https://www.make.com/en/register?pc=shaynesailab">Make.com</a> + ChatGPT/Claude</td><td>Solopreneurs, low ticket volume</td></tr>
+                        <tr><td>$100–$500</td><td>Help Scout / Zendesk + AI add-on</td><td>Small teams needing shared inbox</td></tr>
+                        <tr><td>$500+</td><td>Custom agent + managed service</td><td>High-volume or complex workflows</td></tr>
+                    </tbody>
+                </table>
+
+                <h2>Common Mistakes</h2>
+                <ul>
+                    <li><strong>Letting the AI send replies without review.</strong> Start with draft mode. Auto-send only for the simplest, highest-confidence cases.</li>
+                    <li><strong>Skipping the knowledge base.</strong> AI can't answer accurately from information it doesn't have.</li>
+                    <li><strong>No clear escalation path.</strong> Customers should always be able to reach a human quickly.</li>
+                    <li><strong>Automating too fast.</strong> Start with 3–5 ticket types, prove accuracy, then expand.</li>
+                </ul>
+
+                <h2>Want a Faster Start?</h2>
+                <p>If you want the prompts, setup guide, and escalation workflow already built, the <a href="/products/supportbot/">SupportBot template</a> gives you a ready-to-deploy AI support agent for $47.</p>
+                <p>Or take the free diagnostic chat to find the right workflow for your business.</p>
+                <p><a href="/diagnostic-chat/" class="btn btn-primary">Take the Free Diagnostic Chat →</a></p>
+                <p><a href="/products/supportbot/" class="btn btn-secondary">See SupportBot Template →</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Share This Article</span>
+            <p style="color:var(--text-muted);">If you found this useful, share it with someone else.</p>
+            <p style="margin-bottom:var(--space-md);">
+                <a href="https://twitter.com/intent/tweet?text=AI%20Customer%20Service%20Automation%3A%20Setup%20Guide%20%2B%20Tools&url=https://shaynesailab.com/blog/ai-customer-service-automation" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://shaynesailab.com/blog/ai-customer-service-automation" target="_blank" rel="noopener" style="display:inline-block; padding:0.4rem 1rem; margin:0.25rem; background:var(--bg-glass); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-secondary); text-decoration:none; font-size:0.85rem;">Share on LinkedIn</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center;">
+        <div class="container">
+            <span class="section-label">Keep Exploring</span>
+            <h2>More Tools & Comparisons</h2>
+            <a href="/blog" class="btn btn-secondary">Back to Blog</a>
+            <a href="/starter-kit" class="btn btn-primary">Get the Free Starter Kit</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/starter-kit">Free Starter Kit</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+            <p style="font-size:0.78rem; color:var(--text-dim); margin-top:var(--space-xs);">Some links on this site are affiliate links. We may earn a commission if you purchase through them, at no extra cost to you.</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click',function(){const e=document.querySelector('.nav-links');const n=e.style.display==='flex';e.style.display=n?'none':'flex';e.style.flexDirection='column';e.style.position='absolute';e.style.top='100%';e.style.left='0';e.style.right='0';e.style.background='var(--bg-glass)';e.style.backdropFilter='blur(14px)';e.style.padding='1rem 1.5rem';e.style.borderBottom='1px solid var(--border)';e.style.gap='0.75rem';this.setAttribute('aria-expanded',String(!n));});
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+    <script src="/scripts/conversion.js" defer></script>
+</body>
+</html>
