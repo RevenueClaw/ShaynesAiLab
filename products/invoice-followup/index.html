@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Follow-Up Blueprint — Escalation Ladder + Make.com Scenario | Shayne's AI Lab</title>
+    <meta name="description" content="Track outstanding invoices and send escalating reminders on a fixed ladder, stopping automatically when paid. Importable Make.com template and guide. $19.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/design-system.css">
+    <meta property="og:title" content="Invoice Follow-Up Blueprint — Escalation Ladder + Make.com Scenario | Shayne's AI Lab">
+    <meta property="og:description" content="Track outstanding invoices and send escalating reminders on a fixed ladder, stopping automatically when paid. Importable Make.com template and guide. $19.">
+    <meta property="og:url" content="https://shaynesailab.com/products/invoice-followup">
+    <meta property="og:type" content="product">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        .lp-hero { background: linear-gradient(135deg, var(--bg-card) 0%, #0a1f1e 50%, var(--bg-card) 100%); padding: 4.5rem 0 3.5rem; position: relative; overflow: hidden; }
+        .lp-hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 50%, rgba(45,212,191,0.06) 0%, transparent 50%); pointer-events: none; }
+        .lp-hero h1 { font-size: 2.5rem; line-height: 1.15; margin-bottom: 1rem; }
+        @media (max-width: 768px) { .lp-hero h1 { font-size: 1.95rem; } }
+        .lp-subtitle { font-size: 1.08rem; color: var(--text-muted); max-width: 620px; margin: 0 auto 1rem; }
+        .price-block { display: inline-flex; align-items: baseline; gap: 0.75rem; margin: 0.75rem 0; flex-wrap: wrap; justify-content: center; }
+        .price-block .price { font-size: 3rem; font-weight: 800; }
+        .price-block .guarantee { font-size: 0.85rem; color: var(--text-muted); }
+        .btn-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1.5rem 0; }
+        .includes-list { list-style: none; padding: 0; margin: 0; }
+        .includes-list li { padding: 0.85rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.75rem; color: var(--text-secondary); }
+        .includes-list li:last-child { border-bottom: none; }
+        .includes-list .check { color: var(--brand-teal); font-weight: 700; flex-shrink: 0; }
+        .includes-list strong { color: var(--text); }
+        .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        @media (max-width: 900px) { .split-section { grid-template-columns: 1fr; gap: 2rem; } }
+        .plain-list { list-style: none; padding: 0; margin: 0; }
+        .plain-list li { padding: 0.5rem 0; color: var(--text-muted); font-size: 0.95rem; }
+        .plain-list li::before { content: '→'; color: var(--brand-teal); margin-right: 0.6rem; }
+        .honest-note { background: var(--bg-card); border-left: 3px solid var(--brand-teal); padding: 1.25rem 1.5rem; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 2rem 0 0; }
+        .honest-note p { margin: 0; font-size: 0.9rem; color: var(--text-muted); }
+        .honest-note strong { color: var(--text); }
+        .faq details { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+        .faq summary { font-weight: 600; cursor: pointer; }
+        .faq p { margin: 0.75rem 0 0; color: var(--text-muted); font-size: 0.9rem; }
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0; }
+        @media (max-width: 900px) { .steps { grid-template-columns: 1fr; } }
+        .step { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+        .step .num { font-size: 1.6rem; font-weight: 800; color: var(--brand-teal); margin-bottom: 0.5rem; }
+        .step h3 { font-size: 1.05rem; margin: 0 0 0.5rem; }
+        .step p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shayne's AI Lab home">
+                <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M24 4v12M20 16h8M18 16l-8 24c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4l-8-24" stroke="url(#gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="24" cy="32" r="6" stroke="url(#gradient)" stroke-width="2"/>
+                    <path d="M16 36l-4 4M32 36l4 4M24 40v6M12 32H6M42 32h-6" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"/>
+                    <defs><linearGradient id="gradient" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+                </svg>
+                Shayne's AI Lab
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li><a href="/services">Services</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <section class="lp-hero">
+        <div class="container" style="text-align:center;">
+            <span class="section-label">Ops Blueprint</span>
+            <h1>Chase Invoices on a Schedule.<br><span class="text-gradient">Not When You Remember To.</span></h1>
+            <p class="lp-subtitle">A simple, transparent accounts-receivable follow-up system: track what is owed, send the right reminder at the right interval, and stop the moment an invoice is paid.</p>
+            <div class="price-block">
+                <span class="price">$19</span>
+                <span class="guarantee">one-time · instant download</span>
+            </div>
+            <div class="btn-row">
+                <a href="https://buy.stripe.com/14A3cw5vZdvi8mn16t1RC06" class="btn btn-primary" target="_blank" rel="noopener">Buy Now — $19 →</a>
+                <a href="#whats-included" class="btn btn-secondary">See What's Inside</a>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.75rem;">Secure checkout via Stripe. Delivered to your email immediately after purchase.</p>
+        </div>
+    </section>
+
+    <section class="section" id="whats-included">
+        <div class="container">
+            <div class="split-section">
+                <div>
+                    <span class="section-label">What's Included</span>
+                    <h2>What You Get</h2>
+                    <p style="color:var(--text-muted); margin-bottom:1rem;">The exact system we run in our own business, packaged so you can import it and use it the same day.</p>
+                    <ul class="includes-list">
+                        <li><span class="check">✓</span> <span><strong>Importable Make.com scenario</strong> — the invoice-followup-blueprint.json flow for reading your tracker, checking due dates, and sending reminders</span></li>
+                        <li><span class="check">✓</span> <span><strong>Invoice tracker schema</strong> — the exact columns we use: Invoice ID, Client Email, Amount, Due Date, Status</span></li>
+                        <li><span class="check">✓</span> <span><strong>Five-step escalation ladder</strong> — day 1 friendly reminder, day 7 second reminder, day 14 urgent note with late-fee mention, day 30 final notice, day 60 human handoff</span></li>
+                        <li><span class="check">✓</span> <span><strong>Four email templates</strong> — plain-text reminders in escalating tones, ready to adapt to your brand and payment terms</span></li>
+                        <li><span class="check">✓</span> <span><strong>Stop conditions</strong> — paid invoices are marked and removed immediately, each invoice gets a maximum of four emails, and the sequence hard-stops at 60 days</span></li>
+                        <li><span class="check">✓</span> <span><strong>Setup and testing guide</strong> — how to import, connect your sheet, adjust thresholds, and run a test invoice through the ladder</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="section-label">Who It's For</span>
+                    <h2>Is This a Fit?</h2>
+                    <h3 style="color:var(--brand-teal); margin-bottom:0.5rem; font-size:1rem;">✓ Best for</h3>
+                    <ul class="includes-list">
+                        <li><span class="check">✓</span> Freelancers and small agencies who invoice clients directly</li>
+                        <li><span class="check">✓</span> Businesses tracking receivables in a spreadsheet or simple accounting tool</li>
+                        <li><span class="check">✓</span> Anyone who avoids chasing invoices because it feels awkward and wants a neutral, scheduled process</li>
+                        <li><span class="check">✓</span> Teams that want a transparent ladder they can read and adjust — not a black-box collections service</li>
+                    </ul>
+                    <h3 style="color:var(--text-muted); margin:1.5rem 0 0.5rem; font-size:1rem;">✗ Not for</h3>
+                    <ul class="includes-list">
+                        <li><span class="check" style="color:var(--text-muted);">—</span> Businesses needing multi-entity accounting, dunning integrations, or payment-plan negotiation logic</li>
+                        <li><span class="check" style="color:var(--text-muted);">—</span> Teams with high-volume AR who need a dedicated collections platform</li>
+                        <li><span class="check" style="color:var(--text-muted);">—</span> Anyone looking for legal or credit-recovery advice — this is an email scheduling template, not a collections agency</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="honest-note">
+                <p><strong>Straight talk:</strong> This is a template and escalation ladder, not a claim of client volume or recovery results. We are packaging a process, not reporting a track record of managing a large receivables portfolio. Your results depend on your client base, your payment terms, and how you handle the 60-day handoff.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">How It Works</span>
+                <h2>From Purchase to Running in Under 30 Minutes</h2>
+            </div>
+            <div class="steps">
+                <div class="step"><div class="num">1</div><h3>Import the scenario</h3><p>Load the JSON into Make.com. The date check, router, and email modules are already connected.</p></div>
+                <div class="step"><div class="num">2</div><h3>Connect your invoice sheet</h3><p>Point it at a Google Sheet with the included schema, or adapt the columns to your existing tracker.</p></div>
+                <div class="step"><div class="num">3</div><h3>Set thresholds and test</h3><p>Confirm the day thresholds and email copy, then run one test invoice past due to verify each step fires once.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">FAQ</span>
+                <h2>Common Questions</h2>
+            </div>
+            <div class="faq">
+                <details>
+                    <summary>How many emails will a client receive?</summary>
+                    <p>At most four, at days 1, 7, 14, and 30 past due. At day 60 the automation stops and hands the invoice to you for a human decision.</p>
+                </details>
+                <details>
+                    <summary>What happens when an invoice is paid?</summary>
+                    <p>You mark the status in the sheet and the sequence stops immediately — no further reminders are sent.</p>
+                </details>
+                <details>
+                    <summary>Can I change the timing?</summary>
+                    <p>Yes. The day thresholds are plain filter conditions in the scenario; the setup guide shows exactly where to edit them.</p>
+                </details>
+                <details>
+                    <summary>Do I need accounting software?</summary>
+                    <p>No. A Google Sheet is enough. The schema is deliberately simple so it works alongside whatever you already use.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+    <section class="final-cta">
+        <div class="container" style="text-align:center;">
+            <span class="section-label">Get Started</span>
+            <h2>Put Invoice Follow-Up on Autopilot</h2>
+            <p>Import the ladder and stop deciding whether it is too soon to send a reminder.</p>
+            <div class="btn-row" style="justify-content:center;">
+                <a href="https://buy.stripe.com/14A3cw5vZdvi8mn16t1RC06" class="btn btn-primary" target="_blank" rel="noopener">Buy Now — $19 →</a>
+                <a href="/products" class="btn btn-secondary">Browse All Products</a>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:1rem;">Questions before you buy? Email <a href="mailto:hello@shaynesailab.com" style="color:var(--brand-teal-light);">hello@shaynesailab.com</a>.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="/services">Services</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/ai-starter-kit">Free Guide</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+            </ul>
+            <p>&copy; 2026 Shayne's AI Lab</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileBtn && navLinks) {
+            mobileBtn.addEventListener('click', () => {
+                const isOpen = navLinks.style.display === 'flex';
+                navLinks.style.display = isOpen ? 'none' : 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'var(--bg-glass)';
+                navLinks.style.backdropFilter = 'blur(14px)';
+                navLinks.style.padding = '1rem 1.5rem';
+                navLinks.style.borderBottom = '1px solid var(--border)';
+                navLinks.style.gap = '0.75rem';
+                mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+            });
+        }
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
+    <script src="/scripts/conversion.js" defer></script>
+    <script src="/scripts/exit-intent.js" defer data-source="invoice-followup-blueprint"></script>
+</body>
+</html>
