@@ -11,7 +11,7 @@
 # Cost: ~$0.06/article (DeepSeek V4 Flash, 1500-2000 tokens/response)
 #
 # Schedule: nightly at 1:00 AM EDT
-# API: OpenRouter → deepseek/deepseek-v4-flash
+# API: OpenRouter → deepseek/deepseek-v4.1-flash
 
 set -euo pipefail
 umask 002
@@ -86,7 +86,7 @@ generate_article() {
     
     echo "[$(date)] Generating: $topic ($slug)" | tee -a "$LOG_FILE"
     echo "Focus: $focus" | tee -a "$LOG_FILE"
-    echo "Model: deepseek/deepseek-v4-flash via OpenRouter" | tee -a "$LOG_FILE"
+    echo "Model: deepseek/deepseek-v4.1-flash via OpenRouter" | tee -a "$LOG_FILE"
     
     export OPENROUTER_API_KEY GEN_TOPIC="$topic" GEN_FOCUS="$focus"
     
@@ -123,7 +123,7 @@ Requirements:
 - End with a "Further Reading" section"""
 
 payload = {
-    'model': 'deepseek/deepseek-v4-flash',
+    'model': 'deepseek/deepseek-v4.1-flash',
     'messages': [
         {'role': 'system', 'content': system_prompt},
         {'role': 'user', 'content': user_prompt}
