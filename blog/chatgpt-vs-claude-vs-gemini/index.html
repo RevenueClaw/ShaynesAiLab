@@ -23,7 +23,7 @@
         "headline": "ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams? -- Shayne's AI Lab",
         "description": "Comparing the three major AI assistants for operations tasks — writing, analysis, and automation workflows",
         "url": "https://shaynesailab.com/blog/chatgpt-vs-claude-vs-gemini/",
-        "datePublished": "2026-10-11",
+        "datePublished": "2026-11-04",
         "author": {"@type": "Person", "name": "Shayne"},
         "publisher": {"@type": "Organization", "name": "Shayne's AI Lab", "url": "https://shaynesailab.com"}
     }
@@ -66,14 +66,81 @@
         <div class="container" style="max-width: 740px;">
             <span class="section-label">Blog</span>
             <h1>ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams?</h1>
-            <p class="article-meta">October 11, 2026</p>
+            <p class="article-meta">November 04, 2026</p>
         </div>
     </section>
 
     <section class="section section-alt">
         <div class="container">
             <div class="article-body">
-                None
+                <p><em>Disclosure: This post contains affiliate links. If you sign up through one of them, Shayne's AI Lab earns a commission at no extra cost to you. We only link to tools we've used ourselves.</em></p>
+
+<h2>Quick Verdict</h2>
+<p>Claude is the better default for document-heavy ops work — contracts, SOPs, long reports — while ChatGPT is the stronger pick if you want one assistant across connectors, spreadsheets, and light automation. Gemini only makes sense if your team already runs on Google Workspace and wants meeting notes and Sheets help without adding another vendor.</p>
+
+<h2>Overview</h2>
+
+<h3>ChatGPT (OpenAI)</h3>
+<p>The broadest surface area of the three. The paid tiers bundle file uploads, a code interpreter for CSV and spreadsheet work, Projects for keeping reference docs together, custom GPTs you can share internally, connectors into Google Drive, SharePoint and Slack, plus an agent mode that can click through browser tasks. Output quality is consistent and it's the easiest of the three to wire into existing tooling.</p>
+
+<h3>Claude (Anthropic)</h3>
+<p>Built around long documents and careful writing. The 200K context window (with a larger beta tier) means you can drop in a 60-page vendor agreement and ask specific questions without chunking it first. Artifacts make it easy to produce a working document or small script and iterate on it in place. Claude Code is genuinely useful for ops people who want to automate file and API tasks without a developer.</p>
+
+<h3>Gemini (Google)</h3>
+<p>Least interesting as a standalone chatbot, most interesting as a layer inside Google Workspace. It reads your Docs, drafts in Gmail, builds formulas in Sheets and takes notes in Meet. Deep Research is solid for market and vendor scans. Outside the Google ecosystem, it's a step behind the other two on writing quality and consistency.</p>
+
+<h2>Head-to-Head</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ops task</th>
+      <th>ChatGPT</th>
+      <th>Claude</th>
+      <th>Gemini</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Drafting SOPs and internal policies</td>
+      <td>Good, needs editing for tone</td>
+      <td>Best — clean structure, less filler</td>
+      <td>Adequate, often generic</td>
+    </tr>
+    <tr>
+      <td>Reviewing long contracts and vendor docs</td>
+      <td>Good within file limits</td>
+      <td>Best — handles 200K+ tokens reliably</td>
+      <td>Good, but recall gets shaky on very long inputs</td>
+    </tr>
+    <tr>
+      <td>CSV cleanup and spreadsheet analysis</td>
+      <td>Best — code interpreter runs real Python</td>
+      <td>Decent via analysis tool</td>
+      <td>Strong inside Sheets, weaker standalone</td>
+    </tr>
+    <tr>
+      <td>Meeting notes and action items</td>
+      <td>Requires a third-party tool</td>
+      <td>Requires a third-party tool</td>
+      <td>Native in Google Meet</td>
+    </tr>
+    <tr>
+      <td>Building automation workflows</td>
+      <td>Best — reliable at generating <a href="https://www.make.com/en/register?pc=shaynesailab" class="affiliate-link">Make.com</a> scenario JSON</td>
+      <td>Good, better at explaining logic</td>
+      <td>Okay, more prone to malformed output</td>
+    </tr>
+    <tr>
+      <td>Native integrations</td>
+      <td>Broad connectors, MCP support</td>
+      <td>MCP-based, growing but thinner</td>
+      <td>Deepest inside Workspace only</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Two practical notes from our own use. First, Claude's advantage on long documents is real but not unlimited — past roughly 150K tokens, answer quality on specific clause lookups starts to drift, so cite page numbers when you ask. Second, ChatGPT's agent mode is
             </div>
         </div>
     </section>
@@ -132,6 +199,5 @@
         document.querySelector('.mobile-menu-btn')?.addEventListener('click',function(){const e=document.querySelector('.nav-links');const n=e.style.display==='flex';e.style.display=n?'none':'flex';e.style.flexDirection='column';e.style.position='absolute';e.style.top='100%';e.style.left='0';e.style.right='0';e.style.background='var(--bg-glass)';e.style.backdropFilter='blur(14px)';e.style.padding='1rem 1.5rem';e.style.borderBottom='1px solid var(--border)';e.style.gap='0.75rem';this.setAttribute('aria-expanded',String(!n));});
     </script>
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "***"}'></script>
-    <script src="/scripts/conversion.js" defer></script>
 </body>
 </html>
