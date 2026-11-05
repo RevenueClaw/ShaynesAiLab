@@ -1,5 +1,12 @@
 [
   {
+    "title": "Best AI Writing Tools for Ops Teams in 2026",
+    "slug": "best-ai-writing-tools",
+    "date": "2026-11-05",
+    "description": "Comparing Jasper, Copy.ai, Writesonic, and other AI writing tools for operations documentation and communication",
+    "url": "/blog/best-ai-writing-tools"
+  },
+  {
     "title": "ChatGPT vs Claude vs Gemini: Which AI Assistant Wins for Ops Teams?",
     "slug": "chatgpt-vs-claude-vs-gemini",
     "date": "2026-11-04",
@@ -68,13 +75,6 @@
     "date": "2026-10-15",
     "description": "Comparing three AI coding tools for teams that need automation scripts and integrations",
     "url": "/blog/ai-code-assistants"
-  },
-  {
-    "title": "Best AI Writing Tools for Ops Teams in 2026",
-    "slug": "best-ai-writing-tools",
-    "date": "2026-10-12",
-    "description": "Comparing Jasper, Copy.ai, Writesonic, and other AI writing tools for operations documentation and communication",
-    "url": "/blog/best-ai-writing-tools"
   },
   {
     "title": "Small Team CRM Showdown: HubSpot vs Freshsales vs Pipedrive",
