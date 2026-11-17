@@ -101,7 +101,7 @@ The key: Consistency over complexity. Pick tools. Use them. Build habits. That's
 
 ---
 
-**Questions?** hello@shaynesailab.com
+**Questions?** support@shaynesailab.com
 `;
 
 function buildHtmlEmail(firstName) {
@@ -200,7 +200,7 @@ async function sendStarterKit(data, env) {
       subject: 'Your AI Starter Kit — 8 Tools That Actually Save Time',
       text,
       html,
-      reply_to: 'hello@shaynesailab.com',
+      reply_to: 'support@shaynesailab.com',
     }),
   });
 

@@ -184,7 +184,7 @@ Every business is different. These tools work well for many people, but the righ
 
 ---
 
-**Questions?** hello@shaynesailab.com
+**Questions?** support@shaynesailab.com
 
 ---
 

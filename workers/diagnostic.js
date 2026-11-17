@@ -119,7 +119,7 @@ function buildReportHtml(data, workflow) {
         The ${workflow.name} is best built around your exact tools (like ${tools}). I can scope it, quote a fixed price, and deliver it in 1–2 weeks.
       </p>
       <p style="margin: 18px 0;">
-        <a href="mailto:hello@shaynesailab.com?subject=Custom%20workflow%20scoping%20for%20${encodeURIComponent(data.role || 'ops')}" style="display:inline-block; background:#2dd4bf; color:#0f172a; padding:12px 24px; border-radius:8px; text-decoration:none; font-weight:600;">Request a Custom Build</a>
+        <a href="mailto:support@shaynesailab.com?subject=Custom%20workflow%20scoping%20for%20${encodeURIComponent(data.role || 'ops')}" style="display:inline-block; background:#2dd4bf; color:#0f172a; padding:12px 24px; border-radius:8px; text-decoration:none; font-weight:600;">Request a Custom Build</a>
       </p>`;
 
   return `<!DOCTYPE html>
@@ -177,7 +177,7 @@ function buildReportText(data, workflow) {
   const name = formatName(data.email);
   const nextStep = workflow.hasKit
     ? `Start with the self-install kit.\nThe ${workflow.name} Kit costs ${workflow.kitPrice}. View it here: https://shaynesailab.com/templates/email-triage-kit`
-    : `Request a custom build.\nThe ${workflow.name} is best built around your exact setup. Email me to scope it: hello@shaynesailab.com`;
+    : `Request a custom build.\nThe ${workflow.name} is best built around your exact setup. Email me to scope it: support@shaynesailab.com`;
 
   return `Your AI Ops Diagnostic Report
 
@@ -243,7 +243,7 @@ async function sendReport(data, env) {
       subject: `Your AI Ops Diagnostic Report — ${workflow.name}`,
       text,
       html,
-      reply_to: 'hello@shaynesailab.com',
+      reply_to: 'support@shaynesailab.com',
     }),
   });
 

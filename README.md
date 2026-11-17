@@ -67,4 +67,4 @@ Push to GitHub, Cloudflare will auto-deploy.
 
 ## Questions?
 
-Email: hello@shaynesailab.com
+Email: support@shaynesailab.com

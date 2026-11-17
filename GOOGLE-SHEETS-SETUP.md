@@ -98,7 +98,7 @@ Shayne's AI Lab
   
   GmailApp.sendEmail(email, subject, body, {
     name: 'Shayne\'s AI Lab',
-    replyTo: 'hello@shaynesailab.com'
+    replyTo: 'support@shaynesailab.com'
   });
   
   // Mark as sent in sheet

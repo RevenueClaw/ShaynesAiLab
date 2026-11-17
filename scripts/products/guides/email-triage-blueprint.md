@@ -42,4 +42,4 @@ Send yourself a test email and verify it appears in the right bucket within 15 m
 - **Slack not sending**: Verify the Slack webhook URL is correct
 
 ## Support
-Reply to your purchase email or contact hello@shaynesailab.com
+Reply to your purchase email or contact support@shaynesailab.com
