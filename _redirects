@@ -5,3 +5,4 @@ https://www.shaynesailab.com/* https://shaynesailab.com/:splat 301
 /diagnostic/* /diagnostic/:splat 200
 /diagnostic-chat/* /diagnostic-chat/:splat 200
 /* /404.html 404
+/media /press 301
